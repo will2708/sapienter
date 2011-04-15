@@ -34,4 +34,8 @@ class Race {
 		Return
 		distance * 1000
 	}
+	BigDecimal inMm(){
+		Return
+		 distance *1000000
+	}
 }
