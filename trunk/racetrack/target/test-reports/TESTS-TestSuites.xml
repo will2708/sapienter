@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" hostname="matunga-PC" id="0" name="RaceTests" package="racetrack" tests="2" time="0.894" timestamp="2011-04-15T02:19:00">
+      <properties />
+
+      <testcase classname="racetrack.RaceTests" name="testSomething" time="0.828" />
+
+      <testcase classname="racetrack.RaceTests" name="testInMiles" time="0.043" />
+
+      <system-out><![CDATA[--Output from testSomething--
+--Output from testInMiles--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+--Output from testInMiles--
+]]></system-err>
+
+  </testsuite>
+</testsuites>
