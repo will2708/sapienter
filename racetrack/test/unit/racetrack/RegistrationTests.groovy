@@ -11,7 +11,8 @@ class RegistrationTests extends GrailsUnitTestCase {
         super.tearDown()
     }
 
-    void testSomething() {
-
+    void testName() {
+	def registration = new Registration(name:"Hola")
+	assertEquals "Hola", registration.name.toString()
     }
 }

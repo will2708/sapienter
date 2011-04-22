@@ -18,4 +18,8 @@ class RaceTests extends GrailsUnitTestCase {
 		def race = new Race(distance:5.0)
 		assertEquals 3.107, race.inMiles()
 	  }
+	void testName(){
+		def race2 = new Race(name:"carrera")
+		assertEquals "Carrera", race2.name.toString()
+	}
 }

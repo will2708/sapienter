@@ -1,6 +1,6 @@
 package racetrack
 
-class Registration {
+class Registration{
 
 	String name
 	Date dateOfBirth
