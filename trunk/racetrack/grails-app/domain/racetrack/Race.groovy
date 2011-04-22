@@ -4,7 +4,7 @@ import java.awt.event.ItemEvent;
 
 import org.hibernate.loader.custom.Return;
 
-class Race {
+class Race{
 	static mapping = {
 		sort "startDate"
 	}
