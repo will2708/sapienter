@@ -1,8 +1,8 @@
-package sapienter
+package grails.plugins.countries
 
 import grails.test.*
 
-class PersonaTests extends GrailsUnitTestCase {
+class CountryControllerTests extends ControllerUnitTestCase {
     protected void setUp() {
         super.setUp()
     }
