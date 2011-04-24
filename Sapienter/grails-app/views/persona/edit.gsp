@@ -57,22 +57,22 @@
                                     <g:select name="tipoDePersona" from="${personaInstance.constraints.tipoDePersona.inList}" value="${personaInstance?.tipoDePersona}" valueMessagePrefix="persona.tipoDePersona"  />
                                 </td>
                             </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="relacionPersona"><g:message code="persona.relacionPersona.label" default="Relacion Persona" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: personaInstance, field: 'relacionPersona', 'errors')}">
-                                    <g:select name="relacionPersona" from="${personaInstance.constraints.relacionPersona.inList}" value="${personaInstance?.relacionPersona}" valueMessagePrefix="persona.relacionPersona"  />
-                                </td>
-                            </tr>
-                        
+                                                
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="observaciones"><g:message code="persona.observaciones.label" default="Observaciones" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: personaInstance, field: 'observaciones', 'errors')}">
-                                    <g:textField name="observaciones" value="${personaInstance?.observaciones}" />
+                                    <g:textArea name="observaciones" value="${personaInstance?.observaciones}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="pais"><g:message code="persona.pais.label" default="Pais" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: personaInstance, field: 'pais', 'errors')}">
+                                    <country:select name="pais.id" value="${personaInstance?.pais.id}"/>
                                 </td>
                             </tr>
                         

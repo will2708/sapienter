@@ -51,16 +51,16 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="persona.relacionPersona.label" default="Relacion Persona" /></td>
+                            <td valign="top" class="name"><g:message code="persona.observaciones.label" default="Observaciones" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "relacionPersona")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "observaciones")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="persona.observaciones.label" default="Observaciones" /></td>
+                            <td valign="top" class="name"><g:message code="persona.pais.label" default="Pais" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "observaciones")}</td>
+                            <td valign="top" class="value"><country:name object="${personaInstance?.pais}"/></td>
                             
                         </tr>
                     
