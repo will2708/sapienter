@@ -64,6 +64,174 @@
                             
                         </tr>
                     
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="persona.dni.label" default="Dni" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "dni")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="persona.fechaNacimiento.label" default="Fecha Nacimiento" /></td>
+                            
+                            <td valign="top" class="value"><g:formatDate date="${personaInstance?.fechaNacimiento}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="persona.estadoCivil.label" default="Estado Civil" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "estadoCivil")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="persona.padre.label" default="Padre" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "padre")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="persona.madre.label" default="Madre" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "madre")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="persona.conyuge.label" default="Conyuge" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "conyuge")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="persona.email.label" default="Email" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "email")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="persona.sitioWeb.label" default="Sitio Web" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "sitioWeb")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="persona.notifica.label" default="Notifica" /></td>
+                            
+                            <td valign="top" class="value"><g:link controller="notifica" action="show" id="${personaInstance?.notifica?.id}">${personaInstance?.notifica?.encodeAsHTML()}</g:link></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="persona.aux1.label" default="Aux1" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "aux1")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="persona.aux2.label" default="Aux2" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "aux2")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="persona.aux3.label" default="Aux3" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "aux3")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="persona.aux4.label" default="Aux4" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "aux4")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="persona.aux5.label" default="Aux5" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "aux5")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="persona.ciudad.label" default="Ciudad" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "ciudad")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="persona.codPostal.label" default="Cod Postal" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "codPostal")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="persona.direccion.label" default="Direccion" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "direccion")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="persona.empresa.label" default="Empresa" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "empresa")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="persona.fax.label" default="Fax" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "fax")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="persona.infoTrib1.label" default="Info Trib1" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "infoTrib1")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="persona.infoTrib2.label" default="Info Trib2" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "infoTrib2")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="persona.infoTrib3.label" default="Info Trib3" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "infoTrib3")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="persona.profesion.label" default="Profesion" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "profesion")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="persona.telefono.label" default="Telefono" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "telefono")}</td>
+                            
+                        </tr>
+                    
                     </tbody>
                 </table>
             </div>
