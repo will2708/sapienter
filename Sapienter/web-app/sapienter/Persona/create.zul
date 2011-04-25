@@ -8,6 +8,54 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
+<tabbox>
+	<tabs>
+		<tab label="Datos Personales" />
+		<tab label="Domicilio" />
+		<tab label="Datos laborales" />
+		<tab label="Campos auxiliares" />
+	</tabs>
+	<tabpanels>
+		<tabpanel>
+			
+			<listbox width="700px" >
+				<listitem>
+					<listcell>
+						<label value="Nacionalidad"/>
+						<space />
+						<textbox id="nacionalidad" name="nacionalidad" />
+					</listcell>
+					<listcell>
+						<label value="Fecha de Nacimiento:" />
+						<space/>
+						<datebox id="fechaNacimiento" name="fechaNacimiento"/>
+					</listcell>
+				</listitem>
+				<listitem>					
+					<listcell>
+						<label value="DNI:"/>
+						<space />
+						<textbox id="dni" name="dni" />
+					</listcell>
+					<listcell>
+						<label value="Estado Civil:"/>
+						<combobox>
+							<comboitem label="Soltero"/>
+							<comboitem label="Divorciado"/>
+							<comboitem label="Casado"/>
+							<comboitem label="Viudo"/>
+						</combobox>
+					</listcell>
+				</listitem>
+			</listbox>
+			
+		</tabpanel>
+		<tabpanel></tabpanel>
+		<tabpanel></tabpanel>
+		<tabpanel></tabpanel>
+	</tabpanels>
+</tabbox>
+<!--
     <window apply="sapienter.Persona.createComposer">
 
         <hbox>
@@ -17,5 +65,5 @@
         <vbox id="scaffoldingBox"/>
 
     </window>
-
+-->
 </zk>

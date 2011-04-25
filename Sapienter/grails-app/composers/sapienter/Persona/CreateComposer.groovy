@@ -7,4 +7,5 @@ class CreateComposer extends GrailsComposer {
     def afterCompose = { window ->
         // initialize components here
     }
+	
 }
