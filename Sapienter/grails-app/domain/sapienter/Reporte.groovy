@@ -1,8 +1,8 @@
 package sapienter
 
-class Persona {
-	Proceso proceso 
-		
+class Reporte {
+	String descripcion
+	byte[] reporte
     static constraints = {
     }
 }

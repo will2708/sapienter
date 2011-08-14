@@ -1,8 +1,8 @@
 package sapienter
 
-class Persona {
-	Proceso proceso 
-		
+class TipoDeParte {
+	Integer tipo
+	String descripcion
     static constraints = {
     }
 }
