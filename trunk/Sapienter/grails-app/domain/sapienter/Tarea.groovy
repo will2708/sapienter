@@ -1,8 +1,9 @@
 package sapienter
 
-class Persona {
-	Proceso proceso 
-		
+class Tarea {
+	Date fecha
+	String observacion
+
     static constraints = {
     }
 }

@@ -1,8 +1,9 @@
 package sapienter
 
-class Persona {
-	Proceso proceso 
-		
+class Rol {
+	String rol
+	String descripcion
+	
     static constraints = {
     }
 }
