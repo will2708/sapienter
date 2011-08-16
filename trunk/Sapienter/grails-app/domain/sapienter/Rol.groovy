@@ -6,4 +6,6 @@ class Rol {
 	
     static constraints = {
     }
+	
+	static belongsTo = [estudio:Estudio]
 }

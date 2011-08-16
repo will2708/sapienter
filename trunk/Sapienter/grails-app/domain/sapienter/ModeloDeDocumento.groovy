@@ -3,11 +3,18 @@ package sapienter
 class ModeloDeDocumento {
 	String categoria
 	String descripcion
-	ModeloDeDocumento modeloDeDocumento
+	byte[] modeloDeDocumento
 	String nombre
 	String subCategoria
 	String estado
 	
     static constraints = {
+		nombre(blank:false)
+		descripcion(blank:false)
+		categoria(blank:false,inList["1","2","3"])
+		subCategoria(blank:false)
+		estado(blank:false)
     }
+	
+	static belongsTo = [estudio:Estudio]
 }

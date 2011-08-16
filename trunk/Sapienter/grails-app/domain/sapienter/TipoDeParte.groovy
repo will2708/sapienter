@@ -5,4 +5,5 @@ class TipoDeParte {
 	String descripcion
     static constraints = {
     }
+	static belongsTo = [estudio:Estudio]
 }

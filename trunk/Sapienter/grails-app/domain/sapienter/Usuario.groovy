@@ -16,6 +16,22 @@ class Usuario {
 	Usuario usuarioCreacion
 	Usuario usuarioModificacion
 	
-	    static constraints = {
+	static constraints = {
+		idUsuario(blank:false)
+		nombre(blank:false)
+		apellido(blank:false)
+		calendario(nullable:false)
+		comentarios(MaxSize:1000)
+		contrasena(blank:false,password:true)
+		correoElectronico(blank:false,email:true)
+		estadoUsuario(inList:["Activo","Inactivo"])
+		dateCreated()
+		lastUpdated()
+		rol()
+		telefono()
+		usuarioCreacion()
+		usuarioModificacion()
     }
+	static hasMany = [rol:Rol]
+
 }

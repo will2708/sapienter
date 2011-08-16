@@ -5,4 +5,6 @@ class Reporte {
 	byte[] reporte
     static constraints = {
     }
+	
+	static belongsTo = [estudio:Estudio]
 }

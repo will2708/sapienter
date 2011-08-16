@@ -1,5 +1,7 @@
 package sapienter
 
+import java.lang.annotation.Documented;
+
 class Proceso {
 	String caratula
 	String categoria
@@ -23,4 +25,12 @@ class Proceso {
 
     static constraints = {
     }
+	
+	static belongsTo = [persona:Persona]
+	
+	static hasMany = [documentos:Documento,
+		              gastos:Gasto,
+					  movimientos:Movimiento,
+					  partes:Parte,
+					  procesosRelacionados:Proceso]
 }

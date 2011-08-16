@@ -6,5 +6,10 @@ class Parte {
 	Persona persona
 	TipoDeParte tipo
     static constraints = {
+		Apellido()
+		Nombre()
+		tipo()
     }
+	
+	static belongsTo = [proceso:Proceso]
 }
