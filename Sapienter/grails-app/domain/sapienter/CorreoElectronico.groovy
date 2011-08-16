@@ -6,5 +6,8 @@ class CorreoElectronico {
 	String URL
 	
     static constraints = {
+		direccion(blank:false)
+		contrasena(password:true,blank:false)
+		URL(url:true,blank:false)
     }
 }

@@ -5,4 +5,6 @@ class Persona {
 		
     static constraints = {
     }
+	
+	static belongsTo = [estudio:Estudio]
 }

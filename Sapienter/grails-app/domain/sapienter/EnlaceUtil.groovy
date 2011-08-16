@@ -7,5 +7,8 @@ class EnlaceUtil {
 	
 
     static constraints = {
-    }
+		Direccion(url:true,blank:false)
+		Descripcion(blank:false)
+		ultimoUsuario()
+	}
 }

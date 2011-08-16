@@ -9,5 +9,13 @@ class Gasto {
 			Float monto
 			
     static constraints = {
+		concepto(blank:false)
+		estado(blank:false,inList["Rendido","Pagado","Reclamado"])
+		fecha(blank:false)
+		moneda(blank:false,inList["Pesos","Dolares","Euros"])
+		monto(blank:false)
+		factura()
     }
+	
+	static belongsTo = [proceso:Proceso]
 }
