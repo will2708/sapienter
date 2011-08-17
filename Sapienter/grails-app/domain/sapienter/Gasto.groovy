@@ -1,5 +1,5 @@
 package sapienter
-
+//TODO: bajar plugin de monedas, generar archivo con tipos de estado
 class Gasto {
 			String concepto
 			String estado

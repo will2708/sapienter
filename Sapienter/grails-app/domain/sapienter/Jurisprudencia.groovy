@@ -12,8 +12,9 @@ class Jurisprudencia {
 		descripcion(blank:false)
 		fuero(blank:false,inList["Penal","Civil"])
 		origen()
-		sitio()
+		sitio(url:true)
 		jurisprudencia(blank:false)
 		usuario()
     }
+	static belongsTo = [estudio:Estudio]
 }
