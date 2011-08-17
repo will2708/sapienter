@@ -1,17 +1,16 @@
 package sapienter
-
+//TODO: Probar que funciona con lo que comenté
 class Estudio {
 	String Cuit
 	String domicilioFiscal
-	EnlaceUtil enlacesUtiles
-	Jurisprudencia jurisprudencias
+//	Jurisprudencia jurisprudencias
 	ModeloDeDocumento modelosDeDocumento
-	Persona personas
+//	Persona personas
 	String razonSocial
-	Reporte reportes
-	Usuario usuarios
-	Juzgado juzgados
-	TipoDeParte tiposDeParte
+//	Reporte reportes
+//	Usuario usuarios
+//	Juzgado juzgados
+//	TipoDeParte tiposDeParte
 
     static constraints = {
 		razonSocial(blank:false,matches:"[A-ZÑÁÉÍÓÚa-zñáéíóú]+(([ '-][A-ZÑÁÉÍÓÚa-zñáéíóú]+)*)")
