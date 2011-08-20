@@ -22,9 +22,7 @@ class PersonaFisica extends Persona{
 	String telefono
 	String fax
 	String email
-//	String sitioWeb No va, después consultar
 	String profesion
-//	String empresa
 	String informacionTributaria
 	String auxiliar
 	
@@ -42,7 +40,6 @@ class PersonaFisica extends Persona{
 		madre (matches:"[A-ZÑÁÉÍÓÚa-zñáéíóú]+(([ '-][A-ZÑÁÉÍÓÚa-zñáéíóú]+)*)")
 		conyuge (matches:"[A-ZÑÁÉÍÓÚa-zñáéíóú]+(([ '-][A-ZÑÁÉÍÓÚa-zñáéíóú]+)*)")
 		email(blank:false, email:true)
-//		sitioWeb(url:true)
 
 	}
    }

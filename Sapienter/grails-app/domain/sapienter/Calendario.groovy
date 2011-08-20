@@ -7,7 +7,7 @@ class Calendario {
 	
     static constraints = {
 		descripcion(blank:false)
-		tipoDeTareas(inList=["1","2","3","4"])
+		tipoDeTareas(inList:['1','2','3','4'])
 		usuarioResponsable(nullable:false)	
     }
 	

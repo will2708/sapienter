@@ -7,5 +7,5 @@ class Rol {
     static constraints = {
     }
 	
-	static belongsTo = [estudio:Estudio]
+	static belongsTo = [usuario:Usuario]
 }

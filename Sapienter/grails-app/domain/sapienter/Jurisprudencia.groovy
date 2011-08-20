@@ -10,7 +10,7 @@ class Jurisprudencia {
 	
     static constraints = {
 		descripcion(blank:false)
-		fuero(blank:false,inList["Penal","Civil"])
+		fuero(blank:false,inList:['Penal','Civil'])
 		origen()
 		sitio(url:true)
 		jurisprudencia(blank:false)
