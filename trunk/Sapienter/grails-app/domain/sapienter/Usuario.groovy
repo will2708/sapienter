@@ -11,7 +11,6 @@ class Usuario {
 	Date lastUpdated
 	String idUsuario
 	String nombre
-//	Rol rol
 	String telefono
 	Usuario usuarioCreacion
 	Usuario usuarioModificacion
@@ -27,11 +26,11 @@ class Usuario {
 		estadoUsuario(inList:["Activo","Inactivo"])
 		dateCreated()
 		lastUpdated()
-//		rol()
+		rol()
 		telefono()
 		usuarioCreacion()
 		usuarioModificacion()
     }
 	static hasMany = [rol:Rol]
-
+	static belongsTo = [estudio:Estudio]
 }

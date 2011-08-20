@@ -10,4 +10,7 @@ class Tarea {
 	}
 	
 	static belongsTo = [calendario:Calendario]
+	static mapping = {
+		sort fecha:"desc"
+	}
 }

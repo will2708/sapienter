@@ -9,10 +9,10 @@ class Gasto {
 			Float monto
 			
     static constraints = {
-		concepto(blank:false)
-		estado(blank:false,inList["Rendido","Pagado","Reclamado"])
+		concepto(blank:false)		
+		estado(inList:["Rendido","Pagado","Reclamado"],blank:false)		
 		fecha(blank:false)
-		moneda(blank:false,inList["Pesos","Dolares","Euros"])
+		moneda(inList:['Pesos','Dolares','Euros'],blank:false)
 		monto(blank:false)
 		factura()
     }

@@ -5,7 +5,7 @@ class TipoDeParte {
 	String descripcion
     static constraints = {
 		tipo()
-		descripcion(blank:false,inList=["1","2","3"])
+		descripcion(inList:["1","2","3"],blank:false)
     }
 	static belongsTo = [estudio:Estudio]
 }

@@ -11,7 +11,7 @@ class ModeloDeDocumento {
     static constraints = {
 		nombre(blank:false)
 		descripcion(blank:false)
-		categoria(blank:false,inList["1","2","3"])
+		categoria(inList:["1","2","3"],blank:false)
 		subCategoria(blank:false)
 		estado(blank:false)
     }

@@ -1,5 +1,5 @@
 package sapienter
-
+//TODO: Verificar el tema de aprobadores.
 class Documento {
 	Byte[] contenidoDocumento
 	String descripcion
@@ -11,8 +11,8 @@ class Documento {
     static constraints = {
 		nombre(blank:false)
 		descripcion(blank:false)
-		estado(blank:false,inList:["1","2","3"])
-		tipoDeDocumento(inList:["1","2","3"])
+		estado(inList:['1','2','3'],blank:false)
+		tipoDeDocumento(inList:['1','2','3'])
 		usuarioResponsable()
 		contenidoDocumento()
     }

@@ -6,5 +6,6 @@ class Persona {
     static constraints = {
     }
 	
-	static belongsTo = [estudio:Estudio]
+	static belongsTo = [estudio:Estudio,
+						proceso:Proceso]
 }

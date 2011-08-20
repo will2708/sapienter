@@ -9,7 +9,7 @@ class EnlaceUtil {
     static constraints = {
 		Direccion(url:true,blank:false)
 		Descripcion(blank:false)
-		ultimoUsuario(blank:falses)
+		ultimoUsuario(blank:false)
 	}
 	static belongsTo = {estudio:Estudio}
 }
