@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="matunga-PC" name="sapienter.PersonaTests" tests="1" time="0.492" timestamp="2010-12-22T18:28:20">
-  <properties />
-  <testcase classname="sapienter.PersonaTests" name="testPersona" time="0.476" />
-  <system-out><![CDATA[--Output from testPersona--
-]]></system-out>
-  <system-err><![CDATA[--Output from testPersona--
-]]></system-err>
-</testsuite>
