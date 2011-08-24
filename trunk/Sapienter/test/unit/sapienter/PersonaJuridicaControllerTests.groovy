@@ -2,7 +2,7 @@ package sapienter
 
 import grails.test.*
 
-class PersonaControllerTests extends ControllerUnitTestCase {
+class PersonaJuridicaControllerTests extends ControllerUnitTestCase {
     protected void setUp() {
         super.setUp()
     }
