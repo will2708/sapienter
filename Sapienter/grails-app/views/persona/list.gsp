@@ -24,15 +24,9 @@
                         
                             <g:sortableColumn property="id" title="${message(code: 'persona.id.label', default: 'Id')}" />
                         
-                            <g:sortableColumn property="apellido" title="${message(code: 'persona.apellido.label', default: 'Apellido')}" />
+                            <th><g:message code="persona.estudio.label" default="Estudio" /></th>
                         
-                            <g:sortableColumn property="nombre" title="${message(code: 'persona.nombre.label', default: 'Nombre')}" />
-                        
-                            <g:sortableColumn property="tipoDePersona" title="${message(code: 'persona.tipoDePersona.label', default: 'Tipo De Persona')}" />
-                        
-                            <g:sortableColumn property="observaciones" title="${message(code: 'persona.observaciones.label', default: 'Observaciones')}" />
-                        
-                            <th><g:message code="persona.pais.label" default="Pais" /></th>
+                            <th><g:message code="persona.proceso.label" default="Proceso" /></th>
                         
                         </tr>
                     </thead>
@@ -42,15 +36,9 @@
                         
                             <td><g:link action="show" id="${personaInstance.id}">${fieldValue(bean: personaInstance, field: "id")}</g:link></td>
                         
-                            <td>${fieldValue(bean: personaInstance, field: "apellido")}</td>
+                            <td>${fieldValue(bean: personaInstance, field: "estudio")}</td>
                         
-                            <td>${fieldValue(bean: personaInstance, field: "nombre")}</td>
-                        
-                            <td>${fieldValue(bean: personaInstance, field: "tipoDePersona")}</td>
-                        
-                            <td>${fieldValue(bean: personaInstance, field: "observaciones")}</td>
-                        
-                        	<td><country:name object="${personaInstance?.pais}"/>
+                            <td>${fieldValue(bean: personaInstance, field: "proceso")}</td>
                         
                         </tr>
                     </g:each>
