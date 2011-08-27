@@ -1,7 +1,7 @@
 package sapienter
 //TODO: Verificar el tema de aprobadores.
 class Documento {
-	Byte[] contenidoDocumento
+	String contenidoDocumento
 	String descripcion
 	String estado
 	String nombre
