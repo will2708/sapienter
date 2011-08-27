@@ -30,7 +30,7 @@
                         
                             <g:sortableColumn property="observaciones" title="${message(code: 'personaFisica.observaciones.label', default: 'Observaciones')}" />
                         
-                            <th><g:message code="personaFisica.pais.label" default="Pais" /></th>
+                            <g:sortableColumn property="pais" title="${message(code: 'personaFisica.pais.label', default: 'Pais')}" />
                         
                             <g:sortableColumn property="dni" title="${message(code: 'personaFisica.dni.label', default: 'Dni')}" />
                         
@@ -48,7 +48,7 @@
                         
                             <td>${fieldValue(bean: personaFisicaInstance, field: "observaciones")}</td>
                         
-                            <td>${fieldValue(bean: personaFisicaInstance, field: "pais")}</td>
+                            <td><g:country code="${personaFisicaInstance?.pais}"/></td>
                         
                             <td>${fieldValue(bean: personaFisicaInstance, field: "dni")}</td>
                         

@@ -60,7 +60,7 @@
                                     <label for="pais"><g:message code="personaFisica.pais.label" default="Pais" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: personaFisicaInstance, field: 'pais', 'errors')}">
-                                    <g:select name="pais.id" from="${grails.plugins.countries.Country.list()}" optionKey="id" value="${personaFisicaInstance?.pais?.id}"  />
+                                    <g:countrySelect name="pais" value="${personaFisicaInstance?.pais}" noSelection="['' : 'Seleccione un Pais' ]"/>
                                 </td>
                             </tr>
                         
@@ -187,15 +187,6 @@
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: personaFisicaInstance, field: 'informacionTributaria', 'errors')}">
                                     <g:textField name="informacionTributaria" value="${personaFisicaInstance?.informacionTributaria}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="proceso"><g:message code="personaFisica.proceso.label" default="Proceso" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: personaFisicaInstance, field: 'proceso', 'errors')}">
-                                    <g:select name="proceso.id" from="${sapienter.Proceso.list()}" optionKey="id" value="${personaFisicaInstance?.proceso?.id}"  />
                                 </td>
                             </tr>
                         

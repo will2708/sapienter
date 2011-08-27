@@ -26,8 +26,6 @@
                         
                             <th><g:message code="persona.estudio.label" default="Estudio" /></th>
                         
-                            <th><g:message code="persona.proceso.label" default="Proceso" /></th>
-                        
                         </tr>
                     </thead>
                     <tbody>
@@ -37,8 +35,6 @@
                             <td><g:link action="show" id="${personaInstance.id}">${fieldValue(bean: personaInstance, field: "id")}</g:link></td>
                         
                             <td>${fieldValue(bean: personaInstance, field: "estudio")}</td>
-                        
-                            <td>${fieldValue(bean: personaInstance, field: "proceso")}</td>
                         
                         </tr>
                     </g:each>

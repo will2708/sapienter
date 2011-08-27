@@ -63,7 +63,7 @@
                                   <label for="pais"><g:message code="personaFisica.pais.label" default="Pais" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: personaFisicaInstance, field: 'pais', 'errors')}">
-                                    <g:select name="pais.id" from="${grails.plugins.countries.Country.list()}" optionKey="id" value="${personaFisicaInstance?.pais?.id}"  />
+                                    <g:countrySelect name="pais" value="${personaFisicaInstance?.pais}" />
                                 </td>
                             </tr>
                         
@@ -198,7 +198,14 @@
                                   <label for="proceso"><g:message code="personaFisica.proceso.label" default="Proceso" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: personaFisicaInstance, field: 'proceso', 'errors')}">
-                                    <g:select name="proceso.id" from="${sapienter.Proceso.list()}" optionKey="id" value="${personaFisicaInstance?.proceso?.id}"  />
+                                    
+<ul>
+<g:each in="${personaFisicaInstance?.proceso?}" var="p">
+    <li><g:link controller="proceso" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+</g:each>
+</ul>
+<g:link controller="proceso" action="create" params="['personaFisica.id': personaFisicaInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'proceso.label', default: 'Proceso')])}</g:link>
+
                                 </td>
                             </tr>
                         
