@@ -25,27 +25,17 @@
             </g:hasErrors>
             <g:form action="save" >
                 <div class="dialog">
+					<g:select from="['Fisica', 'Juridica']" name="TipoDePersona"/>
                     <table>
                         <tbody>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="estudio"><g:message code="persona.estudio.label" default="Estudio" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: personaInstance, field: 'estudio', 'errors')}">
-                                    <g:select name="estudio.id" from="${sapienter.Estudio.list()}" optionKey="id" value="${personaInstance?.estudio?.id}"  />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="proceso"><g:message code="persona.proceso.label" default="Proceso" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: personaInstance, field: 'proceso', 'errors')}">
-                                    <g:select name="proceso.id" from="${sapienter.Proceso.list()}" optionKey="id" value="${personaInstance?.proceso?.id}"  />
-                                </td>
-                            </tr>
-                        
+	                        <tr class="prop">
+	                            <td valign="top" class="name">
+	                                <label for="estudio"><g:message code="persona.estudio.label" default="Estudio" /></label>
+	                            </td>
+	                            <td valign="top" class="value ${hasErrors(bean: personaInstance, field: 'estudio', 'errors')}">
+	                                <g:select name="estudio.id" from="${sapienter.Estudio.list()}" optionKey="id" value="${personaInstance?.estudio?.id}"  />
+	                            </td>
+	                        </tr>
                         </tbody>
                     </table>
                 </div>

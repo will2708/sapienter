@@ -1,15 +1,13 @@
 package sapienter
 
-import grails.plugins.countries.Country;
-
-import java.util.Date;
+import java.util.Date
 
 class PersonaFisica extends Persona{
 	
 	String apellido
 	String nombre
 	String observaciones
-    Country pais
+    String pais
 	String dni
 	Date fechaNacimiento
 	String estadoCivil
@@ -30,7 +28,6 @@ class PersonaFisica extends Persona{
 	static constraints = {
 		apellido (blank:false, matches:"[A-ZÑÁÉÍÓÚa-zñáéíóú]+(([ '-][A-ZÑÁÉÍÓÚa-zñáéíóú]+)*)")
 		nombre (blank:false, matches:"[A-ZÑÁÉÍÓÚa-zñáéíóú]+(([ '-][A-ZÑÁÉÍÓÚa-zñáéíóú]+)*)")
-		tipoDePersona (inList:["Física" , "Jurídica"])
 		observaciones (maxsize:1000, nullable:true)
 		pais (nullable:false)
 		dni(blank:false , maxLength:8 , minLength:8, matches:"[0-9]+((([0-9])+)*)", unique:true)

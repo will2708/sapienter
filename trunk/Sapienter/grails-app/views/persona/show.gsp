@@ -39,7 +39,13 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="persona.proceso.label" default="Proceso" /></td>
                             
-                            <td valign="top" class="value"><g:link controller="proceso" action="show" id="${personaInstance?.proceso?.id}">${personaInstance?.proceso?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" style="text-align: left;" class="value">
+                                <ul>
+                                <g:each in="${personaInstance.proceso}" var="p">
+                                    <li><g:link controller="proceso" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+                                </g:each>
+                                </ul>
+                            </td>
                             
                         </tr>
                     

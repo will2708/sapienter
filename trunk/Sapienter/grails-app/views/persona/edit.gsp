@@ -45,7 +45,14 @@
                                   <label for="proceso"><g:message code="persona.proceso.label" default="Proceso" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: personaInstance, field: 'proceso', 'errors')}">
-                                    <g:select name="proceso.id" from="${sapienter.Proceso.list()}" optionKey="id" value="${personaInstance?.proceso?.id}"  />
+                                    
+<ul>
+<g:each in="${personaInstance?.proceso?}" var="p">
+    <li><g:link controller="proceso" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+</g:each>
+</ul>
+<g:link controller="proceso" action="create" params="['persona.id': personaInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'proceso.label', default: 'Proceso')])}</g:link>
+
                                 </td>
                             </tr>
                         
