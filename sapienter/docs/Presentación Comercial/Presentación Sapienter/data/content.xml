@@ -1,0 +1,1200 @@
+<zuiprezi>
+  <version>3</version>
+  <zui-table>
+    <settings>
+      <autoplay>
+        <delay>4000</delay>
+      </autoplay>
+      <bounds x="-1210092.2538151504" y="-340937.3103899311" width="2420183.711471652" height="681024.239166714"/>
+    </settings>
+    <object id="2" type="button" x="540273.9" y="-229919.8" r="0" s="14.04166316986084" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>664</w>
+        <h>213</h>
+      </size>
+    </object>
+    <object id="1" type="image" x="540273.8" y="-230045.45" r="0" s="4.005395412445068">
+      <source w="2185" h="505">
+        Logo-Sapienter(sinFondo).png
+        <url>Logo-Sapienter(sinFondo).png</url>
+      </source>
+    </object>
+    <object id="101" type="button" x="550368.05" y="-233487.35" r="0" s="5.0188093185424805">
+      <type>invisible</type>
+      <size>
+        <w>656.8499999999999</w>
+        <h>485.95</h>
+      </size>
+    </object>
+    <object id="71" type="image" x="550397.1" y="-233519.1" r="0" s="3.6648271083831787">
+      <source w="1167" h="632">
+        _hoja.JPG
+        <url>_hoja.JPG</url>
+        <mask x="285" y="0" w="882" h="632"/>
+      </source>
+    </object>
+    <object id="3" type="label" x="544838.1" y="-229439.05" r="-89.98922566150969" s="0.3045051747755775" class="head">
+      <textfield>
+        <x>-89.5</x>
+        <y>-15.25</y>
+        <text>¿Quiénes somos?</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">¿Quiénes somos?</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="5" type="label" x="537530.7" y="-230848.35" r="0" s="0.15225830674171448" class="body">
+      <textfield>
+        <x>-181.9</x>
+        <y>-16.4</y>
+        <text>Acceso seguro desde cualquier lugar</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="calluna-regular" SIZE="24" COLOR="#FFFFFF" LETTERSPACING="0" KERNING="0">Acceso seguro desde cualquier lugar</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="7" type="button" x="537761.15" y="-230845.5" r="0" s="0.6462646126747131" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>79.5</w>
+        <h>40</h>
+      </size>
+    </object>
+    <object id="6" type="label" x="537761.6" y="-230845.9" r="0" s="0.15225830674171448" class="body">
+      <textfield>
+        <x>-139.2</x>
+        <y>-16.4</y>
+        <text>Úselo desde su smartphone</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="calluna-regular" SIZE="24" COLOR="#FFFFFF" LETTERSPACING="0" KERNING="0">Úselo desde su smartphone</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="8" type="shape" x="537682.5" y="-230848.5" r="0" s="0.27523308992385864">
+      <geom type="arrow">
+        <sp>-78.97659979711052 0</sp>
+        <ep>78.97659979711052 0</ep>
+        <t>8</t>
+      </geom>
+    </object>
+    <object id="9" type="label" x="538033.35" y="-230542.8" r="0" s="0.15223540365695953" class="body">
+      <textfield>
+        <x>-186.65</x>
+        <y>-45.2</y>
+        <text>Único centrado en el clienteAdaptable a todo tipo de estudiosExcelente agilidad de respuesta</text>
+        <htmlText>
+          <P ALIGN="left">
+            <LI>
+              <FONT FACE="calluna-regular" SIZE="24" COLOR="#FFFFFF" LETTERSPACING="0" KERNING="0">Único centrado en el cliente</FONT>
+            </LI>
+          </P>
+          <P ALIGN="left">
+            <LI>
+              <FONT FACE="calluna-regular" SIZE="24" COLOR="#FFFFFF" LETTERSPACING="0" KERNING="0">Adaptable a todo tipo de estudios</FONT>
+            </LI>
+          </P>
+          <P ALIGN="left">
+            <LI>
+              <FONT FACE="calluna-regular" SIZE="24" COLOR="#FFFFFF" LETTERSPACING="0" KERNING="0">Excelente agilidad de respuesta</FONT>
+            </LI>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="12" type="image" x="550199.85" y="-226765.45" r="0" s="3.7445807456970215">
+      <source w="1167" h="632">
+        hoja.JPG
+        <url>hoja.JPG</url>
+        <mask x="304" y="0" w="863" h="632"/>
+      </source>
+    </object>
+    <object id="13" type="shape" x="548040.9" y="-229313.1" r="22.042465318176582" s="9.624761144261502">
+      <geom type="arrow">
+        <sp>-149.1962034538437 28</sp>
+        <ep>149.19620345384374 28</ep>
+        <b>-56</b>
+        <t>8</t>
+      </geom>
+    </object>
+    <object id="14" type="label" x="550749.6" y="-227681.5" r="0" s="9.453907012939453" class="head">
+      <textfield>
+        <x>-85.85</x>
+        <y>-15.25</y>
+        <text>Funcionalidades</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Funcionalidades</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="15" type="button" x="549348" y="-227407.85" r="0" s="8.343537330627441" class="circle">
+      <type>circle</type>
+      <size>
+        <w>122.45</w>
+        <h>122.45</h>
+      </size>
+    </object>
+    <object id="16" type="button" x="549348" y="-227407.8" r="0" s="2.0047590732574463" class="circle">
+      <type>circle</type>
+      <size>
+        <w>182.9</w>
+        <h>182.9</h>
+      </size>
+    </object>
+    <object id="19" type="image" x="549348" y="-227401.6" r="0" s="0.5503287315368652">
+      <source w="362" h="262">
+        diferencia2.jpg
+        <url>diferencia2.jpg</url>
+      </source>
+    </object>
+    <object id="17" type="label" x="549348" y="-227490.9" r="0" s="1.2304577827453613" class="head">
+      <textfield>
+        <x>-104.45</x>
+        <y>-15.25</y>
+        <text>Gestión de personas</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Gestión de personas</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="20" type="label" x="549304.05" y="-227324.65" r="0" s="0.8440916538238525" class="strong">
+      <textfield>
+        <x>-64.5</x>
+        <y>-15.25</y>
+        <text>Diferénciese</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#FF5D00" LETTERSPACING="0" KERNING="0">Diferénciese</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="21" type="label" x="549365.25" y="-227286.35" r="0" s="0.5908583998680115" class="strong">
+      <textfield>
+        <x>-110.75</x>
+        <y>-15.25</y>
+        <text>Fidelice a sus clientes</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#FF5D00" LETTERSPACING="0" KERNING="0">Fidelice a sus clientes</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="22" type="shape" x="549389.35" y="-227315.8" r="37.84674569183951" s="0.5889925506023511">
+      <geom type="arrow">
+        <sp>-35.47064166084599 10.725000000000001</sp>
+        <ep>35.47064166084599 10.725000000000001</ep>
+        <b>-21.45</b>
+        <t>8</t>
+      </geom>
+    </object>
+    <object id="23" type="button" x="549540.4" y="-227162.8" r="0" s="1.0422507524490356" class="circle">
+      <type>circle</type>
+      <size>
+        <w>232.7</w>
+        <h>232.7</h>
+      </size>
+    </object>
+    <object id="25" type="button" x="549344.95" y="-227724.8" r="0" s="1.0422507524490356" class="circle">
+      <type>circle</type>
+      <size>
+        <w>232</w>
+        <h>232</h>
+      </size>
+    </object>
+    <object id="26" type="button" x="549654.65" y="-227499.25" r="0" s="1.0422507524490356" class="circle">
+      <type>circle</type>
+      <size>
+        <w>232.7</w>
+        <h>232.7</h>
+      </size>
+    </object>
+    <object id="27" type="button" x="549040.8" y="-227499.35" r="0" s="1.0422507524490356" class="circle">
+      <type>circle</type>
+      <size>
+        <w>232.7</w>
+        <h>232.7</h>
+      </size>
+    </object>
+    <object id="28" type="label" x="549344.95" y="-227782.05" r="0" s="0.8440916538238525" class="head">
+      <textfield>
+        <x>-103.15</x>
+        <y>-15.25</y>
+        <text>Gestión de procesos</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Gestión de procesos</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="29" type="label" x="549417.35" y="-227779.55" r="-91.00784818671481" s="0.02083495348398028" class="head">
+      <textfield>
+        <x>-137.7</x>
+        <y>-15.25</y>
+        <text>judiciales y extrajudiciales</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">judiciales y extrajudiciales</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="30" type="label" x="549344.95" y="-227747.85" r="0" s="0.42204010486602783" class="head">
+      <textfield>
+        <x>-154.45</x>
+        <y>-28.5</y>
+        <text>Categorización de procesoGestión de gastos</text>
+        <htmlText>
+          <P ALIGN="left">
+            <LI>
+              <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Categorización de proceso</FONT>
+            </LI>
+          </P>
+          <P ALIGN="left">
+            <LI>
+              <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Gestión de gastos</FONT>
+            </LI>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="40" type="button" x="549351.15" y="-227687" r="-29.314279806964105" s="0.24665960017841265" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>503.4500000000001</w>
+        <h>222.4</h>
+      </size>
+    </object>
+    <object id="31" type="label" x="549345.25" y="-227705.65" r="-29.315374101001442" s="0.4208625046868547" class="strong">
+      <textfield>
+        <x>-124.4</x>
+        <y>-15.25</y>
+        <text>Gestión de movimientos</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#FF5D00" LETTERSPACING="0" KERNING="0">Gestión de movimientos</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="33" type="button" x="549321.85" y="-227671.4" r="-29.31543825856811" s="0.38434939714460886" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>112.062109375</w>
+        <h>36.122265625</h>
+      </size>
+    </object>
+    <object id="34" type="label" x="549322.1" y="-227671.55" r="-29.315803938639263" s="0.2147205105289426" class="strong">
+      <textfield>
+        <x>-96.3</x>
+        <y>-28.5</y>
+        <text>Presentación de lademanda</text>
+        <htmlText>
+          <P ALIGN="CENTER">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#FF5D00" LETTERSPACING="0" KERNING="0">Presentación de la</FONT>
+          </P>
+          <P ALIGN="CENTER">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#FF5D00" LETTERSPACING="0" KERNING="0">demanda</FONT>
+          </P>
+        </htmlText>
+        <w>192.6</w>
+        <h>57</h>
+      </textfield>
+    </object>
+    <object id="36" type="button" x="549331.35" y="-227656.2" r="-29.31543825856811" s="0.38434939714460886" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>92.93162841796877</w>
+        <h>30.28897705078124</h>
+      </size>
+    </object>
+    <object id="37" type="label" x="549331.9" y="-227656.5" r="-29.315803938639263" s="0.2147205105289426" class="strong">
+      <textfield>
+        <x>-83.95</x>
+        <y>-28.5</y>
+        <text>Enviar carta a documento</text>
+        <htmlText>
+          <P ALIGN="CENTER">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#FF5D00" LETTERSPACING="0" KERNING="0">Enviar carta a documento</FONT>
+          </P>
+        </htmlText>
+        <w>167.9</w>
+        <h>57</h>
+      </textfield>
+    </object>
+    <object id="38" type="button" x="549369.15" y="-227695.6" r="-29.31543825856811" s="0.38434939714460886" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>96.42421875</w>
+        <h>34.71953125</h>
+      </size>
+    </object>
+    <object id="39" type="label" x="549368.85" y="-227695.55" r="-29.315803938639263" s="0.2147205105289426" class="head">
+      <textfield>
+        <x>-80.25</x>
+        <y>-28.5</y>
+        <text>Verificación detestigos</text>
+        <htmlText>
+          <P ALIGN="CENTER">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Verificación de</FONT>
+          </P>
+          <P ALIGN="CENTER">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">testigos</FONT>
+          </P>
+        </htmlText>
+        <w>160.55</w>
+        <h>57</h>
+      </textfield>
+    </object>
+    <object id="41" type="label" x="549654.65" y="-227570.1" r="0" s="0.8272109627723694" class="head">
+      <textfield>
+        <x>-66.5</x>
+        <y>-28.5</y>
+        <text>Gestión dedocumentos</text>
+        <htmlText>
+          <P ALIGN="CENTER">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Gestión de</FONT>
+          </P>
+          <P ALIGN="CENTER">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">documentos</FONT>
+          </P>
+        </htmlText>
+        <w>133</w>
+        <h>57</h>
+      </textfield>
+    </object>
+    <object id="42" type="button" x="549603.95" y="-227499.35" r="0" s="0.5047944188117981" class="circle">
+      <type>circle</type>
+      <size>
+        <w>87.6</w>
+        <h>87.6</h>
+      </size>
+    </object>
+    <object id="48" type="button" x="549709" y="-227499.25" r="19.29777155387691" s="0.44900893174923895" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>135.05</w>
+        <h>184.1</h>
+      </size>
+    </object>
+    <object id="47" type="image" x="549709.75" y="-227498.55" r="19.29775891813067" s="0.4336229086555425">
+      <source w="113" h="168">
+        lupa.jpg
+        <url>lupa.jpg</url>
+      </source>
+    </object>
+    <object id="43" type="label" x="549603.95" y="-227499.45" r="0" s="0.21532611548900604" class="head">
+      <textfield>
+        <x>-80.25</x>
+        <y>-28.5</y>
+        <text>Editor de texto y plantillas</text>
+        <htmlText>
+          <P ALIGN="CENTER">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Editor de texto y plantillas</FONT>
+          </P>
+        </htmlText>
+        <w>160.5</w>
+        <h>57</h>
+      </textfield>
+    </object>
+    <object id="44" type="button" x="549651.25" y="-227445.05" r="0" s="0.7887541651725769" class="circle">
+      <type>circle</type>
+      <size>
+        <w>56.1</w>
+        <h>56.1</h>
+      </size>
+    </object>
+    <object id="45" type="label" x="549651.25" y="-227445.05" r="0" s="0.21532611548900604" class="head">
+      <textfield>
+        <x>-72.65</x>
+        <y>-28.5</y>
+        <text>Modelos de documentos</text>
+        <htmlText>
+          <P ALIGN="CENTER">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Modelos de documentos</FONT>
+          </P>
+        </htmlText>
+        <w>145.3</w>
+        <h>57</h>
+      </textfield>
+    </object>
+    <object id="49" type="label" x="549720.85" y="-227530.35" r="19.29931840783939" s="0.1536429813948601" class="strong">
+      <textfield>
+        <x>-141.7</x>
+        <y>-15.25</y>
+        <text>Supervisión de documentos</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#FF5D00" LETTERSPACING="0" KERNING="0">Supervisión de documentos</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="50" type="button" x="549154.85" y="-227162.8" r="0" s="1.0422507524490356" class="circle">
+      <type>circle</type>
+      <size>
+        <w>232.7</w>
+        <h>232.7</h>
+      </size>
+    </object>
+    <object id="52" type="image" x="549540.4" y="-227181.1" r="0" s="0.3792543113231659">
+      <source w="348" h="325">
+        calendario.png
+        <url>calendario.png</url>
+      </source>
+    </object>
+    <object id="53" type="label" x="549524.25" y="-227221.75" r="-9.261652585797803" s="0.5902502382146692" class="strong">
+      <textfield>
+        <x>-41.25</x>
+        <y>-15.25</y>
+        <text>Agenda</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#FF5D00" LETTERSPACING="0" KERNING="0">Agenda</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="54" type="label" x="549540.4" y="-227097.35" r="0" s="0.42204010486602783" class="strong">
+      <textfield>
+        <x>-146.45</x>
+        <y>-28.5</y>
+        <text>Categorización de tareasAvisos</text>
+        <htmlText>
+          <P ALIGN="left">
+            <LI>
+              <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#FF5D00" LETTERSPACING="0" KERNING="0">Categorización de tareas</FONT>
+            </LI>
+          </P>
+          <P ALIGN="left">
+            <LI>
+              <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#FF5D00" LETTERSPACING="0" KERNING="0">Avisos</FONT>
+            </LI>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="56" type="image" x="549154.85" y="-227162.8" r="0" s="0.37951770424842834">
+      <source w="300" h="300">
+        email.jpg
+        <url>email.jpg</url>
+      </source>
+    </object>
+    <object id="57" type="label" x="549154.85" y="-227229.4" r="0" s="0.8440916538238525" class="head">
+      <textfield>
+        <x>-97.5</x>
+        <y>-15.25</y>
+        <text>Correo electrónico</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Correo electrónico</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="58" type="button" x="549154.2" y="-227094.35" r="0" s="0.4475443661212921" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>223</w>
+        <h>87</h>
+      </size>
+    </object>
+    <object id="59" type="label" x="549154.2" y="-227094.35" r="0" s="0.30145883560180664" class="strong">
+      <textfield>
+        <x>-142.45</x>
+        <y>-28.5</y>
+        <text>Cree una nueva casilla con el dominio de su empresa</text>
+        <htmlText>
+          <P ALIGN="CENTER">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#FF5D00" LETTERSPACING="0" KERNING="0">Cree una nueva casilla con el dominio de su empresa</FONT>
+          </P>
+        </htmlText>
+        <w>284.95</w>
+        <h>57</h>
+      </textfield>
+    </object>
+    <object id="60" type="label" x="549039.9" y="-227613.05" r="0" s="0.8440916538238525" class="body">
+      <textfield>
+        <x>-41.65</x>
+        <y>-16.4</y>
+        <text>Además</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="calluna-regular" SIZE="24" COLOR="#FFFFFF" LETTERSPACING="0" KERNING="0">Además</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="61" type="button" x="549031.85" y="-227562.9" r="-26.559774656676282" s="0.5560290448842751" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>179.72500000000002</w>
+        <h>42.12500000000001</h>
+      </size>
+    </object>
+    <object id="62" type="label" x="549031.85" y="-227562.9" r="-26.552088933047305" s="0.588536005419975" class="strong">
+      <textfield>
+        <x>-79.85</x>
+        <y>-15.25</y>
+        <text>Jurisprudencia</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#FF5D00" LETTERSPACING="0" KERNING="0">Jurisprudencia</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="64" type="button" x="549094.9" y="-227506.35" r="35.0901774278151" s="0.4863090713225892" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>195.75</w>
+        <h>48.6</h>
+      </size>
+    </object>
+    <object id="63" type="label" x="549094.8" y="-227506.25" r="35.09039750246059" s="0.5890421497406007" class="strong">
+      <textfield>
+        <x>-71.5</x>
+        <y>-15.25</y>
+        <text>Enlaces útiles</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#FF5D00" LETTERSPACING="0" KERNING="0">Enlaces útiles</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="65" type="button" x="549002.5" y="-227494.5" r="0" s="1.0469690561294556" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>72.36249999999998</w>
+        <h>62.937499999999986</h>
+      </size>
+    </object>
+    <object id="66" type="label" x="549004.85" y="-227515.9" r="0" s="0.5908583998680115" class="strong">
+      <textfield>
+        <x>-47.9</x>
+        <y>-15.25</y>
+        <text>Reportes</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#FF5D00" LETTERSPACING="0" KERNING="0">Reportes</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="67" type="label" x="549000.25" y="-227488" r="0" s="0.30145883560180664" class="head">
+      <textfield>
+        <x>-112.8</x>
+        <y>-68.25</y>
+        <text>Tareas pendientesProcesosPersonasGastosRecorridos</text>
+        <htmlText>
+          <P ALIGN="left">
+            <LI>
+              <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Tareas pendientes</FONT>
+            </LI>
+          </P>
+          <P ALIGN="left">
+            <LI>
+              <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Procesos</FONT>
+            </LI>
+          </P>
+          <P ALIGN="left">
+            <LI>
+              <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Personas</FONT>
+            </LI>
+          </P>
+          <P ALIGN="left">
+            <LI>
+              <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Gastos</FONT>
+            </LI>
+          </P>
+          <P ALIGN="left">
+            <LI>
+              <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Recorridos</FONT>
+            </LI>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="69" type="button" x="549044.3" y="-227434.35" r="0" s="0.33514004945755005" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>386</w>
+        <h>83</h>
+      </size>
+    </object>
+    <object id="68" type="label" x="549044.7" y="-227435.3" r="0" s="0.5908583998680115" class="strong">
+      <textfield>
+        <x>-102.45</x>
+        <y>-15.25</y>
+        <text>Gestión de usuarios</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#FF5D00" LETTERSPACING="0" KERNING="0">Gestión de usuarios</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="72" type="shape" x="548021.95" y="-231085.45" r="-28.054137619948012" s="9.607420628634054">
+      <geom type="arrow">
+        <sp>-155.7023416429097 -22.54604871479681</sp>
+        <ep>155.7023416429097 -22.54604871479681</ep>
+        <b>45.09209742959363</b>
+        <t>8</t>
+      </geom>
+    </object>
+    <object id="73" type="label" x="550933.55" y="-234421.3" r="0" s="13.505592346191406" class="head">
+      <textfield>
+        <x>-47.9</x>
+        <y>-15.25</y>
+        <text>Servicios</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Servicios</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="74" type="button" x="549628.25" y="-232578.6" r="0" s="6.145875930786133" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>210</w>
+        <h>52</h>
+      </size>
+    </object>
+    <object id="75" type="label" x="549323.85" y="-232515.15" r="0" s="4.823421478271484" class="head">
+      <textfield>
+        <x>-60.9</x>
+        <y>-15.25</y>
+        <text>Acceso web</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Acceso web</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="76" type="button" x="550633.45" y="-233617.65" r="0" s="6.145875930786133" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>212.95</w>
+        <h>49</h>
+      </size>
+    </object>
+    <object id="78" type="button" x="550274.75" y="-233267.15" r="0" s="6.145875930786133" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>210</w>
+        <h>52</h>
+      </size>
+    </object>
+    <object id="77" type="label" x="550322.75" y="-233222.6" r="0" s="4.823421478271484" class="head">
+      <textfield>
+        <x>-96.45</x>
+        <y>-15.25</y>
+        <text>Atención al cliente</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Atención al cliente</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="83" type="image" x="549279.05" y="-233252.35" r="0" s="5.13881778717041">
+      <source w="85" h="99">
+        hombrecito.JPG
+        <url>hombrecito.JPG</url>
+      </source>
+    </object>
+    <object id="80" type="button" x="549966.4" y="-232913.6" r="0" s="6.145875930786133" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>210</w>
+        <h>52</h>
+      </size>
+    </object>
+    <object id="79" type="label" x="549747.85" y="-232839.05" r="0" s="4.823421478271484" class="head">
+      <textfield>
+        <x>-82.55</x>
+        <y>-15.25</y>
+        <text>Personalización</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Personalización</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="81" type="label" x="550589.8" y="-233560.3" r="0" s="4.823421478271484" class="head">
+      <textfield>
+        <x>-119.8</x>
+        <y>-15.25</y>
+        <text>Cursos de capacitación</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Cursos de capacitación</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="84" type="label" x="550241.15" y="-232564.7" r="-90.00585337663769" s="0.44840330119477734" class="head">
+      <textfield>
+        <x>-304.5</x>
+        <y>-55</y>
+        <text>Sin inversión en infraestructura.Actualizaciones constantes de índole legal y tecnológico.Evolución continua de la aplicación.Disponibilidad de la información garantizada.</text>
+        <htmlText>
+          <P ALIGN="left">
+            <LI>
+              <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Sin inversión en infraestructura.</FONT>
+            </LI>
+          </P>
+          <P ALIGN="left">
+            <LI>
+              <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Actualizaciones constantes de índole legal y tecnológico.</FONT>
+            </LI>
+          </P>
+          <P ALIGN="left">
+            <LI>
+              <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Evolución continua de la aplicación.</FONT>
+            </LI>
+          </P>
+          <P ALIGN="left">
+            <LI>
+              <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Disponibilidad de la información garantizada.</FONT>
+            </LI>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="85" type="label" x="550584.85" y="-232908.15" r="-90.00627142930686" s="0.6277691759522255" class="head">
+      <textfield>
+        <x>-241.65</x>
+        <y>-28.5</y>
+        <text>Desarrollos a medida.Traspaso de datos de antiguas aplicaciones.</text>
+        <htmlText>
+          <P ALIGN="left">
+            <LI>
+              <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Desarrollos a medida.</FONT>
+            </LI>
+          </P>
+          <P ALIGN="left">
+            <LI>
+              <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Traspaso de datos de antiguas aplicaciones.</FONT>
+            </LI>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="86" type="label" x="550898.15" y="-233251.95" r="-90.00585337663769" s="0.44840330119477734" class="head">
+      <textfield>
+        <x>-305.2</x>
+        <y>-28.5</y>
+        <text>Soporte a cargo de profesionales altamente capacitados.Asesoramiento para la instalación.</text>
+        <htmlText>
+          <P ALIGN="left">
+            <LI>
+              <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Soporte a cargo de profesionales altamente capacitados.</FONT>
+            </LI>
+          </P>
+          <P ALIGN="left">
+            <LI>
+              <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Asesoramiento para la instalación.</FONT>
+            </LI>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="87" type="label" x="159878.1" y="-283746.55" r="0" s="1138.9376220703125" class="head">
+      <textfield>
+        <x>-137.45</x>
+        <y>-15.25</y>
+        <text>Descárguelo gratis desde..</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Descárguelo gratis desde..</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="88" type="label" x="594480.55" y="-247524.5" r="0" s="6125.48046875" class="strong">
+      <textfield>
+        <x>-100.5</x>
+        <y>-15.25</y>
+        <text>www.Sapienter.org</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#FF5D00" LETTERSPACING="0" KERNING="0">www.Sapienter.org</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="98" type="button" x="603114.3" y="-288946.5" r="0" s="4.263427257537842" class="circle">
+      <type>circle</type>
+      <size>
+        <w>481.3</w>
+        <h>481.3</h>
+      </size>
+    </object>
+    <object id="97" type="button" x="603114.1" y="-288946.5" r="0" s="4.263427257537842" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>420</w>
+        <h>203</h>
+      </size>
+    </object>
+    <object id="90" type="image" x="602669.35" y="-288948.15" r="0" s="1.2470407485961914">
+      <source w="600" h="600">
+        mazelostiStock_000008226295Small-resized-600.jpg.png
+        <url>mazelostiStock_000008226295Small-resized-600.jpg.png</url>
+        <mask x="0" y="16" w="600" h="584"/>
+      </source>
+    </object>
+    <object id="92" type="image" x="602643.5" y="-289199.3" r="0" s="0.3116284906864166">
+      <source w="1225" h="352">
+        otros(sin-fondo).png
+        <url>otros(sin-fondo).png</url>
+      </source>
+    </object>
+    <object id="94" type="image" x="603529.15" y="-288948.15" r="0" s="3.182215690612793">
+      <source w="260" h="227">
+        laberinto-en-tu-empresa.jpg
+        <url>laberinto-en-tu-empresa.jpg</url>
+      </source>
+    </object>
+    <object id="96" type="image" x="603500.2" y="-289199.65" r="0" s="0.3165644407272339">
+      <source w="2185" h="505">
+        _Logo-Sapienter(sinFondo).png
+        <url>_Logo-Sapienter(sinFondo).png</url>
+      </source>
+    </object>
+    <object id="99" type="label" x="603114.6" y="-288428.65" r="0" s="6.752790451049805" class="head">
+      <textfield>
+        <x>-82.2</x>
+        <y>-15.25</y>
+        <text>¿Cuál prefiere?</text>
+        <htmlText>
+          <P ALIGN="LEFT">
+            <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">¿Cuál prefiere?</FONT>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="100" type="label" x="536380.8" y="-230591.4" r="0" s="0.4177912771701813" class="head">
+      <textfield>
+        <x>-140.7</x>
+        <y>-28.5</y>
+        <text>Libre y gratuitoInterfaz fácil e intuitiva</text>
+        <htmlText>
+          <P ALIGN="left">
+            <LI>
+              <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Libre y gratuito</FONT>
+            </LI>
+          </P>
+          <P ALIGN="left">
+            <LI>
+              <FONT FACE="LiberationSerif-Bold" SIZE="24" COLOR="#003666" LETTERSPACING="0" KERNING="0">Interfaz fácil e intuitiva</FONT>
+            </LI>
+          </P>
+        </htmlText>
+      </textfield>
+    </object>
+    <object id="102" type="button" x="-462197.7" y="70226" r="0" s="1018.855712890625">
+      <type>invisible</type>
+      <size>
+        <w>236</w>
+        <h>191</h>
+      </size>
+    </object>
+    <object id="103" type="button" x="-729815.5" y="54606.35" r="0" s="1018.855712890625">
+      <type>invisible</type>
+      <size>
+        <w>258</w>
+        <h>187</h>
+      </size>
+    </object>
+    <object id="105" type="image" x="-1048093.3" y="233035.45" r="0" s="631.5714111328125">
+      <source w="513" h="339">
+        Success.jpg
+        <url>Success.jpg</url>
+      </source>
+    </object>
+  </zui-table>
+  <path>
+    <o>2</o>
+    <o>3</o>
+    <o>2</o>
+    <o>5</o>
+    <o>6</o>
+    <o>9</o>
+    <o>100</o>
+    <o>2</o>
+    <o>14</o>
+    <o>17</o>
+    <o>16</o>
+    <o>28</o>
+    <o>29</o>
+    <o>30</o>
+    <o>40</o>
+    <o>41</o>
+    <o>42</o>
+    <o>44</o>
+    <o>48</o>
+    <o>23</o>
+    <o>50</o>
+    <o>60</o>
+    <o>62</o>
+    <o>63</o>
+    <o>65</o>
+    <o>69</o>
+    <o>2</o>
+    <o>101</o>
+    <o>75</o>
+    <o>84</o>
+    <o>79</o>
+    <o>85</o>
+    <o>77</o>
+    <o>86</o>
+    <o>81</o>
+    <o>98</o>
+    <o>88</o>
+    <o>102</o>
+    <o>103</o>
+    <o>105</o>
+  </path>
+  <style type="text/css"><![CDATA[
+@font-face
+{
+	src: url('LiberationSerif-Bold.swf');
+	fontFamily: head;
+}
+
+@font-face
+{
+	src: url('calluna-regular.swf');
+	fontFamily: body;
+}
+
+@font-face
+{
+	src: url('LiberationSerif-Bold.swf');
+	fontFamily: strong;
+}
+
+ZLabel
+{
+	padding: 1.2;
+}
+
+ZLabel.head
+{
+	color: #003666;
+	fontFamily: head;
+}
+
+.line5
+{
+	gradStartColor: #003666;
+	gradEndColor: #003666;
+	color: #003666;
+}
+
+.poly5
+{
+	borderColor: #003666;
+}
+
+ZLabel.strong
+{
+	color: #ff5d00;
+	fontFamily: strong;
+}
+
+.line1
+{
+	gradStartColor: #ff5d00;
+	gradEndColor: #ff5d00;
+	color: #ff5d00;
+}
+
+.poly1
+{
+	borderColor: #ff5d00;
+}
+
+ZLabel.body
+{
+	color: #fff;
+	fontFamily: body;
+}
+
+Background
+{
+	gradEnd: #fff;
+	gradStart: #fff;
+}
+
+Grid
+{
+	color: #ddd;
+}
+
+ZFrame.circle
+{
+	borderThickness: 0;
+	gradStartColor: #447aaa;
+	gradEndColor: #003666;
+	borderColor: #669ccc;
+}
+
+.line4
+{
+	gradStartColor: #003666;
+	gradEndColor: #003666;
+	color: #003666;
+}
+
+.poly4
+{
+	borderColor: #003666;
+}
+
+ZFrame.bracket
+{
+	borderThickness: 0;
+	gradStartColor: #ffa144;
+	gradEndColor: #ff5d00;
+	borderColor: #ffc366;
+}
+
+.line2
+{
+	gradStartColor: #ff5d00;
+	gradEndColor: #ff5d00;
+	color: #ff5d00;
+}
+
+.poly2
+{
+	borderColor: #ff5d00;
+}
+
+ZFrame.roundrect
+{
+	borderThickness: 0;
+	gradStartColor: #ff7f22;
+	gradEndColor: #ff5d00;
+	borderColor: #ffc366;
+}
+
+ZPoly
+{
+	borderThickness: 2;
+	thickness: 100;
+	lockTintAlpha: 0.75;
+	radius: 0;
+	gradStartColor: #288acc;
+	borderColor: #288acc;
+	gradStartAlpha: 0.2;
+	borderAlpha: 0.7;
+	gradEndColor: #288acc;
+	gradEndAlpha: 0.4;
+}
+
+ZCircle
+{
+	borderThickness: 2;
+	thickness: 100;
+	lockTintAlpha: 0.75;
+	radius: 0;
+	gradStartColor: #288acc;
+	borderColor: #288acc;
+	gradStartAlpha: 0.2;
+	borderAlpha: 0.7;
+	gradEndColor: #288acc;
+	gradEndAlpha: 0.4;
+}
+
+ZArrow
+{
+	borderThickness: 0;
+	gradStartColor: #ff5d00;
+	gradEndColor: #ff5d00;
+	borderColor: #ffa94c;
+}
+
+.line3
+{
+	gradStartColor: #ff5d00;
+	gradEndColor: #ff5d00;
+	color: #ff5d00;
+}
+
+.poly3
+{
+	borderColor: #ff5d00;
+}
+
+ZLine
+{
+	color: #ff5d00;
+}
+
+ZCurveLine
+{
+	color: #ff5d00;
+}
+
+ZMarker
+{
+	color: #288acc;
+	thickness: 25;
+	alpha: 0.3;
+}
+
+ZPath
+{
+	thickness: 3;
+	textColor: #fff;
+	color: #40abe6;
+	alpha: 1;
+}
+
+ZPath Ball.base
+{
+	fillColor: #40abe6;
+	radius: 12;
+	alpha: 1;
+}
+
+ZPath Ball.mid
+{
+	fillColor: #40abe6;
+	radius: 8;
+	alpha: .5;
+}
+
+ZVideo
+{
+	padding: 1.2;
+}
+
+]]></style>
+  <hash>c6fc70b0c1c7f88f79c0f9c6044ef004</hash>
+  <sync>
+    <oid>UNKNOWN</oid>
+    <hash>UNKNOWN</hash>
+  </sync>
+  <config>LnlZm1YElgWf/AAbC6UBVlKlVRQMktsErg==</config>
+</zuiprezi>
