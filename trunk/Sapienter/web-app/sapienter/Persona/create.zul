@@ -7,63 +7,31 @@
     xmlns:h="http://www.w3.org/1999/xhtml"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+  
+<window title="" border="normal">
 
-<tabbox>
-	<tabs>
-		<tab label="Datos Personales" />
-		<tab label="Domicilio" />
-		<tab label="Datos laborales" />
-		<tab label="Campos auxiliares" />
-	</tabs>
-	<tabpanels>
-		<tabpanel>
-			
-			<listbox width="700px" >
-				<listitem>
-					<listcell>
-						<label value="Nacionalidad"/>
-						<space />
-						<textbox id="nacionalidad" name="nacionalidad" />
-					</listcell>
-					<listcell>
-						<label value="Fecha de Nacimiento:" />
-						<space/>
-						<datebox id="fechaNacimiento" name="fechaNacimiento"/>
-					</listcell>
-				</listitem>
-				<listitem>					
-					<listcell>
-						<label value="DNI:"/>
-						<space />
-						<textbox id="dni" name="dni" />
-					</listcell>
-					<listcell>
-						<label value="Estado Civil:"/>
-						<combobox>
-							<comboitem label="Soltero"/>
-							<comboitem label="Divorciado"/>
-							<comboitem label="Casado"/>
-							<comboitem label="Viudo"/>
-						</combobox>
-					</listcell>
-				</listitem>
-			</listbox>
-			
-		</tabpanel>
-		<tabpanel></tabpanel>
-		<tabpanel></tabpanel>
-		<tabpanel></tabpanel>
-	</tabpanels>
-</tabbox>
-<!--
-    <window apply="sapienter.Persona.createComposer">
+	 <menubar width="100%" autodrop="true">
+	 	<menuitem label="" image="../../images/email_envelope.png"/>
+	 	<menuitem label="" image="" />
+		<menuitem label="Persona" />
+		<menuitem label="Proceso" />
+		<menu label="Documentación Legal">
+			<menupopup>
+				<menuitem label="Jurisprudencia" />
+				<menuitem label="Enlances Utiles" />
+				<menuitem label="Modelos de Documentos"/>
+			</menupopup>
+		</menu>
+		<menuitem label="Reportes"/>
+		<menu label="Administrar">
+			<menupopup>
+				<menuitem label="Usuarios"/>
+				<menuitem label="Roles"/>
+				<menuitem label="Estudio"/>
+			</menupopup>
+		</menu>
+	</menubar>
+  
+</window>
 
-        <hbox>
-            <image src="${z.resource(dir:'images', file:'grails_logo.png')}"/>
-        </hbox>
-
-        <vbox id="scaffoldingBox"/>
-
-    </window>
--->
 </zk>
