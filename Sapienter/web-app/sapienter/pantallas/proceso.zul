@@ -10,7 +10,7 @@
   
 <window title="" border="normal">
 
-   	 <menubar width="100%" autodrop="true">
+	 <menubar width="100%" autodrop="true">
 	 	<menuitem label="" image="" tooltiptext="Home" href="http://localhost:8080/Sapienter/pantallas/list2.gsp"/>
 	 	<menuitem label="" image="../../images/email_envelope.png" tooltiptext="Correo Electrónico"/>
 	 	<menuitem label="" image="" tooltiptext="Agenda"/>
@@ -32,40 +32,47 @@
 			</menupopup>
 		</menu>
 	</menubar>
+
 </window>
 
 <hbox widths="50%">
 	<listbox checkmark="true">
     	<listhead sizable="true">
-        	<listheader label="Nombre" sort="auto"/>
-            <listheader label="Apellido" sort="auto"/>
-            <listheader label="DNI" sort="auto"/>
+        	<listheader label="Caratula" sort="auto"/>
+        	<listheader label="Categoría" sort="auto"/>
+            <listheader label="Descripción" sort="auto"/>
+            <listheader label="Estado" sort="auto"/>
         </listhead>
 		<listitem>
-			<listcell label="Matías" />
-			<listcell label="Stanislavsky" />
-			<listcell label="11.111.111" />
+			<listcell label="Cohen Vs. Rossi" />
+			<listcell label="Mediación" />
+			<listcell label="Cohen usurpó tierras de Rossi" />
+			<listcell label= "Ganado"/>
 		</listitem>
 		<listitem>
-			<listcell label="Gabriel" />
-			<listcell label="Bonsoir" />
-			<listcell label="11.111.111" />
+			<listcell label="La momia Vs. Caradagian" />
+			<listcell label="Jucio" />
+			<listcell label="Golpe de puño cerrado" />
+			<listcell label= "Ganado"/>
 		</listitem>
 		<listitem>
-			<listcell label="Romina" />
-			<listcell label="Perrone" />
-			<listcell label="11.111.111" />
+			<listcell label="Messi Vs. C. Ronaldo" />
+			<listcell label="Juicio" />
+			<listcell label="Mejor Jugador de fútbol" />
+			<listcell label= "Ganado"/>
 		</listitem>
 		<listitem>
-			<listcell label="Matías" />
-			<listcell label="Toth" />
-			<listcell label="11.111.111" />
+			<listcell label="Alf Vs. Suertudo" />
+			<listcell label="Juicio" />
+			<listcell label="Intento de homicidio" />
+			<listcell label= "Ganado"/>
 		</listitem>						
 	</listbox>
 </hbox>
 	<menubar orient="horizontal" width="25%">
+		<menuitem label="Nuevo" />
 		<menuitem label="Detalles" />
 		<menuitem label="Editar" />
-		<menuitem label="Procesos" />
+		<menuitem label="Documentos Asociados" />
 	</menubar>	
 </zk>
