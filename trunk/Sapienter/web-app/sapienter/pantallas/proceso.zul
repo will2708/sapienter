@@ -73,6 +73,6 @@
 		<menuitem label="Nuevo" />
 		<menuitem label="Detalles" />
 		<menuitem label="Editar" />
-		<menuitem label="Documentos Asociados" href="http://localhost:8080/Sapienter/pantallas/listadocumentos.gsp"/>
+		<menuitem label="Documentos Asociados" href="http://localhost:8080/Sapienter/pantallas/listaDocumentos.gsp"/>
 	</menubar>	
 </zk>
