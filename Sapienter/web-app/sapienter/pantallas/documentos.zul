@@ -11,10 +11,11 @@
 <window title="" border="normal">
 
 	 <menubar width="100%" autodrop="true">
-	 	<menuitem label="" image="../../images/email_envelope.png"/>
-	 	<menuitem label="" image="" />
-		<menuitem label="Persona" />
-		<menuitem label="Proceso" />
+	 	<menuitem label="" image="" tooltiptext="Home" href="http://localhost:8080/Sapienter/pantallas/list2.gsp"/>
+	 	<menuitem label="" image="../../images/email_envelope.png" tooltiptext="Correo Electrónico"/>
+	 	<menuitem label="" image="" tooltiptext="Agenda"/>
+		<menuitem label="Persona" href="http://localhost:8080/Sapienter/pantallas/persona.gsp" tooltiptext="Gestionar Personas"/>
+		<menuitem label="Proceso" href="http://localhost:8080/Sapienter/pantallas/lprocesos2.gsp" tooltiptext="Gestionar Procesos"/>
 		<menu label="Documentación Legal">
 			<menupopup>
 				<menuitem label="Jurisprudencia" />
@@ -22,7 +23,7 @@
 				<menuitem label="Modelos de Documentos"/>
 			</menupopup>
 		</menu>
-		<menuitem label="Reportes"/>
+		<menuitem label="Reportes" tooltiptext="Generar Reportes"/>
 		<menu label="Administrar">
 			<menupopup>
 				<menuitem label="Usuarios"/>
