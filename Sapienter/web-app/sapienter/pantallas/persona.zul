@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?page zscriptLanguage="GroovyGrails"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+  
+<window title="" border="normal">
+
+	 <menubar width="100%" autodrop="true">
+	 	<menuitem label="" image="../../images/email_envelope.png"/>
+	 	<menuitem label="" image="" />
+		<menuitem label="Persona" href="http://localhost:8080/Sapienter/pantallas/persona.gsp"/>
+		<menuitem label="Proceso" />
+		<menu label="Documentación Legal">
+			<menupopup>
+				<menuitem label="Jurisprudencia" />
+				<menuitem label="Enlances Utiles" />
+				<menuitem label="Modelos de Documentos"/>
+			</menupopup>
+		</menu>
+		<menuitem label="Reportes"/>
+		<menu label="Administrar">
+			<menupopup>
+				<menuitem label="Usuarios"/>
+				<menuitem label="Roles"/>
+				<menuitem label="Estudio"/>
+			</menupopup>
+		</menu>
+	</menubar>
+
+</window>
+
+<hbox widths="50%">
+	<listbox checkmark="true">
+    	<listhead sizable="true">
+        	<listheader label="Nombre" sort="auto"/>
+            <listheader label="Apellido" sort="auto"/>
+            <listheader label="DNI" sort="auto"/>
+        </listhead>
+		<listitem>
+			<listcell label="Matías" />
+			<listcell label="Stanislavsky" />
+			<listcell label="11.111.111" />
+		</listitem>
+		<listitem>
+			<listcell label="Gabriel" />
+			<listcell label="Bonsoir" />
+			<listcell label="11.111.111" />
+		</listitem>
+		<listitem>
+			<listcell label="Romina" />
+			<listcell label="Perrone" />
+			<listcell label="11.111.111" />
+		</listitem>
+		<listitem>
+			<listcell label="Matías" />
+			<listcell label="Toth" />
+			<listcell label="11.111.111" />
+		</listitem>						
+	</listbox>
+	<menubar orient="vertical">
+		<menuitem label="Detalles" />
+		<menuitem label="Editar" />
+		<menuitem label="Procesos" />
+	</menubar>
+</hbox>
+</zk>
