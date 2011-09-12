@@ -26,7 +26,6 @@
 			</div>
 		</g:hasErrors>
 		<z:body zul="/sapienter/pantallas/test.zul" />
-		<g:form action="save">
 			<div class="dialog">
 
 				<richui:tabView id="tabView">
@@ -36,7 +35,7 @@
 					</richui:tabLabels>
 					<richui:tabContents>
 						<richui:tabContent>
-
+							<g:form action="save">
 							<table>
 								<tbody>
 
@@ -255,9 +254,10 @@
 										value="${message(code: 'default.button.create.label', default: 'Create')}" />
 								</span>
 							</div>
-
+							</g:form>
 						</richui:tabContent>
 						<richui:tabContent>
+							<g:form action="savePersonaJuridica">
 							<table>
 								<tbody>
 
@@ -357,20 +357,29 @@
 										</td>
 									</tr>
 
+			                        <tr class="prop">
+			                            <td valign="top" class="name">
+			                                <label for="estudio"><g:message code="personaJuridica.estudio.label" default="Estudio" /></label>
+			                            </td>
+			                            <td valign="top" class="value ${hasErrors(bean: personaJuridicaInstance? field: 'estudio', 'errors')}">
+			                                <g:select name="estudio.id" from="${sapienter.Estudio.list()}" optionKey="id" value="${personaJuridicaInstance?.estudio?.id}"  />
+			                            </td>
+			                        </tr>
+
 								</tbody>
 							</table>
 							<div class="buttons">
+
 								<span class="button"><g:submitButton name="create"
 										class="save"
 										value="${message(code: 'default.button.create.label', default: 'Create')}" />
 								</span>
 							</div>
+							</g:form>
 						</richui:tabContent>
 					</richui:tabContents>
 				</richui:tabView>
-
 			</div>
-		</g:form>
 	</div>
 </body>
 </html>
