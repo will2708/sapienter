@@ -35,7 +35,7 @@
 					</richui:tabLabels>
 					<richui:tabContents>
 						<richui:tabContent>
-							<g:form action="save">
+							<g:form controller="personaFisica" action="save">
 							<table>
 								<tbody>
 
@@ -257,7 +257,7 @@
 							</g:form>
 						</richui:tabContent>
 						<richui:tabContent>
-							<g:form action="savePersonaJuridica">
+							<g:form controller="personaJuridica" action="save">
 							<table>
 								<tbody>
 
