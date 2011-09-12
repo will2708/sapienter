@@ -1,5 +1,7 @@
 package sapienter
 
+import sapienter.PersonaJuridicaController
+
 class PersonaController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -97,4 +99,15 @@ class PersonaController {
             redirect(action: "list")
         }
     }
+	def savePersonaJuridica = {
+		def personaJuridicaInstance = new PersonaJuridica(params)
+		if (personaJuridicaInstance.save(flush: true)) {
+			flash.message = "${message(code: 'default.created.message', args: [message(code: 'personaJuridica.label', default: 'PersonaJuridica'), personaJuridicaInstance.id])}"
+			redirect(action: "show", id: personaJuridicaInstance.id)
+		}
+		else {
+			flash.message = "Error"
+			render(view: "create_mod", model: [personaJuridicaInstance: personaJuridicaInstance])
+		}
+	}
 }

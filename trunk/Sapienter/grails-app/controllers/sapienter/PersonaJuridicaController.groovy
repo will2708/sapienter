@@ -97,4 +97,5 @@ class PersonaJuridicaController {
             redirect(action: "list")
         }
     }
+
 }
