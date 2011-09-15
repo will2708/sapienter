@@ -25,13 +25,22 @@
 				<g:renderErrors bean="${personaInstance}" as="list" />
 			</div>
 		</g:hasErrors>
+		<g:hasErrors bean="${personaFisicaInstance}">
+			<div class="errors">
+				<g:renderErrors bean="${personaFisicaInstance}" as="list" />
+			</div>
+		</g:hasErrors>
+		<g:hasErrors bean="${personaJuridicaInstance}">
+			<div class="errors">
+				<g:renderErrors bean="${personaJuridicaInstance}" as="list" />
+			</div>
+		</g:hasErrors>
 		<z:body zul="/sapienter/pantallas/test.zul" />
 			<div class="dialog">
-
 				<richui:tabView id="tabView">
 					<richui:tabLabels>
-						<richui:tabLabel selected="true" title="Persona Fisica" />
-						<richui:tabLabel title="Persona Juridica" />
+						<richui:tabLabel selected="${selected1}" title="Persona Fisica" />
+						<richui:tabLabel selected="${selected2}" title="Persona Juridica" />
 					</richui:tabLabels>
 					<richui:tabContents>
 						<richui:tabContent>
@@ -356,15 +365,6 @@
 												value="${personaJuridicaInstance?.observaciones}" />
 										</td>
 									</tr>
-
-			                        <tr class="prop">
-			                            <td valign="top" class="name">
-			                                <label for="estudio"><g:message code="personaJuridica.estudio.label" default="Estudio" /></label>
-			                            </td>
-			                            <td valign="top" class="value ${hasErrors(bean: personaJuridicaInstance? field: 'estudio', 'errors')}">
-			                                <g:select name="estudio.id" from="${sapienter.Estudio.list()}" optionKey="id" value="${personaJuridicaInstance?.estudio?.id}"  />
-			                            </td>
-			                        </tr>
 
 								</tbody>
 							</table>

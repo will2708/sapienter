@@ -20,14 +20,7 @@ class PersonaFisicaController {
     }
 
     def save = {
-        def personaFisicaInstance = new PersonaFisica(params)
-        if (personaFisicaInstance.save(flush: true)) {
-            flash.message = "${message(code: 'default.created.message', args: [message(code: 'personaFisica.label', default: 'PersonaFisica'), personaFisicaInstance.id])}"
-            redirect(action: "show", id: personaFisicaInstance.id)
-        }
-        else {
-            render(view: "create", model: [personaFisicaInstance: personaFisicaInstance])
-        }
+		redirect(controller: "persona", action: "createFisica", params: params)
     }
 
     def show = {
