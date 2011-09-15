@@ -18,13 +18,15 @@ class PersonaController {
 		def estudio = Estudio.getAll().get(0)
 		params.put("estudio", estudio)
 		
+		def personaJuridicaInstance = new PersonaJuridica()
+		
 		def personaFisicaInstance = new PersonaFisica(params)
 		if (personaFisicaInstance.save(flush: true)) {
 			flash.message = "${message(code: 'default.created.message', args: [message(code: 'personaFisica.label', default: 'PersonaFisica'), personaFisicaInstance.id])}"
 			redirect(action: "show", id: personaFisicaInstance.id)
 		}
 		else {
-			render(view: "create_mod", model: [personaFisicaInstance: personaFisicaInstance, selected1: "true", selected2: "false"])
+			render(view: "create_mod", model: [personaFisicaInstance: personaFisicaInstance, personaJuridicaInstance: personaJuridicaInstance, selected1: "true", selected2: "false"])
 		}
     }
 
@@ -33,13 +35,14 @@ class PersonaController {
 		params.put("estudio", estudio)
 
 		def personaJuridicaInstance = new PersonaJuridica(params)
+		def personaFisicaInstance   = new PersonaFisica()
 		
 		if (personaJuridicaInstance.save(flush: true)) {
 			flash.message = "${message(code: 'default.created.message', args: [message(code: 'personaJuridica.label', default: 'PersonaJuridica'), personaJuridicaInstance.id])}"
 			redirect(action: "show", id: personaJuridicaInstance.id)
 		}
 		else {
-			render(view: "create_mod", model: [personaJuridicaInstance: personaJuridicaInstance, selected2: "true", selected1: "false"])
+			render(view: "create_mod", model: [personaFisicaInstance: personaFisicaInstance, personaJuridicaInstance: personaJuridicaInstance, selected2: "true", selected1: "false"])
 		}
 	}
 
