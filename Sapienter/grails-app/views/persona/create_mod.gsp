@@ -244,6 +244,16 @@
 										</td>
 									</tr>
 
+		                            <tr class="prop">
+		                                <td valign="top" class="name">
+		                                    <label for="estadoCivil"><g:message code="personaFisica.estadoCivil.label" default="Estado Civil" /></label>
+		                                </td>
+		                                <td valign="top" class="value ${hasErrors(bean: personaFisicaInstance, field: 'estadoCivil', 'errors')}">
+		                                    <g:select name="estadoCivil" from="${personaFisicaInstance.constraints.estadoCivil.inList}" value="${personaFisicaInstance?.estadoCivil}" valueMessagePrefix="personaFisica.estadoCivil"  />
+		                                </td>
+		                            </tr>
+
+
 									<tr class="prop">
 										<td valign="top" class="name"><label for="telefono"><g:message
 													code="personaFisica.telefono.label" default="Telefono" />
