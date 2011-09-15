@@ -44,7 +44,9 @@ class PersonaController {
 	}
 
 	def create_mod = {
-			render(view: "create_mod", model: [selected1: "true", selected2: "false"])
+			def personaFisicaInstance   = new PersonaFisica()
+			def personaJuridicaInstance = new PersonaJuridica()
+			render(view: "create_mod", model: [personaFisicaInstance: personaFisicaInstance, personaJuridicaInstance: personaJuridicaInstance,selected1: "true", selected2: "false"])
 		}
 				
     def create = {
