@@ -20,14 +20,7 @@ class PersonaJuridicaController {
     }
 
     def save = {
-        def personaJuridicaInstance = new PersonaJuridica(params)
-        if (personaJuridicaInstance.save(flush: true)) {
-            flash.message = "${message(code: 'default.created.message', args: [message(code: 'personaJuridica.label', default: 'PersonaJuridica'), personaJuridicaInstance.id])}"
-            redirect(action: "show", id: personaJuridicaInstance.id)
-        }
-        else {
-            render(view: "create", model: [personaJuridicaInstance: personaJuridicaInstance])
-        }
+		redirect(controller: "persona", action: "createJuridica", params: params)
     }
 
     def show = {
