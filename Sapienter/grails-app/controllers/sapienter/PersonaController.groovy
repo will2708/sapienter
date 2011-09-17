@@ -1,5 +1,9 @@
 package sapienter
 
+import org.springframework.web.servlet.mvc.Controller;
+
+import com.sun.org.apache.xalan.internal.xsltc.compiler.ForEach;
+
 
 class PersonaController {
 
@@ -11,7 +15,9 @@ class PersonaController {
 
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [personaInstanceList: Persona.list(params), personaInstanceTotal: Persona.count()]
+		def personaFisicaList = PersonaFisica.list(params)
+		def personaJuridicaList = PersonaJuridica.list(params)
+        [personaInstanceList: Persona.list(params), personaInstanceTotal: Persona.count(), personaFisicaList: PersonaFisica.list(params),personaJuridicaList:PersonaJuridica.list(params)]
     }
 
 	def createFisica = {
@@ -23,7 +29,7 @@ class PersonaController {
 		def personaFisicaInstance = new PersonaFisica(params)
 		if (personaFisicaInstance.save(flush: true)) {
 			flash.message = "${message(code: 'default.created.message', args: [message(code: 'personaFisica.label', default: 'PersonaFisica'), personaFisicaInstance.id])}"
-			redirect(action: "show", id: personaFisicaInstance.id)
+			redirect(Controller:"personaFisica", action: "show", id:personaFisicaInstance.id)
 		}
 		else {
 			render(view: "create_mod", model: [personaFisicaInstance: personaFisicaInstance, personaJuridicaInstance: personaJuridicaInstance, selected1: "true", selected2: "false"])
@@ -39,7 +45,7 @@ class PersonaController {
 		
 		if (personaJuridicaInstance.save(flush: true)) {
 			flash.message = "${message(code: 'default.created.message', args: [message(code: 'personaJuridica.label', default: 'PersonaJuridica'), personaJuridicaInstance.id])}"
-			redirect(action: "show", id: personaJuridicaInstance.id)
+			redirect(controller:"personaJuridica", action: "show", id: personaJuridicaInstance.id)
 		}
 		else {
 			render(view: "create_mod", model: [personaFisicaInstance: personaFisicaInstance, personaJuridicaInstance: personaJuridicaInstance, selected2: "true", selected1: "false"])
@@ -73,10 +79,13 @@ class PersonaController {
         def personaInstance = Persona.get(params.id)
         if (!personaInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'persona.label', default: 'Persona'), params.id])}"
-            redirect(action: "list")
+            
         }
         else {
-            [personaInstance: personaInstance]
+			if(personaInstance.class == PersonaFisica)
+            redirect(controller:"personaFisica", action: "show", id: personaInstance.id)
+			else
+			redirect(controller:"personaJuridica", action: "show", id: personaInstance.id)
         }
     }
 

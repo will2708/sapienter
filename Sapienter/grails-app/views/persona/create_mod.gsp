@@ -82,6 +82,7 @@
 										</td>
 									</tr>
 
+									<div id="noDivorciado">
 									<tr class="prop">
 										<td valign="top" class="name"><label for="pais"><g:message
 													code="personaFisica.pais.label" default="Pais" /> </label>
@@ -140,7 +141,7 @@
 										</td>
 									</tr>
 
-									<tr class="prop">
+									<tr class="prop" id="conyugueTr">
 										<td valign="top" class="name"><label for="conyuge"><g:message
 													code="personaFisica.conyuge.label" default="Conyuge" /> </label>
 										</td>
@@ -218,7 +219,7 @@
 											<g:textField name="fax" value="${personaFisicaInstance?.fax}" />
 										</td>
 									</tr>
-
+									
 									<tr class="prop">
 										<td valign="top" class="name"><label
 											for="informacionTributaria"><g:message
@@ -249,7 +250,7 @@
 		                                    <label for="estadoCivil"><g:message code="personaFisica.estadoCivil.label" default="Estado Civil" /></label>
 		                                </td>
 		                                <td valign="top" class="value ${hasErrors(bean: personaFisicaInstance, field: 'estadoCivil', 'errors')}">
-		                                    <g:select name="estadoCivil" from="${personaFisicaInstance.constraints.estadoCivil.inList}" value="${personaFisicaInstance?.estadoCivil}" valueMessagePrefix="personaFisica.estadoCivil"  />
+		                                    <g:select name="estadoCivil" onChange="estadoCivilChanged();" from="${personaFisicaInstance.constraints.estadoCivil.inList}" value="${personaFisicaInstance?.estadoCivil}" valueMessagePrefix="personaFisica.estadoCivil"  />
 		                                </td>
 		                            </tr>
 
@@ -391,5 +392,6 @@
 				</richui:tabView>
 			</div>
 	</div>
+	<jq:jquery>estadoCivilChanged();</jq:jquery>
 </body>
 </html>

@@ -1,5 +1,6 @@
-
 <%@ page import="sapienter.Persona" %>
+<%@ page import="sapienter.PersonaFisica" %>
+<%@ page import="sapienter.PersonaJuridica" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -23,26 +24,32 @@
                         <tr>
                         
                             <g:sortableColumn property="id" title="${message(code: 'persona.id.label', default: 'Id')}" />
-                        
-                            <th><g:message code="persona.estudio.label" default="Estudio" /></th>
+                            <g:sortableColumn property="Nombre" title="${message(code: 'personaJuridica.razonSocial.label', default: 'Nombre')}" />
                         
                         </tr>
                     </thead>
                     <tbody>
-                    <g:each in="${personaInstanceList}" status="i" var="personaInstance">
+                    <g:each in="${personaFisicaList}" status="i" var="personaFisicaInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
-                            <td><g:link action="show" id="${personaInstance.id}">${fieldValue(bean: personaInstance, field: "id")}</g:link></td>
-                        
-                            <td>${fieldValue(bean: personaInstance, field: "estudio")}</td>
+                            <td><g:link controller= "persona" action="show" id="${personaFisicaInstance.id}">${fieldValue(bean: personaFisicaInstance, field: "id")}</g:link></td>
+                            <td>${fieldValue(bean: personaFisicaInstance, field: "nombre")}</td>
                         
                         </tr>
                     </g:each>
+					<g:each in="${personaJuridicaList}" status="i" var="personaJuridicaInstance">
+					<tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
+					
+						<td><g:link action="show" id="${personaJuridicaInstance.id}">${fieldValue(bean: personaJuridicaInstance, field: "id")}</g:link></td>
+						<td>${fieldValue(bean: personaJuridicaInstance, field: "razonSocial")}</td>
+					
+					</tr>
+				</g:each>
                     </tbody>
                 </table>
             </div>
             <div class="paginateButtons">
-                <g:paginate total="${personaInstanceTotal}" />
+                <g:paginate total="${personaInstanceTotal}" /> 
             </div>
         </div>
     </body>
