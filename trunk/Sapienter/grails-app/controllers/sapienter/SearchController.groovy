@@ -6,7 +6,8 @@ class SearchController {
 			return [:]
 		}
 		try {
-			def searchResult = Post.search(query, params)
+			def searchableService
+			def searchResult = searchableService.search(query, params)
 			return [searchResult: searchResult]
 		} catch (e) {
 			return [searchError: true]
