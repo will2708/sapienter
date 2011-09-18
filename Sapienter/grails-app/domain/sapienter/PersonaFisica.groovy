@@ -3,7 +3,7 @@ package sapienter
 import java.util.Date
 
 class PersonaFisica extends Persona{
-	
+	static searchable = true
 	String apellido
 	String nombre
 	String observaciones
