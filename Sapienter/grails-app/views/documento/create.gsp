@@ -7,6 +7,8 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'documento.label', default: 'Documento')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
+        <g:javascript library="application" /> 
+        <modalbox:modalIncludes />
     </head>
     <body>
         <div class="nav">
@@ -23,7 +25,7 @@
                 <g:renderErrors bean="${documentoInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form action="save"  enctype="multipart/form-data">
+            <g:form action="save" >
                 <div class="dialog">
                     <table>
                         <tbody>
@@ -78,7 +80,13 @@
                                     <label for="contenidoDocumento"><g:message code="documento.contenidoDocumento.label" default="Contenido Documento" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'contenidoDocumento', 'errors')}">
-                                    <input type="file" id="contenidoDocumento" name="contenidoDocumento" />
+                                    <fckeditor:editor 
+                                    	name="contenidoDocumento"
+                                    	width="100%"
+                                    	body="disabled"
+                                    	value="${documentoInstance?.contenidoDocumento}">
+                                     	${documentoInstance?.contenidoDocumento}
+                                     </fckeditor:editor> 
                                 </td>
                             </tr>
                         
@@ -94,6 +102,7 @@
                         </tbody>
                     </table>
                 </div>
+     			<modalbox:createLink controller="modeloDeDocumento" action="listar" title="Modelos de Documentos" width="500">Modelos</modalbox:createLink>
                 <div class="buttons">
                     <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
                 </div>

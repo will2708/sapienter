@@ -3,7 +3,7 @@ package sapienter
 class ModeloDeDocumento {
 	String categoria
 	String descripcion
-	byte[] modeloDeDocumento
+	String modeloDeDocumento
 	String nombre
 	String subCategoria
 	String estado
