@@ -24,7 +24,7 @@
                 <g:renderErrors bean="${documentoInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form method="post"  enctype="multipart/form-data">
+            <g:form method="post" >
                 <g:hiddenField name="id" value="${documentoInstance?.id}" />
                 <g:hiddenField name="version" value="${documentoInstance?.version}" />
                 <div class="dialog">
@@ -81,7 +81,13 @@
                                   <label for="contenidoDocumento"><g:message code="documento.contenidoDocumento.label" default="Contenido Documento" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'contenidoDocumento', 'errors')}">
-                                    <input type="file" id="contenidoDocumento" name="contenidoDocumento" />
+                                   <fckeditor:editor 
+                                    	name="contenidoDocumento"
+                                    	width="100%"
+                                    	body="disabled"
+                                    	value="${documentoInstance?.contenidoDocumento}">
+                                     	${documentoInstance?.contenidoDocumento}
+                                     </fckeditor:editor> 
                                 </td>
                             </tr>
                         

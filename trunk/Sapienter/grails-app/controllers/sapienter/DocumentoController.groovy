@@ -97,4 +97,36 @@ class DocumentoController {
             redirect(action: "list")
         }
     }
+
+	def createDesdeModelo = {
+		def id = params.id
+		def modeloDeDocumentoInstance = ModeloDeDocumento.get(id)
+		Map variables = new HashMap()
+		def str = modeloDeDocumentoInstance.getModeloDeDocumento()
+		def nuevoTexto
+		def nuevaBusqueda
+		def documentoInstance = new Documento()
+			
+		if (str != null){
+			def regex2 = /(::[a-zA-Z0-9'"¿?\s]+::)/
+			def matcher = str =~ regex2
+			def i = 0
+				
+			for (Iterator iterator = matcher.iterator(); iterator
+					.hasNext();) {
+				iterator.next()
+				nuevoTexto = (matcher[i][1]).toString().substring(2,(matcher[i][1]).toString().length()-2)
+				nuevoTexto = params.getAt(nuevoTexto)
+				nuevaBusqueda = matcher[i][0]
+				regex2 = /$nuevaBusqueda/
+				str = str.replaceAll(regex2, nuevoTexto)
+				i++
+			
+			}
+		}
+				
+		documentoInstance.setContenidoDocumento(str)
+		render(view: "create", model: [documentoInstance: documentoInstance])
+	}
+
 }

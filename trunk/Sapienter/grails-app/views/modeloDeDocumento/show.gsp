@@ -1,10 +1,10 @@
 
-<%@ page import="sapienter.Documento" %>
+<%@ page import="sapienter.ModeloDeDocumento" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'documento.label', default: 'Documento')}" />
+        <g:set var="entityName" value="${message(code: 'modeloDeDocumento.label', default: 'ModeloDeDocumento')}" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
     <body>
@@ -23,58 +23,58 @@
                     <tbody>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="documento.id.label" default="Id" /></td>
+                            <td valign="top" class="name"><g:message code="modeloDeDocumento.id.label" default="Id" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: documentoInstance, field: "id")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="documento.nombre.label" default="Nombre" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: documentoInstance, field: "nombre")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: modeloDeDocumentoInstance, field: "id")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="documento.descripcion.label" default="Descripcion" /></td>
+                            <td valign="top" class="name"><g:message code="modeloDeDocumento.nombre.label" default="Nombre" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: documentoInstance, field: "descripcion")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="documento.estado.label" default="Estado" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: documentoInstance, field: "estado")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: modeloDeDocumentoInstance, field: "nombre")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="documento.tipoDeDocumento.label" default="Tipo De Documento" /></td>
+                            <td valign="top" class="name"><g:message code="modeloDeDocumento.descripcion.label" default="Descripcion" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: documentoInstance, field: "tipoDeDocumento")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="documento.usuarioResponsable.label" default="Usuario Responsable" /></td>
-                            
-                            <td valign="top" class="value"><g:link controller="usuario" action="show" id="${documentoInstance?.usuarioResponsable?.id}">${documentoInstance?.usuarioResponsable?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value">${fieldValue(bean: modeloDeDocumentoInstance, field: "descripcion")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="documento.contenidoDocumento.label" default="Contenido Documento" /></td>
+                            <td valign="top" class="name"><g:message code="modeloDeDocumento.categoria.label" default="Categoria" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: documentoInstance, field: "contenidoDocumento")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: modeloDeDocumentoInstance, field: "categoria")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="documento.proceso.label" default="Proceso" /></td>
+                            <td valign="top" class="name"><g:message code="modeloDeDocumento.subCategoria.label" default="Sub Categoria" /></td>
                             
-                            <td valign="top" class="value"><g:link controller="proceso" action="show" id="${documentoInstance?.proceso?.id}">${documentoInstance?.proceso?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value">${fieldValue(bean: modeloDeDocumentoInstance, field: "subCategoria")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="modeloDeDocumento.estado.label" default="Estado" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: modeloDeDocumentoInstance, field: "estado")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="modeloDeDocumento.estudio.label" default="Estudio" /></td>
+                            
+                            <td valign="top" class="value"><g:link controller="estudio" action="show" id="${modeloDeDocumentoInstance?.estudio?.id}">${modeloDeDocumentoInstance?.estudio?.encodeAsHTML()}</g:link></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="modeloDeDocumento.modeloDeDocumento.label" default="Modelo De Documento" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: modeloDeDocumentoInstance, field: "modeloDeDocumento")}</td>
                             
                         </tr>
                     
@@ -83,7 +83,7 @@
             </div>
             <div class="buttons">
                 <g:form>
-                    <g:hiddenField name="id" value="${documentoInstance?.id}" />
+                    <g:hiddenField name="id" value="${modeloDeDocumentoInstance?.id}" />
                     <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
                     <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </g:form>
