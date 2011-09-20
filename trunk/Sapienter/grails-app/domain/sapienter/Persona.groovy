@@ -1,6 +1,7 @@
 package sapienter
 
 class Persona {
+	static searchable = true
 		
     static constraints = {
     }

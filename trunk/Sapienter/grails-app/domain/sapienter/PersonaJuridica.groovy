@@ -1,7 +1,6 @@
 package sapienter
 //TODO: Borrar comentarios
 class PersonaJuridica extends Persona {
-	static searchable = true
 	String auxiliares //
 	String cuit //
 	String email //
