@@ -15,13 +15,13 @@
 			<div class="searchPersona">
 				<div class="searchDe">
 					De
-					<g:link controller="persona" action="${result.persona.personaId}">
-						${result.persona.personaId}
+					<g:link controller="personaJuridica" action="show" id="${result.id}">
+						${result.id}
 					</g:link>
-					...
+
 				</div>
 				<div class="searchContent">
-					${result.content}
+					${result.razonSocial}
 				</div>
 			</div>
 		</g:each>
