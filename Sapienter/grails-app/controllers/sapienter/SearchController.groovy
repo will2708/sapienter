@@ -6,8 +6,7 @@ class SearchController {
 			return [:]
 		}
 		try {
-			def searchableService
-			def searchResult = searchableService.search(query, params)
+			def searchResult = PersonaJuridica.search(query, params)
 			return [searchResult: searchResult]
 		} catch (e) {
 			return [searchError: true]
