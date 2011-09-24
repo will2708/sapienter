@@ -42,7 +42,7 @@
                                     <label for="tipoDeMovimiento"><g:message code="movimiento.tipoDeMovimiento.label" default="Tipo De Movimiento" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: movimientoInstance, field: 'tipoDeMovimiento', 'errors')}">
-                                    <g:textField name="tipoDeMovimiento" value="${movimientoInstance?.tipoDeMovimiento}" />
+                                    <g:select name="tipoDeMovimiento" from="${movimientoInstance.constraints.tipoDeMovimiento.inList}" value="${movimientoInstance?.tipoDeMovimiento}" valueMessagePrefix="movimiento.tipoDeMovimiento"  />
                                 </td>
                             </tr>
                         
@@ -51,7 +51,7 @@
                                     <label for="estado"><g:message code="movimiento.estado.label" default="Estado" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: movimientoInstance, field: 'estado', 'errors')}">
-                                    <g:textField name="estado" value="${movimientoInstance?.estado}" />
+                                    <g:select name="estado" from="${movimientoInstance.constraints.estado.inList}" value="${movimientoInstance?.estado}" valueMessagePrefix="movimiento.estado"  />
                                 </td>
                             </tr>
                         
@@ -69,16 +69,7 @@
                                     <label for="fechaDeCreacion"><g:message code="movimiento.fechaDeCreacion.label" default="Fecha De Creacion" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: movimientoInstance, field: 'fechaDeCreacion', 'errors')}">
-                                    <g:datePicker name="fechaDeCreacion" precision="day" value="${movimientoInstance?.fechaDeCreacion}"  />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="horaDeCreacion"><g:message code="movimiento.horaDeCreacion.label" default="Hora De Creacion" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: movimientoInstance, field: 'horaDeCreacion', 'errors')}">
-                                    <g:textField name="horaDeCreacion" value="${fieldValue(bean: movimientoInstance, field: 'horaDeCreacion')}" />
+                                    <g:datePicker name="fechaDeCreacion" precision="minute" value="${movimientoInstance?.fechaDeCreacion}"  />
                                 </td>
                             </tr>
                         
@@ -87,7 +78,7 @@
                                     <label for="diasDeValidez"><g:message code="movimiento.diasDeValidez.label" default="Dias De Validez" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: movimientoInstance, field: 'diasDeValidez', 'errors')}">
-                                    <g:textField name="diasDeValidez" value="${fieldValue(bean: movimientoInstance, field: 'diasDeValidez')}" />
+                                    <g:select name="diasDeValidez" from="${1..365}" value="${fieldValue(bean: movimientoInstance, field: 'diasDeValidez')}" noSelection="['':'']" />
                                 </td>
                             </tr>
                         
@@ -96,16 +87,7 @@
                                     <label for="fechaDeVencimiento"><g:message code="movimiento.fechaDeVencimiento.label" default="Fecha De Vencimiento" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: movimientoInstance, field: 'fechaDeVencimiento', 'errors')}">
-                                    <g:datePicker name="fechaDeVencimiento" precision="day" value="${movimientoInstance?.fechaDeVencimiento}"  />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="horaDeVencimiento"><g:message code="movimiento.horaDeVencimiento.label" default="Hora De Vencimiento" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: movimientoInstance, field: 'horaDeVencimiento', 'errors')}">
-                                    <g:textField name="horaDeVencimiento" value="${fieldValue(bean: movimientoInstance, field: 'horaDeVencimiento')}" />
+                                    <g:datePicker name="fechaDeVencimiento" precision="minute" value="${movimientoInstance?.fechaDeVencimiento}" default="none" noSelection="['':'']"/>
                                 </td>
                             </tr>
                         

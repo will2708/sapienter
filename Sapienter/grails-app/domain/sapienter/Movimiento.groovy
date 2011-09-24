@@ -7,20 +7,17 @@ class Movimiento {
 	String estado
 	Date fechaDeVencimiento
 	Date fechaDeCreacion
-	Integer horaDeCreacion
-	Integer horaDeVencimiento
 	String tipoDeMovimiento
 
     static constraints = {
 		descripcion(blank:false)
-		tipoDeMovimiento(blank:false)
-		estado(blank:false)
+		tipoDeMovimiento(inList:["Procesal", "Extra-Procesal"],blank:false)
+		estado(inList:["Pendiente","Realizado"],blank:false)
 		comentario(blank:false)
 		fechaDeCreacion(blank:false)
-		horaDeCreacion(blank:false)
-		diasDeValidez(blank:false)
+		diasDeValidez(range:1..365,blank:false)
 		fechaDeVencimiento(blank:false)
-		horaDeVencimiento(blank:false)
+
 	}
 	
 	static belongsTo = [proceso:Proceso]

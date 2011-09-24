@@ -33,7 +33,7 @@
                                     <label for="fechaInicio"><g:message code="tarea.fechaInicio.label" default="Fecha Inicio" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: tareaInstance, field: 'fechaInicio', 'errors')}">
-                                    <g:datePicker name="fechaInicio" precision="minute" value="${tareaInstance?.fechaInicio}"/>
+                                    <g:datePicker name="fechaInicio" precision="minute" value="${tareaInstance?.fechaInicio}" />
                                 </td>
                             </tr>
                         
@@ -42,7 +42,7 @@
                                     <label for="fechaFin"><g:message code="tarea.fechaFin.label" default="Fecha Fin" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: tareaInstance, field: 'fechaFin', 'errors')}">
-                                    <g:datePicker name="fechaFin" precision="minute" value="${tareaInstance?.fechaFin}"/>
+                                    <g:datePicker name="fechaFin" precision="minute" value="${tareaInstance?.fechaFin}" default="none" noSelection="['':'']"/>
                                 </td>
                             </tr>
                         
@@ -51,7 +51,7 @@
                                     <label for="observacion"><g:message code="tarea.observacion.label" default="Observacion" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: tareaInstance, field: 'observacion', 'errors')}">
-                                    <g:textField name="observacion" value="${tareaInstance?.observacion}" />
+                                    <g:textArea name="observacion" value="${tareaInstance?.observacion}" />
                                 </td>
                             </tr>
                         
