@@ -14,9 +14,8 @@ class PersonaFisicaController {
     }
 
     def create = {
-        def personaFisicaInstance = new PersonaFisica()
-        personaFisicaInstance.properties = params
-        return [personaFisicaInstance: personaFisicaInstance]
+		params.put("tipo","Fisica")
+        redirect(controller:"persona", action:"create_mod",params:params)
     }
 
     def save = {
