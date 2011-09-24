@@ -50,27 +50,7 @@
                             
                         </tr>
                     
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.calendario.label" default="Calendario" /></td>
-                            
-                            <td valign="top" class="value"><g:link controller="calendario" action="show" id="${usuarioInstance?.calendario?.id}">${usuarioInstance?.calendario?.encodeAsHTML()}</g:link></td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.comentarios.label" default="Comentarios" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "comentarios")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.contrasena.label" default="Contrasena" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "contrasena")}</td>
-                            
-                        </tr>
-                    
+                  
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.correoElectronico.label" default="Correo Electronico" /></td>
                             

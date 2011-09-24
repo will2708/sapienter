@@ -1,5 +1,7 @@
 package sapienter
 
+import com.sun.istack.internal.Nullable;
+
 class Usuario {
 	String apellido
 	Calendario calendario
@@ -19,10 +21,10 @@ class Usuario {
 		idUsuario(blank:false)
 		nombre(blank:false)
 		apellido(blank:false)
-		calendario(nullable:false)
+		calendario(Nullable:true)
 		comentarios(MaxSize:1000)
 		contrasena(blank:false,password:true)
-		correoElectronico(blank:false,email:true)
+		correoElectronico(Nullable:true)
 		estadoUsuario(inList:["Activo","Inactivo"])
 		dateCreated()
 		lastUpdated()
