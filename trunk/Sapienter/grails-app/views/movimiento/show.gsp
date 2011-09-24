@@ -65,13 +65,6 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="movimiento.horaDeCreacion.label" default="Hora De Creacion" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: movimientoInstance, field: "horaDeCreacion")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="movimiento.diasDeValidez.label" default="Dias De Validez" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: movimientoInstance, field: "diasDeValidez")}</td>
@@ -82,13 +75,6 @@
                             <td valign="top" class="name"><g:message code="movimiento.fechaDeVencimiento.label" default="Fecha De Vencimiento" /></td>
                             
                             <td valign="top" class="value"><g:formatDate date="${movimientoInstance?.fechaDeVencimiento}" /></td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="movimiento.horaDeVencimiento.label" default="Hora De Vencimiento" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: movimientoInstance, field: "horaDeVencimiento")}</td>
                             
                         </tr>
                     

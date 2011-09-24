@@ -30,7 +30,7 @@
 										displayField="observacion" 
 										teaser="true" 
 										teaserLength="20" 
-										action="show" />
+										action="showItem" />
 
             </div>
             <div class="buttons">

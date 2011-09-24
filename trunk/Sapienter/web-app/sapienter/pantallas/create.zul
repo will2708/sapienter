@@ -11,23 +11,23 @@
 <window title="" border="normal">
 
 	 <menubar width="100%" autodrop="true">
-	 	<menuitem label="" image="../../images/email_envelope.png"/>
-	 	<menuitem label="" image="" />
-		<menuitem label="Persona" />
-		<menuitem label="Proceso" />
+	 	<menuitem label="" image="../../images/email_envelope.png" />
+	 	<menuitem label="" image="" href="http://localhost:8080/Sapienter/calendario/show/1"/>
+		<menuitem label="Persona" href="http://localhost:8080/Sapienter/persona/list"/>
+		<menuitem label="Proceso" href="http://localhost:8080/Sapienter/proceso/list"/>
 		<menu label="Documentación Legal">
 			<menupopup>
-				<menuitem label="Jurisprudencia" />
-				<menuitem label="Enlances Utiles" />
-				<menuitem label="Modelos de Documentos"/>
+				<menuitem label="Jurisprudencia" href="http://localhost:8080/Sapienter/jurisprudencia/list"/>
+				<menuitem label="Enlances Utiles" href="http://localhost:8080/Sapienter/enlaceUtil/list"/>
+				<menuitem label="Modelos de Documentos" href="http://localhost:8080/Sapienter/modeloDeDocumento/list"/>
 			</menupopup>
 		</menu>
 		<menuitem label="Reportes"/>
 		<menu label="Administrar">
 			<menupopup>
-				<menuitem label="Usuarios"/>
+				<menuitem label="Usuarios" href="http://localhost:8080/Sapienter/usuario/list"/>
 				<menuitem label="Roles"/>
-				<menuitem label="Estudio"/>
+				<menuitem label="Estudio" href="http://localhost:8080/Sapienter/estudio/list"/>
 			</menupopup>
 		</menu>
 	</menubar>

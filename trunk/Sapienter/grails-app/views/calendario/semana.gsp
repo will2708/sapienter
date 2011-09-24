@@ -30,7 +30,7 @@
 										displayField="observacion"  
 										teaser="false" 
 										teaserLength="20" 
-										action="show" 
+										action="showItem" 
 										dayAction="showItem" />
             
             </div>
