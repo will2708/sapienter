@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?page zscriptLanguage="GroovyGrails"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+  
+<window title="" border="normal">
+
+	 <menubar width="100%" autodrop="true">
+	 	<menuitem label="" image="../../images/skin/house.png" tooltiptext="Home" href="http://localhost:8080/Sapienter/pantallas/list2.gsp"/>
+	 	<menuitem label="" image="../../images/email_envelope.png" tooltiptext="Correo Electrónico"/>
+	 	<menuitem label="" image="" tooltiptext="Agenda"/>
+		<menuitem label="Persona" href="http://localhost:8080/Sapienter/pantallas/persona.gsp" tooltiptext="Gestionar Personas"/>
+		<menuitem label="Proceso" href="http://localhost:8080/Sapienter/pantallas/lprocesos2.gsp" tooltiptext="Gestionar Procesos"/>
+		<menu label="Documentación Legal">
+			<menupopup>
+				<menuitem label="Jurisprudencia" />
+				<menuitem label="Enlances Utiles" />
+				<menuitem label="Modelos de Documentos"/>
+			</menupopup>
+		</menu>
+		<menuitem label="Reportes" tooltiptext="Generar Reportes"/>
+		<menu label="Administrar">
+			<menupopup>
+				<menuitem label="Usuarios"/>
+				<menuitem label="Roles"/>
+				<menuitem label="Estudio"/>
+			</menupopup>
+		</menu>
+	</menubar>
+
+</window>
+
+<hbox widths="50%">
+	<listbox checkmark="true">
+    	<listhead sizable="true">
+        	<listheader label="Caratula" sort="auto"/>
+        	<listheader label="Categoría" sort="auto"/>
+            <listheader label="Descripción" sort="auto"/>
+            <listheader label="Estado" sort="auto"/>
+        </listhead>
+		<listitem>
+			<listcell label="Cohen Vs. Rossi" />
+			<listcell label="Mediación" />
+			<listcell label="Cohen usurpó tierras de Rossi" />
+			<listcell label= "Ganado"/>
+		</listitem>
+		<listitem>
+			<listcell label="La momia Vs. Caradagian" />
+			<listcell label="Jucio" />
+			<listcell label="Golpe de puño cerrado" />
+			<listcell label= "Ganado"/>
+		</listitem>
+		<listitem>
+			<listcell label="Messi Vs. C. Ronaldo" />
+			<listcell label="Juicio" />
+			<listcell label="Mejor Jugador de fútbol" />
+			<listcell label= "Ganado"/>
+		</listitem>
+		<listitem>
+			<listcell label="Alf Vs. Suertudo" />
+			<listcell label="Juicio" />
+			<listcell label="Intento de homicidio" />
+			<listcell label= "Ganado"/>
+		</listitem>						
+	</listbox>
+</hbox>
+	<menubar orient="horizontal" width="25%">
+		<menuitem label="Nuevo" />
+		<menuitem label="Detalles" />
+		<menuitem label="Editar" />
+		<menuitem label="Documentos Asociados" href="http://localhost:8080/Sapienter/pantallas/listaDocumentos.gsp"/>
+	</menubar>	
+</zk>
