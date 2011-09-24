@@ -1,11 +1,11 @@
 
 
-<%@ page import="sapienter.Calendario" %>
+<%@ page import="sapienter.Tarea" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'calendario.label', default: 'Calendario')}" />
+        <g:set var="entityName" value="${message(code: 'tarea.label', default: 'Tarea')}" />
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
     </head>
     <body>
@@ -19,40 +19,51 @@
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
-            <g:hasErrors bean="${calendarioInstance}">
+            <g:hasErrors bean="${tareaInstance}">
             <div class="errors">
-                <g:renderErrors bean="${calendarioInstance}" as="list" />
+                <g:renderErrors bean="${tareaInstance}" as="list" />
             </div>
             </g:hasErrors>
             <g:form method="post" >
-                <g:hiddenField name="id" value="${calendarioInstance?.id}" />
-                <g:hiddenField name="version" value="${calendarioInstance?.version}" />
+                <g:hiddenField name="id" value="${tareaInstance?.id}" />
+                <g:hiddenField name="version" value="${tareaInstance?.version}" />
                 <div class="dialog">
                     <table>
                         <tbody>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="tareas"><g:message code="calendario.tareas.label" default="Tareas" /></label>
+                                  <label for="fechaInicio"><g:message code="tarea.fechaInicio.label" default="Fecha Inicio" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: calendarioInstance, field: 'tareas', 'errors')}">
+                                <td valign="top" class="value ${hasErrors(bean: tareaInstance, field: 'fechaInicio', 'errors')}">
                                     
-<ul>
-<g:each in="${calendarioInstance?.tareas?}" var="t">
-    <li><g:link controller="tarea" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></li>
-</g:each>
-</ul>
-<g:link controller="tarea" action="create" params="['calendario.id': calendarioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'tarea.label', default: 'Tarea')])}</g:link>
-
                                 </td>
                             </tr>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="usuario"><g:message code="calendario.usuario.label" default="Usuario" /></label>
+                                  <label for="fechaFin"><g:message code="tarea.fechaFin.label" default="Fecha Fin" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: calendarioInstance, field: 'usuario', 'errors')}">
-                                    <g:select name="usuario.id" from="${sapienter.Usuario.list()}" optionKey="id" value="${calendarioInstance?.usuario?.id}"  />
+                                <td valign="top" class="value ${hasErrors(bean: tareaInstance, field: 'fechaFin', 'errors')}">
+                                    
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="observacion"><g:message code="tarea.observacion.label" default="Observacion" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: tareaInstance, field: 'observacion', 'errors')}">
+                                    <g:textField name="observacion" value="${tareaInstance?.observacion}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="calendario"><g:message code="tarea.calendario.label" default="Calendario" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: tareaInstance, field: 'calendario', 'errors')}">
+                                    <g:select name="calendario.id" from="${sapienter.Calendario.list()}" optionKey="id" value="${tareaInstance?.calendario?.id}"  />
                                 </td>
                             </tr>
                         
