@@ -16,7 +16,11 @@ class Usuario {
 	String telefono
 	Usuario usuarioCreacion
 	Usuario usuarioModificacion
-	
+
+	String toString(){
+		apellido + ', ' + nombre
+	}
+		
 	static constraints = {
 		idUsuario(blank:false)
 		nombre(blank:false)

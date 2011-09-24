@@ -24,12 +24,6 @@
                         
                             <g:sortableColumn property="id" title="${message(code: 'calendario.id.label', default: 'Id')}" />
                         
-                            <g:sortableColumn property="descripcion" title="${message(code: 'calendario.descripcion.label', default: 'Descripcion')}" />
-                        
-                            <g:sortableColumn property="tipoDeTareas" title="${message(code: 'calendario.tipoDeTareas.label', default: 'Tipo De Tareas')}" />
-                        
-                            <th><g:message code="calendario.usuarioResponsable.label" default="Usuario Responsable" /></th>
-                        
                             <th><g:message code="calendario.usuario.label" default="Usuario" /></th>
                         
                         </tr>
@@ -39,12 +33,6 @@
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
                             <td><g:link action="show" id="${calendarioInstance.id}">${fieldValue(bean: calendarioInstance, field: "id")}</g:link></td>
-                        
-                            <td>${fieldValue(bean: calendarioInstance, field: "descripcion")}</td>
-                        
-                            <td>${fieldValue(bean: calendarioInstance, field: "tipoDeTareas")}</td>
-                        
-                            <td>${fieldValue(bean: calendarioInstance, field: "usuarioResponsable")}</td>
                         
                             <td>${fieldValue(bean: calendarioInstance, field: "usuario")}</td>
                         

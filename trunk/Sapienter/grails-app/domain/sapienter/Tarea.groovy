@@ -1,16 +1,20 @@
 package sapienter
 
 class Tarea {
-	Date fecha
+	Date fechaInicio
+	Date fechaFin
 	String observacion
 
-    static constraints = {
-		fecha(blank:false)
-		observacion(blank:false)
+	String toString(){
+		observacion
 	}
 	
-	static belongsTo = [calendario:Calendario]
-	static mapping = {
-		sort fecha:"desc"
+    static constraints = {
+		fechaInicio(blank:false)
+		fechaFin(blank:false)
+		observacion(blank:false)
 	}
+
+	static belongsTo = [calendario:Calendario]
+
 }

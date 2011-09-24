@@ -23,7 +23,13 @@ class UsuarioController {
         def usuarioInstance = new Usuario(params)
         if (usuarioInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'usuario.label', default: 'Usuario'), usuarioInstance.id])}"
-            redirect(action: "show", id: usuarioInstance.id)
+			
+			def calendario =new Calendario()
+			calendario.setProperty("usuario", usuarioInstance)
+			calendario.save()
+			usuarioInstance.calendario = calendario  
+			usuarioInstance.save()
+			redirect(action: "show", id: usuarioInstance.id)
         }
         else {
             render(view: "create", model: [usuarioInstance: usuarioInstance])

@@ -1,5 +1,7 @@
 package sapienter
 
+import java.util.Date
+
 class CalendarioController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -37,7 +39,9 @@ class CalendarioController {
             redirect(action: "list")
         }
         else {
-            [calendarioInstance: calendarioInstance]
+			def month = new java.util.Date()
+			def appointments = Tarea.list()
+		    [calendarioInstance: calendarioInstance, appointments: appointments, month: month]
         }
     }
 
@@ -97,4 +101,44 @@ class CalendarioController {
             redirect(action: "list")
         }
     }
+
+	def month = {
+		Date month = new Date()
+		def appointments = Tarea.list()
+		[appointments: appointments, month: month]
+    }
+
+	def dia = {
+		def anio = new Integer(params.year)
+		def mes = new Integer(params.month)
+		def dia = new Integer(params.day)
+
+		mes = mes - 1
+		
+		Calendar calendar = new GregorianCalendar()
+		calendar.set(GregorianCalendar.YEAR, anio)
+		calendar.set(GregorianCalendar.MONTH, mes)
+		calendar.set(GregorianCalendar.DAY_OF_MONTH, dia)
+		def fecha = calendar.getTime()
+						
+		def appointments = Tarea.list()
+		[fecha:fecha, appointments: appointments]
+	}
+
+	def semana = {
+		def anio = new Integer(params.year)
+	
+		Calendar calendar = new GregorianCalendar()
+		calendar.set(GregorianCalendar.YEAR, anio)
+		calendar.set(GregorianCalendar.DAY_OF_WEEK, GregorianCalendar.MONDAY)
+		calendar.set(GregorianCalendar.WEEK_OF_YEAR, new Integer(params.week))
+		def fecha = calendar.getTime();
+		
+		def appointments = Tarea.list()
+		[fecha:fecha, appointments: appointments]
+	}
+			
+	def showItem = {
+		redirect(controller:"tarea" ,action:"show", params:params)
+	}		
 }
