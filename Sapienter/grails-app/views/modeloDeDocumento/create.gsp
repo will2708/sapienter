@@ -81,7 +81,13 @@
                                     <g:select name="estudio.id" from="${sapienter.Estudio.list()}" optionKey="id" value="${modeloDeDocumentoInstance?.estudio?.id}"  />
                                 </td>
                             </tr>
-                        
+
+                            <tr class="descripcion">
+                                <td valign="top" class="name" colspan="2">
+                                    <label>Ingrese las variables con el formato ::Descripcion:: </label>
+                                </td>
+                            </tr>
+                                                    
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="modeloDeDocumento"><g:message code="modeloDeDocumento.modeloDeDocumento.label" default="Modelo De Documento" /></label>

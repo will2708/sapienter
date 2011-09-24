@@ -234,6 +234,13 @@ th.desc a {
     width: 85%;
 }
 
+.descripcion .name {
+    text-align: left;
+    width: 15%;
+    white-space: nowrap;
+    font-style: italic;
+}
+
 /* ACTION BUTTONS */
 
 .buttons {
