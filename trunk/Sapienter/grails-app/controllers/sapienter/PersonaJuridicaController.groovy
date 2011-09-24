@@ -14,9 +14,8 @@ class PersonaJuridicaController {
     }
 
     def create = {
-        def personaJuridicaInstance = new PersonaJuridica()
-        personaJuridicaInstance.properties = params
-        return [personaJuridicaInstance: personaJuridicaInstance]
+	  params.put("tipo","Juridica")
+      redirect(controller:"persona", action:"create_mod", params:params)
     }
 
     def save = {
