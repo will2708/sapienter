@@ -12,7 +12,7 @@
             <div class="message">${flash.message}</div>
             </g:if>
         <z:body zul="/sapienter/pantallas/test.zul"/>	
-            
+   
         </div>
     </body>
 </html>

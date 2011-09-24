@@ -63,7 +63,7 @@
                                   <label for="calendario"><g:message code="usuario.calendario.label" default="Calendario" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'calendario', 'errors')}">
-                                    <g:select name="calendario.id" from="${sapienter.Calendario.list()}" optionKey="id" value="${usuarioInstance?.calendario?.id}"  />
+                                    <g:select name="calendario.id" from="${sapienter.Calendario.list()}" optionKey="id" value="${usuarioInstance?.calendario?.id}" noSelection="['null': '']" />
                                 </td>
                             </tr>
                         
@@ -90,7 +90,7 @@
                                   <label for="correoElectronico"><g:message code="usuario.correoElectronico.label" default="Correo Electronico" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'correoElectronico', 'errors')}">
-                                    <g:select name="correoElectronico.id" from="${sapienter.CorreoElectronico.list()}" optionKey="id" value="${usuarioInstance?.correoElectronico?.id}"  />
+                                    <g:select name="correoElectronico.id" from="${sapienter.CorreoElectronico.list()}" optionKey="id" value="${usuarioInstance?.correoElectronico?.id}" noSelection="['null': '']" />
                                 </td>
                             </tr>
                         
