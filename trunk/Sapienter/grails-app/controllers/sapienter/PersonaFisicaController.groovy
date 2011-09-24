@@ -89,4 +89,9 @@ class PersonaFisicaController {
             redirect(action: "list")
         }
     }
+	def crearProceso = {		
+		def parametros = new HashMap()
+		parametros.put("personaId", params.id)
+		redirect(controller:"proceso", action:"create", params:parametros)
+	}
 }
