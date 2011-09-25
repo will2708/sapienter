@@ -1,5 +1,7 @@
 package sapienter
 
+import java.util.concurrent.ConcurrentHashMap.HashEntry;
+
 class TareaController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -16,11 +18,21 @@ class TareaController {
     def create = {
         def tareaInstance = new Tarea()
         tareaInstance.properties = params
+
+		Calendar calendar = new GregorianCalendar();
+		def fecha = new Date()
+		tareaInstance.fechaInicio = fecha
+		
+		calendar.setTime(fecha);
+	    calendar.add(Calendar.MINUTE, +15)
+		
+		tareaInstance.fechaFin = calendar.getTime()
+		
         return [tareaInstance: tareaInstance]
     }
-
+	
     def save = {
-        def tareaInstance = new Tarea(params)
+		def tareaInstance = new Tarea(params)
         if (tareaInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'tarea.label', default: 'Tarea'), tareaInstance.id])}"
             redirect(action: "show", id: tareaInstance.id)
@@ -97,4 +109,11 @@ class TareaController {
             redirect(action: "list")
         }
     }
+	def calendario = {
+		def mapa = params
+		def tareaInstance = Tarea.get(params.id)
+		def parametros = new HashMap()
+		parametros.put("id", tareaInstance.calendario.id)
+		redirect(controller:"calendario", action:"show", params:parametros)
+	}
 }
