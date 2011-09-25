@@ -20,9 +20,8 @@ function categoriaChanged() {
 		"De Resolucion" : "De resolución",
 		"Impugnitiva" : "Impugnitiva",
 	};
-	
-	var $el = $("#etapaProcesal");
 
+	var $el = $("#etapaProcesal");
 
 	// Declaro variable en caso de que sea judicial
 	// Linkeo el combo-box con una variable
@@ -34,13 +33,11 @@ function categoriaChanged() {
 	} else {
 		$el.empty(); // saca las opciones anteriores
 		$.each(newOptions, function(key, value) {
-			$el.append(
-					$("<option></option>").attr("value", value).text(key));
+			$el.append($("<option></option>").attr("value", value).text(key));
 		});
 
 	}
-
-	function diasChanged() {
-		alert('hola');
-	} 
+}
+function diasChanged() {
+	alert('hola');
 }
