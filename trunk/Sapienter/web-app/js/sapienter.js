@@ -21,7 +21,7 @@ function categoriaChanged() {
 		"Impugnitiva" : "Impugnitiva",
 	};
 	
-	var $el = $("#selectId");
+	var $el = $("#etapaProcesal");
 
 
 	// Declaro variable en caso de que sea judicial
@@ -30,11 +30,11 @@ function categoriaChanged() {
 	if ($("#categoria").val() == 'Extra-Judicial') {
 		var option = $('<option></option>').attr("Extra-Judicial",
 				"Extra-Judicial").text("Extra-Judicial");
-		$('#etapaProcesal').empty().append(option);
+		$el.empty().append(option);
 	} else {
 		$el.empty(); // saca las opciones anteriores
 		$.each(newOptions, function(key, value) {
-			$('#etapaProcesal').append(
+			$el.append(
 					$("<option></option>").attr("value", value).text(key));
 		});
 
