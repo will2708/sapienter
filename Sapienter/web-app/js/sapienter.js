@@ -39,5 +39,11 @@ function categoriaChanged() {
 	}
 }
 function diasChanged() {
-	alert('hola');
+
+	var $ini = $("#fechaDeCreacion");	
+	if ($("#diasDeValidez").val() != '') {
+		alert($("#diasDeValidez").val());
+
+		alert($("#fechaDeCreacion").val());
+	}
 }
