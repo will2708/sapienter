@@ -39,4 +39,8 @@ function categoriaChanged() {
 		});
 
 	}
+
+	function diasChanged() {
+		alert('hola');
+	} 
 }

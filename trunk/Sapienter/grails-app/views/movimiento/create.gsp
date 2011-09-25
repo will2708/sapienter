@@ -14,6 +14,7 @@
             <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
+        	<g:javascript library="jquery" plugin="jquery" />
             <h1><g:message code="default.create.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
@@ -78,7 +79,12 @@
                                     <label for="diasDeValidez"><g:message code="movimiento.diasDeValidez.label" default="Dias De Validez" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: movimientoInstance, field: 'diasDeValidez', 'errors')}">
-                                    <g:select name="diasDeValidez" from="${1..365}" value="${fieldValue(bean: movimientoInstance, field: 'diasDeValidez')}" noSelection="['':'']" />
+                                    <g:select name="diasDeValidez" 
+                                    		  from="${1..365}" 
+                                    		  value="${fieldValue(bean: movimientoInstance, field: 'diasDeValidez')}" 
+                                    		  noSelection="['':'']"
+                                    		  valueMessagePrefix="movimiento.diasDeValidez" 
+                                    		  onChange="diasChanged()" />
                                 </td>
                             </tr>
                         
@@ -108,5 +114,6 @@
                 </div>
             </g:form>
         </div>
+		<jq:jquery>diasChanged();</jq:jquery>
     </body>
 </html>
