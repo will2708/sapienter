@@ -24,9 +24,7 @@ class Proceso {
 		caratula(nullable:true)
 		descripcion(nullable:true)
 		estado(inlist:['Abierto a pruebas', 'Demanda en preparación', 'Cerró período de apertura de pruebas', 'En tratamiento', 'Cerrado', 'A sentencia', 'A apelar'])
-//		extrajudicial (inList: ['En mediación'])
-		//solo judicial//
-		etapaProcesal(inlist:['Postulatoria', 'Probatoria', 'Conclusiva', 'De Resolución', 'Impugnativa'])
+		etapaProcesal(inlist:['Postulatoria', 'Probatoria', 'Conclusiva', 'De Resolución', 'Impugnativa','Extra-Judicial'])
 		juzgado(nullable:true)
 		numeroDeJuzgado(nullable:true)
 		numeroDeProcesoEnJuzgado(nullable:true)
