@@ -56,12 +56,9 @@
                             </tr>
                         
                             <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="calendario"><g:message code="tarea.calendario.label" default="Calendario" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: tareaInstance, field: 'calendario', 'errors')}">
-                                    <g:select name="calendario.id" from="${sapienter.Calendario.list()}" optionKey="id" value="${tareaInstance?.calendario?.id}"  />
-                                </td>
+                            	<td valign="top" class="name" colspan="2">
+                            		<g:hiddenField name="calendario.id" value="${tareaInstance?.calendario?.id} "/>
+                            	</td>
                             </tr>
                         
                         </tbody>

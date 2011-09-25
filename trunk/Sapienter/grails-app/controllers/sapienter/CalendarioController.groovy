@@ -141,4 +141,11 @@ class CalendarioController {
 	def showItem = {
 		redirect(controller:"tarea" ,action:"show", params:params)
 	}		
+
+	def nuevaTarea = {
+		def mapa = params
+		def parametros = new HashMap()
+		parametros.put("calendario.id", params.id)
+		redirect(controller:"tarea" ,action:"create", params:parametros)
+	}	
 }
