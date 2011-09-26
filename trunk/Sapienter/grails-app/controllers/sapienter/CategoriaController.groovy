@@ -102,6 +102,6 @@ class CategoriaController {
 	}
 	def ajaxGetSubcategorias = {
 		def categoria = Categoria.get(params.id)
-		render ?.categoria as JSON
+		render categoria?.subCategorias as JSON
 	}
 }

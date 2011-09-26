@@ -47,38 +47,3 @@ function diasChanged() {
 		alert($("#fechaDeCreacion").val());
 	}
 }
-
-function updateSubcategorias(e) { 
-    var subTipoCategorias = eval("(" + e.responseText + ")")
-    if (subTipoCategorias) { 
-    	var rselect = document.getElementById('subcategoria')
-
-    	// Clear all previous options
-    	var l = rselect.length
-
-    	while (l > 0) { 
-    		l--; 
-    		rselect.remove(l); 
-    	}
-
-    	// Rebuild the select
-    	for (var i=0; i < subTipoCategorias.length; i++) { 
-    		var subcategoria = subTipoCategorias[i];
-    		var opt = document.createElement('option'); 
-    		opt.text = subcategoria.subTipoCategoria;
-    		opt.value = subcategoria.id;
-    		try { 
-    			rselect.add(opt, null); // standard compliant; doesn't work in IE
-    		}
-    		catch(ex) { 
-    			rselect.add(opt); // IE only
-    		}
-    	}
-    }
-}
-
-
-// This is called when the page loads to initialize city
-var zselect = document.getElementById('categoria.nombreCategoria');
-var zopt = zselect.options[zselect.selectedIndex];
-${remoteFunction(controller:"categoria", action:"ajaxGetSubcategorias", params:"'id=' + zopt.value", onComplete:"updateSubcategorias(e)")}
