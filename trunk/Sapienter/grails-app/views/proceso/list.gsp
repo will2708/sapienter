@@ -24,9 +24,9 @@
                         
                             <g:sortableColumn property="id" title="${message(code: 'proceso.id.label', default: 'Id')}" />
                         
-                            <g:sortableColumn property="categoria" title="${message(code: 'proceso.categoria.label', default: 'Categoria')}" />
+                            <th><g:message code="proceso.categoria.label" default="Categoria" /></th>
                         
-                            <g:sortableColumn property="subCategoria" title="${message(code: 'proceso.subCategoria.label', default: 'Sub Categoria')}" />
+                            <th><g:message code="proceso.subCategoria.label" default="Sub Categoria" /></th>
                         
                             <g:sortableColumn property="caratula" title="${message(code: 'proceso.caratula.label', default: 'Caratula')}" />
                         

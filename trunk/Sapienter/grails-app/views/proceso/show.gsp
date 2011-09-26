@@ -32,14 +32,14 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="proceso.categoria.label" default="Categoria" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: procesoInstance, field: "categoria")}</td>
+                            <td valign="top" class="value"><g:link controller="categoria" action="show" id="${procesoInstance?.categoria?.id}">${procesoInstance?.categoria?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="proceso.subCategoria.label" default="Sub Categoria" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: procesoInstance, field: "subCategoria")}</td>
+                            <td valign="top" class="value"><g:link controller="subcategoria" action="show" id="${procesoInstance?.subCategoria?.id}">${procesoInstance?.subCategoria?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
