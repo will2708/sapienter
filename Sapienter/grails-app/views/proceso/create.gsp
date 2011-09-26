@@ -67,7 +67,6 @@
 							</label></td>
 							<td valign="top"
 								class="value ${hasErrors(bean: procesoInstance, field: 'subCategoria', 'errors')}">
-								<%--                                    <g:select name="subCategoria.id" from="${sapienter.Subcategoria.list()}" optionKey="id" value="${procesoInstance?.subCategoria?.id}" noSelection="['null': '']" />--%>
 								<g:select name="subCategoria" id="subTipoCategoria"></g:select>
 							</td>
 						</tr>
@@ -216,11 +215,6 @@
 			</div>
 		</g:form>
 								<g:javascript>
-									// This is called when the page loads to initialize
-									var zselect = document.getElementById('categoria.nombreCategoria');
-									var zopt = zselect.options[zselect.selectedIndex];
-									${remoteFunction(controller:"categoria", action:"ajaxGetSubcategorias", params:"'id=' + zopt.value", onComplete:"updateSubcategorias(e)")}								
-
 									function updateSubcategorias(e) { 
 									    var subTipoCategorias = eval("(" + e.responseText + ")")
 									    if (subTipoCategorias) { 
