@@ -7,6 +7,7 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'proceso.label', default: 'Proceso')}" />
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
+        <g:javascript library="prototype" />
     </head>
     <body>
         <div class="nav">
@@ -36,7 +37,16 @@
                                   <label for="categoria"><g:message code="proceso.categoria.label" default="Categoria" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: procesoInstance, field: 'categoria', 'errors')}">
-                                    <g:select name="categoria.id" from="${sapienter.Categoria.list()}" optionKey="id" value="${procesoInstance?.categoria?.id}"  />
+                                   <g:select optionKey="id"
+									    optionValue="nombreCategoria" 
+								    		   name="categoria.id"
+										      from="${sapienter.Categoria.list()}"
+										      noSelection="${[' ':'Seleccione Categoria']}" 
+										  onchange="${remoteFunction(controller:'categoria', 
+										  							 action:'ajaxGetSubcategorias',
+							           								 params:'\'id=\' + escape(this.value)',
+							        								 onComplete:'updateSubcategorias(e)')}"
+							     ></g:select>
                                 </td>
                             </tr>
                         
@@ -45,7 +55,8 @@
                                   <label for="subCategoria"><g:message code="proceso.subCategoria.label" default="Sub Categoria" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: procesoInstance, field: 'subCategoria', 'errors')}">
-                                    <g:select name="subCategoria.id" from="${sapienter.Subcategoria.list()}" optionKey="id" value="${procesoInstance?.subCategoria?.id}" noSelection="['null': '']" />
+<%--                                    <g:select name="subCategoria.id" from="${sapienter.Subcategoria.list()}" optionKey="id" value="${procesoInstance?.subCategoria?.id}" noSelection="['null': '']" /> --%>
+										<g:select name="subCategoria" id="subTipoCategoria"></g:select>
                                 </td>
                             </tr>
                         
@@ -238,6 +249,41 @@
                     <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </div>
             </g:form>
+      								<g:javascript>
+									// This is called when the page loads to initialize
+									var zselect = document.getElementById('categoria.nombreCategoria');
+									var zopt = zselect.options[zselect.selectedIndex];
+									${remoteFunction(controller:"categoria", action:"ajaxGetSubcategorias", params:"'id=' + zopt.value", onComplete:"updateSubcategorias(e)")}								
+
+									function updateSubcategorias(e) { 
+									    var subTipoCategorias = eval("(" + e.responseText + ")")
+									    if (subTipoCategorias) { 
+									    	var rselect = document.getElementById('subTipoCategoria')
+									
+									    	// Clear all previous options
+									    	var l = rselect.length
+									
+									    	while (l > 0) { 
+									    		l--; 
+									    		rselect.remove(l); 
+									    	}
+									
+									    	// Rebuild the select
+									    	for (var i=0; i < subTipoCategorias.length; i++) { 
+									    		var subCategoria = subTipoCategorias[i];
+									    		var opt = document.createElement('option'); 
+									    		opt.text = subCategoria.subTipoCategoria;
+									    		opt.value = subCategoria.id;
+									    		try { 
+									    			rselect.add(opt, null); // standard compliant; doesn't work in IE
+									    		}
+									    		catch(ex) { 
+									    			rselect.add(opt); // IE only
+									    		}
+									    	}
+									    }
+									}
+								</g:javascript>	
         </div>
     </body>
 </html>

@@ -19,8 +19,8 @@ class Proceso {
 	
 
     static constraints = {
-		categoria(inList: ['Judicial', 'Extra-Judicial'])
-		subCategoria (inList:['consultas','acciones','cobros', 'consignaciones', 'convocatorias', 'cumplimientos', 'fraudes', 'daños y perjuicios', 'denuncias', 'divorcio', 'expropiación', 'homicidios', 'hurtos', 'guarda', 'juicios', 'mediaciones', 'nulidades','prescripciones', 'quiebras', 'privaciones', 'tenencia de hijos', 'tutelas', 'usurpación', 'ventas', 'victimas', 'violación'])
+		categoria(blank:false)
+		subCategoria (blank:false)
 		caratula(nullable:true)
 		descripcion(nullable:true)
 		estado(inlist:['Abierto a pruebas', 'Demanda en preparación', 'Cerró período de apertura de pruebas', 'En tratamiento', 'Cerrado', 'A sentencia', 'A apelar'])

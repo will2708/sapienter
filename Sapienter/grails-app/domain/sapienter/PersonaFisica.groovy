@@ -22,7 +22,9 @@ class PersonaFisica extends Persona{
 	String profesion
 	String informacionTributaria
 	String auxiliar
-	
+	String toString(){
+		apellido + ', ' + nombre
+	}
 			
 	static constraints = {
 		apellido (blank:false, matches:"[A-ZÑÁÉÍÓÚa-zñáéíóú]+(([ '-][A-ZÑÁÉÍÓÚa-zñáéíóú]+)*)")

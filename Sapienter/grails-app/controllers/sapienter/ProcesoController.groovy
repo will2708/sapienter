@@ -15,6 +15,8 @@ class ProcesoController {
 
     def create = {
         def procesoInstance = new Proceso()
+		def persona = Persona.findById(params["personaId"])
+		procesoInstance.putAt("persona", persona)
         procesoInstance.properties = params
         return [procesoInstance: procesoInstance]
     }
