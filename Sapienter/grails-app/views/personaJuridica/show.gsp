@@ -156,11 +156,16 @@
 						<td valign="top" class="name"><g:message
 								code="personaJuridica.proceso.label" default="Proceso" />
 						</td>
-
-						<td valign="top" class="value"><g:link controller="proceso"
-								action="show" id="${personaJuridicaInstance?.proceso?.id}">
-								${personaJuridicaInstance?.proceso?.encodeAsHTML()}
-							</g:link>
+						<td valign="top" style="text-align: left;" class="value">
+							<ul>
+								<g:each in="${personaJuridicaInstance.proceso}" var="p">
+									<li><g:link controller="proceso" action="show"
+											id="${p.id}">
+											${p?.encodeAsHTML()}
+										</g:link>
+									</li>
+								</g:each>
+							</ul>
 						</td>
 
 					</tr>

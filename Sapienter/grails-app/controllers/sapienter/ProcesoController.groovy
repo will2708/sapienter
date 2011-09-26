@@ -26,6 +26,7 @@ class ProcesoController {
 		params.remove("subCategoria")
 		params.put("subCategoria", sub)
 		def procesoInstance = new Proceso(params)
+		def mapa = params
         if (procesoInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'proceso.label', default: 'Proceso'), procesoInstance.id])}"
             redirect(action: "show", id: procesoInstance.id)
