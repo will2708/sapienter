@@ -8,6 +8,7 @@
         <g:set var="entityName" value="${message(code: 'movimiento.label', default: 'Movimiento')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
 		<calendar:resources lang="es" theme="system"/>
+		<g:javascript library="jquery" plugin="jquery" />
     </head>
     <body>
         <div class="nav">
@@ -87,7 +88,10 @@
                                     <g:select name="diasDeValidez" 
                                     		  from="${1..365}" 
                                     		  value="${fieldValue(bean: movimientoInstance, field: 'diasDeValidez')}" 
-                                    		  noSelection="['':'']"/>
+                                    		  noSelection="['':'']"
+                                    		  valueMessagePrefix="movimiento.diasDeValidez" 
+                                    		  onChange="diasChanged()" />
+                                    		  
                                 </td>
                             </tr>
                         
@@ -120,6 +124,6 @@
                 </div>
             </g:form>
         </div>
-
+		<jq:jquery>diasChanged();</jq:jquery>
     </body>
 </html>
