@@ -22,7 +22,10 @@ class ProcesoController {
     }
 
     def save = {
-        def procesoInstance = new Proceso(params)
+		def sub = Subcategoria.get(params.subCategoria)
+		params.remove("subCategoria")
+		params.put("subCategoria", sub)
+		def procesoInstance = new Proceso(params)
         if (procesoInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'proceso.label', default: 'Proceso'), procesoInstance.id])}"
             redirect(action: "show", id: procesoInstance.id)
