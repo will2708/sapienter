@@ -51,7 +51,8 @@
 								<g:select optionKey="id"
 									    optionValue="nombreCategoria" 
 								    		   name="categoria.id"
-										      from="${sapienter.Categoria.list()}" 
+										      from="${sapienter.Categoria.list()}"
+										      noSelection="${[' ':'Seleccione Categoria']}" 
 										  onchange="${remoteFunction(controller:'categoria', 
 										  							 action:'ajaxGetSubcategorias',
 							           								 params:'\'id=\' + escape(this.value)',
