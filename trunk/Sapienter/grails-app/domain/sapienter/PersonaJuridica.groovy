@@ -9,6 +9,9 @@ class PersonaJuridica extends Persona {
 	String observaciones
 	String razonSocial //
 	String telefonoDeContacto //
+	String toString(){
+		razonSocial
+	}
 	
 	
 
