@@ -36,7 +36,7 @@
                                   <label for="categoria"><g:message code="proceso.categoria.label" default="Categoria" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: procesoInstance, field: 'categoria', 'errors')}">
-                                    <g:select name="categoria" from="${procesoInstance.constraints.categoria.inList}" value="${procesoInstance?.categoria}" valueMessagePrefix="proceso.categoria"  />
+                                    <g:select name="categoria.id" from="${sapienter.Categoria.list()}" optionKey="id" value="${procesoInstance?.categoria?.id}"  />
                                 </td>
                             </tr>
                         
@@ -45,7 +45,7 @@
                                   <label for="subCategoria"><g:message code="proceso.subCategoria.label" default="Sub Categoria" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: procesoInstance, field: 'subCategoria', 'errors')}">
-                                    <g:select name="subCategoria" from="${procesoInstance.constraints.subCategoria.inList}" value="${procesoInstance?.subCategoria}" valueMessagePrefix="proceso.subCategoria" noSelection="['': '']" />
+                                    <g:select name="subCategoria.id" from="${sapienter.Subcategoria.list()}" optionKey="id" value="${procesoInstance?.subCategoria?.id}" noSelection="['null': '']" />
                                 </td>
                             </tr>
                         

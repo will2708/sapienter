@@ -10,10 +10,9 @@
 <title><g:message code="default.create.label"
 		args="[entityName]" />
 </title>
+<g:javascript library="prototype" />
 </head>
 <body>
-	<div class="body">
-	<g:javascript library="jquery" plugin="jquery" />
 	<div class="nav">
 		<span class="menuButton"><a class="home"
 			href="${createLink(uri: '/')}"><g:message
@@ -49,11 +48,15 @@
 							</label></td>
 							<td valign="top"
 								class="value ${hasErrors(bean: procesoInstance, field: 'categoria', 'errors')}">
-								<g:select name="categoria"
-										from="${procesoInstance.constraints.categoria.inList}"
-										value="${procesoInstance?.categoria}"
-										valueMessagePrefix="proceso.categoria"
-										onChange="categoriaChanged()" /></td>
+								<%--                                    <g:select name="categoria.id" from="${sapienter.Categoria.list()}" optionKey="id" value="${procesoInstance?.categoria?.id}"  />--%>
+								<g:select name="categoria.id"
+									from="${sapienter.Categoria.list()}" optionKey="id"
+									value="${procesoInstance?.categoria?.id}"
+									onchange="${remoteFunction(controller:'categoria', action:'ajaxGetSubcategorias',
+							           	params:'\'id=\' + escape(this.value)',
+							        	onComplete:'updateSubcategorias(e)')}"></g:select>
+							</td>
+							</td>
 						</tr>
 
 						<tr class="prop">
@@ -62,11 +65,9 @@
 							</label></td>
 							<td valign="top"
 								class="value ${hasErrors(bean: procesoInstance, field: 'subCategoria', 'errors')}">
-								<g:select name="subCategoria"
-									from="${procesoInstance.constraints.subCategoria.inList}"
-									value="${procesoInstance?.subCategoria}"
-									valueMessagePrefix="proceso.subCategoria"
-									noSelection="['': '']" /></td>
+								<%--                                    <g:select name="subCategoria.id" from="${sapienter.Subcategoria.list()}" optionKey="id" value="${procesoInstance?.subCategoria?.id}" noSelection="['null': '']" />--%>
+								<g:select name="subCategoria.id" id="subTipocategoria"></g:select>
+							</td>
 						</tr>
 
 						<tr class="prop">
@@ -98,21 +99,16 @@
 								<g:textField name="estado" value="${procesoInstance?.estado}" />
 							</td>
 						</tr>
+
 						<tr class="prop">
 							<td valign="top" class="name"><label for="etapaProcesal"><g:message
 										code="proceso.etapaProcesal.label" default="Etapa Procesal" />
 							</label></td>
 							<td valign="top"
 								class="value ${hasErrors(bean: procesoInstance, field: 'etapaProcesal', 'errors')}">
-
-								<g:select name="etapaProcesal"
-									from="${procesoInstance.constraints.etapaProcesal.inList}"
-									value="${procesoInstance?.etapaProcesal}"
-									valueMessagePrefix="proceso.etapaProcesal"
-									noSelection="['': '']" />
-							</td>
+								<g:textField name="etapaProcesal"
+									value="${procesoInstance?.etapaProcesal}" /></td>
 						</tr>
-							
 
 						<tr class="prop">
 							<td valign="top" class="name"><label for="juzgado"><g:message
@@ -218,8 +214,7 @@
 			</div>
 		</g:form>
 	</div>
-	</div>
-	<jq:jquery>categoriaChanged();</jq:jquery>
 </body>
 </html>
-
+<g:javascript src="sapienter.js">
+</g:javascript>

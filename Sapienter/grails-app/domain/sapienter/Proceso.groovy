@@ -4,7 +4,7 @@ import java.lang.annotation.Documented;
 
 class Proceso {
 	String caratula 
-	String categoria 
+	Categoria categoria 
 	String descripcion 
 	String estado 
 	String etapaProcesal 
@@ -13,7 +13,7 @@ class Proceso {
 	Integer numeroDeProcesoEnJuzgado
 	String observaciones
 	Usuario responsable
-	String	subCategoria
+	Subcategoria subCategoria
 	Usuario ultimoModificador
 	Usuario usuariosAutorizados
 	

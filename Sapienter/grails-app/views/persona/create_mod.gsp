@@ -1,5 +1,3 @@
-
-
 <%@ page import="sapienter.Persona" import="sapienter.PersonaFisica"
 	import="sapienter.PersonaJuridica"%>
 <html>
