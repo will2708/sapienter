@@ -5,6 +5,7 @@ import sapienter.Estudio
 import sapienter.PersonaFisica
 import sapienter.PersonaJuridica
 import sapienter.Subcategoria
+import sapienter.TipoDeParte
 
 class BootStrap {
 
@@ -89,7 +90,40 @@ class BootStrap {
 			if (subCat.hasErrors()){
 				println subCat.errors
 			}
-			
+			def tipPar
+			tipPar = new TipoDeParte(descripcion:"Contraparte", estudio: (Estudio.getAll().get(0)))
+			tipPar.save()
+			if (tipPar.hasErrors()){
+				println tipPar.errors
+			}
+			tipPar = new TipoDeParte(descripcion:"Abogado oponente", estudio: (Estudio.getAll().get(0)))
+			tipPar.save()
+			if (tipPar.hasErrors()){
+				println tipPar.errors
+			}
+
+			tipPar = new TipoDeParte(descripcion:"Testigo", estudio: (Estudio.getAll().get(0))) 
+			tipPar.save()
+			if (tipPar.hasErrors()){
+				println tipPar.errors
+			}
+
+			tipPar = new TipoDeParte(descripcion:"Tercero", estudio: (Estudio.getAll().get(0)))
+			tipPar.save()
+			if (tipPar.hasErrors()){
+				println tipPar.errors
+			}
+
+			tipPar = new TipoDeParte(descripcion:"Juez", estudio: (Estudio.getAll().get(0)))
+			tipPar.save()
+			if (tipPar.hasErrors()){
+				println tipPar.errors
+			}
+			tipPar = new TipoDeParte(descripcion:"Mediador", estudio: (Estudio.getAll().get(0)))
+			tipPar.save()
+			if (tipPar.hasErrors()){
+				println tipPar.errors
+			}
 	}
 	def destroy = {
 	}

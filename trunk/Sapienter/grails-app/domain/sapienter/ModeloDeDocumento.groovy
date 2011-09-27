@@ -13,7 +13,7 @@ class ModeloDeDocumento {
 		descripcion(blank:false)
 		categoria(nullable:false)
 		subCategoria(nullable:false)
-		estado(blank:false)
+		estado(inList:['No Revisado', 'Pedido de revisión', 'Pedido de modificación', 'Revisado'],blank:false)
     }
 	
 	static belongsTo = [estudio:Estudio]
