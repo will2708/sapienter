@@ -76,7 +76,7 @@
 								default="Fecha De Inicio Actividades" />
 						</td>
 
-						<td valign="top" class="value"><g:formatDate
+						<td valign="top" class="value"><g:formatDate format="dd/MM/yyyy"
 								date="${personaJuridicaInstance?.fechaDeInicioActividades}" />
 						</td>
 

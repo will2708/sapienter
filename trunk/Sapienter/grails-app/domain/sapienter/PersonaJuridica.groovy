@@ -17,7 +17,7 @@ class PersonaJuridica extends Persona {
 
     static constraints = {
 			razonSocial(blank:false, matches:"[A-ZÑÁÉÍÓÚa-zñáéíóú]+(([ '-][A-ZÑÁÉÍÓÚa-zñáéíóú]+)*)")
-			cuit(nullable:false, unique:true)
+			cuit(blank:false, unique:true)
 			fechaDeInicioActividades (nullable:true)
 			telefonoDeContacto (nullable:false)
 			email(blank:false, email:true)

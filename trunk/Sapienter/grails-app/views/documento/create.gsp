@@ -25,6 +25,7 @@
                 <g:renderErrors bean="${documentoInstance}" as="list" />
             </div>
             </g:hasErrors>
+     			<modalbox:createLink controller="modeloDeDocumento" action="listar" title="Modelos de Documentos" width="500">Modelos</modalbox:createLink>
             <g:form action="save" >
                 <div class="dialog">
                     <table>
@@ -102,7 +103,6 @@
                         </tbody>
                     </table>
                 </div>
-     			<modalbox:createLink controller="modeloDeDocumento" action="listar" title="Modelos de Documentos" width="500">Modelos</modalbox:createLink>
                 <div class="buttons">
                     <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
                 </div>

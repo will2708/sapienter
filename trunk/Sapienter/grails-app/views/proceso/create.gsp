@@ -98,7 +98,7 @@
 							</label></td>
 							<td valign="top"
 								class="value ${hasErrors(bean: procesoInstance, field: 'estado', 'errors')}">
-								<g:textField name="estado" value="${procesoInstance?.estado}" />
+								<g:select name="estado" from="${procesoInstance.constraints.estado.inList}" value="${procesoInstance?.estado}" valueMessagePrefix="proceso.estado"  />
 							</td>
 						</tr>
 
@@ -108,8 +108,7 @@
 							</label></td>
 							<td valign="top"
 								class="value ${hasErrors(bean: procesoInstance, field: 'etapaProcesal', 'errors')}">
-								<g:textField name="etapaProcesal"
-									value="${procesoInstance?.etapaProcesal}" /></td>
+								<g:select name="etapaProcesal" from="${procesoInstance.constraints.etapaProcesal.inList}" value="${procesoInstance?.etapaProcesal}" valueMessagePrefix="proceso.etapaProcesal"  />
 						</tr>
 
 						<tr class="prop">

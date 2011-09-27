@@ -21,15 +21,15 @@ class Proceso {
     static constraints = {
 		categoria(blank:false)
 		subCategoria (blank:false)
-		caratula(nullable:true)
-		descripcion(nullable:true)
-		estado(inlist:['Abierto a pruebas', 'Demanda en preparación', 'Cerró período de apertura de pruebas', 'En tratamiento', 'Cerrado', 'A sentencia', 'A apelar'])
-		etapaProcesal(inlist:['Postulatoria', 'Probatoria', 'Conclusiva', 'De Resolución', 'Impugnativa','Extra-Judicial'])
+		caratula(blank:false)
+		descripcion(blank:false)
+		estado(inList:['Abierto a pruebas', 'Demanda en preparación', 'Cerró período de apertura de pruebas', 'En tratamiento', 'Cerrado', 'A sentencia', 'A apelar'])
+		etapaProcesal(inList:['Postulatoria', 'Probatoria', 'Conclusiva', 'De Resolución', 'Impugnativa','Extra-Judicial'])
 		juzgado(nullable:true)
 		numeroDeJuzgado(nullable:true)
 		numeroDeProcesoEnJuzgado(nullable:true)
 		observaciones(nullable:true)
-		responsable(nullable:true)
+		responsable(nullable:false)
 		subCategoria(nullable:true)
 		    }
 	

@@ -20,6 +20,9 @@ class ModeloDeDocumentoController {
     }
 
     def save = {
+		def sub = Subcategoria.get(params.subCategoria)
+		params.remove("subCategoria")
+		params.put("subCategoria", sub)
         def modeloDeDocumentoInstance = new ModeloDeDocumento(params)
         if (modeloDeDocumentoInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'modeloDeDocumento.label', default: 'ModeloDeDocumento'), modeloDeDocumentoInstance.id])}"
