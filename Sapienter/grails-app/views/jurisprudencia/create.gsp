@@ -69,7 +69,7 @@
                                     <label for="jurisprudencia"><g:message code="jurisprudencia.jurisprudencia.label" default="Jurisprudencia" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: jurisprudenciaInstance, field: 'jurisprudencia', 'errors')}">
-                                    <g:textField name="jurisprudencia" value="${jurisprudenciaInstance?.jurisprudencia}" />
+                                    <g:textArea name="jurisprudencia" value="${jurisprudenciaInstance?.jurisprudencia}" />
                                 </td>
                             </tr>
                         
@@ -81,16 +81,6 @@
                                     <g:select name="usuario.id" from="${sapienter.Usuario.list()}" optionKey="id" value="${jurisprudenciaInstance?.usuario?.id}"  />
                                 </td>
                             </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="estudio"><g:message code="jurisprudencia.estudio.label" default="Estudio" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: jurisprudenciaInstance, field: 'estudio', 'errors')}">
-                                    <g:select name="estudio.id" from="${sapienter.Estudio.list()}" optionKey="id" value="${jurisprudenciaInstance?.estudio?.id}"  />
-                                </td>
-                            </tr>
-                        
                         </tbody>
                     </table>
                 </div>

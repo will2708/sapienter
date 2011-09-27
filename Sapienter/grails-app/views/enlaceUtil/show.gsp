@@ -23,13 +23,6 @@
                     <tbody>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="enlaceUtil.id.label" default="Id" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: enlaceUtilInstance, field: "id")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="enlaceUtil.ultimoUsuario.label" default="Ultimo Usuario" /></td>
                             
                             <td valign="top" class="value"><g:link controller="usuario" action="show" id="${enlaceUtilInstance?.ultimoUsuario?.id}">${enlaceUtilInstance?.ultimoUsuario?.encodeAsHTML()}</g:link></td>

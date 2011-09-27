@@ -33,15 +33,6 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="ultimoUsuario"><g:message code="enlaceUtil.ultimoUsuario.label" default="Ultimo Usuario" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: enlaceUtilInstance, field: 'ultimoUsuario', 'errors')}">
-                                    <g:select name="ultimoUsuario.id" from="${sapienter.Usuario.list()}" optionKey="id" value="${enlaceUtilInstance?.ultimoUsuario?.id}"  />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
                                   <label for="descripcion"><g:message code="enlaceUtil.descripcion.label" default="Descripcion" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enlaceUtilInstance, field: 'descripcion', 'errors')}">

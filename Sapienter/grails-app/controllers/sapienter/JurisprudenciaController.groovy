@@ -14,8 +14,12 @@ class JurisprudenciaController {
     }
 
     def create = {
+		def estudio = Estudio.getAll().get(0)
+		params.put("estudio", estudio)
+		
         def jurisprudenciaInstance = new Jurisprudencia()
         jurisprudenciaInstance.properties = params
+		
         return [jurisprudenciaInstance: jurisprudenciaInstance]
     }
 
