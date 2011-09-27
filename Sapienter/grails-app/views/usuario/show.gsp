@@ -113,12 +113,12 @@
                             
                         </tr>
                     
-                        <tr class="prop">
+                        <!--<tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.estudio.label" default="Estudio" /></td>
                             
                             <td valign="top" class="value"><g:link controller="estudio" action="show" id="${usuarioInstance?.estudio?.id}">${usuarioInstance?.estudio?.encodeAsHTML()}</g:link></td>
                             
-                        </tr>
+                        </tr> -->
                     
                     </tbody>
                 </table>

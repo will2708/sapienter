@@ -57,15 +57,6 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="calendario"><g:message code="usuario.calendario.label" default="Calendario" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'calendario', 'errors')}">
-                                    <g:select name="calendario.id" from="${sapienter.Calendario.list()}" optionKey="id" value="${usuarioInstance?.calendario?.id}" noSelection="['null': '']" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
                                     <label for="comentarios"><g:message code="usuario.comentarios.label" default="Comentarios" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'comentarios', 'errors')}">
@@ -108,8 +99,7 @@
                                     <g:textField name="telefono" value="${usuarioInstance?.telefono}" />
                                 </td>
                             </tr>
-                        
-                            <tr class="prop">
+                        <!--<tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="usuarioCreacion"><g:message code="usuario.usuarioCreacion.label" default="Usuario Creacion" /></label>
                                 </td>
@@ -134,7 +124,7 @@
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'estudio', 'errors')}">
                                     <g:select name="estudio.id" from="${sapienter.Estudio.list()}" optionKey="id" value="${usuarioInstance?.estudio?.id}"  />
                                 </td>
-                            </tr>
+                            </tr> -->
                         
                         </tbody>
                     </table>

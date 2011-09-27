@@ -1,18 +1,18 @@
 package sapienter
 
 class ModeloDeDocumento {
-	String categoria
+	Categoria categoria
 	String descripcion
 	String modeloDeDocumento
 	String nombre
-	String subCategoria
+	Subcategoria subCategoria
 	String estado
 	
     static constraints = {
 		nombre(blank:false)
 		descripcion(blank:false)
-		categoria(inList:["1","2","3"],blank:false)
-		subCategoria(blank:false)
+		categoria(nullable:false)
+		subCategoria(nullable:false)
 		estado(blank:false)
     }
 	

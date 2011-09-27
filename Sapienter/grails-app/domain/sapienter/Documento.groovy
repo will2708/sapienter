@@ -11,8 +11,8 @@ class Documento {
     static constraints = {
 		nombre(blank:false)
 		descripcion(blank:false)
-		estado(inList:['1','2','3'],blank:false)
-		tipoDeDocumento(inList:['1','2','3'])
+		estado(inList:['No Revisado', 'Pedido de revisión', 'Pedido de modificación', 'Revisado'],blank:false)
+		tipoDeDocumento(inList:['Procesal','Extraprocesal'])
 		usuarioResponsable()
 		contenidoDocumento()
     }

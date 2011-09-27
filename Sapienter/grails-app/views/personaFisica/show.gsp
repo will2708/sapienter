@@ -108,7 +108,7 @@
 								default="Fecha Nacimiento" />
 						</td>
 
-						<td valign="top" class="value"><g:formatDate
+						<td valign="top" class="value"><g:formatDate format="dd/MM/yyyy"
 								date="${personaFisicaInstance?.fechaNacimiento}" />
 						</td>
 
@@ -213,7 +213,7 @@
 
 					</tr>
 
-					<tr class="prop">
+					<!--<tr class="prop">
 						<td valign="top" class="name"><g:message
 								code="personaFisica.estudio.label" default="Estudio" />
 						</td>
@@ -224,7 +224,7 @@
 							</g:link>
 						</td>
 
-					</tr>
+					</tr> -->
 
 					<tr class="prop">
 						<td valign="top" class="name"><g:message

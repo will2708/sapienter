@@ -67,7 +67,7 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="documento.contenidoDocumento.label" default="Contenido Documento" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: documentoInstance, field: "contenidoDocumento")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: documentoInstance, field: "contenidoDocumento").decodeHTML()}</td>
                             
                         </tr>
                     
