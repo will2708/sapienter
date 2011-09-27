@@ -7,6 +7,7 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'modeloDeDocumento.label', default: 'ModeloDeDocumento')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
+    	<g:javascript library="prototype" />
     </head>
     <body>
         <div class="nav">
@@ -83,14 +84,14 @@
                                 </td>
                             </tr>
                         
-                            <tr class="prop">
+                            <!--<tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="estudio"><g:message code="modeloDeDocumento.estudio.label" default="Estudio" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'estudio', 'errors')}">
                                     <g:select name="estudio.id" from="${sapienter.Estudio.list()}" optionKey="id" value="${modeloDeDocumentoInstance?.estudio?.id}"  />
                                 </td>
-                            </tr>
+                            </tr> -->
 
                             <tr class="descripcion">
                                 <td valign="top" class="name" colspan="2">
