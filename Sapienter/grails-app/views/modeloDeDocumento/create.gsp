@@ -79,7 +79,7 @@
                                     <label for="estado"><g:message code="modeloDeDocumento.estado.label" default="Estado" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'estado', 'errors')}">
-                                    <g:textField name="estado" value="${modeloDeDocumentoInstance?.estado}" />
+                                    <g:select name="estado" from="${modeloDeDocumentoInstance.constraints.estado.inList}" value="${modeloDeDocumentoInstance?.estado}" valueMessagePrefix="modeloDeDocumento.estado"  />
                                 </td>
                             </tr>
                         
