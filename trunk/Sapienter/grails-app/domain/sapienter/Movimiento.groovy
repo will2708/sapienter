@@ -13,10 +13,10 @@ class Movimiento {
 		descripcion(blank:false)
 		tipoDeMovimiento(inList:["Procesal", "Extra-Procesal"],blank:false)
 		estado(inList:["Pendiente","Realizado"],blank:false)
-		comentario(blank:false)
+		comentario(nullable:true)
 		fechaDeCreacion(blank:false)
-		diasDeValidez(range:1..365,blank:false)
-		fechaDeVencimiento(blank:false)
+		diasDeValidez(range:1..365,nullable:true)
+		fechaDeVencimiento(nullable:true)
 
 	}
 	

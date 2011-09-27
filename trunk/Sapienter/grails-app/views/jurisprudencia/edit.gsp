@@ -72,7 +72,7 @@
                                   <label for="jurisprudencia"><g:message code="jurisprudencia.jurisprudencia.label" default="Jurisprudencia" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: jurisprudenciaInstance, field: 'jurisprudencia', 'errors')}">
-                                    <g:textField name="jurisprudencia" value="${jurisprudenciaInstance?.jurisprudencia}" />
+                                    <g:textArea name="jurisprudencia" value="${jurisprudenciaInstance?.jurisprudencia}" />
                                 </td>
                             </tr>
                         
