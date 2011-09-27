@@ -20,6 +20,9 @@ class UsuarioController {
     }
 
     def save = {
+		def estudio = Estudio.getAll().get(0)
+		params.put("estudio", estudio)
+		
         def usuarioInstance = new Usuario(params)
         if (usuarioInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'usuario.label', default: 'Usuario'), usuarioInstance.id])}"
