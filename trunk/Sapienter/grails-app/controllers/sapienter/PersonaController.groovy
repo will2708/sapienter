@@ -6,18 +6,18 @@ import grails.plugins.springsecurity.Secured
 class PersonaController {
 
 	static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-	@Secured(['ROLE_USER', 'IS_AUTHENTICATED_FULLY'])
+	@Secured(['ROLE_ADMIN','IS_AUTHENTICATED_FULLY'])
 	def index = {
 		redirect(action: "list", params: params)
 	}
-	@Secured(['ROLE_USER', 'IS_AUTHENTICATED_FULLY'])
+	@Secured(['ROLE_ADMIN','IS_AUTHENTICATED_FULLY'])
 	def list = {
 		params.max = Math.min(params.max ? params.int('max') : 10, 100)
 		def personaFisicaList = PersonaFisica.list(params)
 		def personaJuridicaList = PersonaJuridica.list(params)
 		[personaInstanceList: Persona.list(params), personaInstanceTotal: Persona.count(), personaFisicaList: PersonaFisica.list(params),personaJuridicaList:PersonaJuridica.list(params)]
 	}
-	@Secured(['ROLE_USER', 'IS_AUTHENTICATED_FULLY'])
+	@Secured(['ROLE_ADMIN','IS_AUTHENTICATED_FULLY'])
 	def createFisica = {
 		def estudio = Estudio.getAll().get(0)
 		params.put("estudio", estudio)
@@ -33,7 +33,7 @@ class PersonaController {
 			render(view: "create_mod", model: [personaFisicaInstance: personaFisicaInstance, personaJuridicaInstance: personaJuridicaInstance, selected1: "true", selected2: "false"])
 		}
 	}
-	@Secured(['ROLE_USER', 'IS_AUTHENTICATED_FULLY'])
+	@Secured(['ROLE_ADMIN','IS_AUTHENTICATED_FULLY'])
 	def createJuridica = {
 		def estudio = Estudio.getAll().get(0)
 		params.put("estudio", estudio)
@@ -49,7 +49,7 @@ class PersonaController {
 			render(view: "create_mod", model: [personaFisicaInstance: personaFisicaInstance, personaJuridicaInstance: personaJuridicaInstance, selected2: "true", selected1: "false"])
 		}
 	}
-	@Secured(['ROLE_USER', 'IS_AUTHENTICATED_FULLY'])
+	@Secured(['ROLE_ADMIN','IS_AUTHENTICATED_FULLY'])
 	def create_mod = {
 		def personaFisicaInstance   = new PersonaFisica()
 		def personaJuridicaInstance = new PersonaJuridica()
@@ -58,13 +58,13 @@ class PersonaController {
 		else
 			render(view: "create_mod", model: [personaFisicaInstance: personaFisicaInstance, personaJuridicaInstance: personaJuridicaInstance,selected1: "true", selected2: "false"])
 	}
-	@Secured(['ROLE_USER', 'IS_AUTHENTICATED_FULLY'])
+	@Secured(['ROLE_ADMIN','IS_AUTHENTICATED_FULLY'])
 	def create = {
 		def personaInstance = new Persona()
 		personaInstance.properties = params
 		return [personaInstance: personaInstance]
 	}
-	@Secured(['ROLE_USER', 'IS_AUTHENTICATED_FULLY'])
+	@Secured(['ROLE_ADMIN','IS_AUTHENTICATED_FULLY'])
 	def save = {
 		def personaInstance = new Persona(params)
 		if (personaInstance.save(flush: true)) {
@@ -75,7 +75,7 @@ class PersonaController {
 			render(view: "create", model: [personaInstance: personaInstance])
 		}
 	}
-	@Secured(['ROLE_USER', 'IS_AUTHENTICATED_FULLY'])
+	@Secured(['ROLE_ADMIN','IS_AUTHENTICATED_FULLY'])
 	def show = {
 		def personaInstance = Persona.get(params.id)
 		if (!personaInstance) {
@@ -88,7 +88,7 @@ class PersonaController {
 				redirect(controller:"personaJuridica", action: "show", id: personaInstance.id)
 		}
 	}
-	@Secured(['ROLE_USER', 'IS_AUTHENTICATED_FULLY'])
+	@Secured(['ROLE_ADMIN','IS_AUTHENTICATED_FULLY'])
 	def edit = {
 		def personaInstance = Persona.get(params.id)
 		if (!personaInstance) {
@@ -99,7 +99,7 @@ class PersonaController {
 			return [personaInstance: personaInstance]
 		}
 	}
-	@Secured(['ROLE_USER', 'IS_AUTHENTICATED_FULLY'])
+	@Secured(['ROLE_ADMIN','IS_AUTHENTICATED_FULLY'])
 	def update = {
 		def personaInstance = Persona.get(params.id)
 		if (personaInstance) {
@@ -128,7 +128,7 @@ class PersonaController {
 			redirect(action: "list")
 		}
 	}
-	@Secured(['ROLE_USER', 'IS_AUTHENTICATED_FULLY'])
+	@Secured(['ROLE_ADMIN','IS_AUTHENTICATED_FULLY'])
 	def delete = {
 		def personaInstance = Persona.get(params.id)
 		if (personaInstance) {
