@@ -7,8 +7,9 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'movimiento.label', default: 'Movimiento')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
-		<calendar:resources lang="es" theme="system"/>
+		<g:javascript library="application" />
 		<g:javascript library="jquery" plugin="jquery" />
+		<jqui:resources theme="ui-lightness" />
     </head>
     <body>
         <div class="nav">
@@ -16,7 +17,7 @@
             <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
-        	
+        	<script src="${resource(dir:'js',file:'movimientos.js')}"></script>
             <h1><g:message code="default.create.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
@@ -72,12 +73,8 @@
                                     <label for="fechaDeCreacion"><g:message code="movimiento.fechaDeCreacion.label" default="Fecha De Creacion" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: movimientoInstance, field: 'fechaDeCreacion', 'errors')}">
-                                	<calendar:datePicker name="fechaDeCreacion" 
-            									  		 showTime="true"
-            									  		 defaultValue="${new Date()}"
-            									  		 dateFormat="%d/%m/%Y    %H:%M"            			  
-                                    			  		 value="${movimientoInstance?.fechaDeCreacion}"/>
-			                    </td>
+	                                <g:textField name="fechaDeCreacion" value="${movimientoInstance?.fechaDeCreacion}" onChange="diasChanged()"/>
+                                </td>
                             </tr>
                         
                             <tr class="prop">
@@ -86,12 +83,12 @@
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: movimientoInstance, field: 'diasDeValidez', 'errors')}">
                                     <g:select name="diasDeValidez" 
-                                    		  from="${1..365}" 
-                                    		  value="${fieldValue(bean: movimientoInstance, field: 'diasDeValidez')}" 
-                                    		  noSelection="['':'']"
+                                    	      from="${1..365}" 
+                                    	      value="${fieldValue(bean: movimientoInstance, field: 'diasDeValidez')}" 
+                                    	      noSelection="['': '']"                                    	      
                                     		  valueMessagePrefix="movimiento.diasDeValidez" 
                                     		  onChange="diasChanged()" />
-                                    		  
+                                    	      
                                 </td>
                             </tr>
                         
@@ -100,10 +97,7 @@
                                     <label for="fechaDeVencimiento"><g:message code="movimiento.fechaDeVencimiento.label" default="Fecha De Vencimiento" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: movimientoInstance, field: 'fechaDeVencimiento', 'errors')}">
-                                    <calendar:datePicker name="fechaDeVencimiento" 
-            									  		 showTime="true"
-            									  		 dateFormat="%d/%m/%Y    %H:%M"            			  
-                                    			  		 value="${movimientoInstance?.fechaDeVencimiento}"/>
+                                    <g:textField name="fechaDeVencimiento" value="${movimientoInstance?.fechaDeVencimiento}" default="none" noSelection="['': '']" />
                                 </td>
                             </tr>
                         
