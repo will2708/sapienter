@@ -38,12 +38,3 @@ function categoriaChanged() {
 
 	}
 }
-function diasChanged() {
-
-	var $ini = $("#fechaDeCreacion");	
-	if ($("#diasDeValidez").val() != '') {
-		alert($("#diasDeValidez").val());
-
-		alert($("#fechaDeCreacion").val());
-	}
-}

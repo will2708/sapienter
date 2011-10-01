@@ -1,5 +1,7 @@
 package sapienter
 
+import java.util.Date;
+
 class MovimientoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -20,8 +22,59 @@ class MovimientoController {
     }
 
     def save = {
+		String fechaInicial = params.fechaDeCreacion
+		String fechaFinal   = params.fechaDeVencimiento
+		params.remove("fechaDeCreacion")
+		params.remove("fechaDeVencimiento")
+		if (fechaInicial != null &&
+			fechaInicial != "" ){
+			int anio = Integer.parseInt(fechaInicial.substring(6,10))
+			int mes = Integer.parseInt(fechaInicial.substring(3,5))
+			int dia = Integer.parseInt(fechaInicial.substring(0,2))
+			int hora = 9
+			int minutos = 00
+
+			mes = mes - 1
+			
+			Calendar calendar = new GregorianCalendar(anio,mes,dia,hora,minutos)
+			params.put("fechaDeCreacion", calendar.getTime())
+		}
+		if (fechaFinal != null &&
+			fechaFinal != ""){
+			int anio = Integer.parseInt(fechaFinal.substring(6,10))
+			int mes = Integer.parseInt(fechaFinal.substring(3,5))
+			int dia = Integer.parseInt(fechaFinal.substring(0,2))
+			int hora = 9
+			int minutos = 00
+			
+			mes = mes - 1
+			
+			Calendar calendar = new GregorianCalendar(anio,mes,dia,hora,minutos)
+			params.put("fechaDeVencimiento", calendar.getTime())
+		}
+		
         def movimientoInstance = new Movimiento(params)
         if (movimientoInstance.save(flush: true)) {
+			if (fechaFinal != null &&
+				fechaFinal != ""){
+				Proceso proceso = movimientoInstance.getProperty("proceso")
+				Calendario calendario = proceso.getResponsable().getCalendario()
+				
+				Calendar calendar = new GregorianCalendar();
+				def inicio = movimientoInstance.getProperty("fechaDeVencimiento")
+				calendar.setTime(inicio);
+				calendar.add(Calendar.MINUTE, +15)
+				def fin = calendar.getTime()
+				
+				def tarea = new Tarea(fechaInicio:inicio,
+									  fechaFin:fin, 
+									  calendario:calendario,
+									  observacion: movimientoInstance.getProperty("descripcion"))
+				tarea.save()
+				if (tarea.hasErrors()) {
+					println tarea.errors
+				}
+			}
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'movimiento.label', default: 'Movimiento'), movimientoInstance.id])}"
             redirect(action: "show", id: movimientoInstance.id)
         }
