@@ -1,11 +1,16 @@
 import java.util.Date
 
+import sapienter.Calendario
 import sapienter.Categoria
 import sapienter.Estudio
 import sapienter.PersonaFisica
 import sapienter.PersonaJuridica
+import sapienter.SecRole
+import sapienter.SecUser
+import sapienter.SecUserSecRole
 import sapienter.Subcategoria
 import sapienter.TipoDeParte
+import sapienter.Usuario
 
 class BootStrap {
 
@@ -124,6 +129,23 @@ class BootStrap {
 			if (tipPar.hasErrors()){
 				println tipPar.errors
 			}
+			def calendar =new Calendario()
+			def userRole = SecRole.findByAuthority('ROLE_USER') ?: new SecRole(authority: 'ROLE_USER').save(failOnError: true)
+			def adminRole = SecRole.findByAuthority('ROLE_ADMIN') ?: new SecRole(authority: 'ROLE_ADMIN').save(failOnError: true)
+			def adminUser = SecUser.findByUsername('admin') ?: new Usuario(
+				username: 'admin',
+				password: 'admin',
+				nombre: 'Matías',
+				apellido: 'Stanislavsky',
+				calendario: calendar, 
+				estudio: (Estudio.getAll().get(0)),
+				comentarios:'Nada en particular',
+				telefono:'4354242',
+				enabled: true).save(failOnError: true)
+ 
+		if (!adminUser.authorities.contains(adminRole)) {
+			SecUserSecRole.create adminUser, adminRole
+		}
 	}
 	def destroy = {
 	}
