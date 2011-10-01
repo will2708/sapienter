@@ -17,6 +17,9 @@ class Proceso {
 	Usuario ultimoModificador
 	Usuario usuariosAutorizados
 	
+	String toString(){
+		caratula
+	}
 
     static constraints = {
 		categoria(blank:false)
