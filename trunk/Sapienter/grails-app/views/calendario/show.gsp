@@ -6,7 +6,7 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'calendario.label', default: 'Calendario')}" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
-		<resource:calendarMonthView />
+		<fullcal:resources/>
     </head>
     <body>
         <div class="nav">
@@ -18,18 +18,26 @@
             <div class="message">${flash.message}</div>
             </g:if>
             <div class="dialog">
-				<richui:calendarMonthView items="${appointments}"
-	                               createLink="true" constraintDateFields="['fechaInicio-fechaFin', 'fechaInicio', 'fechaFin']"
-	                               displayField="observacion" teaser="true" teaserLength="20" 
-	                               weekOfYear="true" weekAction="semana" dayAction="dia"
-	                               month="${month}" action="showItem" />
+			<fullcal:calendar id="cal">
+	    		header: { left: "month, agendaWeek, agendaDay", center: "", right: "prev, today, next" },
+	    		columnFormat: { week: 'ddd d/M' },
+	    		timeFormat: 'HH:mm{ - HH:mm}',
+	    		buttonText: { today:    'Hoy',
+	    					  month:    'Mes',
+	    					  week:     'Semana',
+	    					  day:      'Dia'
+	    					  },
+	    		dayNames: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
+	    		dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+	    		allDaySlot: false,
+	    		minTime: '7:00am',
+	    		maxTime: '8:00pm',
+	    		events: 'events'			  
+			</fullcal:calendar>
             </div>
             <div class="buttons">
                 <g:form>
                     <g:hiddenField name="id" value="${calendarioInstance?.id}" />
-<!--                <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
-                    <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
--->
 	                <span class="button"><g:actionSubmit class="edit" action="nuevaTarea" value="${message(code: 'default.button.nuevaTarea.label', default: 'Nueva Tarea')}" /></span>                    
                 </g:form>
             </div>
