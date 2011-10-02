@@ -14,24 +14,25 @@ class UsuarioController {
 	}
 
 	def create = {
+		def secRoleInstance = new SecRole()
 		def usuarioInstance = new Usuario()
 		usuarioInstance.properties = params
 		return [usuarioInstance: usuarioInstance]
 	}
 
 	def save = {
+		def role = SecRole.findById(params["secRole"].id)
 		def estudio = Estudio.getAll().get(0)
 		params.put("estudio", estudio)
-		
 		def usuarioInstance = new Usuario(params)
 		if (usuarioInstance.save(flush: true)) {
 			flash.message = "${message(code: 'default.created.message', args: [message(code: 'usuario.label', default: 'Usuario'), usuarioInstance.id])}"
-			
 			def calendario =new Calendario()
 			calendario.setProperty("usuario", usuarioInstance)
 			calendario.save()
 			usuarioInstance.calendario = calendario
 			usuarioInstance.save()
+			SecUserSecRole.create(usuarioInstance, role)
 			redirect(action: "show", id: usuarioInstance.id)
 		}
 		else {
@@ -62,19 +63,24 @@ class UsuarioController {
 	}
 
 	def update = {
+		def role = SecRole.findById(params["secRole"].id)
 		def usuarioInstance = Usuario.get(params.id)
 		if (usuarioInstance) {
 			if (params.version) {
 				def version = params.version.toLong()
 				if (usuarioInstance.version > version) {
 					
-					usuarioInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'usuario.label', default: 'Usuario')] as Object[], "Another user has updated this Usuario while you were editing")
+					usuarioInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [
+						message(code: 'usuario.label', default: 'Usuario')]
+					as Object[], "Another user has updated this Usuario while you were editing")
 					render(view: "edit", model: [usuarioInstance: usuarioInstance])
 					return
 				}
 			}
 			usuarioInstance.properties = params
 			if (!usuarioInstance.hasErrors() && usuarioInstance.save(flush: true)) {
+				SecUserSecRole.removeAll(usuarioInstance)
+				SecUserSecRole.create(usuarioInstance, role)
 				flash.message = "${message(code: 'default.updated.message', args: [message(code: 'usuario.label', default: 'Usuario'), usuarioInstance.id])}"
 				redirect(action: "show", id: usuarioInstance.id)
 			}

@@ -48,6 +48,14 @@
                                     <g:passwordField name="password" value="${usuarioInstance?.password}" />
                                 </td>
                             </tr>
+                             <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="Rol"><g:message code="secRole" default="Rol" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: secRoleInstance, field: 'authority', 'errors')}">
+                                    <g:select name="secRole.id" from="${sapienter.SecRole.list()}" optionKey="id" value="${secRoleInstance?.id}"  />
+                                </td>
+                            </tr>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">

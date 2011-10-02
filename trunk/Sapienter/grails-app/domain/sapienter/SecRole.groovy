@@ -4,9 +4,10 @@ class SecRole {
 
 	String authority
 
-	static mapping = {
-		cache true
+	String toString(){
+		authority
 	}
+	static mapping = { cache true }
 
 	static constraints = {
 		authority blank: false, unique: true
