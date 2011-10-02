@@ -15,7 +15,7 @@ class Usuario extends SecUser {
 	Usuario usuarioModificacion
 
 	String toString(){
-		userName
+		username
 	}
 		
 	static constraints = {
