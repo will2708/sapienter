@@ -141,6 +141,7 @@ class BootStrap {
 				estudio: (Estudio.getAll().get(0)),
 				comentarios:'Nada en particular',
 				telefono:'4354242',
+				rol:adminRole,
 				enabled: true).save(failOnError: true)
  
 		if (!adminUser.authorities.contains(adminRole)) {
