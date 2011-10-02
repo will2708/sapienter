@@ -25,6 +25,7 @@ class UsuarioController {
 		def estudio = Estudio.getAll().get(0)
 		params.put("estudio", estudio)
 		def usuarioInstance = new Usuario(params)
+		usuarioInstance.rol = role
 		if (usuarioInstance.save(flush: true)) {
 			flash.message = "${message(code: 'default.created.message', args: [message(code: 'usuario.label', default: 'Usuario'), usuarioInstance.id])}"
 			def calendario =new Calendario()
@@ -63,8 +64,9 @@ class UsuarioController {
 	}
 
 	def update = {
-		def role = SecRole.findById(params["secRole"].id)
+		
 		def usuarioInstance = Usuario.get(params.id)
+		def role = usuarioInstance.rol
 		if (usuarioInstance) {
 			if (params.version) {
 				def version = params.version.toLong()

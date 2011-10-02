@@ -52,8 +52,8 @@
                                 <td valign="top" class="name">
                                     <label for="Rol"><g:message code="secRole" default="Rol" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: secRoleInstance, field: 'authority', 'errors')}">
-                                    <g:select name="secRole.id" from="${sapienter.SecRole.list()}" optionKey="id" value="${secRoleInstance?.id}"  />
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'rol', 'errors')}">
+                                    <g:select name="rol.id" from="${sapienter.SecRole.list()}" optionKey="id" value="${usuarioInstance?.rol?.id}" noSelection="['null': '']" />
                                 </td>
                             </tr>
                         
@@ -112,11 +112,8 @@
                             </tr>
                         
                             <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="calendario"><g:message code="usuario.calendario.label" default="Calendario" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'calendario', 'errors')}">
-                                    <g:select name="calendario.id" from="${sapienter.Calendario.list()}" optionKey="id" value="${usuarioInstance?.calendario?.id}" noSelection="['null': '']" />
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'calendario', 'errors')}" colspan="2">
+                                    <g:hiddenField name="calendario.id" value="${usuarioInstance?.calendario?.id}"/>
                                 </td>
                             </tr>
                         
@@ -166,11 +163,8 @@
                             </tr>
                         
                             <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="estudio"><g:message code="usuario.estudio.label" default="Estudio" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'estudio', 'errors')}">
-                                    <g:select name="estudio.id" from="${sapienter.Estudio.list()}" optionKey="id" value="${usuarioInstance?.estudio?.id}"  />
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'estudio', 'errors')}" colspan="2">
+                                    <g:hiddenField name="estudio.id" value="${usuarioInstance?.estudio?.id}"  />
                                 </td>
                             </tr>
                         

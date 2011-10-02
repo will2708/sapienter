@@ -13,6 +13,7 @@ class Usuario extends SecUser {
 	String telefono
 	Usuario usuarioCreacion
 	Usuario usuarioModificacion
+	SecRole rol
 
 	String toString(){
 		username
@@ -35,6 +36,7 @@ class Usuario extends SecUser {
 		telefono()
 		usuarioCreacion()
 		usuarioModificacion()
+		rol()
     }
 	static belongsTo = [estudio:Estudio]
 }
