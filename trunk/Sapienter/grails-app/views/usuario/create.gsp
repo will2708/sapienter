@@ -114,7 +114,7 @@
                                     <label for="calendario"><g:message code="usuario.calendario.label" default="Calendario" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'calendario', 'errors')}">
-                                    <g:select name="calendario.id" from="${sapienter.Calendario.list()}" optionKey="id" value="${usuarioInstance?.calendario?.id}" noSelection="['null': '']" />
+                                    <g:textArea name="comentarios" cols="40" rows="5" value="${usuarioInstance?.comentarios}" />
                                 </td>
                             </tr>
                         
