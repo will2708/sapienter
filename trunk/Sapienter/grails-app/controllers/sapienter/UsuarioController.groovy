@@ -1,7 +1,9 @@
 package sapienter
 
-class UsuarioController {
+import grails.plugins.springsecurity.Secured
 
+class UsuarioController {
+	def springSecurityService
 	static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
 	def index = {
@@ -13,6 +15,7 @@ class UsuarioController {
 		[usuarioInstanceList: Usuario.list(params), usuarioInstanceTotal: Usuario.count()]
 	}
 
+	@Secured(['ROLE_ADMIN','IS_AUTHENTICATED_FULLY'])
 	def create = {
 		def secRoleInstance = new SecRole()
 		def usuarioInstance = new Usuario()
@@ -20,12 +23,15 @@ class UsuarioController {
 		return [usuarioInstance: usuarioInstance]
 	}
 
+	@Secured(['ROLE_ADMIN','IS_AUTHENTICATED_FULLY'])
 	def save = {
+		def user = SecUser.get(springSecurityService.principal.id)
 		def role = SecRole.findById(params["secRole"].id)
-		def estudio = Estudio.getAll().get(0)
+		def estudio = user.estudio
 		params.put("estudio", estudio)
 		def usuarioInstance = new Usuario(params)
 		usuarioInstance.rol = role
+		usuarioInstance.usuarioCreacion = user
 		if (usuarioInstance.save(flush: true)) {
 			flash.message = "${message(code: 'default.created.message', args: [message(code: 'usuario.label', default: 'Usuario'), usuarioInstance.id])}"
 			def calendario =new Calendario()
@@ -63,7 +69,9 @@ class UsuarioController {
 		}
 	}
 
+	@Secured(['ROLE_ADMIN','IS_AUTHENTICATED_FULLY'])
 	def update = {
+		def user = SecUser.get(springSecurityService.principal.id)
 		
 		def usuarioInstance = Usuario.get(params.id)
 		def role = usuarioInstance.rol
@@ -80,6 +88,7 @@ class UsuarioController {
 				}
 			}
 			usuarioInstance.properties = params
+			usuarioInstance.usuarioModificacion = user
 			if (!usuarioInstance.hasErrors() && usuarioInstance.save(flush: true)) {
 				SecUserSecRole.removeAll(usuarioInstance)
 				SecUserSecRole.create(usuarioInstance, role)

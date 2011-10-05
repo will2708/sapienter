@@ -120,15 +120,6 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="comentarios"><g:message code="usuario.comentarios.label" default="Comentarios" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'comentarios', 'errors')}">
-                                    <g:textArea name="comentarios" cols="40" rows="5" value="${usuarioInstance?.comentarios}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
                                     <label for="correoElectronico"><g:message code="usuario.correoElectronico.label" default="Correo Electronico" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'correoElectronico', 'errors')}">
@@ -144,34 +135,7 @@
                                     <g:textField name="telefono" value="${usuarioInstance?.telefono}" />
                                 </td>
                             </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="usuarioCreacion"><g:message code="usuario.usuarioCreacion.label" default="Usuario Creacion" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'usuarioCreacion', 'errors')}">
-                                    <g:select name="usuarioCreacion.id" from="${sapienter.Usuario.list()}" optionKey="id" value="${usuarioInstance?.usuarioCreacion?.id}"  />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="usuarioModificacion"><g:message code="usuario.usuarioModificacion.label" default="Usuario Modificacion" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'usuarioModificacion', 'errors')}">
-                                    <g:select name="usuarioModificacion.id" from="${sapienter.Usuario.list()}" optionKey="id" value="${usuarioInstance?.usuarioModificacion?.id}"  />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="estudio"><g:message code="usuario.estudio.label" default="Estudio" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'estudio', 'errors')}">
-                                    <g:select name="estudio.id" from="${sapienter.Estudio.list()}" optionKey="id" value="${usuarioInstance?.estudio?.id}"  />
-                                </td>
-                            </tr>
-                        
+                                                                        
                         </tbody>
                     </table>
                 </div>
