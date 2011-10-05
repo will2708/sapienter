@@ -144,30 +144,6 @@
                                 </td>
                             </tr>
                         
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="usuarioCreacion"><g:message code="usuario.usuarioCreacion.label" default="Usuario Creacion" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'usuarioCreacion', 'errors')}">
-                                    <g:select name="usuarioCreacion.id" from="${sapienter.Usuario.list()}" optionKey="id" value="${usuarioInstance?.usuarioCreacion?.id}"  />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="usuarioModificacion"><g:message code="usuario.usuarioModificacion.label" default="Usuario Modificacion" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'usuarioModificacion', 'errors')}">
-                                    <g:select name="usuarioModificacion.id" from="${sapienter.Usuario.list()}" optionKey="id" value="${usuarioInstance?.usuarioModificacion?.id}"  />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'estudio', 'errors')}" colspan="2">
-                                    <g:hiddenField name="estudio.id" value="${usuarioInstance?.estudio?.id}"  />
-                                </td>
-                            </tr>
-                        
                         </tbody>
                     </table>
                 </div>
