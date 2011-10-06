@@ -4,7 +4,7 @@ import grails.plugins.springsecurity.Secured
 
 
 class PersonaController {
-
+	def springSecurityService
 	static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 	@Secured(['ROLE_ADMIN','IS_AUTHENTICATED_FULLY'])
 	def index = {
@@ -19,7 +19,8 @@ class PersonaController {
 	}
 	@Secured(['ROLE_ADMIN','IS_AUTHENTICATED_FULLY'])
 	def createFisica = {
-		def estudio = Estudio.getAll().get(0)
+		def user = SecUser.get(springSecurityService.principal.id)
+		def estudio = user.estudio
 		params.put("estudio", estudio)
 
 		def personaJuridicaInstance = new PersonaJuridica()
@@ -35,7 +36,8 @@ class PersonaController {
 	}
 	@Secured(['ROLE_ADMIN','IS_AUTHENTICATED_FULLY'])
 	def createJuridica = {
-		def estudio = Estudio.getAll().get(0)
+		def user = SecUser.get(springSecurityService.principal.id)
+		def estudio = user.estudio
 		params.put("estudio", estudio)
 
 		def personaJuridicaInstance = new PersonaJuridica(params)
