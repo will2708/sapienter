@@ -178,7 +178,7 @@
 								${procesoInstance?.persona}
 							</td>
 						</tr>
-
+						<g:hiddenField name="persona" value="${procesoInstance?.persona?.id}" />
 						<tr class="prop">
 							<td valign="top" class="name"><label for="ultimoModificador"><g:message
 										code="proceso.ultimoModificador.label"

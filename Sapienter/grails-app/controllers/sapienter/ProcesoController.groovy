@@ -22,6 +22,10 @@ class ProcesoController {
     }
 
     def save = {
+		def personaInstance = Persona.get(params.persona)
+		params.remove("persona") 
+		params.put("persona", personaInstance)
+		
 		def sub = Subcategoria.get(params.subCategoria)
 		params.remove("subCategoria")
 		params.put("subCategoria", sub)
