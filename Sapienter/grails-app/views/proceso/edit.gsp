@@ -42,6 +42,7 @@
 								    		   name="categoria.id"
 										      from="${sapienter.Categoria.list()}"
 										      noSelection="${[' ':'Seleccione Categoria']}" 
+										      value="${procesoInstance?.categoria?.id}"										      
 										  onchange="${remoteFunction(controller:'categoria', 
 										  							 action:'ajaxGetSubcategorias',
 							           								 params:'\'id=\' + escape(this.value)',
@@ -56,7 +57,7 @@
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: procesoInstance, field: 'subCategoria', 'errors')}">
 <%--                                    <g:select name="subCategoria.id" from="${sapienter.Subcategoria.list()}" optionKey="id" value="${procesoInstance?.subCategoria?.id}" noSelection="['null': '']" /> --%>
-										<g:select name="subCategoria" id="subTipoCategoria"></g:select>
+										<g:select name="subCategoria" id="subTipoCategoria" value="${procesoInstance?.subCategoria?.id}"></g:select>
                                 </td>
                             </tr>
                         
@@ -210,7 +211,7 @@
                                   <label for="persona"><g:message code="proceso.persona.label" default="Persona" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: procesoInstance, field: 'persona', 'errors')}">
-                                    <g:select name="persona.id" from="${sapienter.Persona.list()}" optionKey="id" value="${procesoInstance?.persona?.id}"  />
+                                    ${procesoInstance?.persona}
                                 </td>
                             </tr>
                         

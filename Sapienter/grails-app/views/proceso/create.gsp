@@ -175,8 +175,8 @@
 							</label></td>
 							<td valign="top"
 								class="value ${hasErrors(bean: procesoInstance, field: 'persona', 'errors')}">
-								<g:select name="persona.id" from="${sapienter.Persona.list()}"
-									optionKey="id" value="${procesoInstance?.persona?.id}" /></td>
+								${procesoInstance?.persona}
+							</td>
 						</tr>
 
 						<tr class="prop">

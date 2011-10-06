@@ -102,16 +102,7 @@
                                     <g:textField name="observaciones" value="${personaJuridicaInstance?.observaciones}" />
                                 </td>
                             </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="estudio"><g:message code="personaJuridica.estudio.label" default="Estudio" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: personaJuridicaInstance, field: 'estudio', 'errors')}">
-                                    <g:select name="estudio.id" from="${sapienter.Estudio.list()}" optionKey="id" value="${personaJuridicaInstance?.estudio?.id}"  />
-                                </td>
-                            </tr>
-                        
+                         
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="proceso"><g:message code="personaJuridica.proceso.label" default="Proceso" /></label>

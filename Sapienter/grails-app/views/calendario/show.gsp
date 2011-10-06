@@ -19,7 +19,7 @@
             </g:if>
             <div class="dialog">
 			<fullcal:calendar id="cal">
-	    		header: { left: "month, agendaWeek, agendaDay", center: "", right: "prev, today, next" },
+	    		header: { left: "month, agendaWeek, agendaDay", center: "title", right: "prev, today, next" },
 	    		columnFormat: { week: 'ddd d/M' },
 	    		timeFormat: 'HH:mm{ - HH:mm}',
 	    		buttonText: { today:    'Hoy',

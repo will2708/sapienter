@@ -120,13 +120,7 @@ class CalendarioController {
 	def events = {
 		def start = new Date(params.long('start')*1000)
 		def end = new Date(params.long('end')*1000)
-		
-		def fecha = new Date()
-		println fecha
-
-		Date prueba2 = this.getDateInTimeZone(fecha, "GMT-3") 
-		println prueba2
-		
+				
 		render Tarea.findAllByFechaInicioBetween(start, end).collect {
 		   [
 				 id: it.id,

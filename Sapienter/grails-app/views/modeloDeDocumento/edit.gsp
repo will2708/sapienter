@@ -54,7 +54,17 @@
                                   <label for="categoria"><g:message code="modeloDeDocumento.categoria.label" default="Categoria" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'categoria', 'errors')}">
-                                    <g:select name="categoria" from="${modeloDeDocumentoInstance.constraints.categoria.inList}" value="${modeloDeDocumentoInstance?.categoria}" valueMessagePrefix="modeloDeDocumento.categoria"  />
+                                    <g:select optionKey="id"
+									    optionValue="nombreCategoria" 
+								    		   name="categoria.id"
+										      from="${sapienter.Categoria.list()}"
+										      noSelection="${[' ':'Seleccione Categoria']}"
+										      value="${modeloDeDocumentoInstance?.categoria?.id}" 
+										  onchange="${remoteFunction(controller:'categoria', 
+										  							 action:'ajaxGetSubcategorias',
+							           								 params:'\'id=\' + escape(this.value)',
+							        								 onComplete:'updateSubcategorias(e)')}"
+							     ></g:select>
                                 </td>
                             </tr>
                         
@@ -63,7 +73,7 @@
                                   <label for="subCategoria"><g:message code="modeloDeDocumento.subCategoria.label" default="Sub Categoria" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'subCategoria', 'errors')}">
-                                    <g:textField name="subCategoria" value="${modeloDeDocumentoInstance?.subCategoria}" />
+                                    <g:select name="subCategoria" id="subTipoCategoria" value="${modeloDeDocumentoInstance?.subCategoria?.id}"></g:select>
                                 </td>
                             </tr>
                         
@@ -73,15 +83,6 @@
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'estado', 'errors')}">
                                     <g:textField name="estado" value="${modeloDeDocumentoInstance?.estado}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="estudio"><g:message code="modeloDeDocumento.estudio.label" default="Estudio" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'estudio', 'errors')}">
-                                    <g:select name="estudio.id" from="${sapienter.Estudio.list()}" optionKey="id" value="${modeloDeDocumentoInstance?.estudio?.id}"  />
                                 </td>
                             </tr>
                         
@@ -107,6 +108,36 @@
                     <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </div>
             </g:form>
+								<g:javascript>
+									function updateSubcategorias(e) { 
+									    var subTipoCategorias = eval("(" + e.responseText + ")")
+									    if (subTipoCategorias) { 
+									    	var rselect = document.getElementById('subTipoCategoria')
+									
+									    	// Clear all previous options
+									    	var l = rselect.length
+									
+									    	while (l > 0) { 
+									    		l--; 
+									    		rselect.remove(l); 
+									    	}
+									
+									    	// Rebuild the select
+									    	for (var i=0; i < subTipoCategorias.length; i++) { 
+									    		var subCategoria = subTipoCategorias[i];
+									    		var opt = document.createElement('option'); 
+									    		opt.text = subCategoria.subTipoCategoria;
+									    		opt.value = subCategoria.id;
+									    		try { 
+									    			rselect.add(opt, null); // standard compliant; doesn't work in IE
+									    		}
+									    		catch(ex) { 
+									    			rselect.add(opt); // IE only
+									    		}
+									    	}
+									    }
+									}
+								</g:javascript>            
         </div>
     </body>
 </html>

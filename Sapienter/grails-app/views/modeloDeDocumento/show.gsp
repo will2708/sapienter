@@ -65,13 +65,6 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="modeloDeDocumento.estudio.label" default="Estudio" /></td>
-                            
-                            <td valign="top" class="value"><g:link controller="estudio" action="show" id="${modeloDeDocumentoInstance?.estudio?.id}">${modeloDeDocumentoInstance?.estudio?.encodeAsHTML()}</g:link></td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="modeloDeDocumento.modeloDeDocumento.label" default="Modelo De Documento" /></td>
                  
                             <td valign="top" class="value">${fieldValue(bean: modeloDeDocumentoInstance, field: "modeloDeDocumento").decodeHTML()}</td>
