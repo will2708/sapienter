@@ -3,6 +3,7 @@ import java.util.Date
 import sapienter.Calendario
 import sapienter.Categoria
 import sapienter.Estudio
+import sapienter.Juzgado
 import sapienter.PersonaFisica
 import sapienter.PersonaJuridica
 import sapienter.SecRole
@@ -60,6 +61,50 @@ class BootStrap {
 		if (cat.hasErrors()){
 				println cat.errors
 		}
+		
+		def juzgado = new Juzgado(estudio: (Estudio.getAll().get(0)),nombreDeJuzgado: "Juzgado 1", numeroDeJuzgado:"1", direccionJuzgado: "AV. DE LOS INMIGRANTES 1950 PISO 4°")
+		juzgado.save()
+		if (juzgado.hasErrors()){
+			println juzgado.errors
+		}
+		
+		juzgado = new Juzgado(estudio: (Estudio.getAll().get(0)),nombreDeJuzgado: "Juzgado 2", numeroDeJuzgado:"2", direccionJuzgado: "TALCAHUANO 490. PISO 5º")
+		juzgado.save()
+		if (juzgado.hasErrors()){
+			println juzgado.errors
+		}
+		
+		juzgado = new Juzgado(estudio: (Estudio.getAll().get(0)),nombreDeJuzgado: "Juzgado 3", numeroDeJuzgado:"3", direccionJuzgado: "TALCAHUANO 550. PISO 6º")
+		juzgado.save()
+		if (juzgado.hasErrors()){
+			println juzgado.errors
+		}
+		
+		juzgado = new Juzgado(estudio: (Estudio.getAll().get(0)),nombreDeJuzgado: "Juzgado 4", numeroDeJuzgado:"4", direccionJuzgado: "LAVALLE 1212. PISO 8º")
+		juzgado.save()
+		if (juzgado.hasErrors()){
+			println juzgado.errors
+		}
+		
+		juzgado = new Juzgado(estudio: (Estudio.getAll().get(0)),nombreDeJuzgado: "Juzgado 5", numeroDeJuzgado:"5", direccionJuzgado: "TALCAHUANO 490. PISO 2º")
+		juzgado.save()
+		if (juzgado.hasErrors()){
+			println juzgado.errors
+		}
+
+		juzgado = new Juzgado(estudio: (Estudio.getAll().get(0)),nombreDeJuzgado: "Juzgado 6", numeroDeJuzgado:"6", direccionJuzgado: "AV.DE LOS INMIGRANTES 1950 4º")
+		juzgado.save()
+		if (juzgado.hasErrors()){
+			println juzgado.errors
+		}
+
+		juzgado = new Juzgado(estudio: (Estudio.getAll().get(0)),nombreDeJuzgado: "Juzgado 7", numeroDeJuzgado:"7", direccionJuzgado: "TALCAHUANO 490. PISO 6º")
+		juzgado.save()
+		if (juzgado.hasErrors()){
+			println juzgado.errors
+		}
+
+				
 		def subCat = new Subcategoria(subTipoCategoria:"Postulatoria", categoria:(Categoria.findByNombreCategoria("Judicial")))
         	subCat.save()
 			if (subCat.hasErrors()){

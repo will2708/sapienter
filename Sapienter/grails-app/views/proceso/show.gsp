@@ -77,14 +77,7 @@
                             <td valign="top" class="value"><g:link controller="juzgado" action="show" id="${procesoInstance?.juzgado?.id}">${procesoInstance?.juzgado?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="proceso.numeroDeJuzgado.label" default="Numero De Juzgado" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: procesoInstance, field: "numeroDeJuzgado")}</td>
-                            
-                        </tr>
-                    
+                                        
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="proceso.numeroDeProcesoEnJuzgado.label" default="Numero De Proceso En Juzgado" /></td>
                             

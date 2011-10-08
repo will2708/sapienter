@@ -123,18 +123,6 @@
 						</tr>
 
 						<tr class="prop">
-							<td valign="top" class="name"><label for="numeroDeJuzgado"><g:message
-										code="proceso.numeroDeJuzgado.label"
-										default="Numero De Juzgado" />
-							</label></td>
-							<td valign="top"
-								class="value ${hasErrors(bean: procesoInstance, field: 'numeroDeJuzgado', 'errors')}">
-								<g:textField name="numeroDeJuzgado"
-									value="${fieldValue(bean: procesoInstance, field: 'numeroDeJuzgado')}" />
-							</td>
-						</tr>
-
-						<tr class="prop">
 							<td valign="top" class="name"><label
 								for="numeroDeProcesoEnJuzgado"><g:message
 										code="proceso.numeroDeProcesoEnJuzgado.label"

@@ -9,7 +9,6 @@ class Proceso {
 	String estado 
 	String etapaProcesal 
 	Juzgado juzgado 
-	Integer	numeroDeJuzgado
 	Integer numeroDeProcesoEnJuzgado
 	String observaciones
 	Usuario responsable
@@ -29,7 +28,6 @@ class Proceso {
 		estado(inList:['Abierto a pruebas', 'Demanda en preparación', 'Cerró período de apertura de pruebas', 'En tratamiento', 'Cerrado', 'A sentencia', 'A apelar'])
 		etapaProcesal(inList:['Postulatoria', 'Probatoria', 'Conclusiva', 'De Resolución', 'Impugnativa','Extra-Judicial'])
 		juzgado(nullable:true)
-		numeroDeJuzgado(nullable:true)
 		numeroDeProcesoEnJuzgado(nullable:true)
 		observaciones(nullable:true)
 		responsable(nullable:false)

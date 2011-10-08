@@ -5,6 +5,10 @@ class Juzgado {
 	String nombreDeJuzgado
 	Integer numeroDeJuzgado
 	
+	String toString(){
+		nombreDeJuzgado
+	}
+	
     static constraints = {
 		nombreDeJuzgado(blank:false)
 		numeroDeJuzgado(blank:false)

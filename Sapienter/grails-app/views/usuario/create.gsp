@@ -111,7 +111,7 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="calendario"><g:message code="usuario.calendario.label" default="Calendario" /></label>
+                                    <label for="comentarios"><g:message code="usuario.comentarios.label" default="Comentarios" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'calendario', 'errors')}">
                                     <g:textArea name="comentarios" cols="40" rows="5" value="${usuarioInstance?.comentarios}" />

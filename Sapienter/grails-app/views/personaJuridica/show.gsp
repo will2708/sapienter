@@ -140,14 +140,8 @@
 					</tr>
 
 					<tr class="prop">
-						<td valign="top" class="name"><g:message
-								code="personaJuridica.estudio.label" default="Estudio" />
-						</td>
-
-						<td valign="top" class="value"><g:link controller="estudio"
-								action="show" id="${personaJuridicaInstance?.estudio?.id}">
-								${personaJuridicaInstance?.estudio?.encodeAsHTML()}
-							</g:link>
+						<td valign="top" class="value" colspan="2">
+							<g:hiddenField name="estudio" value="${personaJuridicaInstance?.estudio?.id}"/>
 						</td>
 
 					</tr>
