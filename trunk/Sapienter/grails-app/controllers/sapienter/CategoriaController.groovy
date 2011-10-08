@@ -101,9 +101,38 @@ class CategoriaController {
 		}
 	}
 	def ajaxGetSubcategorias = {
+		def lista
+		def proceso
+		def lista2
+		def modelo
 		def categoria = Categoria.get(params.id)
-		if (categoria != null)
-			render categoria?.subCategorias as JSON
+		if (params.proceso != null){
+			if (categoria != null){
+				lista = categoria.subCategorias
+				lista2 = new ArrayList()
+				proceso = Proceso.get(params.proceso)
+				
+				lista.remove(proceso.subCategoria)
+				lista2.add(proceso.subCategoria)
+				lista2.addAll(lista)
+			}
+			render lista2 as JSON
+		}else if(params.modelo != null){
+			if (categoria != null){
+				lista = categoria.subCategorias
+				lista2 = new ArrayList()
+				modelo = ModeloDeDocumento.get(params.modelo)
+				
+				lista.remove(modelo.subCategoria)
+				lista2.add(modelo.subCategoria)
+				lista2.addAll(lista)
+			}
+			render lista2 as JSON
+		}
+		else{ 
+			if (categoria != null)
+				render categoria?.subCategorias as JSON
+		}
 	}
 	def ajaxGetSubcategorias2 = {
 		def categoria = Categoria.get(1)
