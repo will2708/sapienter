@@ -62,7 +62,11 @@ class ProcesoController {
     }
 
     def update = {
-        def procesoInstance = Proceso.get(params.id)
+		def sub = Subcategoria.get(params.subCategoria)
+		params.remove("subCategoria")
+		params.put("subCategoria", sub)
+		
+		def procesoInstance = Proceso.get(params.id)
         if (procesoInstance) {
             if (params.version) {
                 def version = params.version.toLong()

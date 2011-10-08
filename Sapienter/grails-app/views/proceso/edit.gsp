@@ -8,6 +8,7 @@
         <g:set var="entityName" value="${message(code: 'proceso.label', default: 'Proceso')}" />
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
         <g:javascript library="prototype" />
+        <g:javascript library="jquery" plugin="jquery" />
     </head>
     <body>
         <div class="nav">
@@ -26,7 +27,7 @@
             </div>
             </g:hasErrors>
             <g:form method="post" >
-                <g:hiddenField name="id" value="${procesoInstance?.id}" />
+                <g:hiddenField name="id" id="id" value="${procesoInstance?.id}" />
                 <g:hiddenField name="version" value="${procesoInstance?.version}" />
                 <div class="dialog">
                     <table>
@@ -38,12 +39,13 @@
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: procesoInstance, field: 'categoria', 'errors')}">
                                    <g:select optionKey="id"
-									    optionValue="nombreCategoria" 
-								    		   name="categoria.id"
-										      from="${sapienter.Categoria.list()}"
-										      noSelection="${[' ':'Seleccione Categoria']}" 
-										      value="${procesoInstance?.categoria?.id}"										      
-										  onchange="${remoteFunction(controller:'categoria', 
+									       optionValue="nombreCategoria" 
+								    		      name="categoria.id"
+								    		        id="nombreCategoria"
+										          from="${sapienter.Categoria.list()}"
+										   noSelection="${[' ':'Seleccione Categoria']}" 
+										         value="${procesoInstance?.categoria?.id}"										      
+										      onchange="${remoteFunction(controller:'categoria', 
 										  							 action:'ajaxGetSubcategorias',
 							           								 params:'\'id=\' + escape(this.value)',
 							        								 onComplete:'updateSubcategorias(e)')}"
@@ -57,7 +59,12 @@
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: procesoInstance, field: 'subCategoria', 'errors')}">
 <%--                                    <g:select name="subCategoria.id" from="${sapienter.Subcategoria.list()}" optionKey="id" value="${procesoInstance?.subCategoria?.id}" noSelection="['null': '']" /> --%>
-										<g:select name="subCategoria" id="subTipoCategoria" value="${procesoInstance?.subCategoria?.id}"></g:select>
+										<g:select optionKey="id"
+									    	    optionValue="subTipoCategoria" 
+										               name="subCategoria.id" 
+										                 id="subTipoCategoria" 
+										              value="${procesoInstance?.subCategoria?.id}"
+									    ></g:select>
                                 </td>
                             </tr>
                         
@@ -242,11 +249,17 @@
                 </div>
             </g:form>
       								<g:javascript>
-									// This is called when the page loads to initialize
-									var zselect = document.getElementById('categoria.nombreCategoria');
-									var zopt = zselect.options[zselect.selectedIndex];
-									${remoteFunction(controller:"categoria", action:"ajaxGetSubcategorias", params:"'id=' + zopt.value", onComplete:"updateSubcategorias(e)")}								
+      								$(function() {
+										
+										var idProceso = document.getElementById('id');
+																														
+										var zselect = document.getElementById('nombreCategoria');
 
+										var zopt = zselect.options[zselect.selectedIndex];
+
+										${remoteFunction(controller:"categoria", action:"ajaxGetSubcategorias", params:"'id=' + zopt.value + '&proceso=' + idProceso.value", onComplete:"updateSubcategorias(e)")}								
+									});
+									
 									function updateSubcategorias(e) { 
 									    var subTipoCategorias = eval("(" + e.responseText + ")")
 									    if (subTipoCategorias) { 

@@ -60,7 +60,11 @@ class ModeloDeDocumentoController {
     }
 
     def update = {
-        def modeloDeDocumentoInstance = ModeloDeDocumento.get(params.id)
+		def sub = Subcategoria.get(params["subCategoria.id"])
+		params.remove("subCategoria")
+		params.put("subCategoria", sub)
+		
+		def modeloDeDocumentoInstance = ModeloDeDocumento.get(params.id)
         if (modeloDeDocumentoInstance) {
             if (params.version) {
                 def version = params.version.toLong()
