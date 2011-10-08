@@ -11,9 +11,14 @@
         <div id="spinner" class="spinner" style="display:none;">
             <img src="${resource(dir:'images',file:'spinner.gif')}" alt="${message(code:'spinner.alt',default:'Loading...')}" />
         </div>
-          <div id="SapienterLogo"><a href="http://www.sapienter.org"><img src="${resource(dir:'images',file:'Logo.jpg')}" alt="Sapienter Pensado para el asesoramiento jurídico" border="0" /></a></div>
-		            
-        <g:layoutBody />
-
+     	<div id="SapienterLogo"><a href="http://www.sapienter.org"><img src="${resource(dir:'images',file:'Logo.jpg')}" alt="Sapienter Pensado para el asesoramiento jurídico" border="0" /></a></div>
+		<div id="menu">
+			<g:render template="/common/menubar" />
+		 	
+		 	<div class="body">
+                <g:layoutBody />
+            </div>
+        </div>
     </body>
 </html>
+
