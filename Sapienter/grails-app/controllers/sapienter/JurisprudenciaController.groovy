@@ -1,18 +1,20 @@
 package sapienter
 
+import grails.plugins.springsecurity.Secured
+
 class JurisprudenciaController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def index = {
         redirect(action: "list", params: params)
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [jurisprudenciaInstanceList: Jurisprudencia.list(params), jurisprudenciaInstanceTotal: Jurisprudencia.count()]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {
 		def estudio = Estudio.getAll().get(0)
 		params.put("estudio", estudio)
@@ -22,7 +24,7 @@ class JurisprudenciaController {
 		
         return [jurisprudenciaInstance: jurisprudenciaInstance]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
         def jurisprudenciaInstance = new Jurisprudencia(params)
         if (jurisprudenciaInstance.save(flush: true)) {
@@ -33,7 +35,7 @@ class JurisprudenciaController {
             render(view: "create", model: [jurisprudenciaInstance: jurisprudenciaInstance])
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def show = {
         def jurisprudenciaInstance = Jurisprudencia.get(params.id)
         if (!jurisprudenciaInstance) {
@@ -44,8 +46,8 @@ class JurisprudenciaController {
             [jurisprudenciaInstance: jurisprudenciaInstance]
         }
     }
-
-    def edit = {
+	@Secured(['IS_AUTHENTICATED_FULLY'])
+    def edit = {	
         def jurisprudenciaInstance = Jurisprudencia.get(params.id)
         if (!jurisprudenciaInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'jurisprudencia.label', default: 'Jurisprudencia'), params.id])}"
@@ -55,7 +57,7 @@ class JurisprudenciaController {
             return [jurisprudenciaInstance: jurisprudenciaInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def update = {
         def jurisprudenciaInstance = Jurisprudencia.get(params.id)
         if (jurisprudenciaInstance) {
@@ -82,7 +84,7 @@ class JurisprudenciaController {
             redirect(action: "list")
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def delete = {
         def jurisprudenciaInstance = Jurisprudencia.get(params.id)
         if (jurisprudenciaInstance) {

@@ -1,20 +1,20 @@
 package sapienter
 
-import java.util.concurrent.ConcurrentHashMap.HashEntry;
+import grails.plugins.springsecurity.Secured
 
 class TareaController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def index = {
         redirect(action: "list", params: params)
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [tareaInstanceList: Tarea.list(params), tareaInstanceTotal: Tarea.count()]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {
         def tareaInstance = new Tarea()
         tareaInstance.properties = params
@@ -30,7 +30,7 @@ class TareaController {
 		
         return [tareaInstance: tareaInstance]
     }
-	
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
 		def tareaInstance = new Tarea(params)
         if (tareaInstance.save(flush: true)) {
@@ -41,7 +41,7 @@ class TareaController {
             render(view: "create", model: [tareaInstance: tareaInstance])
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def show = {
         def tareaInstance = Tarea.get(params.id)
         if (!tareaInstance) {
@@ -52,7 +52,7 @@ class TareaController {
             [tareaInstance: tareaInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def edit = {
         def tareaInstance = Tarea.get(params.id)
         if (!tareaInstance) {
@@ -63,7 +63,7 @@ class TareaController {
             return [tareaInstance: tareaInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def update = {
         def tareaInstance = Tarea.get(params.id)
         if (tareaInstance) {
@@ -90,7 +90,7 @@ class TareaController {
             redirect(action: "list")
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def delete = {
         def tareaInstance = Tarea.get(params.id)
         if (tareaInstance) {
@@ -109,6 +109,7 @@ class TareaController {
             redirect(action: "list")
         }
     }
+	@Secured(['IS_AUTHENTICATED_FULLY'])
 	def calendario = {
 		def mapa = params
 		def tareaInstance = Tarea.get(params.id)

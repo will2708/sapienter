@@ -1,27 +1,29 @@
 package sapienter
 
+import grails.plugins.springsecurity.Secured
+
 class PersonaJuridicaController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def index = {
         redirect(action: "list", params: params)
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [personaJuridicaInstanceList: PersonaJuridica.list(params), personaJuridicaInstanceTotal: PersonaJuridica.count()]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {
 	  params.put("tipo","Juridica")
       redirect(controller:"persona", action:"create_mod", params:params)
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
 		redirect(controller: "persona", action: "createJuridica", params: params)
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def show = {
         def personaJuridicaInstance = PersonaJuridica.get(params.id)
         if (!personaJuridicaInstance) {
@@ -32,7 +34,7 @@ class PersonaJuridicaController {
             [personaJuridicaInstance: personaJuridicaInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def edit = {
         def personaJuridicaInstance = PersonaJuridica.get(params.id)
         if (!personaJuridicaInstance) {
@@ -43,7 +45,7 @@ class PersonaJuridicaController {
             return [personaJuridicaInstance: personaJuridicaInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def update = {
         def personaJuridicaInstance = PersonaJuridica.get(params.id)
         if (personaJuridicaInstance) {
@@ -70,7 +72,7 @@ class PersonaJuridicaController {
             redirect(action: "list")
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def delete = {
         def personaJuridicaInstance = PersonaJuridica.get(params.id)
         if (personaJuridicaInstance) {
@@ -89,6 +91,7 @@ class PersonaJuridicaController {
             redirect(action: "list")
         }
     }
+	@Secured(['IS_AUTHENTICATED_FULLY'])
 	def crearProceso = {
 		def parametros = new HashMap()
 		parametros.put("personaId", params.id)

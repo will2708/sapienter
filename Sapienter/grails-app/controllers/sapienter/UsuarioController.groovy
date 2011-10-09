@@ -5,11 +5,11 @@ import grails.plugins.springsecurity.Secured
 class UsuarioController {
 	def springSecurityService
 	static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
 	def index = {
 		redirect(action: "list", params: params)
 	}
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
 	def list = {
 		params.max = Math.min(params.max ? params.int('max') : 10, 100)
 		[usuarioInstanceList: Usuario.list(params), usuarioInstanceTotal: Usuario.count()]
@@ -46,7 +46,7 @@ class UsuarioController {
 			render(view: "create", model: [usuarioInstance: usuarioInstance])
 		}
 	}
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
 	def show = {
 		def usuarioInstance = Usuario.get(params.id)
 		if (!usuarioInstance) {
@@ -57,7 +57,7 @@ class UsuarioController {
 			[usuarioInstance: usuarioInstance]
 		}
 	}
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
 	def edit = {
 		def usuarioInstance = Usuario.get(params.id)
 		if (!usuarioInstance) {
@@ -104,7 +104,7 @@ class UsuarioController {
 			redirect(action: "list")
 		}
 	}
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
 	def delete = {
 		def usuarioInstance = Usuario.get(params.id)
 		if (usuarioInstance) {

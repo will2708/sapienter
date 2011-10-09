@@ -1,27 +1,29 @@
 package sapienter
 
+import grails.plugins.springsecurity.Secured
+
 class PersonaFisicaController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def index = {
         redirect(action: "list", params: params)
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [personaFisicaInstanceList: PersonaFisica.list(params), personaFisicaInstanceTotal: PersonaFisica.count()]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {
 		params.put("tipo","Fisica")
         redirect(controller:"persona", action:"create_mod",params:params)
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
 		redirect(controller: "persona", action: "createFisica", params: params)
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def show = {
         def personaFisicaInstance = PersonaFisica.get(params.id)
         if (!personaFisicaInstance) {
@@ -32,7 +34,7 @@ class PersonaFisicaController {
             [personaFisicaInstance: personaFisicaInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def edit = {
         def personaFisicaInstance = PersonaFisica.get(params.id)
         if (!personaFisicaInstance) {
@@ -43,7 +45,7 @@ class PersonaFisicaController {
             return [personaFisicaInstance: personaFisicaInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def update = {
         def personaFisicaInstance = PersonaFisica.get(params.id)
         if (personaFisicaInstance) {
@@ -70,7 +72,7 @@ class PersonaFisicaController {
             redirect(action: "list")
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def delete = {
         def personaFisicaInstance = PersonaFisica.get(params.id)
         if (personaFisicaInstance) {
@@ -89,6 +91,7 @@ class PersonaFisicaController {
             redirect(action: "list")
         }
     }
+	@Secured(['IS_AUTHENTICATED_FULLY'])
 	def crearProceso = {		
 		def parametros = new HashMap()
 		parametros.put("personaId", params.id)
