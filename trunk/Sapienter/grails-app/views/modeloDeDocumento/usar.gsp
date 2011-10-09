@@ -13,6 +13,9 @@
             <g:if test="${variables}">
             	<g:form action="completar" >
 	            	<g:each in="${variables}" status="i" var="variable">
+	            		<g:if test="${variable.key=='id'}">
+	            			<g:hiddenField name="id" value="${variable.value}"/>
+	            		</g:if>                        
     	    			<g:if test="${variable.key!='id'}">	            	
 	    	                <table>
 	        	                <tbody>
