@@ -131,7 +131,7 @@ class ModeloDeDocumentoController {
 					.hasNext();) {
 				iterator.next()
 				variables.put((matcher[i][1]).toString().substring(2,(matcher[i][1]).toString().length()-2),
-							  (matcher[i][1]).toString().substring(2,(matcher[i][1]).toString().length()-2))
+							  "")
 				i++
 			
 			}
