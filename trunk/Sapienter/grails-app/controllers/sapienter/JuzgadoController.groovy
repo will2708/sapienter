@@ -1,24 +1,26 @@
 package sapienter
 
+import grails.plugins.springsecurity.Secured
+
 class JuzgadoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def index = {
         redirect(action: "list", params: params)
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [juzgadoInstanceList: Juzgado.list(params), juzgadoInstanceTotal: Juzgado.count()]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {
         def juzgadoInstance = new Juzgado()
         juzgadoInstance.properties = params
         return [juzgadoInstance: juzgadoInstance]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
         def juzgadoInstance = new Juzgado(params)
         if (juzgadoInstance.save(flush: true)) {
@@ -29,7 +31,7 @@ class JuzgadoController {
             render(view: "create", model: [juzgadoInstance: juzgadoInstance])
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def show = {
         def juzgadoInstance = Juzgado.get(params.id)
         if (!juzgadoInstance) {
@@ -40,7 +42,7 @@ class JuzgadoController {
             [juzgadoInstance: juzgadoInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def edit = {
         def juzgadoInstance = Juzgado.get(params.id)
         if (!juzgadoInstance) {
@@ -51,7 +53,7 @@ class JuzgadoController {
             return [juzgadoInstance: juzgadoInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def update = {
         def juzgadoInstance = Juzgado.get(params.id)
         if (juzgadoInstance) {
@@ -78,7 +80,7 @@ class JuzgadoController {
             redirect(action: "list")
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def delete = {
         def juzgadoInstance = Juzgado.get(params.id)
         if (juzgadoInstance) {

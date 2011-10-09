@@ -1,24 +1,26 @@
 package sapienter
 
+import grails.plugins.springsecurity.Secured
+
 class SubcategoriaController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def index = {
         redirect(action: "list", params: params)
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [subcategoriaInstanceList: Subcategoria.list(params), subcategoriaInstanceTotal: Subcategoria.count()]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {
         def subcategoriaInstance = new Subcategoria()
         subcategoriaInstance.properties = params
         return [subcategoriaInstance: subcategoriaInstance]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
         def subcategoriaInstance = new Subcategoria(params)
         if (subcategoriaInstance.save(flush: true)) {
@@ -29,7 +31,7 @@ class SubcategoriaController {
             render(view: "create", model: [subcategoriaInstance: subcategoriaInstance])
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def show = {
         def subcategoriaInstance = Subcategoria.get(params.id)
         if (!subcategoriaInstance) {
@@ -40,7 +42,7 @@ class SubcategoriaController {
             [subcategoriaInstance: subcategoriaInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def edit = {
         def subcategoriaInstance = Subcategoria.get(params.id)
         if (!subcategoriaInstance) {
@@ -51,7 +53,7 @@ class SubcategoriaController {
             return [subcategoriaInstance: subcategoriaInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def update = {
         def subcategoriaInstance = Subcategoria.get(params.id)
         if (subcategoriaInstance) {
@@ -78,7 +80,7 @@ class SubcategoriaController {
             redirect(action: "list")
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def delete = {
         def subcategoriaInstance = Subcategoria.get(params.id)
         if (subcategoriaInstance) {

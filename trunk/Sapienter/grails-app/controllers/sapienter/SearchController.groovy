@@ -1,5 +1,9 @@
 package sapienter
+
+import grails.plugins.springsecurity.Secured
+
 class SearchController {
+	@Secured(['IS_AUTHENTICATED_FULLY'])
 	def search = {
 		def query = params.q
 		if (!query) {

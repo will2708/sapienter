@@ -1,24 +1,26 @@
 package sapienter
 
+import grails.plugins.springsecurity.Secured
+
 class ParteController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def index = {
         redirect(action: "list", params: params)
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [parteInstanceList: Parte.list(params), parteInstanceTotal: Parte.count()]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {
         def parteInstance = new Parte()
         parteInstance.properties = params
         return [parteInstance: parteInstance]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
         def parteInstance = new Parte(params)
         if (parteInstance.save(flush: true)) {
@@ -29,7 +31,7 @@ class ParteController {
             render(view: "create", model: [parteInstance: parteInstance])
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def show = {
         def parteInstance = Parte.get(params.id)
         if (!parteInstance) {
@@ -40,7 +42,7 @@ class ParteController {
             [parteInstance: parteInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def edit = {
         def parteInstance = Parte.get(params.id)
         if (!parteInstance) {
@@ -51,7 +53,7 @@ class ParteController {
             return [parteInstance: parteInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def update = {
         def parteInstance = Parte.get(params.id)
         if (parteInstance) {
@@ -78,7 +80,7 @@ class ParteController {
             redirect(action: "list")
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def delete = {
         def parteInstance = Parte.get(params.id)
         if (parteInstance) {

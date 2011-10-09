@@ -1,26 +1,26 @@
 package sapienter
 
-import java.util.Date;
+import grails.plugins.springsecurity.Secured
 
 class MovimientoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def index = {
         redirect(action: "list", params: params)
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [movimientoInstanceList: Movimiento.list(params), movimientoInstanceTotal: Movimiento.count()]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {
         def movimientoInstance = new Movimiento()
         movimientoInstance.properties = params
         return [movimientoInstance: movimientoInstance]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
 		String fechaInicial = params.fechaDeCreacion
 		String fechaFinal   = params.fechaDeVencimiento
@@ -82,7 +82,7 @@ class MovimientoController {
             render(view: "create", model: [movimientoInstance: movimientoInstance])
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def show = {
         def movimientoInstance = Movimiento.get(params.id)
         if (!movimientoInstance) {
@@ -93,7 +93,7 @@ class MovimientoController {
             [movimientoInstance: movimientoInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def edit = {
         def movimientoInstance = Movimiento.get(params.id)
         if (!movimientoInstance) {
@@ -104,7 +104,7 @@ class MovimientoController {
             return [movimientoInstance: movimientoInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def update = {
         def movimientoInstance = Movimiento.get(params.id)
         if (movimientoInstance) {
@@ -131,7 +131,7 @@ class MovimientoController {
             redirect(action: "list")
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def delete = {
         def movimientoInstance = Movimiento.get(params.id)
         if (movimientoInstance) {

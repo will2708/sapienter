@@ -1,24 +1,26 @@
 package sapienter
 
+import grails.plugins.springsecurity.Secured
+
 class DocumentoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def index = {
         redirect(action: "list", params: params)
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [documentoInstanceList: Documento.list(params), documentoInstanceTotal: Documento.count()]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {
         def documentoInstance = new Documento()
         documentoInstance.properties = params
         return [documentoInstance: documentoInstance]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
         def documentoInstance = new Documento(params)
         if (documentoInstance.save(flush: true)) {
@@ -29,7 +31,7 @@ class DocumentoController {
             render(view: "create", model: [documentoInstance: documentoInstance])
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def show = {
         def documentoInstance = Documento.get(params.id)
         if (!documentoInstance) {
@@ -40,7 +42,7 @@ class DocumentoController {
             [documentoInstance: documentoInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def edit = {
         def documentoInstance = Documento.get(params.id)
         if (!documentoInstance) {
@@ -51,7 +53,7 @@ class DocumentoController {
             return [documentoInstance: documentoInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def update = {
         def documentoInstance = Documento.get(params.id)
         if (documentoInstance) {
@@ -78,7 +80,7 @@ class DocumentoController {
             redirect(action: "list")
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def delete = {
         def documentoInstance = Documento.get(params.id)
         if (documentoInstance) {
@@ -97,7 +99,7 @@ class DocumentoController {
             redirect(action: "list")
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
 	def createDesdeModelo = {
 		def id = params.id
 		def modeloDeDocumentoInstance = ModeloDeDocumento.get(id)

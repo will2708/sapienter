@@ -1,24 +1,26 @@
 package sapienter
 
+import grails.plugins.springsecurity.Secured
+
 class ModeloDeDocumentoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def index = {
         redirect(action: "list", params: params)
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [modeloDeDocumentoInstanceList: ModeloDeDocumento.list(params), modeloDeDocumentoInstanceTotal: ModeloDeDocumento.count()]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {
         def modeloDeDocumentoInstance = new ModeloDeDocumento()
         modeloDeDocumentoInstance.properties = params
         return [modeloDeDocumentoInstance: modeloDeDocumentoInstance]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
 		def sub = Subcategoria.get(params.subCategoria)
 		params.remove("subCategoria")
@@ -36,7 +38,7 @@ class ModeloDeDocumentoController {
             render(view: "create", model: [modeloDeDocumentoInstance: modeloDeDocumentoInstance])
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def show = {
         def modeloDeDocumentoInstance = ModeloDeDocumento.get(params.id)
         if (!modeloDeDocumentoInstance) {
@@ -47,7 +49,7 @@ class ModeloDeDocumentoController {
             [modeloDeDocumentoInstance: modeloDeDocumentoInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def edit = {
         def modeloDeDocumentoInstance = ModeloDeDocumento.get(params.id)
         if (!modeloDeDocumentoInstance) {
@@ -58,7 +60,7 @@ class ModeloDeDocumentoController {
             return [modeloDeDocumentoInstance: modeloDeDocumentoInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def update = {
 		def sub = Subcategoria.get(params["subCategoria.id"])
 		params.remove("subCategoria")
@@ -89,7 +91,7 @@ class ModeloDeDocumentoController {
             redirect(action: "list")
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def delete = {
         def modeloDeDocumentoInstance = ModeloDeDocumento.get(params.id)
         if (modeloDeDocumentoInstance) {
@@ -113,7 +115,7 @@ class ModeloDeDocumentoController {
 		params.max = Math.min(params.max ? params.int('max') : 10, 100)
 		[modeloDeDocumentoInstanceList: ModeloDeDocumento.list(params), modeloDeDocumentoInstanceTotal: ModeloDeDocumento.count()]
 	}	
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
 	def usar = {
 		def modeloDeDocumentoInstance = ModeloDeDocumento.get(params.id)
 		Map variables = new HashMap()
@@ -138,7 +140,7 @@ class ModeloDeDocumentoController {
 		}
 		return [variables:variables]
 	}
-	
+	@Secured(['IS_AUTHENTICATED_FULLY'])
 	def completar = {
 		redirect(controller: "documento", action: "createDesdeModelo", params: params)
 	}	

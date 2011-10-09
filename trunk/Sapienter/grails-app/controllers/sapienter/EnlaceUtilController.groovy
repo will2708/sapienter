@@ -1,24 +1,26 @@
 package sapienter
 
+import grails.plugins.springsecurity.Secured
+
 class EnlaceUtilController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def index = {
         redirect(action: "list", params: params)
     }
-
-    def list = {
+	@Secured(['IS_AUTHENTICATED_FULLY'])
+    def list = {	
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [enlaceUtilInstanceList: EnlaceUtil.list(params), enlaceUtilInstanceTotal: EnlaceUtil.count()]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {
         def enlaceUtilInstance = new EnlaceUtil()
         enlaceUtilInstance.properties = params
         return [enlaceUtilInstance: enlaceUtilInstance]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
         def enlaceUtilInstance = new EnlaceUtil(params)
         if (enlaceUtilInstance.save(flush: true)) {
@@ -29,7 +31,7 @@ class EnlaceUtilController {
             render(view: "create", model: [enlaceUtilInstance: enlaceUtilInstance])
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def show = {
         def enlaceUtilInstance = EnlaceUtil.get(params.id)
         if (!enlaceUtilInstance) {
@@ -40,7 +42,7 @@ class EnlaceUtilController {
             [enlaceUtilInstance: enlaceUtilInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def edit = {
         def enlaceUtilInstance = EnlaceUtil.get(params.id)
         if (!enlaceUtilInstance) {
@@ -51,7 +53,7 @@ class EnlaceUtilController {
             return [enlaceUtilInstance: enlaceUtilInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def update = {
         def enlaceUtilInstance = EnlaceUtil.get(params.id)
         if (enlaceUtilInstance) {

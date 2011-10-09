@@ -1,24 +1,26 @@
 package sapienter
 
+import grails.plugins.springsecurity.Secured
+
 class GastoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def index = {
         redirect(action: "list", params: params)
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [gastoInstanceList: Gasto.list(params), gastoInstanceTotal: Gasto.count()]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {
         def gastoInstance = new Gasto()
         gastoInstance.properties = params
         return [gastoInstance: gastoInstance]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
         def gastoInstance = new Gasto(params)
         if (gastoInstance.save(flush: true)) {
@@ -29,7 +31,7 @@ class GastoController {
             render(view: "create", model: [gastoInstance: gastoInstance])
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def show = {
         def gastoInstance = Gasto.get(params.id)
         if (!gastoInstance) {
@@ -40,7 +42,7 @@ class GastoController {
             [gastoInstance: gastoInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def edit = {
         def gastoInstance = Gasto.get(params.id)
         if (!gastoInstance) {
@@ -51,7 +53,7 @@ class GastoController {
             return [gastoInstance: gastoInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def update = {
         def gastoInstance = Gasto.get(params.id)
         if (gastoInstance) {
@@ -78,7 +80,7 @@ class GastoController {
             redirect(action: "list")
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def delete = {
         def gastoInstance = Gasto.get(params.id)
         if (gastoInstance) {

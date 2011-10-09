@@ -4,26 +4,27 @@ import grails.converters.JSON
 
 import java.text.SimpleDateFormat
 import java.util.Date
+import grails.plugins.springsecurity.Secured
 
 class CalendarioController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def index = {
         redirect(action: "list", params: params)
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [calendarioInstanceList: Calendario.list(params), calendarioInstanceTotal: Calendario.count()]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {
         def calendarioInstance = new Calendario()
         calendarioInstance.properties = params
         return [calendarioInstance: calendarioInstance]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
         def calendarioInstance = new Calendario(params)
         if (calendarioInstance.save(flush: true)) {
@@ -34,7 +35,7 @@ class CalendarioController {
             render(view: "create", model: [calendarioInstance: calendarioInstance])
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def show = {
 		if (params.id != "events"){
 	        def calendarioInstance = Calendario.get(params.id)
@@ -52,7 +53,7 @@ class CalendarioController {
 			this.events(params)
 		}
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def edit = {
         def calendarioInstance = Calendario.get(params.id)
         if (!calendarioInstance) {
@@ -63,7 +64,7 @@ class CalendarioController {
             return [calendarioInstance: calendarioInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def update = {
         def calendarioInstance = Calendario.get(params.id)
         if (calendarioInstance) {
@@ -90,7 +91,7 @@ class CalendarioController {
             redirect(action: "list")
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def delete = {
         def calendarioInstance = Calendario.get(params.id)
         if (calendarioInstance) {

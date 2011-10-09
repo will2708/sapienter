@@ -1,24 +1,26 @@
 package sapienter
 
+import grails.plugins.springsecurity.Secured
+
 class EstudioController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def index = {
         redirect(action: "list", params: params)
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [estudioInstanceList: Estudio.list(params), estudioInstanceTotal: Estudio.count()]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {
         def estudioInstance = new Estudio()
         estudioInstance.properties = params
         return [estudioInstance: estudioInstance]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
         def estudioInstance = new Estudio(params)
         if (estudioInstance.save(flush: true)) {
@@ -29,7 +31,7 @@ class EstudioController {
             render(view: "create", model: [estudioInstance: estudioInstance])
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def show = {
         def estudioInstance = Estudio.get(params.id)
         if (!estudioInstance) {
@@ -40,7 +42,7 @@ class EstudioController {
             [estudioInstance: estudioInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def edit = {
         def estudioInstance = Estudio.get(params.id)
         if (!estudioInstance) {
@@ -51,7 +53,7 @@ class EstudioController {
             return [estudioInstance: estudioInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def update = {
         def estudioInstance = Estudio.get(params.id)
         if (estudioInstance) {
@@ -78,7 +80,7 @@ class EstudioController {
             redirect(action: "list")
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def delete = {
         def estudioInstance = Estudio.get(params.id)
         if (estudioInstance) {

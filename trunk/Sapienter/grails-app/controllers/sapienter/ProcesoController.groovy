@@ -1,18 +1,20 @@
 package sapienter
 
+import grails.plugins.springsecurity.Secured
+
 class ProcesoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def index = {
         redirect(action: "list", params: params)
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [procesoInstanceList: Proceso.list(params), procesoInstanceTotal: Proceso.count()]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {
         def procesoInstance = new Proceso()
 		def persona = Persona.findById(params["personaId"])
@@ -20,7 +22,7 @@ class ProcesoController {
         procesoInstance.properties = params
         return [procesoInstance: procesoInstance]
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
 		def personaInstance = Persona.get(params.persona)
 		params.remove("persona") 
@@ -38,7 +40,7 @@ class ProcesoController {
             render(view: "create", model: [procesoInstance: procesoInstance])
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def show = {
         def procesoInstance = Proceso.get(params.id)
         if (!procesoInstance) {
@@ -49,7 +51,7 @@ class ProcesoController {
             [procesoInstance: procesoInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def edit = {
         def procesoInstance = Proceso.get(params.id)
         if (!procesoInstance) {
@@ -60,7 +62,7 @@ class ProcesoController {
             return [procesoInstance: procesoInstance]
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def update = {
 		def sub = Subcategoria.get(params.subCategoria)
 		params.remove("subCategoria")
@@ -91,7 +93,7 @@ class ProcesoController {
             redirect(action: "list")
         }
     }
-
+	@Secured(['IS_AUTHENTICATED_FULLY'])
     def delete = {
         def procesoInstance = Proceso.get(params.id)
         if (procesoInstance) {
