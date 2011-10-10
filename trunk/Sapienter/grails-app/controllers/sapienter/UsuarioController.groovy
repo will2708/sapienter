@@ -5,17 +5,17 @@ import grails.plugins.springsecurity.Secured
 class UsuarioController {
 	def springSecurityService
 	static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-	@Secured(['Senior', 'IS_AUTHENTICATED_FULLY'])
+	@Secured(['ROLE_SENIOR', 'IS_AUTHENTICATED_FULLY'])
 	def index = {
 		redirect(action: "list", params: params)
 	}
-	@Secured(['Senior','IS_AUTHENTICATED_FULLY'])
+	@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])
 	def list = {
 		params.max = Math.min(params.max ? params.int('max') : 10, 100)
 		[usuarioInstanceList: Usuario.list(params), usuarioInstanceTotal: Usuario.count()]
 	}
 
-	@Secured(['Senior','IS_AUTHENTICATED_FULLY'])
+	@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])
 	def create = {
 		def secRoleInstance = new SecRole()
 		def usuarioInstance = new Usuario()
@@ -23,7 +23,7 @@ class UsuarioController {
 		return [usuarioInstance: usuarioInstance]
 	}
 
-	@Secured(['Senior','IS_AUTHENTICATED_FULLY'])
+	@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])
 	def save = {
 		def user = SecUser.get(springSecurityService.principal.id)
 		def role = SecRole.findById(params["secRole"].id)
@@ -69,7 +69,7 @@ class UsuarioController {
 		}
 	}
 
-	@Secured(['Senior','IS_AUTHENTICATED_FULLY'])
+	@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])
 	def update = {
 		def user = SecUser.get(springSecurityService.principal.id)
 		
@@ -104,7 +104,7 @@ class UsuarioController {
 			redirect(action: "list")
 		}
 	}
-	@Secured(['Senior','IS_AUTHENTICATED_FULLY'])
+	@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])
 	def delete = {
 		def usuarioInstance = Usuario.get(params.id)
 		if (usuarioInstance) {

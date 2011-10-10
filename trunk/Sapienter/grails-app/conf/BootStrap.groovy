@@ -175,9 +175,9 @@ class BootStrap {
 				println tipPar.errors
 			}
 			def calendar =new Calendario()
-			def jrRole = SecRole.findByAuthority('Junior') ?: new SecRole(authority: 'Junior').save(failOnError: true)
-			def ssrRole = SecRole.findByAuthority('Semi-Senior') ?: new SecRole(authority: 'Semi-Senior').save(failOnError: true)
-			def srRole = SecRole.findByAuthority('Senior') ?: new SecRole(authority: 'Senior').save(failOnError: true)
+			def jrRole = SecRole.findByAuthority('ROLE_JUNIOR') ?: new SecRole(authority: 'ROLE_JUNIOR').save(failOnError: true)
+			def ssrRole = SecRole.findByAuthority('ROLE_SSR') ?: new SecRole(authority: 'ROLE_SSR').save(failOnError: true)
+			def srRole = SecRole.findByAuthority('ROLE_SENIOR') ?: new SecRole(authority: 'ROLE_SENIOR').save(failOnError: true)
 			def adminUser = SecUser.findByUsername('admin') ?: new Usuario(
 				username: 'admin',
 				password: 'admin',
@@ -190,8 +190,8 @@ class BootStrap {
 				rol:srRole,
 				enabled: true).save(failOnError: true)
  
-		if (!adminUser.authorities.contains(adminRole)) {
-			SecUserSecRole.create adminUser, adminRole
+		if (!adminUser.authorities.contains(srRole)) {
+			SecUserSecRole.create adminUser, srRole
 		}
 	}
 	def destroy = {
