@@ -175,7 +175,10 @@ class BootStrap {
 				println tipPar.errors
 			}
 			def calendar =new Calendario()
-			def userRole = SecRole.findByAuthority('ROLE_USER') ?: new SecRole(authority: 'ROLE_USER').save(failOnError: true)
+			def userRole = SecRole.findByAuthority('Junior') ?: new SecRole(authority: 'Junior').save(failOnError: true)
+			def jrRole = SecRole.findByAuthority('Semi-Senior') ?: new SecRole(authority: 'Semi-Senior').save(failOnError: true)
+			def ssrRole = SecRole.findByAuthority('Senior') ?: new SecRole(authority: 'Senior').save(failOnError: true)
+			def srRole = SecRole.findByAuthority('ROLE_USER') ?: new SecRole(authority: 'ROLE_USER').save(failOnError: true)
 			def adminRole = SecRole.findByAuthority('ROLE_ADMIN') ?: new SecRole(authority: 'ROLE_ADMIN').save(failOnError: true)
 			def adminUser = SecUser.findByUsername('admin') ?: new Usuario(
 				username: 'admin',
