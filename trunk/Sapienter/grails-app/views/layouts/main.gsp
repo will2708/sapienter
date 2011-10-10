@@ -4,7 +4,7 @@
 <title><g:layoutTitle default="Sapienter" />
 </title>
 <sec:ifNotLoggedIn>
-	<ra><span class="menuButton"><g:link controller="login">Acceder</g:link></ra>
+	<ra><span class="menuButton"><g:link controller="login"> Acceder </g:link></ra>
 	</span>
 </sec:ifNotLoggedIn>
 <sec:ifLoggedIn>
