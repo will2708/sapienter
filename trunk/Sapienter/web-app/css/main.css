@@ -86,7 +86,7 @@
 		}
 		
 /* Fin Sapienter
- * A prtir de acá es lo generado en forma automática a revisar
+ * A prtir de acï¿½ es lo generado en forma automï¿½tica a revisar
  */
 html * {
     margin: 0;
@@ -124,7 +124,9 @@ h1 {
 ul {
     padding-left: 15px;
 }
-
+ra {
+	float: right;
+}
 input, select, textarea {
     background-color: #fcfcfc;
     border: 1px solid #ccc;
