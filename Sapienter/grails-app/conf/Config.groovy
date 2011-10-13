@@ -94,3 +94,46 @@ log4j = {
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'sapienter.SecUser'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'sapienter.SecUserSecRole'
 grails.plugins.springsecurity.authority.className = 'sapienter.SecRole'
+
+// Added by the Grails Activiti plugin:
+activiti {
+    processEngineName = "activiti-engine-default"
+	  databaseType = "h2" 
+	  deploymentName = appName
+	  deploymentResources = ["file:./grails-app/conf/**/*.bpmn*.xml", 
+	                         "file:./grails-app/conf/**/*.png", 
+	                         "file:./src/taskforms/**/*.form"]
+	  jobExecutorActivate = false
+	  mailServerHost = "smtp.yourserver.com"
+	  mailServerPort = "25"
+	  mailServerUsername = ""
+	  mailServerPassword = ""
+	  mailServerDefaultFrom = "username@yourserver.com"
+	  history = "audit" // "none", "activity", "audit" or "full"
+	  sessionUsernameKey = "username"
+	  useFormKey = true
+}
+
+environments {
+    development {
+        activiti {
+			  processEngineName = "activiti-engine-dev"
+			  databaseSchemaUpdate = true // true, false or "create-drop"	  
+        }
+    }
+    test {
+        activiti {
+			  processEngineName = "activiti-engine-test"
+			  databaseSchemaUpdate = true
+	      mailServerPort = "5025"			  
+        }
+    }	
+    production {
+        activiti {
+			  processEngineName = "activiti-engine-prod"
+			  databaseSchemaUpdate = false
+			  jobExecutorActivate = true
+        }
+    }
+}	
+
