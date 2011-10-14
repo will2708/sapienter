@@ -14,7 +14,7 @@
 		<g:each var="result" in="${searchResult.results}">
 			<div class="searchPersona">
 				<div class="searchDe">
-					De
+
 					<g:link controller="persona" action="show" id="${result.id}">
 						${result.id}
 					</g:link>

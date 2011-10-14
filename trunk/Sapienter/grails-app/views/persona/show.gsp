@@ -24,7 +24,7 @@
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="persona.id.label" default="Id" /></td>
-                            
+
                             <td valign="top" class="value">${fieldValue(bean: personaInstance, field: "id")}</td>
                             
                         </tr>

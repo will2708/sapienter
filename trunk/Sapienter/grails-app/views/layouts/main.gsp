@@ -23,10 +23,11 @@
 			alt="${message(code:'spinner.alt',default:'Loading...')}" />
 	</div>
 	<div id="SapienterLogo">
-		<a id="current" href="${createLink(uri: '/')}" target="_self"><img
-			src="${resource(dir:'images',file:'Logo.jpg')}"
-			alt="Sapienter Pensado para el asesoramiento jurídico" border="0" />
-		</a>
+		<a id="current" href="${createLink(uri: '/')}" target="_self">
+		<div id="centrar-imagen"><img
+			src="${resource(dir:'images',file:'Logo-Sapienter (sinFondo).jpg')}"
+			alt="Sapienter Pensado para el asesoramiento jurídico" border="0" /></div>
+		</a>	
 	</div>
 	<div id="menu">
 		<g:render template="/common/menubar" />
