@@ -91,9 +91,9 @@
 									<td valign="top" class="value">${fieldValue(bean: personaFisicaInstance, field: "fax")}</td>
 								</tr>
 								<tr class="prop">
-									<td valign="top" class="name"><g:message code="personaFisica.profesion.label" default="Profesion" /></td>
+									<td valign="top" class="name"><g:message code="persona.profesion" default="Profesion" /></td>
 									<td valign="top" class="value">${fieldValue(bean: personaFisicaInstance, field: "profesion")}</td>
-									<td valign="top" class="name"><g:message code="personaFisica.informacionTributaria" /></td>
+									<td valign="top" class="name"><g:message code="persona.informacionTributaria" /></td>
 									<td valign="top" class="value">${fieldValue(bean: personaFisicaInstance, field: "informacionTributaria")}</td>
 								</tr>
 								
