@@ -26,6 +26,9 @@
                             <td valign="top" class="name"><g:message code="usuario.id.label" default="Id" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "id")}</td>
+                            <td valign="top" class="name"><g:message code="usuario.username.label" default="Username" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "username")}</td>
                             
                         </tr>
                     

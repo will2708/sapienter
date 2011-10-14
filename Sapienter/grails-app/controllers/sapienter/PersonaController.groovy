@@ -12,10 +12,24 @@ class PersonaController {
 	}
 	@Secured(['IS_AUTHENTICATED_FULLY'])
 	def list = {
+		def personaFisicaList
+		def personaJuridicaList
+		def personaTotal
 		params.max = Math.min(params.max ? params.int('max') : 10, 100)
-		def personaFisicaList = PersonaFisica.list(params)
-		def personaJuridicaList = PersonaJuridica.list(params)
-		[personaInstanceList: Persona.list(params), personaInstanceTotal: Persona.count(), personaFisicaList: PersonaFisica.list(params),personaJuridicaList:PersonaJuridica.list(params)]
+		if(params.q){
+			personaFisicaList = PersonaFisica.search(params.q + "*").results
+			personaJuridicaList = PersonaJuridica.search(params.q + "*").results
+			personaTotal = personaFisicaList.size + personaJuridicaList.size()
+		}
+		else{
+			personaFisicaList = PersonaFisica.list(params)
+			personaJuridicaList = PersonaJuridica.list(params)
+			personaTotal = Persona.count()
+		}
+		[personaInstanceTotal: personaTotal, personaFisicaList: personaFisicaList,personaJuridicaList:personaJuridicaList]
+	}
+	def showTime = {
+		render "The time is ${new Date()}"
 	}
 	@Secured(['IS_AUTHENTICATED_FULLY'])
 	def createFisica = {
