@@ -318,8 +318,15 @@
 	background: -webkit-gradient(linear, left top, left bottom, from(#224875), to(#FFFFFF));*/
 	background: #E0E0E0;
 }
+
 .margin{
 	margin-left: 20px;
+}
+
+mandatory{
+	color: #FF0000;
+	font-size: 16;
+	font-weight: bold;
 }
 /* DIALOG */
 
@@ -343,7 +350,7 @@
 	/*border: 1px solid #dbdbdb;*/
 	/*font-weight: bold;*/
 	text-align: left; 
-	width: 5px;
+	/*width: 5px;*/
 }
 .prop .value {
     text-align: left;
@@ -353,7 +360,8 @@
    	/*border: 1px solid #dbdbdb;*/
    	/*font-weight:bold;*/
     /*color: #224875;*/ 
-	width: 170px;    
+	width: 170px;
+	white-space: nowrap;    
 }
 .prop .descripcion{
     font-weight: bold;
@@ -366,6 +374,9 @@
     white-space: nowrap;
     font-style: italic;
 }
+.prop .textField{
+	border-radius: 5px;	
+}	
 /* TABLES */
 
 .tabla {
@@ -424,9 +435,41 @@
 .even {
     background: #fff;       
 }
-.test{
-border: 1px solid #000; 
+.tabla_edit {
+    border: 1px solid #E0E0E0;
+    width: 100%;
+    border-radius:20px;
+    background: -moz-linear-gradient(19% 75% 90deg,#DBDBDB, #FFFFFF);
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#DBDBDB));
+	padding: 0x 0px;	
+	vertical-align: center;
 }
+.tabla_edit tr {
+    border: 0;  	 
+}
+.tabla_edit td, th {
+    font: 11px verdana, arial, helvetica, sans-serif;
+/*    line-height: 12px;*/
+    padding: 0px 5px;
+    text-align: left;
+    vertical-align: center;
+}
+.tabla_edit th {
+    background: #fff url(../images/skin/shadow.jpg);
+    /*color: #666;*/
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 17px;
+    padding: 10px 16px;
+    background: -moz-linear-gradient(19% 75% 90deg,#cccccc, #e9e9e9);
+	background: -webkit-gradient(linear, left top, left bottom, from(#e9e9e9), to(#cccccc));
+    /*border-top-right-radius: 7px;
+    border-top-left-radius: 7px;*/
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+
 /* LIST */
 .list table {
     /*border-collapse: collapse;*/
