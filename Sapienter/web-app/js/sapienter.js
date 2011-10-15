@@ -10,6 +10,13 @@ function estadoCivilChanged() {
 	}
 }
 
+$(function() {
+	
+	$( "#fechaNacimiento" ).datepicker();
+	
+	$( "#fechaNacimiento" ).datepicker( "option", "dateFormat", 'dd-mm-yy' );;
+});
+
 function categoriaChanged() {
 
 	// Declaro las múltiples opciones en caso de que el proceso sea Judicial

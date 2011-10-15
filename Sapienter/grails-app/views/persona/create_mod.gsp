@@ -2,14 +2,17 @@
 	import="sapienter.PersonaJuridica"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="layout" content="main" />
-<g:set var="entityName"
-	value="${message(code: 'persona.label', default: 'Persona')}" />
-<title><g:message code="default.create.label"
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="layout" content="main" />
+		<g:set var="entityName"
+			value="${message(code: 'persona.label', default: 'Persona')}" />
+		<title><g:message code="default.create.label"
 		args="[entityName]" /></title>
-<resource:tabView />
-<z:head zul="/sapienter/pantallas/create.zul" />
+		<resource:tabView />
+		<g:javascript library="application" />
+		<g:javascript library="jquery" plugin="jquery" />
+		<jqui:resources theme="ui-lightness" />
+
 </head>
 <body>
 	<div class="body">
@@ -112,8 +115,8 @@
 										</td>
 										<td valign="top"
 											class="value ${hasErrors(bean: personaFisicaInstance, field: 'fechaNacimiento', 'errors')}">
-											<g:datePicker name="fechaNacimiento" precision="day"
-												value="${personaFisicaInstance?.fechaNacimiento}" />
+											<g:textField name="fechaNacimiento" 
+														value="${personaFisicaInstance?.fechaNacimiento}"/>
 										</td>
 									</tr>
 
@@ -391,5 +394,6 @@
 			</div>
 	</div>
 	<jq:jquery>estadoCivilChanged();</jq:jquery>
+	<jq:jquery>diasChanged();</jq:jquery>
 </body>
 </html>

@@ -36,7 +36,7 @@ class PersonaController {
 		def user = SecUser.get(springSecurityService.principal.id)
 		def estudio = user.estudio
 		params.put("estudio", estudio)
-
+def pa = params
 		def personaJuridicaInstance = new PersonaJuridica()
 
 		def personaFisicaInstance = new PersonaFisica(params)
