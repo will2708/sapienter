@@ -54,6 +54,7 @@
 								<td valign="top" class="descripcion"><g:message code="sapienter.id" default="Identificador:" /></td>
 								<td valign="top" class="value"> ${fieldValue(bean: personaFisicaInstance, field: "id")}</td>		
 							</tr>	
+							<tr><td><br></td></tr>
 							<tr class="prop">
 								<td valign="top" class="name"><g:message code="persona.apellido" default="Apellido"/></td>
 								<td valign="top" class="value"> ${fieldValue(bean: personaFisicaInstance, field: "apellido")}</td>								

@@ -11,9 +11,19 @@ class ProcesoController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def list = {
+		def procesoList
+		def procesoTotal
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [procesoInstanceList: Proceso.list(params), procesoInstanceTotal: Proceso.count()]
-    }
+		if(params.q){
+			procesoList = Proceso.search(params.q + "*").results
+			procesoTotal = procesoList.size
+		}
+		else{
+			procesoList = Proceso.list(params)
+			procesoTotal = Proceso.count()
+		}
+		[procesoInstanceList: procesoList, procesoInstanceTotal: procesoTotal]
+	}
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {
         def procesoInstance = new Proceso()
@@ -112,4 +122,28 @@ class ProcesoController {
             redirect(action: "list")
         }
     }
+	@Secured(['IS_AUTHENTICATED_FULLY'])
+	def crearDocumento = {
+		def parametros = new HashMap()
+		parametros.put("proceso.id", params.id)
+		redirect(controller:"documento", action:"create", params:parametros)
+	}
+	@Secured(['IS_AUTHENTICATED_FULLY'])
+	def crearMovimiento = {
+		def parametros = new HashMap()
+		parametros.put("proceso.id", params.id)
+		redirect(controller:"movimiento", action:"create", params:parametros)
+	}
+	@Secured(['IS_AUTHENTICATED_FULLY'])
+	def crearGasto = {
+		def parametros = new HashMap()
+		parametros.put("proceso.id", params.id)
+		redirect(controller:"gasto", action:"create", params:parametros)
+	}
+	@Secured(['IS_AUTHENTICATED_FULLY'])
+	def crearParte = {
+		def parametros = new HashMap()
+		parametros.put("proceso.id", params.id)
+		redirect(controller:"parte", action:"create", params:parametros)
+	}
 }

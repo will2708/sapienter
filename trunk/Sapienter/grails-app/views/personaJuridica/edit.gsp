@@ -39,7 +39,16 @@
 	                    		<span><g:actionSubmit class="cancel" action="delete" value="${message(code: 'sapienter.cancelar', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
 	                		</div>
 	                	</g:form>
-	                </div>                
+	                </div>     
+					<div class="margin">
+					<g:form>
+					<g:hiddenField name="id" value="${personaJuridicaInstance?.id}" />	        	    		
+					  <div class="buttonNewObjects">		
+						<span><g:actionSubmit class="create" action="crearProceso" value="${message(code: 'sapienter.crearProceso', default:'Crear Proceso')}"/>
+						</span>
+			          </div>        
+			        </g:form> 		
+			        </div>	   	                           
                     <table class="tabla_edit">
                         <tbody>
                         	<tr>

@@ -46,7 +46,8 @@
 									class="value ${hasErrors(bean: procesoInstance, field: 'persona', 'errors')}">
 									${procesoInstance?.persona}
 								</td>
-							</tr>					
+							</tr>				
+							<tr><td><br></td></tr>  
 							<tr class="prop">
 								<td valign="top" class="name"><label for="categoria"><g:message code="proceso.categoria" default="Categoria" /><mandatory> *</mandatory></label></td>
 								<td valign="top" class="value ${hasErrors(bean: procesoInstance, field: 'categoria', 'errors')}">

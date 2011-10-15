@@ -255,6 +255,7 @@
 /*	margin-left: 20px;*/ 
 	padding: 4px 6px;
 	border: 1px solid #ccc; 
+	white-space: nowrap;
 }
 
 .buttonNewObjects input {
@@ -267,13 +268,13 @@
     background: url(../images/skin/database_add.png) center left no-repeat;
     /*color: #333;*/
     color: #000;
-    padding-left: 25px;  
+    padding-left: 20px;  
 }
 
 .buttonNewObjects input.create {
     /*color: #333;*/
     /*color: #000;*/
-    padding-left: 25px;  
+    padding-left: 20px;  
 }
 .buttonNewObjects input.find {
     /*color: #333;*/
@@ -302,15 +303,40 @@
     background: url(../images/skin/database_save.png) center left no-repeat;
     /*color: #333;*/
     color: #000;
-    padding-left: 25px;
+    padding-left: 20px;
 }
 .buttonNewObjects input.cancel {
     background: url(../images/skin/database_delete.png) center left no-repeat;
     /*color: #333;*/
     color: #000;
-    padding-left: 25px;  
+    padding-left: 20px;  
+}
+.buttonNewObjects input.cancel {
+    background: url(../images/skin/database_delete.png) center left no-repeat;
+    /*color: #333;*/
+    color: #000;
+    padding-left: 20px;  
+}
+.buttonNewObjects input.create {
+    background: url(../images/skin/database_add.png) center left no-repeat;
+    /*color: #333;*/
+    color: #000;
+    padding-left: 20px;
+    /*margin-left: 2px;*/
+}
+.buttonNewObjects a {
+    color: #333;
+    font-size: 10px;
+    font-family:verdana,geneva,arial,helvetica,sans-serif;
+    border:1px solid #ccc;
 }
 
+.buttonNewObjects a.create {
+    background: url(../images/skin/database_add.png) center left no-repeat;
+    /*color: #333;*/
+    color: #000;
+    padding-left: 20px;
+}
 .buttonNewObjects:hover{
 /*	background: -moz-linear-gradient(19% 75% 90deg,#D6D6D6, #B0B1B2);
 	background: -webkit-gradient(linear, left top, left bottom, from(#B0B1B2), to(#D6D6D6));
@@ -507,6 +533,9 @@ h1 {
     padding-top: 10px;  
 }
 
+pop-up{
+	background: #ff00000;
+}
 /* Fin menu */
 /* Fin Sapienter
  * A prtir de ac� es lo generado en forma autom�tica a revisar
