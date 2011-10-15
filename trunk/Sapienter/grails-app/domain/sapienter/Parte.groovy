@@ -9,6 +9,7 @@ class Parte {
 		Apellido()
 		Nombre()
 		tipo()
+		persona(nullable:true)
     }
 	
 	static belongsTo = [proceso:Proceso]
