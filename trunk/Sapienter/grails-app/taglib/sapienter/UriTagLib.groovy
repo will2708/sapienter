@@ -38,6 +38,14 @@ class UriTagLib {
 					out << "nocurrent"
 				}
 				break
+			case "proceso":
+				if( uri =~ "documento" || uri =~ "movimiento" || uri =~ "parte" || uri=~ "gasto" || uri=~ "proceso"){
+					out << "current"
+				}
+				else{
+					out << "nocurrent"
+				}
+			break
 			default:
 				if( uri =~ attrs.title ){
 					out << "current"

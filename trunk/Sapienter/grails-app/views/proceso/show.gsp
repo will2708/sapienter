@@ -31,7 +31,8 @@
             <div class="dialog">
               	<div class="margin">
               		<g:form>
-              		<div class="buttonNewObjects">                    		
+              		<g:hiddenField name="id" value="${procesoInstance?.id}" />  
+              		<div class="buttonNewObjects">                 		
                  		<span><g:actionSubmit class="create" action="crearDocumento" value="${message(code: 'proceso.crearDocumento', default: 'Update')}" /></span>                   			 
                   	</div>
                   	<div class="buttonNewObjects">

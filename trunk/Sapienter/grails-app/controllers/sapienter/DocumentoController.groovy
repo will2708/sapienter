@@ -22,7 +22,11 @@ class DocumentoController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
+		def proceso = params.proceso
+		params.remove("proceso")
+		
         def documentoInstance = new Documento(params)
+		documentoInstance.proceso = Proceso.get(proceso)
         if (documentoInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'documento.label', default: 'Documento'), documentoInstance.id])}"
             redirect(action: "show", id: documentoInstance.id)

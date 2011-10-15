@@ -12,6 +12,7 @@
     </head>
     <body>
         <div class="body">
+        	<h1>Crear Documento</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -26,17 +27,20 @@
                 <div class="dialog">
 					<div class="margin">
 						<div class="buttonNewObjects">
-							<span class="button"><g:submitButton name="create" class="save" value="${message(code: 'sapienter.crear', default: 'Create')}" /></span>
+							<span><g:submitButton name="create" class="save" value="${message(code: 'sapienter.guardar', default: 'Create')}" /></span>
 						</div>						
-						<div class="buttonNewObjects">
-							<modalbox:createLink controller="modeloDeDocumento" action="listar" title="Modelos de Documentos" width="500">Modelos de documento</modalbox:createLink>
+					</div>    
+					<div class="margin">            	
+						<div class="buttonIntoTable">
+							<modalbox:createLink controller="modeloDeDocumento" action="listar" title="Modelos de Documentos" width="600">Modelos de documento</modalbox:createLink>
 						</div>
-					</div>                
+					</div>
                     <table class="tabla_edit">
                         <tbody>
                         <tr>
                         	<td>
                         	<table>
+                        	<g:hiddenField name="proceso" value="${documentoInstance?.proceso?.id}" />
                             <tr class="prop">
                                 <td valign="top" class="descripcion">
                                     <label for="proceso"><g:message code="proceso.proceso" default="Proceso" /></label></td>
@@ -51,7 +55,7 @@
                                 <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'nombre', 'errors')}">
                                     <g:textField class="textField" name="nombre" value="${documentoInstance?.nombre}" /></td>
                                 <td valign="top" class="name">
-                                    <label for="descripcion"><g:message code="proceso.descripcion" default="Descripcion" /></label></td>
+                                    <label for="descripcion"><g:message code="proceso.descripcion" default="Descripcion" /><mandatory> *</mandatory></label></td>
                                 <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'descripcion', 'errors')}">
                                     <g:textField class="textField" name="descripcion" value="${documentoInstance?.descripcion}" /></td>
                             </tr>                        

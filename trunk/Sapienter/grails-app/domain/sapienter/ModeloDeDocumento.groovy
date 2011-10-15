@@ -1,6 +1,7 @@
 package sapienter
 
 class ModeloDeDocumento {
+	static searchable = true
 	Categoria categoria
 	String descripcion
 	String modeloDeDocumento
