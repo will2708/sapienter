@@ -138,7 +138,7 @@
                                 	<td valign="top" class="name">
                                   		<label for="usuariosAutorizados"><g:message code="proceso.usuariosAutorizados" default="Usuarios Autorizados" /></label></td>
                                 	<td valign="top" class="value ${hasErrors(bean: procesoInstance, field: 'usuariosAutorizados', 'errors')}">
-                                    	<g:select class="textField" name="usuariosAutorizados.id" from="${sapienter.Usuario.list()}" optionKey="id" value="${procesoInstance?.usuariosAutorizados?.id}"  /></td>                                    	
+                                    	<g:select class="textField" name="usuariosAutorizados.id" from="${sapienter.Usuario.list()}" optionKey="id" value="${procesoInstance?.usuariosAutorizados*.id}"  multiple="true"/></td>                                    	
 	                              </tr>
 								  <tr><td><br></td></tr>
 		                          <tr class="prop">  
@@ -147,7 +147,7 @@
                                 	<td valign="top" class="textField" class="value ${hasErrors(bean: procesoInstance, field: 'documentos', 'errors')}">
 									<ul>
 										<g:each in="${procesoInstance?.documentos?}" var="d">
-										    <li><g:link controller="documento" action="show" id="${d.id}">${d?.encodeAsHTML()}</g:link></li>
+										    <li><g:link controller="documento" action="show" id="${d.id}"> ${d?.encodeAsHTML()} </g:link></li>
 										</g:each>
 									</ul></td>
 <!--  							<g:link controller="documento" action="create" params="['proceso.id': procesoInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'documento.label', default: 'Documento')])}</g:link> -->                              

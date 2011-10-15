@@ -15,7 +15,7 @@ class Proceso {
 	Usuario responsable
 	Subcategoria subCategoria
 	Usuario ultimoModificador
-	Usuario usuariosAutorizados
+	Set<Usuario> usuariosAutorizados
 	
 	String toString(){
 		caratula
