@@ -32,7 +32,7 @@
 					</div>    
 					<div class="margin">            	
 						<div class="buttonIntoTable">
-							<modalbox:createLink controller="modeloDeDocumento" action="listar" title="Modelos de Documentos" width="600">Modelos de documento</modalbox:createLink>
+							<modalbox:createLink controller="modeloDeDocumento" action="listar"  id="${documentoInstance?.proceso?.id}" title="Modelos de Documentos" width="600">Modelos de documento</modalbox:createLink>
 						</div>
 					</div>
                     <table class="tabla_edit">

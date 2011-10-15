@@ -112,15 +112,32 @@ class ModeloDeDocumentoController {
     }
 
 	def listar = {
+		def proceso = params.id
+		params.remove("id")
 		params.max = Math.min(params.max ? params.int('max') : 10, 100)
-		[modeloDeDocumentoInstanceList: ModeloDeDocumento.list(params), modeloDeDocumentoInstanceTotal: ModeloDeDocumento.count()]
+		[modeloDeDocumentoInstanceList: ModeloDeDocumento.list(params), modeloDeDocumentoInstanceTotal: ModeloDeDocumento.count(), proceso: proceso]
 	}	
 	@Secured(['IS_AUTHENTICATED_FULLY'])
 	def usar = {
-		def modeloDeDocumentoInstance = ModeloDeDocumento.get(params.id)
+		def modID
+		def proID
+		String ModPro = params.id
+		
+		String[] IDs = ModPro.split('  ')
+		
+		
+		if ( IDs.length == 2){
+			modID = IDs[0]
+			proID = IDs[1]
+		}
+		println modID
+		println proID
+		println 'Fin'
+		def modeloDeDocumentoInstance = ModeloDeDocumento.get(modID)
 		Map variables = new HashMap()
 		def str = modeloDeDocumentoInstance.getModeloDeDocumento()
-		variables.put("id", params.id.toString())
+		variables.put("modId", modID)
+		variables.put("proId", proID)
 		def matchAux
 		
 		if (str != null){

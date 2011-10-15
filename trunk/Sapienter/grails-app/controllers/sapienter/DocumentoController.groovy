@@ -105,13 +105,15 @@ class DocumentoController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
 	def createDesdeModelo = {
-		def id = params.id
+		println params
+		def id = params.modId
 		def modeloDeDocumentoInstance = ModeloDeDocumento.get(id)
 		Map variables = new HashMap()
 		def str = modeloDeDocumentoInstance.getModeloDeDocumento()
 		def nuevoTexto
 		def nuevaBusqueda
 		def documentoInstance = new Documento()
+		documentoInstance.proceso = Proceso.get(params.proId)
 			
 		if (str != null){
 			def regex2 = /(::[a-zA-Z0-9'"¿?\s]+::)/
