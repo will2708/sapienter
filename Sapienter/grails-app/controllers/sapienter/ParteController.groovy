@@ -22,7 +22,10 @@ class ParteController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
+		def proceso = params.proceso
+		params.remove("proceso")
         def parteInstance = new Parte(params)
+		parteInstance.proceso = Proceso.get(proceso)
         if (parteInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'parte.label', default: 'Parte'), parteInstance.id])}"
             redirect(action: "show", id: parteInstance.id)

@@ -545,7 +545,14 @@ mandatory{
     border-radius: 5px;
     border: 1px solid #ccc;
 }
-
+.tabla_parte{
+	border-radius:5px;
+	border:1px solid #ccc;
+}
+.tabla_parte td{
+	border-radius:5px;
+	border:1px solid #ccc;
+}
 /* LIST */
 .list table {
     /*border-collapse: collapse;*/

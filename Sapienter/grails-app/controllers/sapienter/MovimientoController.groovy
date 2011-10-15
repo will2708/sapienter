@@ -53,7 +53,12 @@ class MovimientoController {
 			params.put("fechaDeVencimiento", calendar.getTime())
 		}
 		
+		def proceso2 = params.proceso
+		params.remove("proceso")
+				
         def movimientoInstance = new Movimiento(params)
+		movimientoInstance.proceso = Proceso.get(proceso2)
+		
         if (movimientoInstance.save(flush: true)) {
 			if (fechaFinal != null &&
 				fechaFinal != ""){

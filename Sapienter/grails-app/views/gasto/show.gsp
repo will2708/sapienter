@@ -8,83 +8,56 @@
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
-        </div>
+           <g:form>
+           <g:hiddenField name="id" value="${gastoInstance?.id}" />
+           		<div class="buttonForm">
+           			<span ><g:actionSubmit class="edit" action="edit" value="${message(code: 'sapienter.modificar', default: 'Edit')}" /></span>
+           		</div>
+           		<div class="buttonForm">
+                	<span><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+                </div>
+            </g:form>     
         <div class="body">
-            <h1><g:message code="default.show.label" args="[entityName]" /></h1>
+            <h1>Gasto</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
             <div class="dialog">
-                <table>
+                <table class="tabla">
                     <tbody>
-                    
+                    	<g:hiddenField name="proceso" value="${gastoInstance?.proceso?.id}" />
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="gasto.id.label" default="Id" /></td>
-                            
+                            <td valign="top" class="descripcion"><g:message code="sapienter.id" default="Id" /></td>
                             <td valign="top" class="value">${fieldValue(bean: gastoInstance, field: "id")}</td>
-                            
+                            <td valign="top" class="descripcion">
+                                    <label for="proceso"><g:message code="proceso.proceso" default="Proceso" /></label></td>
+							<td valign="top" class="value"><g:link controller="proceso" action="show" id="${gastoInstance?.proceso?.id}">${gastoInstance?.proceso?.encodeAsHTML()}</g:link></td> 
                         </tr>
-                    
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="gasto.concepto.label" default="Concepto" /></td>
+                            <td valign="top" class="name"><g:message code="gasto.concepto" default="Concepto" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: gastoInstance, field: "concepto")}</td>
-                            
                         </tr>
-                    
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="gasto.estado.label" default="Estado" /></td>
-                            
+                            <td valign="top" class="name"><g:message code="proceso.estado" default="Estado" /></td>
                             <td valign="top" class="value">${fieldValue(bean: gastoInstance, field: "estado")}</td>
-                            
                         </tr>
-                    
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="gasto.fecha.label" default="Fecha" /></td>
-                            
+                            <td valign="top" class="name"><g:message code="gasto.fecha" default="Fecha" /></td>
                             <td valign="top" class="value"><g:formatDate date="${gastoInstance?.fecha}" /></td>
-                            
                         </tr>
-                    
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="gasto.moneda.label" default="Moneda" /></td>
-                            
+                            <td valign="top" class="name"><g:message code="gasto.monto" default="Monto" /></td>
+                            <td valign="top" class="value">${fieldValue(bean: gastoInstance, field: "monto")}</td>                        
+                            <td valign="top" class="name"><g:message code="gasto.moneda" default="Moneda" /></td>
                             <td valign="top" class="value">${fieldValue(bean: gastoInstance, field: "moneda")}</td>
-                            
-                        </tr>
-                    
+                        </tr>                    
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="gasto.monto.label" default="Monto" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: gastoInstance, field: "monto")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="gasto.factura.label" default="Factura" /></td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="gasto.proceso.label" default="Proceso" /></td>
-                            
-                            <td valign="top" class="value"><g:link controller="proceso" action="show" id="${gastoInstance?.proceso?.id}">${gastoInstance?.proceso?.encodeAsHTML()}</g:link></td>
-                            
+                            <td valign="top" class="name"><g:message code="gasto.factura" default="Factura" /></td>
                         </tr>
                     
                     </tbody>
                 </table>
-            </div>
-            <div class="buttons">
-                <g:form>
-                    <g:hiddenField name="id" value="${gastoInstance?.id}" />
-                    <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
-                    <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
-                </g:form>
             </div>
         </div>
     </body>

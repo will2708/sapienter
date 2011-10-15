@@ -22,7 +22,11 @@ class GastoController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
+		def proceso = params.proceso
+		params.remove("proceso")
+		
         def gastoInstance = new Gasto(params)
+		gastoInstance.proceso = Proceso.get(proceso)
         if (gastoInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'gasto.label', default: 'Gasto'), gastoInstance.id])}"
             redirect(action: "show", id: gastoInstance.id)

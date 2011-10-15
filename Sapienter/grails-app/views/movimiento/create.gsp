@@ -12,13 +12,9 @@
 		<jqui:resources theme="ui-lightness" />
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
-        </div>
         <div class="body">
         	<script src="${resource(dir:'js',file:'movimientos.js')}"></script>
-            <h1><g:message code="default.create.label" args="[entityName]" /></h1>
+            <h1>Crear Movimiento</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -29,48 +25,46 @@
             </g:hasErrors>
             <g:form action="save" >
                 <div class="dialog">
-                    <table>
+					<div class="margin">
+						<div class="buttonNewObjects">
+							<span><g:submitButton name="create" class="save" value="${message(code: 'sapienter.guardar', default: 'Create')}" /></span>
+						</div>						
+					</div>                     
+                    <table class="tabla_edit">
                         <tbody>
-                        
+							<g:hiddenField name="proceso" value="${movimientoInstance?.proceso?.id}" />
+                            <tr class="prop">
+								<td valign="top" class="descripcion">
+                                    <label for="proceso"><g:message code="proceso.proceso" default="Proceso" /></label></td>
+								<td valign="top" class="value"><g:link controller="proceso" action="show" id="${movimientoInstance?.proceso?.id}">${movimientoInstance?.proceso?.encodeAsHTML()}</g:link></td>                            
+                            </tr>       
+                            <tr><td><br></td></tr>                 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="descripcion"><g:message code="movimiento.descripcion.label" default="Descripcion" /></label>
+                                    <label for="descripcion"><g:message code="proceso.descripcion" default="Descripcion" /><mandatory> *</mandatory></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: movimientoInstance, field: 'descripcion', 'errors')}">
-                                    <g:textField name="descripcion" value="${movimientoInstance?.descripcion}" />
+                                    <g:textField class="textField" name="descripcion" value="${movimientoInstance?.descripcion}" />
                                 </td>
                             </tr>
-                        
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="tipoDeMovimiento"><g:message code="movimiento.tipoDeMovimiento.label" default="Tipo De Movimiento" /></label>
+                                    <label for="tipoDeMovimiento"><g:message code="movimiento.tipoDeMovimiento" default="Tipo De Movimiento" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: movimientoInstance, field: 'tipoDeMovimiento', 'errors')}">
-                                    <g:select name="tipoDeMovimiento" from="${movimientoInstance.constraints.tipoDeMovimiento.inList}" value="${movimientoInstance?.tipoDeMovimiento}" valueMessagePrefix="movimiento.tipoDeMovimiento"  />
+                                    <g:select class="textField" name="tipoDeMovimiento" from="${movimientoInstance.constraints.tipoDeMovimiento.inList}" value="${movimientoInstance?.tipoDeMovimiento}" valueMessagePrefix="movimiento.tipoDeMovimiento"  />
                                 </td>
-                            </tr>
-                        
-                            <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="estado"><g:message code="movimiento.estado.label" default="Estado" /></label>
+                                    <label for="estado"><g:message code="proceso.estado" default="Estado" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: movimientoInstance, field: 'estado', 'errors')}">
-                                    <g:select name="estado" from="${movimientoInstance.constraints.estado.inList}" value="${movimientoInstance?.estado}" valueMessagePrefix="movimiento.estado"  />
+                                    <g:select class="textField" name="estado" from="${movimientoInstance.constraints.estado.inList}" value="${movimientoInstance?.estado}" valueMessagePrefix="movimiento.estado"  />
                                 </td>
                             </tr>
-                        
+                       
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="comentario"><g:message code="movimiento.comentario.label" default="Comentario" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: movimientoInstance, field: 'comentario', 'errors')}">
-                                    <g:textArea name="comentario" value="${movimientoInstance?.comentario}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="fechaDeCreacion"><g:message code="movimiento.fechaDeCreacion.label" default="Fecha De Creacion" /></label>
+                                    <label for="fechaDeCreacion"><g:message code="movimiento.fechaDeCreacion" default="Fecha De Creacion" /><mandatory> *</mandatory></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: movimientoInstance, field: 'fechaDeCreacion', 'errors')}">
 	                                <g:textField name="fechaDeCreacion" value="${movimientoInstance?.fechaDeCreacion}" onChange="diasChanged()"/>
@@ -79,10 +73,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="diasDeValidez"><g:message code="movimiento.diasDeValidez.label" default="Dias De Validez" /></label>
+                                    <label for="diasDeValidez"><g:message code="movimiento.diasDeValidez" default="Dias De Validez" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: movimientoInstance, field: 'diasDeValidez', 'errors')}">
-                                    <g:select name="diasDeValidez" 
+                                    <g:select class="textField" name="diasDeValidez" 
                                     	      from="${1..365}" 
                                     	      value="${fieldValue(bean: movimientoInstance, field: 'diasDeValidez')}" 
                                     	      noSelection="['': '']"                                    	      
@@ -90,31 +84,26 @@
                                     		  onChange="diasChanged()" />
                                     	      
                                 </td>
-                            </tr>
-                        
-                            <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="fechaDeVencimiento"><g:message code="movimiento.fechaDeVencimiento.label" default="Fecha De Vencimiento" /></label>
+                                    <label for="fechaDeVencimiento"><g:message code="movimiento.fechaDeVencimiento" default="Fecha De Vencimiento" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: movimientoInstance, field: 'fechaDeVencimiento', 'errors')}">
-                                    <g:textField name="fechaDeVencimiento" value="${movimientoInstance?.fechaDeVencimiento}" default="none" noSelection="['': '']" />
+                                    <g:textField class="textField" name="fechaDeVencimiento" value="${movimientoInstance?.fechaDeVencimiento}" default="none" noSelection="['': '']" />
                                 </td>
                             </tr>
                         
+                        
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="proceso"><g:message code="movimiento.proceso.label" default="Proceso" /></label>
+                                    <label for="comentario"><g:message code="movimiento.comentario" default="Comentario" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: movimientoInstance, field: 'proceso', 'errors')}">
-                                    <g:select name="proceso.id" from="${sapienter.Proceso.list()}" optionKey="id" value="${movimientoInstance?.proceso?.id}"  />
+                                <td valign="top" class="value ${hasErrors(bean: movimientoInstance, field: 'comentario', 'errors')}">
+                                    <g:textArea class="textField" name="comentario" value="${movimientoInstance?.comentario}" />
                                 </td>
-                            </tr>
+                            </tr>                            
                         
                         </tbody>
                     </table>
-                </div>
-                <div class="buttons">
-                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
                 </div>
             </g:form>
         </div>

@@ -9,13 +9,8 @@
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
-        </div>
         <div class="body">
-            <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
+            <h1>Modificar Documento</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -28,85 +23,88 @@
                 <g:hiddenField name="id" value="${documentoInstance?.id}" />
                 <g:hiddenField name="version" value="${documentoInstance?.version}" />
                 <div class="dialog">
-                    <table>
+					<div class="margin">
+						<div class="buttonNewObjects">
+                    		<span><g:actionSubmit class="save" action="update" value="${message(code: 'sapienter.guardar', default: 'Update')}" /></span>
+                    	</div>
+                    	<div class="buttonNewObjects">
+                    		<span><g:actionSubmit class="cancel" action="delete" value="${message(code: 'sapienter.borrar', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+						</div>												
+					</div>                          
+                    <table class="tabla_edit">
                         <tbody>
-                        
-                            <tr class="prop">
+                        <tr>
+                        	<td>
+                        	<table>		
+	                        <tr class="prop">
+	                            <td valign="top" class="descripcion"><g:message code="sapienter.id" default="Id" /></td>	                            
+	                            <td valign="top" class="value">${fieldValue(bean: documentoInstance, field: "id")}</td>
+ 								<td valign="top" class="descripcion">
+                                    <label for="proceso"><g:message code="proceso.proceso" default="Proceso" /></label></td>
+								<td valign="top" class="value"><g:link controller="proceso" action="show" id="${documentoInstance?.proceso?.id}">${documentoInstance?.proceso?.encodeAsHTML()}</g:link></td>                            
+	                        </tr>  
+	                        <tr><td><br></td></tr>                      
+							<tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="nombre"><g:message code="documento.nombre.label" default="Nombre" /></label>
+                                  <label for="nombre"><g:message code="documento.nombre" default="Nombre" /><mandatory> *</mandatory></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'nombre', 'errors')}">
-                                    <g:textField name="nombre" value="${documentoInstance?.nombre}" />
+                                    <g:textField class="textField"  name="nombre" value="${documentoInstance?.nombre}" />
                                 </td>
-                            </tr>
-                        
-                            <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="descripcion"><g:message code="documento.descripcion.label" default="Descripcion" /></label>
+                                  <label for="descripcion"><g:message code="proceso.descripcion" default="Descripcion" /><mandatory> *</mandatory></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'descripcion', 'errors')}">
-                                    <g:textField name="descripcion" value="${documentoInstance?.descripcion}" />
+                                    <g:textField class="textField"  name="descripcion" value="${documentoInstance?.descripcion}" />
                                 </td>
                             </tr>
-                        
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="estado"><g:message code="documento.estado.label" default="Estado" /></label>
+                                  <label for="estado"><g:message code="proceso.estado" default="Estado" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'estado', 'errors')}">
-                                    <g:select name="estado" from="${documentoInstance.constraints.estado.inList}" value="${documentoInstance?.estado}" valueMessagePrefix="documento.estado"  />
+                                    <g:select class="textField"  name="estado" from="${documentoInstance.constraints.estado.inList}" value="${documentoInstance?.estado}" valueMessagePrefix="documento.estado"  />
                                 </td>
-                            </tr>
-                        
-                            <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="tipoDeDocumento"><g:message code="documento.tipoDeDocumento.label" default="Tipo De Documento" /></label>
+                                  <label for="tipoDeDocumento"><g:message code="documento.tipoDeDocumento" default="Tipo De Documento" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'tipoDeDocumento', 'errors')}">
-                                    <g:select name="tipoDeDocumento" from="${documentoInstance.constraints.tipoDeDocumento.inList}" value="${documentoInstance?.tipoDeDocumento}" valueMessagePrefix="documento.tipoDeDocumento"  />
+                                    <g:select class="textField" name="tipoDeDocumento" from="${documentoInstance.constraints.tipoDeDocumento.inList}" value="${documentoInstance?.tipoDeDocumento}" valueMessagePrefix="documento.tipoDeDocumento"  />
                                 </td>
                             </tr>
-                        
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="usuarioResponsable"><g:message code="documento.usuarioResponsable.label" default="Usuario Responsable" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'usuarioResponsable', 'errors')}">
-                                    <g:select name="usuarioResponsable.id" from="${sapienter.Usuario.list()}" optionKey="id" value="${documentoInstance?.usuarioResponsable?.id}"  />
+                                    <g:select class="textField" name="usuarioResponsable.id" from="${sapienter.Usuario.list()}" optionKey="id" value="${documentoInstance?.usuarioResponsable?.id}"  />
                                 </td>
                             </tr>
-                        
+                        	</table>
+                        	</td>
+                        </tr>
+                        <tr>
+                        	<td>
+                        	<table>
                             <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="contenidoDocumento"><g:message code="documento.contenidoDocumento.label" default="Contenido Documento" /></label>
-                                </td>
                                 <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'contenidoDocumento', 'errors')}">
                                    <fckeditor:editor 
                                     	name="contenidoDocumento"
-                                    	width="100%"
+                                    	width="200%"
                                     	body="disabled"
                                     	value="${documentoInstance?.contenidoDocumento}">
                                      	${documentoInstance?.contenidoDocumento}
                                      </fckeditor:editor> 
                                 </td>
                             </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="proceso"><g:message code="documento.proceso.label" default="Proceso" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'proceso', 'errors')}">
-                                    <g:select name="proceso.id" from="${sapienter.Proceso.list()}" optionKey="id" value="${documentoInstance?.proceso?.id}"  />
-                                </td>
-                            </tr>
+                        	</table>
+                        	</td>
+                        </tr>
                         
                         </tbody>
                     </table>
                 </div>
-                <div class="buttons">
-                    <span class="button"><g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" /></span>
-                    <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
-                </div>
+
             </g:form>
         </div>
     </body>
