@@ -47,17 +47,21 @@
                 		</div>
                 		</g:form>
                 		<g:form>
-                		<div class="buttonNewObjects">                    		
+                		<div class="buttonNewObjects">     
+                			<g:hiddenField name="id" value="${procesoInstance?.id}" />               		
                    			<span><g:actionSubmit class="create" action="crearDocumento" value="${message(code: 'proceso.crearDocumento', default: 'Update')}" /></span>                   			 
                     	</div>
                     	</g:form>
                     	<div class="buttonNewObjects">
+                    	    <g:hiddenField name="id" value="${procesoInstance?.id}" />  
 							<span><g:actionSubmit class="create" action="crearGasto" value="${message(code: 'proceso.crearGasto', default: 'Update')}" /></span>                  		
                 		</div>
                 		<div class="buttonNewObjects">
+							<g:hiddenField name="id" value="${procesoInstance?.id}" />  
 							<span><g:actionSubmit class="create" action="crearMovimiento" value="${message(code: 'proceso.crearMovimiento', default: 'Update')}" /></span>                		
                 		</div>
                 		<div class="buttonNewObjects">
+                			<g:hiddenField name="id" value="${procesoInstance?.id}" />  							
 							<span><g:actionSubmit class="create" action="crearParte" value="${message(code: 'proceso.crearParte', default: 'Update')}" /></span>							
 						</div>						
                 	</div>

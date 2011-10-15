@@ -36,6 +36,7 @@
 		<div class="dialog">
 			<div class="margin">
 				<g:form>
+				<g:hiddenField name="id" value="${personaJuridicaInstance?.id}" />
                 <div class="buttonNewObjects">
                 	<span><g:actionSubmit class="create" action="crearProceso" value="${message(code: 'sapienter.crearProceso', default:'Crear Proceso')}"/></span>
 	            </div>

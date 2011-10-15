@@ -10,12 +10,11 @@
     	<g:javascript library="prototype" />
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
+        <div class = "buttonSubMenu">
+            <span><g:link class="list" action="list"><g:message code="sapienter.modelosDeDocumento" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
-            <h1><g:message code="default.create.label" args="[entityName]" /></h1>
+        	<h1>Crear modelos de documento</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -26,101 +25,92 @@
             </g:hasErrors>
             <g:form action="save" >
                 <div class="dialog">
-                    <table>
+                	<div class="margin">
+			    	<div class="buttonNewObjects">
+                    	<span><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
+                	</div>
+                	</div>
+                    <table class="tabla_edit">
                         <tbody>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="nombre"><g:message code="modeloDeDocumento.nombre.label" default="Nombre" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'nombre', 'errors')}">
-                                    <g:textField name="nombre" value="${modeloDeDocumentoInstance?.nombre}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="descripcion"><g:message code="modeloDeDocumento.descripcion.label" default="Descripcion" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'descripcion', 'errors')}">
-                                    <g:textField name="descripcion" value="${modeloDeDocumentoInstance?.descripcion}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="categoria"><g:message code="modeloDeDocumento.categoria.label" default="Categoria" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'categoria', 'errors')}">
-                                    <g:select optionKey="id"
-									    optionValue="nombreCategoria" 
-								    		   name="categoria.id"
-										      from="${sapienter.Categoria.list()}"
-										      noSelection="${[' ':'Seleccione Categoria']}"
-										      value="${modeloDeDocumentoInstance?.categoria?.id}" 
-										  onchange="${remoteFunction(controller:'categoria', 
-										  							 action:'ajaxGetSubcategorias',
-							           								 params:'\'id=\' + escape(this.value)',
-							        								 onComplete:'updateSubcategorias(e)')}"
-							     ></g:select>
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="subCategoria"><g:message code="modeloDeDocumento.subCategoria.label" default="Sub Categoria" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'subCategoria', 'errors')}">
-                                    <g:select name="subCategoria" id="subTipoCategoria" value="${modeloDeDocumentoInstance?.subCategoria?.id}"></g:select>
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="estado"><g:message code="modeloDeDocumento.estado.label" default="Estado" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'estado', 'errors')}">
-                                    <g:select name="estado" from="${modeloDeDocumentoInstance.constraints.estado.inList}" value="${modeloDeDocumentoInstance?.estado}" valueMessagePrefix="modeloDeDocumento.estado"  />
-                                </td>
-                            </tr>
-                        
-                            <!--<tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="estudio"><g:message code="modeloDeDocumento.estudio.label" default="Estudio" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'estudio', 'errors')}">
-                                    <g:select name="estudio.id" from="${sapienter.Estudio.list()}" optionKey="id" value="${modeloDeDocumentoInstance?.estudio?.id}"  />
-                                </td>
-                            </tr> -->
-
-                            <tr class="descripcion">
-                                <td valign="top" class="name" colspan="2">
-                                    <label>Ingrese las variables con el formato ::Descripcion:: </label>
-                                </td>
-                            </tr>
-                                                    
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="modeloDeDocumento"><g:message code="modeloDeDocumento.modeloDeDocumento.label" default="Modelo De Documento" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'modeloDeDocumento', 'errors')}">
-                                    <fckeditor:editor 
-                                    	name="modeloDeDocumento"
-                                    	width="100%"
-                                    	body="disabled"
-                                    	value="${modeloDeDocumentoInstance?.modeloDeDocumento}">
-                                     	${modeloDeDocumentoInstance?.modeloDeDocumento}
-                                     </fckeditor:editor> 
-                                </td>
-                            </tr>
-                        
-                        </tbody>
+                        <tr>
+                        	<td>
+                        	<table>
+	                            <tr class="prop">
+	                                <td valign="top" class="name">
+	                                    <label for="nombre"><g:message code="documento.nombre" default="Nombre" /><mandatory> *</mandatory></label>
+	                                </td>
+	                                <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'nombre', 'errors')}">
+	                                    <g:textField class="textField" name="nombre" value="${modeloDeDocumentoInstance?.nombre}" />
+	                                </td>
+	                                <td valign="top" class="name">
+	                                    <label for="descripcion"><g:message code="proceso.descripcion" default="Descripcion" /><mandatory> *</mandatory></label>
+	                                </td>
+	                                <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'descripcion', 'errors')}">
+	                                    <g:textField class="textField" name="descripcion" value="${modeloDeDocumentoInstance?.descripcion}" />
+	                                </td>
+	                            </tr>
+	                            <tr class="prop">
+	                                <td valign="top" class="name">
+	                                    <label for="categoria"><g:message code="proceso.categoria" default="Categoria" /><mandatory> *</mandatory></label>
+	                                </td>
+	                                <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'categoria', 'errors')}">
+	                                    <g:select class="textField" optionKey="id"
+										    optionValue="nombreCategoria" 
+									    		   name="categoria.id"
+											      from="${sapienter.Categoria.list()}"
+											      noSelection="${[' ':'Seleccione Categoria']}"
+											      value="${modeloDeDocumentoInstance?.categoria?.id}" 
+											  onchange="${remoteFunction(controller:'categoria', 
+											  							 action:'ajaxGetSubcategorias',
+								           								 params:'\'id=\' + escape(this.value)',
+								        								 onComplete:'updateSubcategorias(e)')}"
+								     ></g:select></td>
+	                                <td valign="top" class="name">
+	                                    <label for="subCategoria"><g:message code="proceso.subCategoria" default="Sub Categoria" /><mandatory> *</mandatory></label>
+	                                </td>
+	                                <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'subCategoria', 'errors')}">
+	                                    <g:select class="textField" name="subCategoria" id="subTipoCategoria" value="${modeloDeDocumentoInstance?.subCategoria?.id}"></g:select>
+	                                </td>
+	                            </tr>
+	                            <tr class="prop">
+	                                <td valign="top" class="name">
+	                                    <label for="estado"><g:message code="proceso.estado" default="Estado" /></label>
+	                                </td>
+	                                <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'estado', 'errors')}">
+	                                    <g:select class="textField" name="estado" from="${modeloDeDocumentoInstance.constraints.estado.inList}" value="${modeloDeDocumentoInstance?.estado}" valueMessagePrefix="modeloDeDocumento.estado"  />
+	                                </td>
+	                            </tr>
+	
+	                            <tr class="descripcion">
+	                                <td valign="top" class="name" colspan="2">
+	                                    <label>Ingrese las variables con el formato ::Descripcion:: <br></label></td>
+	                            </tr>
+                             </table>
+                            </td>
+                         </tr>
+                         <tr>
+                             <td>
+                             <table>
+		                     	<tr class="prop">
+		                           <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'modeloDeDocumento', 'errors')}">
+		                                    <fckeditor:editor 
+		                                    	name="modeloDeDocumento"
+		                                    	width="200%"
+		                                    	heigh="200%"
+		                                    	body="disabled"
+		                                    	value="${modeloDeDocumentoInstance?.modeloDeDocumento}">
+		                                     	${modeloDeDocumentoInstance?.modeloDeDocumento}
+		                                     </fckeditor:editor> 
+		                           </td>
+		                         </tr>
+		                       </table>
+		                       </td>
+		                </tr>
+	                    </tbody>
                     </table>
                 </div>
-                <div class="buttons">
-                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
-                </div>
             </g:form>
+        </div>
 								<g:javascript>
 									function updateSubcategorias(e) { 
 									    var subTipoCategorias = eval("(" + e.responseText + ")")
@@ -150,7 +140,6 @@
 									    	}
 									    }
 									}
-								</g:javascript>
-        </div>
+								</g:javascript>        
     </body>
 </html>
