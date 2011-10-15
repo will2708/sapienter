@@ -18,10 +18,14 @@
             	</div>        
             	</div>            	
 	            	<g:each in="${variables}" status="i" var="variable">
-	            		<g:if test="${variable.key=='id'}">
-	            			<g:hiddenField name="id" value="${variable.value}"/>
+	            		<g:if test="${variable.key=='modId'}">
+	            			<g:hiddenField name="modId" value="${variable.value}"/>
+	            		</g:if>
+	            		<g:if test="${variable.key=='proId'}">
+	            			<g:hiddenField name="proId" value="${variable.value}"/>
 	            		</g:if>                        
-    	    			<g:if test="${variable.key!='id'}">	            	
+    	    			<g:if test="${variable.key!='proId' &&
+    	    						  variable.key!='modId'}">	            	
 	    	                <table class="tabla_popup">
 	        	                <tbody>
 			    	                <tr class="prop">
