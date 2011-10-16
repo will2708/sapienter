@@ -9,13 +9,8 @@
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
-        </div>
         <div class="body">
-            <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
+            <h1>Modificar parte</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -28,54 +23,85 @@
                 <g:hiddenField name="id" value="${parteInstance?.id}" />
                 <g:hiddenField name="version" value="${parteInstance?.version}" />
                 <div class="dialog">
-                    <table>
+					<div class="margin">
+						<div class="buttonNewObjects">
+							 <span><g:actionSubmit class="save" action="update" value="${message(code: 'sapienter.guardar', default: 'Update')}" /></span>
+						</div>
+						<div class="buttonNewObjects">
+							<span><g:actionSubmit class="cancel" action="delete" value="${message(code: 'sapienter.borrar', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+						</div>							
+					</div>                                   
+                    <table class="tabla_edit">
                         <tbody>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="tipo"><g:message code="parte.tipo.label" default="Tipo" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: parteInstance, field: 'tipo', 'errors')}">
-                                    <g:select name="tipo.id" from="${sapienter.TipoDeParte.list()}" optionKey="id" value="${parteInstance?.tipo?.id}"  />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="apellido"><g:message code="parte.apellido.label" default="Apellido" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: parteInstance, field: 'apellido', 'errors')}">
-                                    <g:textField name="apellido" value="${parteInstance?.apellido}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="nombre"><g:message code="parte.nombre.label" default="Nombre" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: parteInstance, field: 'nombre', 'errors')}">
-                                    <g:textField name="nombre" value="${parteInstance?.nombre}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="persona"><g:message code="parte.persona.label" default="Persona" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: parteInstance, field: 'persona', 'errors')}">
-                                    <g:select name="persona.id" from="${sapienter.Persona.list()}" optionKey="id" value="${parteInstance?.persona?.id}"  />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="proceso"><g:message code="parte.proceso.label" default="Proceso" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: parteInstance, field: 'proceso', 'errors')}">
-                                    <g:select name="proceso.id" from="${sapienter.Proceso.list()}" optionKey="id" value="${parteInstance?.proceso?.id}"  />
-                                </td>
-                            </tr>
-                        
+							<tr>
+							<td>
+							<table>
+								<g:hiddenField name="proceso" value="${parteInstance?.proceso?.id}" />
+	                            <tr class="prop">
+									<td valign="top" class="descripcion"><g:message code="sapienter.id" default="Id" /></td>
+                            		<td valign="top" class="value">${fieldValue(bean: parteInstance, field: "id")}</td>	                            
+									<td valign="top" class="descripcion">
+	                                    <label for="proceso"><g:message code="proceso.proceso" default="Proceso" /></label></td>
+									<td valign="top" class="value"><g:link controller="proceso" action="show" id="${parteInstance?.proceso?.id}">${parteInstance?.proceso?.encodeAsHTML()}</g:link></td>                            
+	                            </tr>          
+	                            <tr><td><br></td></tr>                        
+	                            <tr class="prop">
+	                                <td valign="top" class="name">
+	                                    <label for="tipo"><g:message code="parte.tipo" default="Tipo" /></label>
+	                                </td>
+	                                <td valign="top" class="value ${hasErrors(bean: parteInstance, field: 'tipo', 'errors')}">
+	                                    <g:select class="textField" name="tipo.id" from="${sapienter.TipoDeParte.list()}" optionKey="id" value="${parteInstance?.tipo?.id}"  />
+	                                </td>
+	                            </tr>
+	                        </table>
+	                        </td>
+	                        </tr>
+								<tr>
+                        			<td>
+                        			<h2>Ingrese una nueva parte o seleccione la misma desde la lista de personas</h2>
+                        			</td>
+                        		</tr>                        	
+                        		<tr>	                        
+                        	<tr>
+                        	<td>
+                        	<table class="tabla_parte">
+                        		<td>
+                        			<table>
+                       				<tr class="prop">
+                             				<td valign="top" class="name">
+                                   		<label for="apellido"><g:message code="persona.apellido" default="Apellido" /></label>
+                               			</td>
+                               			<td valign="top" class="value ${hasErrors(bean: parteInstance, field: 'apellido', 'errors')}">
+                                   		<g:textField class="textField" name="apellido" value="${parteInstance?.apellido}" />
+                               			</td>
+                               		</tr>
+                               		<tr class="prop">
+		                                <td valign="top" class="name">
+		                                    <label for="nombre"><g:message code="persona.nombre" default="Nombre" /></label>
+		                                </td>
+		                                <td valign="top" class="value ${hasErrors(bean: parteInstance, field: 'nombre', 'errors')}">
+		                                    <g:textField class="textField" name="nombre" value="${parteInstance?.nombre}" />
+		                                </td>                               			
+                               		</tr>     
+                        			</table>	
+                        		</td>           		
+                        		<td>
+                        			<table>
+		                            <tr class="prop">		
+                  
+		                                <td valign="top" class="name">
+		                                    <label for="persona"><g:message code="sapienter.persona" default="Persona" /></label>
+		                                </td>
+		                                <td valign="top" class="value ${hasErrors(bean: parteInstance, field: 'persona', 'errors')}">
+		                                    <g:select class="textField" name="persona.id" from="${sapienter.Persona.list()}" optionKey="id" value="${parteInstance?.persona?.id}" noSelection="['null': '']" />
+		                                </td>
+		                            </tr>                   			
+                        			</table>
+                        		</td>
+                        		</tr>
+                        	</table>
+                        	</td>
+                        	</tr>
                         </tbody>
                     </table>
                 </div>

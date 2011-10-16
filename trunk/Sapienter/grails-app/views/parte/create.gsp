@@ -62,7 +62,7 @@
                         			<table>
                        				<tr class="prop">
                              				<td valign="top" class="name">
-                                   		<label for="apellido"><g:message code="parte.apellido.label" default="Apellido" /></label>
+                                   		<label for="apellido"><g:message code="persona.apellido" default="Apellido" /></label>
                                			</td>
                                			<td valign="top" class="value ${hasErrors(bean: parteInstance, field: 'apellido', 'errors')}">
                                    		<g:textField class="textField" name="apellido" value="${parteInstance?.apellido}" />
@@ -70,19 +70,20 @@
                                		</tr>
                                		<tr class="prop">
 		                                <td valign="top" class="name">
-		                                    <label for="nombre"><g:message code="parte.nombre.label" default="Nombre" /></label>
+		                                    <label for="nombre"><g:message code="persona.nombre" default="Nombre" /></label>
 		                                </td>
 		                                <td valign="top" class="value ${hasErrors(bean: parteInstance, field: 'nombre', 'errors')}">
 		                                    <g:textField class="textField" name="nombre" value="${parteInstance?.nombre}" />
 		                                </td>                               			
                                		</tr>     
                         			</table>	
-                        		</td>
+                        		</td>           		
                         		<td>
                         			<table>
-		                            <tr class="prop">
+		                            <tr class="prop">		
+                  
 		                                <td valign="top" class="name">
-		                                    <label for="persona"><g:message code="parte.persona.label" default="Persona" /></label>
+		                                    <label for="persona"><g:message code="sapienter.persona" default="Persona" /></label>
 		                                </td>
 		                                <td valign="top" class="value ${hasErrors(bean: parteInstance, field: 'persona', 'errors')}">
 		                                    <g:select class="textField" name="persona.id" from="${sapienter.Persona.list()}" optionKey="id" value="${parteInstance?.persona?.id}" noSelection="['null': '']" />
