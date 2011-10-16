@@ -60,6 +60,9 @@ class GastoController {
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def update = {
         def gastoInstance = Gasto.get(params.id)
+		def proceso = params.proceso
+		params.remove("proceso")
+		gastoInstance.proceso = Proceso.get(proceso)
         if (gastoInstance) {
             if (params.version) {
                 def version = params.version.toLong()
@@ -91,7 +94,9 @@ class GastoController {
             try {
                 gastoInstance.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'gasto.label', default: 'Gasto'), params.id])}"
-                redirect(action: "list")
+				def parametros = new HashMap()
+				parametros.put("id", gastoInstance.proceso.id)
+				redirect(controller:"proceso", action:"show", params:parametros)
             }
             catch (org.springframework.dao.DataIntegrityViolationException e) {
                 flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'gasto.label', default: 'Gasto'), params.id])}"
