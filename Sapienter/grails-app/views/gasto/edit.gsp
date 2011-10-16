@@ -25,7 +25,7 @@
                 <div class="dialog">
 					<div class="margin">
 						<div class="buttonNewObjects">
-							 <span><g:actionSubmit class="save" action="save" value="${message(code: 'sapienter.guardar', default: 'Update')}" /></span>
+							 <span><g:actionSubmit class="save" action="update" value="${message(code: 'sapienter.guardar', default: 'Update')}" /></span>
 						</div>
 						<div class="buttonNewObjects">
 							<span><g:actionSubmit class="cancel" action="delete" value="${message(code: 'sapienter.borrar', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
