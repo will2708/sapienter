@@ -91,7 +91,9 @@ class DocumentoController {
             try {
                 documentoInstance.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'documento.label', default: 'Documento'), params.id])}"
-                redirect(action: "list")
+                def parametros = new HashMap()
+				parametros.put("id", documentoInstance.proceso.id)
+				redirect(controller:"proceso", action:"show", params:parametros)
             }
             catch (org.springframework.dao.DataIntegrityViolationException e) {
                 flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'documento.label', default: 'Documento'), params.id])}"
