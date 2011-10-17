@@ -102,7 +102,9 @@ class DocumentoController {
         }
         else {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'documento.label', default: 'Documento'), params.id])}"
-            redirect(action: "list")
+            def parametros = new HashMap()
+			parametros.put("id", documentoInstance.proceso.id)
+			redirect(controller:"proceso", action:"show", params:parametros)redirect(action: "list")
         }
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])

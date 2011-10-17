@@ -9,6 +9,14 @@
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
     </head>
     <body>
+    	<div>
+           <g:form>
+           <g:hiddenField name="id" value="${gastoInstance?.id}" />
+           		<div class="buttonForm">
+                	<span><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+                </div>
+            </g:form>
+		</div>    
         <div class="body">
             <h1>Modificar gasto</h1>
             <g:if test="${flash.message}">
@@ -27,9 +35,6 @@
 						<div class="buttonNewObjects">
 							 <span><g:actionSubmit class="save" action="update" value="${message(code: 'sapienter.guardar', default: 'Update')}" /></span>
 						</div>
-						<div class="buttonNewObjects">
-							<span><g:actionSubmit class="cancel" action="delete" value="${message(code: 'sapienter.borrar', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
-						</div>							
 					</div>                     
                     <table class="tabla_edit">
                         <tbody>

@@ -11,8 +11,18 @@ class EnlaceUtilController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def list = {	
+		def enlaceList
+		def enlaceTotal
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [enlaceUtilInstanceList: EnlaceUtil.list(params), enlaceUtilInstanceTotal: EnlaceUtil.count()]
+		if(params.q){
+			enlaceList = EnlaceUtil.search(params.q + "*").results
+			enlaceTotal = enlaceList.size
+		}
+		else{
+			enlaceList = EnlaceUtil.list(params)
+			enlaceTotal = EnlaceUtil.count()
+		}
+		[enlaceUtilInstanceList: enlaceList, enlaceUtilInstanceTotal: enlaceTotal]
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {

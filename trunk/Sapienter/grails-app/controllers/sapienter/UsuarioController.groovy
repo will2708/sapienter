@@ -11,8 +11,18 @@ class UsuarioController {
 	}
 	@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])
 	def list = {
-		params.max = Math.min(params.max ? params.int('max') : 10, 100)
-		[usuarioInstanceList: Usuario.list(params), usuarioInstanceTotal: Usuario.count()]
+		def usuarioList
+		def usuarioTotal
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+		if(params.q){
+			usuarioList = Usuario.search(params.q + "*").results
+			usuarioTotal = usuarioList.size
+		}
+		else{
+			usuarioList = Usuario.list(params)
+			usuarioTotal = Usuario.count()
+		}
+		[usuarioInstanceList: usuarioList, usuarioInstanceTotal: usuarioTotal]
 	}
 
 	@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])

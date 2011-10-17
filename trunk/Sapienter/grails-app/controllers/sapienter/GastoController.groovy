@@ -94,7 +94,7 @@ class GastoController {
             try {
                 gastoInstance.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'gasto.label', default: 'Gasto'), params.id])}"
-				def parametros = new HashMap()
+                def parametros = new HashMap()
 				parametros.put("id", gastoInstance.proceso.id)
 				redirect(controller:"proceso", action:"show", params:parametros)
             }
@@ -105,7 +105,8 @@ class GastoController {
         }
         else {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'gasto.label', default: 'Gasto'), params.id])}"
-            redirect(action: "list")
+			redirect(action: "list")
+
         }
     }
 }

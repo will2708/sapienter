@@ -10,9 +10,11 @@
     	<g:javascript library="prototype" />
     </head>
     <body>
+    	<div>
         <div class = "buttonSubMenu">
             <span><g:link class="list" action="list"><g:message code="sapienter.modelosDeDocumento" args="[entityName]" /></g:link></span>
         </div>
+        </div>	
         <div class="body">
         	<h1>Crear modelos de documento</h1>
             <g:if test="${flash.message}">
@@ -80,9 +82,14 @@
 	                                    <g:select class="textField" name="estado" from="${modeloDeDocumentoInstance.constraints.estado.inList}" value="${modeloDeDocumentoInstance?.estado}" valueMessagePrefix="modeloDeDocumento.estado"  />
 	                                </td>
 	                            </tr>
-	
-	                            <tr class="descripcion">
-	                                <td valign="top" class="name" colspan="2">
+	                            </table>
+	                            </td>
+	                      </tr>
+	                      <tr>
+	                      	<td>
+	                      	<table>
+	                            <tr class="prop">
+	                                <td valign="top" class="descripcion" >
 	                                    <label>Ingrese las variables con el formato ::Descripcion:: <br></label></td>
 	                            </tr>
                              </table>
@@ -95,7 +102,7 @@
 		                           <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'modeloDeDocumento', 'errors')}">
 		                                    <fckeditor:editor 
 		                                    	name="modeloDeDocumento"
-		                                    	width="200%"
+		                                    	width="170%"
 		                                    	heigh="200%"
 		                                    	body="disabled"
 		                                    	value="${modeloDeDocumentoInstance?.modeloDeDocumento}">

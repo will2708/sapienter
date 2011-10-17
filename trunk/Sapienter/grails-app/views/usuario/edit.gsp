@@ -9,13 +9,21 @@
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
+    	<div>
+        <div class="buttonSubMenu">
+            <span><g:link class="list" action="list"><g:message code="sapienter.usuario" args="[entityName]" /></g:link></span>
+        </div>
+        <g:form>
+        <g:hiddenField name="id" value="${usuarioInstance?.id}" />        
+	 	<div class="buttonForm"> 
+			<span><g:actionSubmit class="delete" action="delete" value="${message(code: 'sapienter.borrar', default: 'Delete')}"
+					onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+			</span>
+		</div>
+		</g:form>          
         </div>
         <div class="body">
-            <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
+            <h1>Modificar Usuario</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -28,101 +36,80 @@
                 <g:hiddenField name="id" value="${usuarioInstance?.id}" />
                 <g:hiddenField name="version" value="${usuarioInstance?.version}" />
                 <div class="dialog">
-                    <table>
+                	<div class="margin">
+					<div class="buttonNewObjects">
+						 <span><g:actionSubmit class="save" action="update" value="${message(code: 'sapienter.guardar', default: 'Update')}" /></span>
+					</div>						
+					</div>                  
+                    <table class="tabla_edit">
                         <tbody>
-                        
+	                        <tr class="prop">
+	                            <td valign="top" class="descripcion"><g:message code="sapienter.id" default="Id" /></td>
+	                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "id")}</td>
+	                        </tr>                        
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="username"><g:message code="usuario.username.label" default="Username" /></label>
+                                  <label for="username"><g:message code="usuario.usuario" default="Username" /><mandatory> *</mandatory></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'username', 'errors')}">
-                                    <g:textField name="username" value="${usuarioInstance?.username}" />
+                                    <g:textField class="textField" name="username" value="${usuarioInstance?.username}" />
                                 </td>
-                            </tr>
-                        
-                            <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="password"><g:message code="usuario.password.label" default="Password" /></label>
+                                  <label for="password"><g:message code="usuario.contraseña" default="Password" /><mandatory> *</mandatory></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'password', 'errors')}">
-                                    <g:passwordField name="password" value="${usuarioInstance?.password}" />
+                                    <g:passwordField class="textField" name="password" value="${usuarioInstance?.password}" />
                                 </td>
                             </tr>
-                             <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="Rol"><g:message code="secRole" default="Rol" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'rol', 'errors')}">
-                                    <g:select name="rol.id" from="${sapienter.SecRole.list()}" optionKey="id" value="${usuarioInstance?.rol?.id}" noSelection="['null': '']" />
-                                </td>
-                            </tr>
-                        
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="enabled"><g:message code="usuario.enabled.label" default="Enabled" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'enabled', 'errors')}">
-                                    <g:checkBox name="enabled" value="${usuarioInstance?.enabled}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="accountExpired"><g:message code="usuario.accountExpired.label" default="Account Expired" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'accountExpired', 'errors')}">
-                                    <g:checkBox name="accountExpired" value="${usuarioInstance?.accountExpired}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="accountLocked"><g:message code="usuario.accountLocked.label" default="Account Locked" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'accountLocked', 'errors')}">
-                                    <g:checkBox name="accountLocked" value="${usuarioInstance?.accountLocked}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="passwordExpired"><g:message code="usuario.passwordExpired.label" default="Password Expired" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'passwordExpired', 'errors')}">
-                                    <g:checkBox name="passwordExpired" value="${usuarioInstance?.passwordExpired}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="nombre"><g:message code="usuario.nombre.label" default="Nombre" /></label>
+                                  <label for="nombre"><g:message code="persona.nombre" default="Nombre" /><mandatory> *</mandatory></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'nombre', 'errors')}">
-                                    <g:textField name="nombre" value="${usuarioInstance?.nombre}" />
+                                    <g:textField class="textField"  name="nombre" value="${usuarioInstance?.nombre}" />
                                 </td>
-                            </tr>
-                        
-                            <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="apellido"><g:message code="usuario.apellido.label" default="Apellido" /></label>
+                                  <label for="apellido"><g:message code="persona.apellido" default="Apellido" /><mandatory> *</mandatory></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'apellido', 'errors')}">
-                                    <g:textField name="apellido" value="${usuarioInstance?.apellido}" />
+                                    <g:textField class="textField" name="apellido" value="${usuarioInstance?.apellido}" />
                                 </td>
-                            </tr>
-                        
+                            </tr>              
+                             <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="Rol"><g:message code="usuario.rol" default="Rol" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'rol', 'errors')}">
+                                    <g:select class="textField" name="rol.id" from="${sapienter.SecRole.list()}" optionKey="id" value="${usuarioInstance?.rol?.id}" noSelection="['null': '']" />
+                                </td>
+                            </tr>                                          
                             <tr class="prop">
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'calendario', 'errors')}" colspan="2">
-                                    <g:hiddenField name="calendario.id" value="${usuarioInstance?.calendario?.id}"/>
+                                <td valign="top" class="name">
+                                  <label for="enabled"><g:message code="usuario.habilitado" default="Enabled" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'enabled', 'errors')}">
+                                    <g:checkBox class="textField"  name="enabled" value="${usuarioInstance?.enabled}" />
+                                </td>
+                                <td valign="top" class="name">
+                                  <label for="accountExpired"><g:message code="usuario.cuentaVencida" default="Account Expired" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'accountExpired', 'errors')}">
+                                    <g:checkBox class="textField" name="accountExpired" value="${usuarioInstance?.accountExpired}" />
                                 </td>
                             </tr>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="comentarios"><g:message code="usuario.comentarios.label" default="Comentarios" /></label>
+                                  <label for="accountLocked"><g:message code="usuario.cuentaBloqueada" default="Account Locked" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'comentarios', 'errors')}">
-                                    <g:textArea name="comentarios" cols="40" rows="5" value="${usuarioInstance?.comentarios}" />
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'accountLocked', 'errors')}">
+                                    <g:checkBox class="textField" name="accountLocked" value="${usuarioInstance?.accountLocked}" />
+                                </td>
+                                <td valign="top" class="name">
+                                  <label for="passwordExpired"><g:message code="usuario.contraseñaVencida" default="Password Expired" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'passwordExpired', 'errors')}">
+                                    <g:checkBox class="textField" name="passwordExpired" value="${usuarioInstance?.passwordExpired}" />
                                 </td>
                             </tr>
                         
@@ -131,7 +118,7 @@
                                   <label for="correoElectronico"><g:message code="usuario.correoElectronico.label" default="Correo Electronico" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'correoElectronico', 'errors')}">
-                                    <g:select name="correoElectronico.id" from="${sapienter.CorreoElectronico.list()}" optionKey="id" value="${usuarioInstance?.correoElectronico?.id}" noSelection="['null': '']" />
+                                    <g:select class="textField" name="correoElectronico.id" from="${sapienter.CorreoElectronico.list()}" optionKey="id" value="${usuarioInstance?.correoElectronico?.id}" noSelection="['null': '']" />
                                 </td>
                             </tr>
                         
@@ -140,16 +127,20 @@
                                   <label for="telefono"><g:message code="usuario.telefono.label" default="Telefono" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'telefono', 'errors')}">
-                                    <g:textField name="telefono" value="${usuarioInstance?.telefono}" />
+                                    <g:textField class="textField" name="telefono" value="${usuarioInstance?.telefono}" />
                                 </td>
                             </tr>
-                        
+                            <tr class="prop">
+                                <td valign="top" class="descripcion">
+                                  <label for="comentarios"><g:message code="usuario.comentarios.label" default="Comentarios" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'comentarios', 'errors')}">
+                                    <g:textArea class="textField" name="comentarios" cols="40" rows="5" value="${usuarioInstance?.comentarios}" />
+                                </td>
+                            </tr>
+                                                
                         </tbody>
                     </table>
-                </div>
-                <div class="buttons">
-                    <span class="button"><g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" /></span>
-                    <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </div>
             </g:form>
         </div>

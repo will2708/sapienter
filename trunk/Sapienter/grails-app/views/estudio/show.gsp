@@ -10,23 +10,18 @@
 </title>
 </head>
 <body>
-	<div class="nav">
-		<span class="menuButton"><a class="home"
-			href="${createLink(uri: '/')}"><g:message
-					code="default.home.label" />
-		</a>
-		</span> <span class="menuButton"><g:link class="list" action="list">
-				<g:message code="default.list.label" args="[entityName]" />
-			</g:link>
-		</span> <span class="menuButton"><g:link class="create"
-				action="create">
-				<g:message code="default.new.label" args="[entityName]" />
-			</g:link>
-		</span>
-	</div>
+           <g:form>
+           <g:hiddenField name="id" value="${estudioInstance?.id}" />
+           		<div class="buttonForm">
+           			<span ><g:actionSubmit class="edit" action="edit" value="${message(code: 'sapienter.modificar', default: 'Edit')}" /></span>
+           		</div>
+           		<div class="buttonForm">
+                	<span><g:actionSubmit class="delete" action="delete" value="${message(code: 'sapienter.borrar', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+                </div>
+            </g:form>
 	<div class="body">
 		<h1>
-			<g:message code="default.show.label" args="[entityName]" />
+			Estudio
 		</h1>
 		<g:if test="${flash.message}">
 			<div class="message">
@@ -34,23 +29,28 @@
 			</div>
 		</g:if>
 		<div class="dialog">
-			<table>
+                <div class="dialog">
+                	<div class="margin">
+					<div class="buttonNewObjects">
+						 <span><g:actionSubmit class="save" action="update" value="${message(code: 'sapienter.guardar', default: 'Update')}" /></span>
+					</div>						
+					</div>     		
+			<table class="tabla">
 				<tbody>
 
 					<tr class="prop">
-						<td valign="top" class="name"><g:message
-								code="estudio.id.label" default="Id" />
+						<td valign="top" class="descripcion"><g:message
+								code="sapienter.id" default="Id" />
 						</td>
 
 						<td valign="top" class="value">
 							${fieldValue(bean: estudioInstance, field: "id")}
 						</td>
 
-					</tr>
-
+					</tr>					
 					<tr class="prop">
 						<td valign="top" class="name"><g:message
-								code="estudio.razonSocial.label" default="Razon Social" />
+								code="persona.razonSocial" default="Razon Social" />
 						</td>
 
 						<td valign="top" class="value">
@@ -61,7 +61,7 @@
 
 					<tr class="prop">
 						<td valign="top" class="name"><g:message
-								code="estudio.domicilioFiscal.label" default="Domicilio Fiscal" />
+								code="estudio.domicilioFiscal" default="Domicilio Fiscal" />
 						</td>
 
 						<td valign="top" class="value">
@@ -72,7 +72,7 @@
 
 					<tr class="prop">
 						<td valign="top" class="name"><g:message
-								code="estudio.cuit.label" default="Cuit" />
+								code="persona.cuit" default="Cuit" />
 						</td>
 
 						<td valign="top" class="value">
@@ -83,20 +83,7 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="buttons">
-			<g:form>
-				<g:hiddenField name="id" value="${estudioInstance?.id}" />
-				<span class="button"><g:actionSubmit class="edit"
-						action="edit"
-						value="${message(code: 'default.button.edit.label', default: 'Edit')}" />
-				</span>
-				<span class="button"><g:actionSubmit class="delete"
-						action="delete"
-						value="${message(code: 'default.button.delete.label', default: 'Delete')}"
-						onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-				</span>
-			</g:form>
-		</div>
+
 	</div>
 </body>
 </html>

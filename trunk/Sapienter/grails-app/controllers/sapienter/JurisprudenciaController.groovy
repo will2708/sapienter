@@ -11,9 +11,19 @@ class JurisprudenciaController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def list = {
+		def jurisprudenciaList
+		def jurisprudenciaTotal
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [jurisprudenciaInstanceList: Jurisprudencia.list(params), jurisprudenciaInstanceTotal: Jurisprudencia.count()]
-    }
+		if(params.q){
+			jurisprudenciaList = Jurisprudencia.search(params.q + "*").results
+			jurisprudenciaTotal = jurisprudenciaList.size
+		}
+		else{
+			jurisprudenciaList = Jurisprudencia.list(params)
+			jurisprudenciaTotal = Jurisprudencia.count()
+		}
+		[jurisprudenciaInstanceList: jurisprudenciaList, jurisprudenciaInstanceTotal: jurisprudenciaTotal]
+	}
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {
 		def estudio = Estudio.getAll().get(0)

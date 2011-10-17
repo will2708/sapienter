@@ -8,30 +8,28 @@
         <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
-        </div>
+    	<div>
+	        <div class="buttonSubMenu">
+	            <span><g:link class="create" action="create"><g:message code="sapienter.crear" args="[entityName]" /></g:link></span>
+	        </div>
+        </div> 
         <div class="body">
-            <h1><g:message code="default.list.label" args="[entityName]" /></h1>
+            <h1>Estudio jur&iacutedico</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
             <div class="list">
-                <table>
+                <table class="tabla">
                     <thead>
                         <tr>
                         
-                            <g:sortableColumn property="id" title="${message(code: 'estudio.id.label', default: 'Id')}" />
+                            <g:sortableColumn property="id" title="${message(code: 'sapienter.id', default: 'Id')}" />
                         
-                            <g:sortableColumn property="razonSocial" title="${message(code: 'estudio.razonSocial.label', default: 'Razon Social')}" />
+                            <g:sortableColumn property="razonSocial" title="${message(code: 'persona.razonSocial', default: 'Razon Social')}" />
                         
-                            <g:sortableColumn property="domicilioFiscal" title="${message(code: 'estudio.domicilioFiscal.label', default: 'Domicilio Fiscal')}" />
+                            <g:sortableColumn property="domicilioFiscal" title="${message(code: 'estudio.domicilioFiscal', default: 'Domicilio Fiscal')}" />
                         
-                            <g:sortableColumn property="cuit" title="${message(code: 'estudio.cuit.label', default: 'Cuit')}" />
-                        
-                            <th><g:message code="estudio.modelosDeDocumento.label" default="Modelos De Documento" /></th>
-                        
+                            <g:sortableColumn property="cuit" title="${message(code: 'persona.cuit', default: 'Cuit')}" />
                         </tr>
                     </thead>
                     <tbody>
@@ -46,15 +44,10 @@
                         
                             <td>${fieldValue(bean: estudioInstance, field: "cuit")}</td>
                         
-                            <td>${fieldValue(bean: estudioInstance, field: "modelosDeDocumento")}</td>
-                        
                         </tr>
                     </g:each>
                     </tbody>
                 </table>
-            </div>
-            <div class="paginateButtons">
-                <g:paginate total="${estudioInstanceTotal}" />
             </div>
         </div>
     </body>

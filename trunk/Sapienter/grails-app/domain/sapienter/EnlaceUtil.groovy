@@ -1,6 +1,7 @@
 package sapienter
 
 class EnlaceUtil {
+	static searchable = true
 	String Descripcion
 	String Direccion
 	Usuario ultimoUsuario
