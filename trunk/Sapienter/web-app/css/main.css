@@ -330,6 +330,12 @@
     font-family:verdana,geneva,arial,helvetica,sans-serif;
     border:1px solid #ccc;
 }
+.buttonNewObjects input.edit {
+    background: url(../images/skin/database_edit.png) center left no-repeat;
+    /*color: #333;*/
+    color: #000;
+    padding-left: 20px;
+}
 
 .buttonNewObjects a.create {
     background: url(../images/skin/database_add.png) center left no-repeat;

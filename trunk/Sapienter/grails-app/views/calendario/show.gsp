@@ -9,15 +9,23 @@
 		<fullcal:resources/>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-        </div>
         <div class="body">
-            <h1><g:message code="default.show.label" args="[entityName]" /></h1>
+        
+            <h1>Calendario</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
             <div class="dialog">
+            <div class="margin">
+            <div class="buttonNewObjects">
+            	<g:form>
+               <g:hiddenField name="id" value="${calendarioInstance?.id}" />
+               <span><g:actionSubmit class="edit" action="nuevaTarea" value="${message(code: 'calendario.nuevaTarea', default: 'Nueva Tarea')}" /></span>                    
+              </g:form>
+            </div>            
+            </div>
+            <table class="tabla">
+            <tr><td>          
 			<fullcal:calendar id="cal">
 	    		header: { left: "month, agendaWeek, agendaDay", center: "title", right: "prev, today, next" },
 	    		columnFormat: { week: 'ddd d/M' },
@@ -34,13 +42,10 @@
 	    		maxTime: '8:00pm',
 	    		events: 'events'			  
 			</fullcal:calendar>
+			</td></tr>
+			</table>
             </div>
-            <div class="buttons">
-                <g:form>
-                    <g:hiddenField name="id" value="${calendarioInstance?.id}" />
-	                <span class="button"><g:actionSubmit class="edit" action="nuevaTarea" value="${message(code: 'default.button.nuevaTarea.label', default: 'Nueva Tarea')}" /></span>                    
-                </g:form>
-            </div>
+
         </div>
     </body>
 </html>

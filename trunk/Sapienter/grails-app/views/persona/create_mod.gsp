@@ -15,6 +15,11 @@
 
 </head>
 <body>
+	<div>
+	<div class="buttonSubMenu">
+		<span><g:link class="list" action="list"><g:message code="sapienter.proceso" args="[entityName]" /></g:link></span>
+	</div>
+	</div>
 	<div class="body">
 		<g:if test="${flash.message}">
 			<div class="message">
@@ -40,267 +45,256 @@
 			<div class="dialog">
 				<richui:tabView id="tabView">
 					<richui:tabLabels>
-						<richui:tabLabel selected="${selected1}" title="Persona Fisica" />
-						<richui:tabLabel selected="${selected2}" title="Persona Juridica" />
-					</richui:tabLabels>
-					<richui:tabContents>
+						<richui:tabLabel class="buttonNewObjects" selected="${selected1}" title="Persona Fisica" />
+						<richui:tabLabel class="buttonNewObjects" selected="${selected2}" title="Persona Juridica" />
+						</richui:tabLabels>
+						<richui:tabContents>
 						<richui:tabContent>
 							<g:form controller="personaFisica" action="save">
-							<table>
+				<div class="margin">
+					<div class="buttonNewObjects">
+						<span><g:submitButton name="create" class="save" value="${message(code: 'sapienter.guardar', default: 'Create')}" /></span>
+					</div>
+				</div>							
+							<table class="tabla_edit">
 								<tbody>
-
+								<tr>
+									<td>
+									<table>
 									<tr class="prop">
 										<td valign="top" class="name"><label for="apellido"><g:message
-													code="personaFisica.apellido.label" default="Apellido" />
+													code="persona.apellido" default="Apellido" /><mandatory> *</mandatory>
 										</label>
 										</td>
 										<td valign="top"
 											class="value ${hasErrors(bean: personaFisicaInstance, field: 'apellido', 'errors')}">
-											<g:textField name="apellido"
+											<g:textField class="textField" class="textField" name="apellido"
 												value="${personaFisicaInstance?.apellido}" />
 										</td>
-									</tr>
-
-									<tr class="prop">
-										<td valign="top" class="name"><label for="nombre"><g:message
-													code="personaFisica.nombre.label" default="Nombre" /> </label>
-										</td>
-										<td valign="top"
-											class="value ${hasErrors(bean: personaFisicaInstance, field: 'nombre', 'errors')}">
-											<g:textField name="nombre"
-												value="${personaFisicaInstance?.nombre}" />
-										</td>
-									</tr>
-									<tr class="prop">
-										<td valign="top" class="name"><label for="observaciones"><g:message
-													code="personaFisica.observaciones.label"
-													default="Observaciones" /> </label>
-										</td>
-										<td valign="top"
-											class="value ${hasErrors(bean: personaFisicaInstance, field: 'observaciones', 'errors')}">
-											<g:textArea name="observaciones"
-												value="${personaFisicaInstance?.observaciones}" />
-										</td>
-									</tr>
-
-									<div id="noDivorciado">
-									<tr class="prop">
-										<td valign="top" class="name"><label for="pais"><g:message
-													code="personaFisica.pais.label" default="Pais" /> </label>
-										</td>
-										<td valign="top"
-											class="value ${hasErrors(bean: personaFisicaInstance, field: 'pais', 'errors')}">
-											<g:countrySelect name="pais"
-												value="${personaFisicaInstance?.pais}"
-												noSelection="['' : 'Seleccione un Pais' ]" />
-										</td>
-									</tr>
-
-
-									<tr class="prop">
-										<td valign="top" class="name"><label for="dni"><g:message
-													code="personaFisica.dni.label" default="Dni" /> </label>
-										</td>
-										<td valign="top"
-											class="value ${hasErrors(bean: personaFisicaInstance, field: 'dni', 'errors')}">
-											<g:textField name="dni" value="${personaFisicaInstance?.dni}" />
-										</td>
-									</tr>
-
-									<tr class="prop">
 										<td valign="top" class="name"><label
 											for="fechaNacimiento"><g:message
-													code="personaFisica.fechaNacimiento.label"
-													default="Fecha Nacimiento" /> </label>
+													code="persona.fechaNacimiento"
+													default="Fecha Nacimiento" /> <mandatory> *</mandatory></label>
 										</td>
 										<td valign="top"
 											class="value ${hasErrors(bean: personaFisicaInstance, field: 'fechaNacimiento', 'errors')}">
-											<g:textField name="fechaNacimiento" 
+											<g:textField class="textField"class="textField" name="fechaNacimiento" 
 														value="${personaFisicaInstance?.fechaNacimiento}"/>
 										</td>
 									</tr>
 
 									<tr class="prop">
-										<td valign="top" class="name"><label for="padre"><g:message
-													code="personaFisica.padre.label" default="Padre" /> </label>
+										<td valign="top" class="name"><label for="nombre"><g:message
+													code="persona.nombre" default="Nombre" /><mandatory> *</mandatory> </label>
 										</td>
 										<td valign="top"
-											class="value ${hasErrors(bean: personaFisicaInstance, field: 'padre', 'errors')}">
-											<g:textField name="padre"
-												value="${personaFisicaInstance?.padre}" />
+											class="value ${hasErrors(bean: personaFisicaInstance, field: 'nombre', 'errors')}">
+											<g:textField class="textField" class="textField" name="nombre"
+												value="${personaFisicaInstance?.nombre}" />
+										</td>
+										<td valign="top" class="name"><label for="pais"><g:message
+													code="sapienter.pais" default="Pais" /><mandatory> *</mandatory> </label>
+										</td>
+										<td valign="top"
+											class="value ${hasErrors(bean: personaFisicaInstance, field: 'pais', 'errors')}">
+											<g:countrySelect class="textField" class="textField" name="pais"
+												value="${personaFisicaInstance?.pais}"
+												noSelection="['' : 'Seleccione un Pais' ]" />
 										</td>
 									</tr>
 
 									<tr class="prop">
+										<td valign="top" class="name"><label for="dni"><g:message
+													code="persona.dni" default="Dni" /><mandatory> *</mandatory> </label>
+										</td>
+										<td valign="top"
+											class="value ${hasErrors(bean: personaFisicaInstance, field: 'dni', 'errors')}">
+											<g:textField class="textField" name="dni" value="${personaFisicaInstance?.dni}" />
+										</td>
+		                                <td valign="top" class="name">
+		                                    <label for="estadoCivil"><g:message code="persona.estadoCivil" default="Estado Civil" /></label>
+		                                </td>
+		                                <td valign="top" class="value ${hasErrors(bean: personaFisicaInstance, field: 'estadoCivil', 'errors')}">
+		                                    <g:select class="textField" name="estadoCivil" onChange="estadoCivilChanged();" from="${personaFisicaInstance.constraints.estadoCivil.inList}" value="${personaFisicaInstance?.estadoCivil}" valueMessagePrefix="personaFisica.estadoCivil"  />
+		                                </td>
+		                            </tr>
+									<tr class="prop">
+										<td valign="top" class="name"><label for="email"><g:message
+													code="sapienter.email" default="Email" /><mandatory> *</mandatory> </label>
+										</td>
+										<td valign="top"
+											class="value ${hasErrors(bean: personaFisicaInstance, field: 'email', 'errors')}">
+											<g:textField class="textField" name="email"
+												value="${personaFisicaInstance?.email}" />
+										</td>
+										<td valign="top" class="name"><label for="telefono"><g:message
+													code="sapienter.telefono" default="Telefono" />
+										</label>
+										</td>
+										<td valign="top"
+											class="value ${hasErrors(bean: personaFisicaInstance, field: 'telefono', 'errors')}">
+											<g:textField class="textField" name="telefono"
+												value="${personaFisicaInstance?.telefono}" />
+										</td>
+									</tr>									
+									<tr class="prop">
+										<td valign="top" class="name"><label for="domicilio"><g:message
+													code="sapienter.domicilio" default="Domicilio" />
+										</label>
+										</td>
+										<td valign="top"
+											class="value ${hasErrors(bean: personaFisicaInstance, field: 'domicilio', 'errors')}">
+											<g:textField class="textField" name="domicilio"
+												value="${personaFisicaInstance?.domicilio}" />
+										</td>
+										<td valign="top" class="name"><label for="ciudad"><g:message
+													code="persona.ciudad" default="Ciudad" /> </label>
+										</td>
+										<td valign="top"
+											class="value ${hasErrors(bean: personaFisicaInstance, field: 'ciudad', 'errors')}">
+											<g:textField class="textField" name="ciudad"
+												value="${personaFisicaInstance?.ciudad}" />
+										</td>
+									</tr>
+									<tr class="prop">
+										<td valign="top" class="name"><label for="codPostal"><g:message
+													code="persona.codPostal" default="Cod Postal" />
+										</label>
+										</td>
+										<td valign="top"
+											class="value ${hasErrors(bean: personaFisicaInstance, field: 'codPostal', 'errors')}">
+											<g:textField class="textField" name="codPostal"
+												value="${personaFisicaInstance?.codPostal}" />
+										</td>
+										<td valign="top" class="name"><label for="fax"><g:message
+													code="sapienter.fax" default="Fax" /> </label>
+										</td>
+										<td valign="top"
+											class="value ${hasErrors(bean: personaFisicaInstance, field: 'fax', 'errors')}">
+											<g:textField class="textField" name="fax" value="${personaFisicaInstance?.fax}" />
+										</td>
+									</tr>				
+									<tr class="prop">
+										<td valign="top" class="name"><label for="profesion"><g:message
+													code="persona.profesion" default="Profesion" />
+										</label>
+										</td>
+										<td valign="top"
+											class="value ${hasErrors(bean: personaFisicaInstance, field: 'profesion', 'errors')}">
+											<g:textField class="textField" name="profesion"
+												value="${personaFisicaInstance?.profesion}" />
+										</td>
+										<td valign="top" class="name"><label
+											for="informacionTributaria"><g:message
+													code="persona.informacionTributaria"
+													default="Informacion Tributaria" /> </label>
+										</td>
+										<td valign="top"
+											class="value ${hasErrors(bean: personaFisicaInstance, field: 'informacionTributaria', 'errors')}">
+											<g:textField class="textField" name="informacionTributaria"
+												value="${personaFisicaInstance?.informacionTributaria}" />
+										</td>
+									</tr>
+									<tr class="prop">
 										<td valign="top" class="name"><label for="madre"><g:message
-													code="personaFisica.madre.label" default="Madre" /> </label>
+													code="persona.datosFamiliares" default="Madre" /> </label>
+										</td>
+									</tr>		
+									<tr class="prop">
+										<td valign="top" class="name"><label for="padre"><g:message
+													code="persona.padre" default="Padre" /> </label>
+										</td>
+										<td valign="top"
+											class="value ${hasErrors(bean: personaFisicaInstance, field: 'padre', 'errors')}">
+											<g:textField class="textField" name="padre"
+												value="${personaFisicaInstance?.padre}" />
+										</td>
+										<td valign="top" class="name"><label for="madre"><g:message
+													code="persona.madre" default="Madre" /> </label>
 										</td>
 										<td valign="top"
 											class="value ${hasErrors(bean: personaFisicaInstance, field: 'madre', 'errors')}">
-											<g:textField name="madre"
+											<g:textField class="textField" name="madre"
 												value="${personaFisicaInstance?.madre}" />
 										</td>
 									</tr>
 
 									<tr class="prop" id="conyugueTr">
 										<td valign="top" class="name"><label for="conyuge"><g:message
-													code="personaFisica.conyuge.label" default="Conyuge" /> </label>
+													code="persona.conyugue" default="Conyuge" /> </label>
 										</td>
 										<td valign="top"
 											class="value ${hasErrors(bean: personaFisicaInstance, field: 'conyuge', 'errors')}">
-											<g:textField name="conyuge"
+											<g:textField class="textField" name="conyuge"
 												value="${personaFisicaInstance?.conyuge}" />
 										</td>
 									</tr>
-
-									<tr class="prop">
-										<td valign="top" class="name"><label for="email"><g:message
-													code="personaFisica.email.label" default="Email" /> </label>
-										</td>
-										<td valign="top"
-											class="value ${hasErrors(bean: personaFisicaInstance, field: 'email', 'errors')}">
-											<g:textField name="email"
-												value="${personaFisicaInstance?.email}" />
-										</td>
-									</tr>
-
 									<tr class="prop">
 										<td valign="top" class="name"><label for="auxiliar"><g:message
-													code="personaFisica.auxiliar.label" default="Auxiliar" />
+													code="persona.auxiliar" default="Auxiliar" />
 										</label>
 										</td>
 										<td valign="top"
 											class="value ${hasErrors(bean: personaFisicaInstance, field: 'auxiliar', 'errors')}">
-											<g:textField name="auxiliar"
+											<g:textField class="textField" name="auxiliar"
 												value="${personaFisicaInstance?.auxiliar}" />
 										</td>
 									</tr>
-
+									</table>
+									</td>
+								</tr>
+								<tr>
+									<td>
+									<table>
 									<tr class="prop">
-										<td valign="top" class="name"><label for="ciudad"><g:message
-													code="personaFisica.ciudad.label" default="Ciudad" /> </label>
+										<td valign="top" class="descripcion"><label for="observaciones"><g:message
+													code="personaFisica.observaciones.label"
+													default="Observaciones" /> </label>
 										</td>
 										<td valign="top"
-											class="value ${hasErrors(bean: personaFisicaInstance, field: 'ciudad', 'errors')}">
-											<g:textField name="ciudad"
-												value="${personaFisicaInstance?.ciudad}" />
+											class="value ${hasErrors(bean: personaFisicaInstance, field: 'observaciones', 'errors')}">
+											<g:textArea class="textField" name="observaciones"
+												value="${personaFisicaInstance?.observaciones}" />
 										</td>
 									</tr>
-
-									<tr class="prop">
-										<td valign="top" class="name"><label for="codPostal"><g:message
-													code="personaFisica.codPostal.label" default="Cod Postal" />
-										</label>
-										</td>
-										<td valign="top"
-											class="value ${hasErrors(bean: personaFisicaInstance, field: 'codPostal', 'errors')}">
-											<g:textField name="codPostal"
-												value="${personaFisicaInstance?.codPostal}" />
-										</td>
-									</tr>
-
-									<tr class="prop">
-										<td valign="top" class="name"><label for="domicilio"><g:message
-													code="personaFisica.domicilio.label" default="Domicilio" />
-										</label>
-										</td>
-										<td valign="top"
-											class="value ${hasErrors(bean: personaFisicaInstance, field: 'domicilio', 'errors')}">
-											<g:textField name="domicilio"
-												value="${personaFisicaInstance?.domicilio}" />
-										</td>
-									</tr>
-
-									<tr class="prop">
-										<td valign="top" class="name"><label for="fax"><g:message
-													code="personaFisica.fax.label" default="Fax" /> </label>
-										</td>
-										<td valign="top"
-											class="value ${hasErrors(bean: personaFisicaInstance, field: 'fax', 'errors')}">
-											<g:textField name="fax" value="${personaFisicaInstance?.fax}" />
-										</td>
-									</tr>
-									
-									<tr class="prop">
-										<td valign="top" class="name"><label
-											for="informacionTributaria"><g:message
-													code="personaFisica.informacionTributaria.label"
-													default="Informacion Tributaria" /> </label>
-										</td>
-										<td valign="top"
-											class="value ${hasErrors(bean: personaFisicaInstance, field: 'informacionTributaria', 'errors')}">
-											<g:textField name="informacionTributaria"
-												value="${personaFisicaInstance?.informacionTributaria}" />
-										</td>
-									</tr>
-
-									<tr class="prop">
-										<td valign="top" class="name"><label for="profesion"><g:message
-													code="personaFisica.profesion.label" default="Profesion" />
-										</label>
-										</td>
-										<td valign="top"
-											class="value ${hasErrors(bean: personaFisicaInstance, field: 'profesion', 'errors')}">
-											<g:textField name="profesion"
-												value="${personaFisicaInstance?.profesion}" />
-										</td>
-									</tr>
-
-		                            <tr class="prop">
-		                                <td valign="top" class="name">
-		                                    <label for="estadoCivil"><g:message code="personaFisica.estadoCivil.label" default="Estado Civil" /></label>
-		                                </td>
-		                                <td valign="top" class="value ${hasErrors(bean: personaFisicaInstance, field: 'estadoCivil', 'errors')}">
-		                                    <g:select name="estadoCivil" onChange="estadoCivilChanged();" from="${personaFisicaInstance.constraints.estadoCivil.inList}" value="${personaFisicaInstance?.estadoCivil}" valueMessagePrefix="personaFisica.estadoCivil"  />
-		                                </td>
-		                            </tr>
-
-
-									<tr class="prop">
-										<td valign="top" class="name"><label for="telefono"><g:message
-													code="personaFisica.telefono.label" default="Telefono" />
-										</label>
-										</td>
-										<td valign="top"
-											class="value ${hasErrors(bean: personaFisicaInstance, field: 'telefono', 'errors')}">
-											<g:textField name="telefono"
-												value="${personaFisicaInstance?.telefono}" />
-										</td>
-									</tr>
+									</table>
+									</td>
+								</tr>	
 								</tbody>
 							</table>
-							<div class="buttons">
-								<span class="button"><g:submitButton name="create"
-										class="save"
-										value="${message(code: 'default.button.create.label', default: 'Create')}" />
-								</span>
-							</div>
 							</g:form>
 						</richui:tabContent>
 						<richui:tabContent>
+														
 							<g:form controller="personaJuridica" action="save">
-							<table>
+							<div class="margin">
+							<div class="buttonNewObjects">
+								<span><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+							</span>
+							</div>
+							</div>
+							
+							<table class="tabla_edit">
 								<tbody>
-
+								<tr>
+									<td>
+									<table>
 									<tr class="prop">
 										<td valign="top" class="name"><label for="razonSocial"><g:message
-													code="personaJuridica.razonSocial.label"
+													code="persona.razonSocial"
 													default="Razon Social" /> </label>
 										</td>
 										<td valign="top"
 											class="value ${hasErrors(bean: personaJuridicaInstance, field: 'razonSocial', 'errors')}">
-											<g:textField name="razonSocial"
+											<g:textField class="textField" name="razonSocial"
 												value="${personaJuridicaInstance?.razonSocial}" />
 										</td>
-									</tr>
-
-									<tr class="prop">
 										<td valign="top" class="name"><label for="cuit"><g:message
-													code="personaJuridica.cuit.label" default="Cuit" /> </label>
+													code="persona.cuit" default="Cuit" /> </label>
 										</td>
 										<td valign="top"
 											class="value ${hasErrors(bean: personaJuridicaInstance, field: 'cuit', 'errors')}">
-											<g:textField name="cuit"
+											<g:textField class="textField" name="cuit"
 												value="${personaJuridicaInstance?.cuit}" />
 										</td>
 									</tr>
@@ -308,84 +302,84 @@
 									<tr class="prop">
 										<td valign="top" class="name"><label
 											for="fechaDeInicioActividades"><g:message
-													code="personaJuridica.fechaDeInicioActividades.label"
+													code="persona.fechaDeInicioActividades"
 													default="Fecha De Inicio Actividades" /> </label>
 										</td>
 										<td valign="top"
 											class="value ${hasErrors(bean: personaJuridicaInstance, field: 'fechaDeInicioActividades', 'errors')}">
-											<g:datePicker name="fechaDeInicioActividades" precision="day"
+											<g:datePicker class="textField" name="fechaDeInicioActividades" precision="day"
 												value="${personaJuridicaInstance?.fechaDeInicioActividades}"
 												default="none" noSelection="['': '']" />
 										</td>
-									</tr>
-
-									<tr class="prop">
-										<td valign="top" class="name"><label
-											for="telefonoDeContacto"><g:message
-													code="personaJuridica.telefonoDeContacto.label"
-													default="Telefono De Contacto" /> </label>
-										</td>
-										<td valign="top"
-											class="value ${hasErrors(bean: personaJuridicaInstance, field: 'telefonoDeContacto', 'errors')}">
-											<g:textField name="telefonoDeContacto"
-												value="${personaJuridicaInstance?.telefonoDeContacto}" />
-										</td>
-									</tr>
-
-									<tr class="prop">
-										<td valign="top" class="name"><label for="email"><g:message
-													code="personaJuridica.email.label" default="Email" /> </label>
-										</td>
-										<td valign="top"
-											class="value ${hasErrors(bean: personaJuridicaInstance, field: 'email', 'errors')}">
-											<g:textField name="email"
-												value="${personaJuridicaInstance?.email}" />
-										</td>
-									</tr>
-
-									<tr class="prop">
-										<td valign="top" class="name"><label for="fax"><g:message
-													code="personaJuridica.fax.label" default="Fax" /> </label>
-										</td>
-										<td valign="top"
-											class="value ${hasErrors(bean: personaJuridicaInstance, field: 'fax', 'errors')}">
-											<g:textField name="fax"
-												value="${personaJuridicaInstance?.fax}" />
-										</td>
-									</tr>
-
-									<tr class="prop">
 										<td valign="top" class="name"><label for="auxiliares"><g:message
-													code="personaJuridica.auxiliares.label"
+													code="persona.auxiliares"
 													default="Auxiliares" /> </label>
 										</td>
 										<td valign="top"
 											class="value ${hasErrors(bean: personaJuridicaInstance, field: 'auxiliares', 'errors')}">
-											<g:textField name="auxiliares"
+											<g:textField class="textField" name="auxiliares"
 												value="${personaJuridicaInstance?.auxiliares}" />
 										</td>
 									</tr>
+									
+									<tr class="prop">
+										<td valign="top" class="name"><label for="email"><g:message
+													code="sapienter.email" default="Email" /> </label>
+										</td>
+										<td valign="top"
+											class="value ${hasErrors(bean: personaJuridicaInstance, field: 'email', 'errors')}">
+											<g:textField class="textField" name="email"
+												value="${personaJuridicaInstance?.email}" />
+										</td>
+										<td valign="top" class="name"><label
+											for="telefonoDeContacto"><g:message
+													code="persona.telefonoDeContacto"
+													default="Telefono De Contacto" /> </label>
+										</td>
+										<td valign="top"
+											class="value ${hasErrors(bean: personaJuridicaInstance, field: 'telefonoDeContacto', 'errors')}">
+											<g:textField class="textField" name="telefonoDeContacto"
+												value="${personaJuridicaInstance?.telefonoDeContacto}" />
+										</td>
+									</tr>
+
+
 
 									<tr class="prop">
-										<td valign="top" class="name"><label for="observaciones"><g:message
+										<td valign="top" class="name"><label for="fax"><g:message
+													code=sapienter.fax" default="Fax" /> </label>
+										</td>
+										<td valign="top"
+											class="value ${hasErrors(bean: personaJuridicaInstance, field: 'fax', 'errors')}">
+											<g:textField class="textField" name="fax"
+												value="${personaJuridicaInstance?.fax}" />
+										</td>
+									</tr>
+									</table>
+									</td>
+								</tr>
+								<tr>
+									<td>
+									<table>
+									<tr class="prop">
+										<td valign="top" class="descripcion"><label for="observaciones"><g:message
 													code="personaJuridica.observaciones.label"
 													default="Observaciones" /> </label>
 										</td>
 										<td valign="top"
 											class="value ${hasErrors(bean: personaJuridicaInstance, field: 'observaciones', 'errors')}">
-											<g:textArea name="observaciones"
+											<g:textArea class="textField" name="observaciones"
 												value="${personaJuridicaInstance?.observaciones}" />
 										</td>
 									</tr>
-
+									</table>
+									</td>
+								</tr>
 								</tbody>
 							</table>
 							<div class="buttons">
 
-								<span class="button"><g:submitButton name="create"
-										class="save"
-										value="${message(code: 'default.button.create.label', default: 'Create')}" />
-								</span>
+
 							</div>
 							</g:form>
 						</richui:tabContent>
