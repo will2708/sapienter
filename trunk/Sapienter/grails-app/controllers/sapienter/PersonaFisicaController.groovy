@@ -21,21 +21,6 @@ class PersonaFisicaController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
-		String fechaNacimiento = params.fechaNacimiento
-		params.remove("fechaNacimiento")
-		if (fechaNacimiento != null &&
-			fechaNacimiento != "" ){
-			int anio = Integer.parseInt(fechaNacimiento.substring(6,10))
-			int mes = Integer.parseInt(fechaNacimiento.substring(3,5))
-			int dia = Integer.parseInt(fechaNacimiento.substring(0,2))
-			int hora = 9
-			int minutos = 00
-
-			mes = mes - 1
-			
-			Calendar calendar = new GregorianCalendar(anio,mes,dia,hora,minutos)
-			params.put("fechaNacimiento", calendar.getTime())
-		}
 		redirect(controller: "persona", action: "createFisica", params: params)
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])

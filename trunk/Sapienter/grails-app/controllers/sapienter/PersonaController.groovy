@@ -36,10 +36,26 @@ class PersonaController {
 		def user = SecUser.get(springSecurityService.principal.id)
 		def estudio = user.estudio
 		params.put("estudio", estudio)
-def pa = params
 		def personaJuridicaInstance = new PersonaJuridica()
 
 		def personaFisicaInstance = new PersonaFisica(params)
+
+		String fechaNacimiento = params.fechaNacimiento
+		params.remove("fechaNacimiento")
+		if (fechaNacimiento != null &&
+			fechaNacimiento != "" ){
+			int anio = Integer.parseInt(fechaNacimiento.substring(6,10))
+			int mes = Integer.parseInt(fechaNacimiento.substring(3,5))
+			int dia = Integer.parseInt(fechaNacimiento.substring(0,2))
+			int hora = 9
+			int minutos = 00
+
+			mes = mes - 1
+			
+			Calendar calendar = new GregorianCalendar(anio,mes,dia,hora,minutos)
+			personaFisicaInstance.fechaNacimiento = calendar.getTime() 
+		}
+		println personaFisicaInstance.fechaNacimiento 
 		if (personaFisicaInstance.save(flush: true)) {
 			flash.message = "${message(code: 'default.created.message', args: [message(code: 'personaFisica.label', default: 'PersonaFisica'), personaFisicaInstance.id])}"
 			redirect(Controller:"personaFisica", action: "show", id:personaFisicaInstance.id)
