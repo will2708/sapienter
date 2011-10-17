@@ -17,7 +17,7 @@
 <g:layoutHead />
 </head>
 <body>
-	<script src="${resource(dir:'js',file:'sapienter.js')}"></script>
+	
 	<div id="spinner" class="spinner" style="display: none;">
 		<img src="${resource(dir:'images',file:'spinner.gif')}"
 			alt="${message(code:'spinner.alt',default:'Loading...')}" />
