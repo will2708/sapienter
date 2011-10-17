@@ -3,6 +3,7 @@ package sapienter
 import com.sun.istack.internal.Nullable;
 
 class Usuario extends SecUser {
+	static searchable = true
 	String apellido
 	Calendario calendario
 	String comentarios

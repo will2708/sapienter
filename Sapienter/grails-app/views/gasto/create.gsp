@@ -71,7 +71,7 @@
                                     <g:textField class="textField"  name="monto" value="${fieldValue(bean: gastoInstance, field: 'monto')}" />
                                 </td>
                                 <td valign="top" class="name">
-                                    <label for="moneda"><g:message code="gasto.monedal" default="Moneda" /></label>
+                                    <label for="moneda"><g:message code="gasto.moneda" default="Moneda" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: gastoInstance, field: 'moneda', 'errors')}">
                                     <g:select class="textField" name="moneda" from="${gastoInstance.constraints.moneda.inList}" value="${gastoInstance?.moneda}" valueMessagePrefix="gasto.moneda"  />

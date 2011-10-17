@@ -9,12 +9,13 @@
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
+    	<div>
+        <div class="buttonSubMenu">
+            <span><g:link class="list" action="list"><g:message code="sapienter.enlaceUtil" args="[entityName]" /></g:link></span>
+        </div>
         </div>
         <div class="body">
-            <h1><g:message code="default.create.label" args="[entityName]" /></h1>
+            <h1>Crear Enlace</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -25,32 +26,31 @@
             </g:hasErrors>
             <g:form action="save" >
                 <div class="dialog">
-                    <table>
+					<div class="margin">
+						<div class="buttonNewObjects">
+							 <span><g:actionSubmit class="create" action="save" value="${message(code: 'sapienter.guardar', default: 'Update')}" /></span>
+						</div>
+					</div>                    
+                    <table class="tabla_edit">
                         <tbody>
-                       
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="descripcion"><g:message code="enlaceUtil.descripcion.label" default="Descripcion" /></label>
+                                    <label for="descripcion"><g:message code="proceso.descripcion" default="Descripcion" /><mandatory> *</mandatory></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enlaceUtilInstance, field: 'descripcion', 'errors')}">
-                                    <g:textField name="descripcion" value="${enlaceUtilInstance?.descripcion}" />
+                                    <g:textField class="textField"  name="descripcion" value="${enlaceUtilInstance?.descripcion}" />
                                 </td>
                             </tr>
-                        
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="direccion"><g:message code="enlaceUtil.direccion.label" default="Direccion" /></label>
+                                    <label for="direccion"><g:message code="enlaceUtil.enlace" default="Direccion" /><mandatory> *</mandatory></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enlaceUtilInstance, field: 'direccion', 'errors')}">
-                                    <g:textField name="direccion" value="${enlaceUtilInstance?.direccion}" />
+                                    <g:textField class="textField" name="direccion" value="${enlaceUtilInstance?.direccion}" />
                                 </td>
                             </tr>
-                        
                         </tbody>
                     </table>
-                </div>
-                <div class="buttons">
-                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
                 </div>
             </g:form>
         </div>
