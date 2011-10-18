@@ -1,6 +1,7 @@
 package sapienter
 //TODO: bajar plugin de monedas, generar archivo con tipos de estado
 class Gasto {
+	def static reportable = [:]
 			String concepto
 			String estado
 			byte[] factura

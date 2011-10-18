@@ -1,6 +1,7 @@
 package sapienter
 
 class Jurisprudencia {
+	def static reportable = [:]
 	static searchable = true
 	String descripcion
 	String fuero

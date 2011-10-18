@@ -1,6 +1,11 @@
 package sapienter
 
+import ar.com.fdvs.dj.core.layout.HorizontalBandAlignment
+import ar.com.fdvs.dj.domain.AutoText
+
 class Estudio {
+	def static reportable = [:]
+	
 	String Cuit
 	String domicilioFiscal
 	ModeloDeDocumento modelosDeDocumento

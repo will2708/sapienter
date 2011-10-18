@@ -1,6 +1,7 @@
 package sapienter
 //TODO: Borrar comentarios
 class PersonaJuridica extends Persona {
+	def static reportable = [:]
 	static searchable = true
 	String auxiliares //
 	String cuit //
