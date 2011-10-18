@@ -1,5 +1,4 @@
 
-
 <%@ page import="sapienter.Tarea" %>
 <html>
     <head>
@@ -9,13 +8,16 @@
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
-        </div>
+    	<div>
+		<g:form>
+        <g:hiddenField name="id" value="${tareaInstance?.id}" />
+        		<div class="buttonForm">
+             	<span><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+             </div>
+         </g:form>  
+         </div>  
         <div class="body">
-            <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
+            <h1>Modificar Tarea</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -28,7 +30,12 @@
                 <g:hiddenField name="id" value="${tareaInstance?.id}" />
                 <g:hiddenField name="version" value="${tareaInstance?.version}" />
                 <div class="dialog">
-                    <table>
+					<div class="margin">
+						<div class="buttonNewObjects">
+							 <span><g:actionSubmit class="save" action="update" value="${message(code: 'sapienter.guardar', default: 'Update')}" /></span>
+						</div>						
+					</div>                    
+                    <table class="tabla_edit">
                         <tbody>
                         
                             <tr class="prop">
@@ -36,7 +43,7 @@
                                   <label for="fechaInicio"><g:message code="tarea.fechaInicio.label" default="Fecha Inicio" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: tareaInstance, field: 'fechaInicio', 'errors')}">
-                                    
+ 								<g:datePicker class="textField" name="fechaInicio" precision="minute" value="${tareaInstance?.fechaInicio}" />                                    
                                 </td>
                             </tr>
                         
@@ -45,34 +52,22 @@
                                   <label for="fechaFin"><g:message code="tarea.fechaFin.label" default="Fecha Fin" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: tareaInstance, field: 'fechaFin', 'errors')}">
-                                    
+								<g:datePicker class="textField" name="fechaFin" precision="minute" value="${tareaInstance?.fechaFin}" default="none" noSelection="['':'']"/>                                    
                                 </td>
                             </tr>
                         
                             <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="observacion"><g:message code="tarea.observacion.label" default="Observacion" /></label>
+                                <td valign="top" class="descripcion">
+                                  <label for="observacion"><g:message code="tarea.observacion.label" default="Observacion" /><mandatory> *</mandatory></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: tareaInstance, field: 'observacion', 'errors')}">
-                                    <g:textField name="observacion" value="${tareaInstance?.observacion}" />
+                                    <g:textArea class="textField"  name="observacion" value="${tareaInstance?.observacion}" />
                                 </td>
                             </tr>
                         
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="calendario"><g:message code="tarea.calendario.label" default="Calendario" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: tareaInstance, field: 'calendario', 'errors')}">
-                                    <g:select name="calendario.id" from="${sapienter.Calendario.list()}" optionKey="id" value="${tareaInstance?.calendario?.id}"  />
-                                </td>
-                            </tr>
                         
                         </tbody>
                     </table>
-                </div>
-                <div class="buttons">
-                    <span class="button"><g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" /></span>
-                    <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </div>
             </g:form>
         </div>
