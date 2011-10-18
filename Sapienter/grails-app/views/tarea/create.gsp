@@ -1,5 +1,4 @@
 
-
 <%@ page import="sapienter.Tarea" %>
 <html>
     <head>
@@ -9,10 +8,6 @@
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
-        </div>
         <div class="body">
             <h1><g:message code="default.create.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
@@ -24,16 +19,22 @@
             </div>
             </g:hasErrors>
             <g:form action="save" >
+             	 <g:hiddenField name="id" value="${tareaInstance?.id}" />
+                <g:hiddenField name="version" value="${tareaInstance?.version}" />
                 <div class="dialog">
-                    <table>
+	                <div class="margin">
+	                <div class="buttonNewObjects">
+	                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
+	                </div>              
+	                </div>  
+                    <table class="tabla_edit">
                         <tbody>
-                        
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="fechaInicio"><g:message code="tarea.fechaInicio.label" default="Fecha Inicio" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: tareaInstance, field: 'fechaInicio', 'errors')}">
-                                    <g:datePicker name="fechaInicio" precision="minute" value="${tareaInstance?.fechaInicio}" />
+                                    <g:datePicker class="textEdit" name="fechaInicio" precision="minute" value="${tareaInstance?.fechaInicio}" />
                                 </td>
                             </tr>
                         
@@ -42,16 +43,16 @@
                                     <label for="fechaFin"><g:message code="tarea.fechaFin.label" default="Fecha Fin" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: tareaInstance, field: 'fechaFin', 'errors')}">
-                                    <g:datePicker name="fechaFin" precision="minute" value="${tareaInstance?.fechaFin}" default="none" noSelection="['':'']"/>
+                                    <g:datePicker class="textEdit" name="fechaFin" precision="minute" value="${tareaInstance?.fechaFin}" default="none" noSelection="['':'']"/>
                                 </td>
                             </tr>
                         
                             <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="observacion"><g:message code="tarea.observacion.label" default="Observacion" /></label>
+                                <td valign="top" class="descripcion">
+                                    <label for="observacion"><g:message code="tarea.observacion.label" default="Observacion" /><mandatory> *</mandatory></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: tareaInstance, field: 'observacion', 'errors')}">
-                                    <g:textArea name="observacion" value="${tareaInstance?.observacion}" />
+                                    <g:textArea  class="textEdit" name="observacion" value="${tareaInstance?.observacion}" />
                                 </td>
                             </tr>
                         
@@ -63,9 +64,6 @@
                         
                         </tbody>
                     </table>
-                </div>
-                <div class="buttons">
-                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
                 </div>
             </g:form>
         </div>

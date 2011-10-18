@@ -97,7 +97,9 @@ class TareaController {
             try {
                 tareaInstance.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'tarea.label', default: 'Tarea'), params.id])}"
-                redirect(action: "list")
+				def parametros = new HashMap()
+				parametros.put("id", tareaInstance.calendario.id)
+				redirect(controller:"calendario", action:"show", params:parametros)
             }
             catch (org.springframework.dao.DataIntegrityViolationException e) {
                 flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'tarea.label', default: 'Tarea'), params.id])}"
