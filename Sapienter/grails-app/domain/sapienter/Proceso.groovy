@@ -3,6 +3,7 @@ package sapienter
 import java.lang.annotation.Documented;
 
 class Proceso {
+	def static reportable = [:]
 	static searchable = true
 	String caratula 
 	Categoria categoria 

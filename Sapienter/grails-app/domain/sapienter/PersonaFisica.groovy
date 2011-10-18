@@ -1,6 +1,7 @@
 package sapienter
 
 class PersonaFisica extends Persona{
+	def static reportable = [:]
 	static searchable = true
 	String apellido
 	String nombre
