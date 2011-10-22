@@ -11,11 +11,24 @@ class JuzgadoController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def list = {
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [juzgadoInstanceList: Juzgado.list(params), juzgadoInstanceTotal: Juzgado.count()]
+		def juzgadoList
+		def juzgadoTotal
+		params.max = Math.min(params.max ? params.int('max') : 10, 100)
+		if(params.q){
+			juzgadoList = Juzgado.search(params.q + "*").results
+			juzgadoTotal = juzgadoList.size
+		}
+		else{
+			juzgadoList = Juzgado.list(params)
+			juzgadoTotal = Juzgado.count()
+		}
+        [juzgadoInstanceList: juzgadoList, juzgadoInstanceTotal: juzgadoTotal]
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {
+		def estudio = Estudio.getAll().get(0)
+		params.put("estudio", estudio)
+		
         def juzgadoInstance = new Juzgado()
         juzgadoInstance.properties = params
         return [juzgadoInstance: juzgadoInstance]

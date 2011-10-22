@@ -1,6 +1,7 @@
 package sapienter
 
 class Juzgado {
+	static searchable = true
 	String direccionJuzgado
 	String nombreDeJuzgado
 	Integer numeroDeJuzgado

@@ -41,7 +41,7 @@
 				<g:renderErrors bean="${personaJuridicaInstance}" as="list" />
 			</div>
 		</g:hasErrors>
-		<z:body zul="/sapienter/pantallas/test.zul" />
+
 			<div class="dialog">
 				<richui:tabView id="tabView">
 					<richui:tabLabels>
@@ -269,7 +269,7 @@
 							<g:form controller="personaJuridica" action="save">
 							<div class="margin">
 							<div class="buttonNewObjects">
-								<span><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+								<span><g:submitButton name="create" class="save" value="${message(code: 'sapienter.guardar', default: 'Create')}" />
 							</span>
 							</div>
 							</div>
