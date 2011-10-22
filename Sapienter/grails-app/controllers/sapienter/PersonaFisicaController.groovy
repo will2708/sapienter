@@ -39,7 +39,7 @@ class PersonaFisicaController {
         def personaFisicaInstance = PersonaFisica.get(params.id)
         if (!personaFisicaInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'personaFisica.label', default: 'PersonaFisica'), params.id])}"
-            redirect(action: "list")
+            redirect(controller: "persona", action: "list")
         }
         else {
             return [personaFisicaInstance: personaFisicaInstance]
@@ -69,7 +69,7 @@ class PersonaFisicaController {
         }
         else {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'personaFisica.label', default: 'PersonaFisica'), params.id])}"
-            redirect(action: "list")
+            redirect(controller: "persona", action: "list")
         }
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
@@ -79,7 +79,7 @@ class PersonaFisicaController {
             try {
                 personaFisicaInstance.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'personaFisica.label', default: 'PersonaFisica'), params.id])}"
-                redirect(action: "list")
+                redirect(controller: "persona", action: "list")
             }
             catch (org.springframework.dao.DataIntegrityViolationException e) {
                 flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'personaFisica.label', default: 'PersonaFisica'), params.id])}"
@@ -88,7 +88,7 @@ class PersonaFisicaController {
         }
         else {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'personaFisica.label', default: 'PersonaFisica'), params.id])}"
-            redirect(action: "list")
+            redirect(controller: "persona", action: "list")
         }
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])

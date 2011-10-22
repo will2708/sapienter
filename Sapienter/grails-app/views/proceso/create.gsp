@@ -42,10 +42,8 @@
 								<td valign="top" class="descripcion"><label for="persona"><g:message
 											code="proceso.persona" default="Persona" />
 								</label></td>
-								<td valign="top"
-									class="value ${hasErrors(bean: procesoInstance, field: 'persona', 'errors')}">
-									${procesoInstance?.persona}
-								</td>
+								<td valign="top" class="value"><g:link controller="persona" action="show" id="${procesoInstance?.persona?.id}">
+									${procesoInstance?.persona?.encodeAsHTML()}</g:link></td>
 							</tr>				
 							<tr><td><br></td></tr>  
 							<tr class="prop">
@@ -115,7 +113,7 @@
 												value="${procesoInstance?.usuariosAutorizados*.id}"
 												multiple="true" /></td>
 							</tr>							
-							<tr class="prop">
+	  						<tr class="prop">
 								<td valign="top" class="name"><label for="ultimoModificador"><g:message
 											code="proceso.ultimoModificador"
 											default="Ultimo Modificador" /></label></td>
@@ -124,7 +122,7 @@
 									<g:select  class="textField"  name="ultimoModificador.id"
 																  from="${sapienter.Usuario.list()}" optionKey="id"
 																  value="${procesoInstance?.ultimoModificador?.id}" /></td>
-							</tr>
+							</tr>  
 						</table>
 						</td>
 					</tr>

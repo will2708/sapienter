@@ -282,7 +282,7 @@
 									<tr class="prop">
 										<td valign="top" class="name"><label for="razonSocial"><g:message
 													code="persona.razonSocial"
-													default="Razon Social" /> </label>
+													default="Razon Social" /><mandatory> *</mandatory></label>
 										</td>
 										<td valign="top"
 											class="value ${hasErrors(bean: personaJuridicaInstance, field: 'razonSocial', 'errors')}">
@@ -290,7 +290,7 @@
 												value="${personaJuridicaInstance?.razonSocial}" />
 										</td>
 										<td valign="top" class="name"><label for="cuit"><g:message
-													code="persona.cuit" default="Cuit" /> </label>
+													code="persona.cuit" default="Cuit" /><mandatory> *</mandatory></label>
 										</td>
 										<td valign="top"
 											class="value ${hasErrors(bean: personaJuridicaInstance, field: 'cuit', 'errors')}">
@@ -324,7 +324,7 @@
 									
 									<tr class="prop">
 										<td valign="top" class="name"><label for="email"><g:message
-													code="sapienter.email" default="Email" /> </label>
+													code="sapienter.email" default="Email" /><mandatory> *</mandatory> </label>
 										</td>
 										<td valign="top"
 											class="value ${hasErrors(bean: personaJuridicaInstance, field: 'email', 'errors')}">
@@ -347,7 +347,7 @@
 
 									<tr class="prop">
 										<td valign="top" class="name"><label for="fax"><g:message
-													code=sapienter.fax" default="Fax" /> </label>
+													code="sapienter.fax" default="Fax" /> </label>
 										</td>
 										<td valign="top"
 											class="value ${hasErrors(bean: personaJuridicaInstance, field: 'fax', 'errors')}">

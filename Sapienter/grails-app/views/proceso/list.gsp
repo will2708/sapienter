@@ -25,6 +25,7 @@
                     <thead>
                         <tr>
                             <g:sortableColumn property="id" title="${message(code: 'proceso.id.label', default: 'Id')}" />
+                            <g:sortableColumn property="persona" title="${message(code: 'persona.persona', default: 'Persona')}" />
 							<g:sortableColumn property="categoria" title="${message(code: 'proceso.categoria', default: 'Categoria')}" />                            
                             <g:sortableColumn property="subcategoria" title="${message(code: 'proceso.subCategoria', default: 'Sub Categoria')}" />
                             <g:sortableColumn property="caratula" title="${message(code: 'proceso.caratula', default: 'Caratula')}" />                        
@@ -36,6 +37,7 @@
                     <g:each in="${procesoInstanceList}" status="i" var="procesoInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                             <td><g:link action="show" id="${procesoInstance.id}">${fieldValue(bean: procesoInstance, field: "id")}</g:link></td>
+                            <td><g:link controller="persona" action="show" id="${procesoInstance?.persona?.id}">${procesoInstance?.persona?.encodeAsHTML()}</g:link></td>
                             <td>${fieldValue(bean: procesoInstance, field: "categoria")}</td>                        
                             <td>${fieldValue(bean: procesoInstance, field: "subCategoria")}</td>                        
                             <td>${fieldValue(bean: procesoInstance, field: "caratula")}</td>                        

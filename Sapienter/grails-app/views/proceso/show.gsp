@@ -54,8 +54,8 @@
                         		<tr class="prop">
                                 	<td valign="top" class="descripcion">
                                   		<label for="persona"><g:message code="sapienter.persona" default="Persona" /></label></td>
-                                	<td valign="top" class="value ${hasErrors(bean: procesoInstance, field: 'persona', 'errors')}">
-                                    		${procesoInstance?.persona}</td>                            		
+                                	<td valign="top" class="value"><g:link controller="persona" action="show" id="${procesoInstance?.persona?.id}">
+											${procesoInstance?.persona?.encodeAsHTML()}</g:link></td>                          		
                             		<td valign="top" class="descripcion"><g:message code="sapienter.id" default="Id" /></td>                            
                             		<td valign="top" class="value">${fieldValue(bean: procesoInstance, field: "id")}</td>                            
                         		</tr>
@@ -125,14 +125,14 @@
 	                        	    </td>                            
                         		</tr>
 								<tr><td><br></td></tr>                    
-                      			<tr>
-                            		<td valign="top" class="name"><g:message code="proceso.procesosRelacionados" default="Procesos Relacionados" /></td>                            
+                      			<tr class="prop">
+<!--                         		<td valign="top" class="name"><g:message code="proceso.procesosRelacionados" default="Procesos Relacionados" /></td>                            
                             		<td valign="top" style="text-align: left;" class="value">
 	                                <ul>
 	                                <g:each in="${procesoInstance.procesosRelacionados}" var="p">
 	                                    <li><g:link controller="proceso" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
 	                                </g:each>
-	                                </ul></td>
+	                                </ul></td>  -->
                             		<td valign="top" class="name"><g:message code="proceso.ultimoModificador" default="Ultimo Modificador" /></td>
                             		<td valign="top" class="value"><g:link controller="usuario" action="show" id="${procesoInstance?.ultimoModificador?.id}">${procesoInstance?.ultimoModificador?.encodeAsHTML()}</g:link></td>
                             	</tr>

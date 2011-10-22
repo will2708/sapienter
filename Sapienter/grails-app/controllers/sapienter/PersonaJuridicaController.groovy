@@ -28,7 +28,7 @@ class PersonaJuridicaController {
         def personaJuridicaInstance = PersonaJuridica.get(params.id)
         if (!personaJuridicaInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'personaJuridica.label', default: 'PersonaJuridica'), params.id])}"
-            redirect(action: "list")
+            redirect(controller: "persona", action: "list")
         }
         else {
             [personaJuridicaInstance: personaJuridicaInstance]
@@ -39,7 +39,7 @@ class PersonaJuridicaController {
         def personaJuridicaInstance = PersonaJuridica.get(params.id)
         if (!personaJuridicaInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'personaJuridica.label', default: 'PersonaJuridica'), params.id])}"
-            redirect(action: "list")
+            redirect(controller: "persona", action: "list")
         }
         else {
             return [personaJuridicaInstance: personaJuridicaInstance]
@@ -69,7 +69,7 @@ class PersonaJuridicaController {
         }
         else {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'personaJuridica.label', default: 'PersonaJuridica'), params.id])}"
-            redirect(action: "list")
+            redirect(controller: "persona", action: "list")
         }
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
@@ -79,7 +79,7 @@ class PersonaJuridicaController {
             try {
                 personaJuridicaInstance.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'personaJuridica.label', default: 'PersonaJuridica'), params.id])}"
-                redirect(action: "list")
+                redirect(controller: "persona", action: "list")
             }
             catch (org.springframework.dao.DataIntegrityViolationException e) {
                 flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'personaJuridica.label', default: 'PersonaJuridica'), params.id])}"
@@ -88,7 +88,7 @@ class PersonaJuridicaController {
         }
         else {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'personaJuridica.label', default: 'PersonaJuridica'), params.id])}"
-            redirect(action: "list")
+            redirect(controller: "persona", action: "list")
         }
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
