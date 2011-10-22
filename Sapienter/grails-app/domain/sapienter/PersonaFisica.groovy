@@ -5,8 +5,8 @@ import ar.com.fdvs.dj.domain.AutoText
 
 class PersonaFisica extends Persona{
 	def static reportable = [
-		columns: ['apellido', 'nombre', 'dni', 'fechanacimiento', 'email'],
-		columnTitles: ['apellido': 'Apellido', 'nombre': 'Nombre', 'dni': 'DNI', 'fechanacimiento':'Fecha de Nacimiento', 'email': 'E-mail'],
+		columns: ['apellido', 'nombre', 'dni', 'fechaNacimiento', 'email'],
+		columnTitles: ['apellido': 'Apellido', 'nombre': 'Nombre', 'dni': 'DNI', 'fechaNacimiento':'Fecha de Nacimiento', 'email': 'E-mail'],
 		autoTexts: [new AutoText(AutoText.AUTOTEXT_PAGE_X_OF_Y, AutoText.POSITION_FOOTER, HorizontalBandAlignment.buildAligment(AutoText.ALIGMENT_CENTER), (byte)0, 200, 200)]]
 	static searchable = true
 	String apellido
