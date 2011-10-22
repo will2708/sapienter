@@ -9,9 +9,10 @@
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
+    	<div>
+        <div class="buttonSubMenu">
+            <span><g:link class="list" action="list"><g:message code="sapienter.juzgado" args="[entityName]" /></g:link></span>
+        </div>
         </div>
         <div class="body">
             <h1><g:message code="default.create.label" args="[entityName]" /></h1>
@@ -24,51 +25,55 @@
             </div>
             </g:hasErrors>
             <g:form action="save" >
+          		<g:hiddenField name="id" value="${juzgadoInstance?.id}" />
+                <g:hiddenField name="version" value="${juzgadoInstance?.version}" />             
                 <div class="dialog">
-                    <table>
+					<div class="margin">
+						<div class="buttonNewObjects">
+							 <span><g:actionSubmit class="create" action="save" value="${message(code: 'sapienter.guardar', default: 'Update')}" /></span>
+						</div>
+					</div>                      
+                    <table class="tabla_edit">
                         <tbody>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="nombreDeJuzgado"><g:message code="juzgado.nombreDeJuzgado.label" default="Nombre De Juzgado" /></label>
+                                    <label for="nombreDeJuzgado"><g:message code="juzgado.nombre" default="Nombre De Juzgado" /><mandatory> *</mandatory></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: juzgadoInstance, field: 'nombreDeJuzgado', 'errors')}">
-                                    <g:textField name="nombreDeJuzgado" value="${juzgadoInstance?.nombreDeJuzgado}" />
+                                    <g:textField class="textField" name="nombreDeJuzgado" value="${juzgadoInstance?.nombreDeJuzgado}" />
                                 </td>
                             </tr>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="numeroDeJuzgado"><g:message code="juzgado.numeroDeJuzgado.label" default="Numero De Juzgado" /></label>
+                                    <label for="numeroDeJuzgado"><g:message code="juzgado.numero" default="Numero De Juzgado" /><mandatory> *</mandatory></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: juzgadoInstance, field: 'numeroDeJuzgado', 'errors')}">
-                                    <g:textField name="numeroDeJuzgado" value="${fieldValue(bean: juzgadoInstance, field: 'numeroDeJuzgado')}" />
+                                    <g:textField class="textField" name="numeroDeJuzgado" value="${fieldValue(bean: juzgadoInstance, field: 'numeroDeJuzgado')}" />
                                 </td>
                             </tr>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="direccionJuzgado"><g:message code="juzgado.direccionJuzgado.label" default="Direccion Juzgado" /></label>
+                                    <label for="direccionJuzgado"><g:message code="juzgado.direccion" default="Direccion Juzgado" /><mandatory> *</mandatory></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: juzgadoInstance, field: 'direccionJuzgado', 'errors')}">
-                                    <g:textField name="direccionJuzgado" value="${juzgadoInstance?.direccionJuzgado}" />
+                                    <g:textField class="textField" name="direccionJuzgado" value="${juzgadoInstance?.direccionJuzgado}" />
                                 </td>
                             </tr>
                         
-                            <tr class="prop">
+                            <!-- <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="estudio"><g:message code="juzgado.estudio.label" default="Estudio" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: juzgadoInstance, field: 'estudio', 'errors')}">
                                     <g:select name="estudio.id" from="${sapienter.Estudio.list()}" optionKey="id" value="${juzgadoInstance?.estudio?.id}"  />
-                                </td>
-                            </tr>
-                        
+                                </td> 
+                            </tr> -->
+                         
                         </tbody>
                     </table>
-                </div>
-                <div class="buttons">
-                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
                 </div>
             </g:form>
         </div>

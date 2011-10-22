@@ -8,7 +8,7 @@
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
     <body>
-    	<div>
+    	<div class="SubMenu">
         <div class="buttonSubMenu">
             <span><g:link class="list" action="list"><g:message code="sapienter.modelosDeDocumento" args="[entityName]" /></g:link></span>
         </div>
@@ -32,32 +32,43 @@
             </g:if>
             <div class="dialog">
                 <table class="tabla">
-                    <tbody>                    
-                        <tr class="prop">
-                            <td valign="top" class="descripcion"><g:message code="sapienter.id" default="Id" /></td>
-                            <td valign="top" class="value">${fieldValue(bean: modeloDeDocumentoInstance, field: "id")}</td>
-                        </tr>
-                    	<tr><td><br></td></tr>
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="documento.nombre" default="Nombre" /></td>                            
-                            <td valign="top" class="value">${fieldValue(bean: modeloDeDocumentoInstance, field: "nombre")}</td>
-                            <td valign="top" class="name"><g:message code="proceso.descripcion" default="Descripcion" /></td>
-                            <td valign="top" class="value">${fieldValue(bean: modeloDeDocumentoInstance, field: "descripcion")}</td>
-                        </tr>                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="proceso.categoria" default="Categoria" /></td>
-                            <td valign="top" class="value">${fieldValue(bean: modeloDeDocumentoInstance, field: "categoria")}</td>
-                            <td valign="top" class="name"><g:message code="proceso.subCategoria" default="Sub Categoria" /></td>                            
-                            <td valign="top" class="value">${fieldValue(bean: modeloDeDocumentoInstance, field: "subCategoria")}</td>
-                        </tr>
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="proceso.estado" default="Estado" /></td>
-                            <td valign="top" class="value">${fieldValue(bean: modeloDeDocumentoInstance, field: "estado")}</td>                            
-                        </tr>
-                    	<tr><td><br></td></tr>
+                    <tbody>  
+                    	<tr>
+                    	<td>
+                    	<table>                  
+	                        <tr class="prop">
+	                            <td valign="top" class="descripcion"><g:message code="sapienter.id" default="Id" /></td>
+	                            <td valign="top" class="value">${fieldValue(bean: modeloDeDocumentoInstance, field: "id")}</td>
+	                        </tr>
+	                    	<tr><td><br></td></tr>
+	                        <tr class="prop">
+	                            <td valign="top" class="name"><g:message code="documento.nombre" default="Nombre" /></td>                            
+	                            <td valign="top" class="value">${fieldValue(bean: modeloDeDocumentoInstance, field: "nombre")}</td>
+	                            <td valign="top" class="name"><g:message code="proceso.descripcion" default="Descripcion" /></td>
+	                            <td valign="top" class="value">${fieldValue(bean: modeloDeDocumentoInstance, field: "descripcion")}</td>
+	                        </tr>                    
+	                        <tr class="prop">
+	                            <td valign="top" class="name"><g:message code="proceso.categoria" default="Categoria" /></td>
+	                            <td valign="top" class="value">${fieldValue(bean: modeloDeDocumentoInstance, field: "categoria")}</td>
+	                            <td valign="top" class="name"><g:message code="proceso.subCategoria" default="Sub Categoria" /></td>                            
+	                            <td valign="top" class="value">${fieldValue(bean: modeloDeDocumentoInstance, field: "subCategoria")}</td>
+	                        </tr>
+	                        <tr class="prop">
+	                            <td valign="top" class="name"><g:message code="proceso.estado" default="Estado" /></td>
+	                            <td valign="top" class="value">${fieldValue(bean: modeloDeDocumentoInstance, field: "estado")}</td>                            
+	                        </tr>
+	                    </table>
+	                    </td>
+	                    </tr>
+	                    <tr>
+	                    <td>
+	                    <table>
                         <tr class="prop">
                             <!--  <td valign="top" class="descripcion"><g:message code="modeloDeDocumento.modeloDeDocumento.label" default="Modelo De Documento" /></td>-->
                             <td valign="top" class="value">${fieldValue(bean: modeloDeDocumentoInstance, field: "modeloDeDocumento").decodeHTML()}</td>
+                        </tr>
+                        </table>
+                        </td>
                         </tr>
                     </tbody>
                 </table>

@@ -11,8 +11,18 @@ class ModeloDeDocumentoController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def list = {
+		def modeloList
+		def modeloTotal
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [modeloDeDocumentoInstanceList: ModeloDeDocumento.list(params), modeloDeDocumentoInstanceTotal: ModeloDeDocumento.count()]
+		if(params.q){
+			modeloList = ModeloDeDocumento.search(params.q + "*").results
+			modeloTotal = modeloList.size
+		}
+		else{
+			modeloList = ModeloDeDocumento.list(params)
+			modeloTotal = ModeloDeDocumento.count()
+		}
+        [modeloDeDocumentoInstanceList: modeloList, modeloDeDocumentoInstanceTotal: modeloTotal]
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {
