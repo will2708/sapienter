@@ -70,8 +70,8 @@
                             	<tr class="prop">
                                 	<td valign="top" class="descripcion">
                                   		<label for="persona"><g:message code="sapienter.persona" default="Persona" /></label></td>
-                                	<td valign="top" class="value ${hasErrors(bean: procesoInstance, field: 'persona', 'errors')}">
-                                    		${procesoInstance?.persona}</td>
+										<td valign="top" class="value"><g:link controller="persona" action="show" id="${procesoInstance?.persona?.id}">
+											${procesoInstance?.persona?.encodeAsHTML()}</g:link></td>
 									<td valign="top" class="descripcion"><g:message code="sapienter.id" default="Identificador:" /></td>
 									<td valign="top" class="value"> ${fieldValue(bean: procesoInstance, field: "id")}</td>		                                    		
                             	</tr>                        	
@@ -181,14 +181,14 @@
 								</ul></td>                               
                             </tr>
 							<tr><td><br></td></tr>
-                            <tr class="prop">
+<!--                            <tr class="prop">
                                 <td valign="top" class="descripcion">
                                   <label for="procesosRelacionados"><g:message code="proceso.procesosRelacionados" default="Procesos Relacionados" default="none"/></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: procesoInstance, field: 'procesosRelacionados', 'errors')}">
                                     <g:select class="textField" name="procesosRelacionados" from="${sapienter.Proceso.list()}" multiple="yes" optionKey="id" size="5" value="${procesoInstance?.procesosRelacionados*.id}" />
                                 </td>
-                            </tr>                                                    
+                            </tr> -->                                                    
 <!--                              <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="ultimoModificador"><g:message code="proceso.ultimoModificador.label" default="Ultimo Modificador" /></label>
