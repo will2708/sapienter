@@ -9,23 +9,21 @@
 		<fullcal:resources/>
     </head>
     <body>
-        <div class="body">
         
             <h1>Calendario</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
-            <div class="dialog">
-            <div class="margin">
+           	<div class="margin">
             <div class="buttonNewObjects">
             	<g:form>
                <g:hiddenField name="id" value="${calendarioInstance?.id}" />
                <span><g:actionSubmit class="edit" action="nuevaTarea" value="${message(code: 'calendario.nuevaTarea', default: 'Nueva Tarea')}" /></span>                    
               </g:form>
-            </div>            
+            </div>   
             </div>
-            <table class="tabla">
-            <tr><td>          
+            <table class="tabla_calendario">   
+            <tr><td>        
 			<fullcal:calendar id="cal">
 	    		header: { left: "month, agendaWeek, agendaDay", center: "title", right: "prev, today, next" },
 	    		columnFormat: { week: 'ddd d/M' },
@@ -37,6 +35,8 @@
 	    					  },
 	    		dayNames: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
 	    		dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+	    		monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+ 'August', 'September', 'Octubre', 'Noviembre', 'Deciembre'],
 	    		allDaySlot: false,
 	    		minTime: '7:00am',
 	    		maxTime: '8:00pm',
@@ -44,8 +44,5 @@
 			</fullcal:calendar>
 			</td></tr>
 			</table>
-            </div>
-
-        </div>
     </body>
 </html>

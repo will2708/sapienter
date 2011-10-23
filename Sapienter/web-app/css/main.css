@@ -424,13 +424,21 @@ mandatory{
 .descripcion .name {
     text-align: left;
     width: 15%;
-    white-space: nowrap;
     font-style: italic;
 }
 .prop .textField{
 	border-radius: 5px;	
 }	
 /* TABLES */
+.tabla_calendario {
+    border: 1px solid #E0E0E0;
+    width: 700px;;
+    border-radius:20px;
+    background: -moz-linear-gradient(19% 75% 90deg,#DBDBDB, #FFFFFF);
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#DBDBDB));
+	padding: 15px;	
+	white-space: nowrap;;	
+}
 
 .tabla {
     border: 1px solid #E0E0E0;

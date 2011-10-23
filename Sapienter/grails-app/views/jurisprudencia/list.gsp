@@ -30,7 +30,7 @@
                 <table class="tabla">
                     <thead>
                         <tr>
-                            <g:sortableColumn property="id" title="${message(code: 'sapienter.id', default: 'Id')}" />
+                            <g:sortableColumn property="id" title="${message(code: 'jurisprudencia.id', default: 'Id')}" />
                             <g:sortableColumn property="descripcion" title="${message(code: 'proceso.descripcion', default: 'Descripcion')}" />
                             <g:sortableColumn property="fuero" title="${message(code: 'jurisprudencia.fuero', default: 'Fuero')}" />
                             <g:sortableColumn property="origen" title="${message(code: 'jurisprudencia.origen', default: 'Origen')}" />
@@ -42,7 +42,7 @@
                     <g:each in="${jurisprudenciaInstanceList}" status="i" var="jurisprudenciaInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                             <td><g:link action="show" id="${jurisprudenciaInstance.id}">${fieldValue(bean: jurisprudenciaInstance, field: "id")}</g:link></td>
-                            <td>${fieldValue(bean: jurisprudenciaInstance, field: "descripcion")}</td>
+                            <td><g:link action="show" id="${jurisprudenciaInstance.id}">${fieldValue(bean: jurisprudenciaInstance, field: "descripcion")}</g:link></td>
                             <td>${fieldValue(bean: jurisprudenciaInstance, field: "fuero")}</td>
                             <td>${fieldValue(bean: jurisprudenciaInstance, field: "origen")}</td>
                             <td>${fieldValue(bean: jurisprudenciaInstance, field: "sitio")}</td>
