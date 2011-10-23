@@ -43,7 +43,7 @@
 		                    <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 		                    
 		                        <td><g:link controller= "persona" action="show" id="${personaFisicaInstance.id}">${fieldValue(bean: personaFisicaInstance, field: "id")}</g:link></td>
-		                        <td>${fieldValue(bean: personaFisicaInstance, field: "nombre")} ${fieldValue(bean: personaFisicaInstance, field: "apellido")}</td>
+		                        <td><g:link controller= "persona" action="show" id="${personaFisicaInstance.id}">${fieldValue(bean: personaFisicaInstance, field: "nombre")} ${fieldValue(bean: personaFisicaInstance, field: "apellido")}</g:link></td>
 		                        <td>${fieldValue(bean: personaFisicaInstance, field: "email")}</td>
 		                        <td>${fieldValue(bean: personaFisicaInstance, field: "telefono")}</td>
 		                    </tr>
@@ -52,7 +52,7 @@
 						<tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 					
 							<td><g:link action="show" id="${personaJuridicaInstance.id}">${fieldValue(bean: personaJuridicaInstance, field: "id")}</g:link></td>
-							<td>${fieldValue(bean: personaJuridicaInstance, field: "razonSocial")}</td>
+							<td><g:link action="show" id="${personaJuridicaInstance.id}">${fieldValue(bean: personaJuridicaInstance, field: "razonSocial")}</g:link></td>
 							<td>${fieldValue(bean: personaJuridicaInstance, field: "email")}</td>
 					                    <td>${fieldValue(bean: personaJuridicaInstance, field: "telefonoDeContacto")}</td>
 						</tr>

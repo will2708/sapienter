@@ -30,7 +30,7 @@
                 <table class="tabla">
                     <thead>
                         <tr>
-                            <g:sortableColumn property="id" title="${message(code: 'sapienter.id', default: 'Id')}" />
+                            <g:sortableColumn property="id" title="${message(code: 'enlaceUtil.id', default: 'Id')}" />
                             <g:sortableColumn property="descripcion" title="${message(code: 'proceso.descripcion', default: 'Descripcion')}" />
                             <g:sortableColumn property="direccion" title="${message(code: 'enlaceUtil.enlace', default: 'Direccion')}" />
 							<g:sortableColumn property="ultimoUsuario" title="${message(code: 'enlaceUtil.ultimoUsuario', default: 'Ultimo Usuario')}" />

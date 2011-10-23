@@ -31,9 +31,9 @@
                     <thead>
                         <tr>
                             <g:sortableColumn property="id" title="${message(code: 'sapienter.id', default: 'Id')}" />
-                            <g:sortableColumn property="username" title="${message(code: 'sapienter.usuario', default: 'Username')}" />
+                            <g:sortableColumn property="username" title="${message(code: 'usuario.usuario', default: 'Username')}" />
                             <g:sortableColumn property="enabled" title="${message(code: 'usuario.habilitado', default: 'Enabled')}" />
-                            <g:sortableColumn property="accountExpired" title="${message(code: 'usuario.cuentaExpirada', default: 'Account Expired')}" />
+                            <g:sortableColumn property="accountExpired" title="${message(code: 'usuario.cuentaVencida', default: 'Account Expired')}" />
                             <g:sortableColumn property="accountLocked" title="${message(code: 'usuario.cuentaBloqueada', default: 'Account Locked')}" />
                         </tr>
                     </thead>
@@ -41,7 +41,7 @@
                     <g:each in="${usuarioInstanceList}" status="i" var="usuarioInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                             <td><g:link action="show" id="${usuarioInstance.id}">${fieldValue(bean: usuarioInstance, field: "id")}</g:link></td>
-                            <td>${fieldValue(bean: usuarioInstance, field: "username")}</td>
+                            <td><g:link action="show" id="${usuarioInstance.id}">${fieldValue(bean: usuarioInstance, field: "username")}</g:link></td>
                             <td><g:formatBoolean boolean="${usuarioInstance.enabled}" /></td>
                             <td><g:formatBoolean boolean="${usuarioInstance.accountExpired}" /></td>
                             <td><g:formatBoolean boolean="${usuarioInstance.accountLocked}" /></td>
