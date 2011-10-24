@@ -112,12 +112,11 @@ class CalendarioController {
     }
 
 	def nuevaTarea = {
-		def mapa = params
 		def parametros = new HashMap()
 		parametros.put("calendario.id", params.id)
 		redirect(controller:"tarea" ,action:"create", params:parametros)
 	}	
-	
+		
 	def events = {
 		def start = new Date(params.long('start')*1000)
 		def end = new Date(params.long('end')*1000)

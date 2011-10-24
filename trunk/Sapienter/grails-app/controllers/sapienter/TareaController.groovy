@@ -119,4 +119,25 @@ class TareaController {
 		parametros.put("id", tareaInstance.calendario.id)
 		redirect(controller:"calendario", action:"show", params:parametros)
 	}
+	@Secured(['IS_AUTHENTICATED_FULLY'])
+	def crearDesdeCalendario = {
+		def parametros = params
+		Calendario cal = Calendario.get(params.calendario)
+		Date fecha = new Date(params.fecha)
+
+		def tareaInstance = new Tarea()
+		tareaInstance.calendario = cal
+
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(fecha)
+		calendar.add(Calendar.HOUR, +9)
+		fecha = calendar.getTime()
+		tareaInstance.fechaInicio = fecha
+		
+		calendar.add(Calendar.MINUTE, +15)
+		
+		tareaInstance.fechaFin = calendar.getTime()
+		
+		render(view: "create", model: [tareaInstance: tareaInstance])
+	}
 }

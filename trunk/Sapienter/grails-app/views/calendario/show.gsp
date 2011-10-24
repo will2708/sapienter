@@ -9,7 +9,7 @@
 		<fullcal:resources/>
     </head>
     <body>
-        
+        	<script src="${resource(dir:'js',file:'calendario.js')}"></script>
             <h1>Calendario</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
@@ -24,24 +24,7 @@
             </div>
             <table class="tabla_calendario">   
             <tr><td>        
-			<fullcal:calendar id="cal">
-	    		header: { left: "month, agendaWeek, agendaDay", center: "title", right: "prev, today, next" },
-	    		columnFormat: { week: 'ddd d/M' },
-	    		timeFormat: 'HH:mm{ - HH:mm}',
-	    		buttonText: { today:    'Hoy',
-	    					  month:    'Mes',
-	    					  week:     'Semana',
-	    					  day:      'Dia'
-	    					  },
-	    		dayNames: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
-	    		dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
-	    		monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July',
- 'August', 'September', 'Octubre', 'Noviembre', 'Deciembre'],
-	    		allDaySlot: false,
-	    		minTime: '7:00am',
-	    		maxTime: '8:00pm',
-	    		events: 'events'			  
-			</fullcal:calendar>
+				<div id='cal'></div>
 			</td></tr>
 			</table>
     </body>
