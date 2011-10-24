@@ -3,7 +3,7 @@ package sapienter
 import grails.plugins.springsecurity.Secured
 
 class JurisprudenciaController {
-
+	def springSecurityService
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def index = {
@@ -26,17 +26,22 @@ class JurisprudenciaController {
 	}
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {
-		def estudio = Estudio.getAll().get(0)
-		params.put("estudio", estudio)
+		def user = SecUser.get(springSecurityService.principal.id)
+		def estudio = user.estudio
 		
         def jurisprudenciaInstance = new Jurisprudencia()
         jurisprudenciaInstance.properties = params
+		jurisprudenciaInstance.estudio = estudio 
 		
         return [jurisprudenciaInstance: jurisprudenciaInstance]
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
-        def jurisprudenciaInstance = new Jurisprudencia(params)
+		def user = SecUser.get(springSecurityService.principal.id)
+		def estudio = user.estudio
+		
+		def jurisprudenciaInstance = new Jurisprudencia(params)
+		jurisprudenciaInstance.estudio = estudio
         if (jurisprudenciaInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'jurisprudencia.label', default: 'Jurisprudencia'), jurisprudenciaInstance.id])}"
             redirect(action: "show", id: jurisprudenciaInstance.id)

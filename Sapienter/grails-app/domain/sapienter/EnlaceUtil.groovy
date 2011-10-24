@@ -12,5 +12,5 @@ class EnlaceUtil {
 		Descripcion(blank:false)
 		ultimoUsuario(blank:false)
 	}
-	static belongsTo = {estudio:Estudio}
+	static belongsTo = [estudio:Estudio]
 }

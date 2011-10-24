@@ -30,7 +30,8 @@
 						<div class="buttonNewObjects">
 							 <span><g:actionSubmit class="create" action="save" value="${message(code: 'sapienter.guardar', default: 'Update')}" /></span>
 						</div>
-					</div>                    
+					</div>
+                   
                     <table class="tabla_edit">
                         <tbody>
                             <tr class="prop">

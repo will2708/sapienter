@@ -3,7 +3,7 @@ package sapienter
 import grails.plugins.springsecurity.Secured
 
 class EnlaceUtilController {
-
+	def springSecurityService
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def index = {
@@ -26,13 +26,20 @@ class EnlaceUtilController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {
+		def user = SecUser.get(springSecurityService.principal.id)
+		def estudio = user.estudio
         def enlaceUtilInstance = new EnlaceUtil()
         enlaceUtilInstance.properties = params
+		enlaceUtilInstance.estudio = estudio 
         return [enlaceUtilInstance: enlaceUtilInstance]
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
-        def enlaceUtilInstance = new EnlaceUtil(params)
+		def user = SecUser.get(springSecurityService.principal.id)
+		def estudio = user.estudio
+		def enlaceUtilInstance = new EnlaceUtil(params)
+		enlaceUtilInstance.estudio = estudio
+		enlaceUtilInstance.ultimoUsuario = user
         if (enlaceUtilInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'enlaceUtil.label', default: 'EnlaceUtil'), enlaceUtilInstance.id])}"
             redirect(action: "show", id: enlaceUtilInstance.id)
