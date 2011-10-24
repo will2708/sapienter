@@ -10,6 +10,7 @@
 </title>
 </head>
 <body>
+	<div class="SubMenu">
 	<div class = "buttonSubMenu">
 	 <span><g:link class="list" controller="persona" action="list"><g:message code="persona.list" args="[entityName]"/></g:link></span>
 	</div>
@@ -27,6 +28,7 @@
 			</span>
 		</div>
 	</g:form>
+	</div>
 	<div class="body">
 		<!-- <h1>
 			<g:message code="default.show.label" args="[entityName]" /> 			

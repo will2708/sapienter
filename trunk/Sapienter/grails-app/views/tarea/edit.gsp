@@ -8,8 +8,11 @@
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
     </head>
     <body>
-    	<div>
-		<g:form>
+    	<div class="SubMenu">
+		<div class="buttonCalendario">
+	     <span><g:link class="calendario" action="create"><img src="${createLinkTo(dir: 'images/', file: 'calendario2.gif')}"/></g:link></span>
+	    </div>        
+		<g:form> 
         <g:hiddenField name="id" value="${tareaInstance?.id}" />
         		<div class="buttonForm">
              	<span><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>

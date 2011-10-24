@@ -8,7 +8,10 @@
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
     <body>
-    <div>
+    <div class="SubMenu">
+    <div class="buttonCalendario">
+     <span><g:link class="calendario" action="create"><img src="${createLinkTo(dir: 'images/', file: 'calendario2.gif')}"/></g:link></span>
+    </div>
 	<div class = "buttonSubMenu"> 
 		 <span><g:link class="create" action="create"><g:message code="sapienter.crear" args="[entityName]" /></g:link></span>
 	</div>

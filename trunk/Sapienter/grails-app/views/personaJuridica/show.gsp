@@ -10,7 +10,7 @@
 </title>
 </head>
 <body>
-	<div>
+	<div class="SubMenu">
 	<div class="buttonSubMenu">
 		<span><g:link class="list" controller="persona" action="list"><g:message code="persona.list" args="[entityName]" /></g:link></span>
 	</div>

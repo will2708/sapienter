@@ -8,8 +8,13 @@
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
     <body>
+       	<div class="SubMenu">
+	    <div class="buttonCalendario">
+	     <span><g:link class="calendario" action="create"><img src="${createLinkTo(dir: 'images/', file: 'calendario2.gif')}"/></g:link></span>
+	    </div>        
+	    </div>    
         <div class="body">
-            <h1><g:message code="default.create.label" args="[entityName]" /></h1>
+            <h1>Crear tarea</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
