@@ -17,7 +17,7 @@
 <body>
 	<div>
 	<div class="buttonSubMenu">
-		<span><g:link class="list" action="list"><g:message code="sapienter.proceso" args="[entityName]" /></g:link></span>
+		<span><g:link class="list" action="list"><g:message code="persona.list" args="[entityName]" /></g:link></span>
 	</div>
 	</div>
 	<div class="body">

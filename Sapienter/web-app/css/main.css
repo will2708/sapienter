@@ -140,6 +140,7 @@
 	margin-left: 0px; 
 	padding: 12px 10px;
 	/*width:150px;*/
+	width:120px;
 	text-align: center; 
 	white-space:nowrap;
 }
@@ -170,7 +171,24 @@
     padding-left: 25px;
     /*margin-left: 2px;*/
 }
-
+.buttonCalendario{
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px; 	
+	background: #224875;
+	color: #ffffff;
+	float:left;
+	font-weight:bold;
+	margin-top: 0px;
+	margin-left: 0px; 
+	padding: 8px 10px;
+	/*width:150px;*/
+	text-align: center; 
+	white-space:nowrap;
+}
+.buttonCalendario:hover{
+	background: -moz-linear-gradient(19% 75% 90deg,#D6D6D6, #B0B1B2);
+	background: -webkit-gradient(linear, left top, left bottom, from(#B0B1B2), to(#D6D6D6));	
+}
 .buttonForm{
 	border-bottom-right-radius: 10px;
 	border-bottom-left-radius: 10px; 

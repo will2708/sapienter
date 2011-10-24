@@ -38,7 +38,7 @@
                         
                             <td><g:link action="show" id="${estudioInstance.id}">${fieldValue(bean: estudioInstance, field: "id")}</g:link></td>
                         
-                            <td>${fieldValue(bean: estudioInstance, field: "razonSocial")}</td>
+                            <td><g:link action="show" id="${estudioInstance.id}">${fieldValue(bean: estudioInstance, field: "razonSocial")}</td>
                         
                             <td>${fieldValue(bean: estudioInstance, field: "domicilioFiscal")}</td>
                         

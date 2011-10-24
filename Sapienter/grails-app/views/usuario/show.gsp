@@ -8,7 +8,10 @@
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
     <body>
-    	<div>
+    	<div class="SubMenu">
+			<div class="buttonSubMenu">
+				<span><g:link class="list" action="list"><g:message code="sapienter.usuario" args="[entityName]" /></g:link></span>
+			</div>    	
 	        <div class="buttonSubMenu">
 	            <span><g:link class="create" action="create"><g:message code="sapienter.crear" args="[entityName]" /></g:link></span>
 	        </div>

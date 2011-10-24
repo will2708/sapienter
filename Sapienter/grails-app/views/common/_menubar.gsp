@@ -18,10 +18,14 @@
 			<li><a href="${createLink(uri: '/secUserSecRole')}" target="_self"><g:message code="default.roles.label"/></a></li>
 			<li><a href="${createLink(uri: '/estudio')}" target="_self"><g:message code="default.estudio.label"/></a></li>
 			<li><a href="${createLink(uri: '/juzgado')}" target="_self"><g:message code="sapienter.juzgado"/></a></li>
+			<li><a href="${createLink(uri: '/categoria/list')}" target="_self"><g:message code="default.categoria.label"/></a></li>
 		</ul>
 		</li>
 		<li><ul> </ul></li>
-		<li class="center_right" ><a id=<g:currentMenu title="calendario"/> href="${createLink(uri: '/calendario/show/1')}" target="_self" ><img src="${createLinkTo(dir: 'images/skin/', file: 'database_table.png')}" alt="Grails"/>
+		<li><a id=<g:currentMenu title="calendario"/> href="${createLink(uri: '/calendario/show/1')}" target="_self" ><img src="${createLinkTo(dir: 'images/', file: 'calendario2.gif')}" alt="Grails"/></a>
+		<ul>
+			<li><a href="${createLink(uri: '/tarea/create?calendario.id=1')}" target="_self"><g:message code="default.tarea.label"/></a></li>
+		</ul></li>
 </a></li>
 	</ul>	
 	</div>

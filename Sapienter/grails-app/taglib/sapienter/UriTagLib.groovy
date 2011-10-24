@@ -31,7 +31,7 @@ class UriTagLib {
 				
 				break
 			case "administrar": 
-				if( uri =~ "usuario" || uri =~ "secUserSecRole" || uri =~ "estudio"){
+				if( uri =~ "usuario" || uri =~ "secUserSecRole" || uri =~ "estudio" || uri=~ "categoria" || uri=~ "subcategoria" || uri=~ "juzgado"){
 					out << "current"
 				}
 				else{
@@ -39,7 +39,15 @@ class UriTagLib {
 				}
 				break
 			case "proceso":
-				if( uri =~ "documento" || uri =~ "movimiento" || uri =~ "parte" || uri=~ "gasto" || uri=~ "proceso"){
+				if( uri =~ "documento" || uri =~ "movimiento" || uri =~ "parte" || uri=~ "gasto" || uri=~ "proceso" ){
+					out << "current"
+				}
+				else{
+					out << "nocurrent"
+				}
+				break
+			case "calendario":
+				if( uri =~ "tarea" || uri =~ "calendario" ){
 					out << "current"
 				}
 				else{
