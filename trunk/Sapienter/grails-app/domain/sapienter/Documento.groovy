@@ -16,6 +16,10 @@ class Documento {
 		usuarioResponsable()
 		contenidoDocumento()
     }
-	
+
+	String toString(){
+		nombre
+	}
+		
 	static belongsTo = [proceso:Proceso]
 }
