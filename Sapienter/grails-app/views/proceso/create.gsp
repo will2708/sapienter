@@ -113,16 +113,6 @@
 												value="${procesoInstance?.usuariosAutorizados*.id}"
 												multiple="true" /></td>
 							</tr>							
-	  						<tr class="prop">
-								<td valign="top" class="name"><label for="ultimoModificador"><g:message
-											code="proceso.ultimoModificador"
-											default="Ultimo Modificador" /></label></td>
-								<td valign="top"
-									class="value ${hasErrors(bean: procesoInstance, field: 'ultimoModificador', 'errors')}">
-									<g:select  class="textField"  name="ultimoModificador.id"
-																  from="${sapienter.Usuario.list()}" optionKey="id"
-																  value="${procesoInstance?.ultimoModificador?.id}" /></td>
-							</tr>  
 						</table>
 						</td>
 					</tr>

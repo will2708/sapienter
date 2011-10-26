@@ -3,7 +3,7 @@ package sapienter
 import grails.plugins.springsecurity.Secured
 
 class ProcesoController {
-
+	def springSecurityService
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def index = {
@@ -28,8 +28,11 @@ class ProcesoController {
     def create = {
         def procesoInstance = new Proceso()
 		def persona = Persona.findById(params["personaId"])
+		def user = SecUser.get(springSecurityService.principal.id)
 		procesoInstance.putAt("persona", persona)
         procesoInstance.properties = params
+		
+		procesoInstance.responsable = user
         return [procesoInstance: procesoInstance]
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
@@ -74,11 +77,13 @@ class ProcesoController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def update = {
-		def sub = Subcategoria.get(params.subCategoria)
+		def map = params 
+		def sub = Subcategoria.get(params.subCategoria.id)
 		params.remove("subCategoria")
 		params.put("subCategoria", sub)
-		
+		def user = SecUser.get(springSecurityService.principal.id)
 		def procesoInstance = Proceso.get(params.id)
+		procesoInstance.ultimoModificador = user
         if (procesoInstance) {
             if (params.version) {
                 def version = params.version.toLong()

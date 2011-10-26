@@ -18,5 +18,9 @@ class Gasto {
 		factura()
     }
 	
+	String toString(){
+		concepto
+	}
+	
 	static belongsTo = [proceso:Proceso]
 }

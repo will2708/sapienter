@@ -45,20 +45,16 @@
                 		</g:form>
                 		<g:form>
                 		<div class="buttonNewObjects">     
-                			<g:hiddenField name="id" value="${procesoInstance?.id}" />               		
                    			<span><g:actionSubmit class="create" action="crearDocumento" value="${message(code: 'proceso.crearDocumento', default: 'Update')}" /></span>                   			 
                     	</div>
                     	</g:form>
                     	<div class="buttonNewObjects">
-                    	    <g:hiddenField name="id" value="${procesoInstance?.id}" />  
 							<span><g:actionSubmit class="create" action="crearGasto" value="${message(code: 'proceso.crearGasto', default: 'Update')}" /></span>                  		
                 		</div>
                 		<div class="buttonNewObjects">
-							<g:hiddenField name="id" value="${procesoInstance?.id}" />  
 							<span><g:actionSubmit class="create" action="crearMovimiento" value="${message(code: 'proceso.crearMovimiento', default: 'Update')}" /></span>                		
                 		</div>
                 		<div class="buttonNewObjects">
-                			<g:hiddenField name="id" value="${procesoInstance?.id}" />  							
 							<span><g:actionSubmit class="create" action="crearParte" value="${message(code: 'proceso.crearParte', default: 'Update')}" /></span>							
 						</div>						
                 	</div>
@@ -189,15 +185,6 @@
                                     <g:select class="textField" name="procesosRelacionados" from="${sapienter.Proceso.list()}" multiple="yes" optionKey="id" size="5" value="${procesoInstance?.procesosRelacionados*.id}" />
                                 </td>
                             </tr> -->                                                    
-<!--                              <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="ultimoModificador"><g:message code="proceso.ultimoModificador.label" default="Ultimo Modificador" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: procesoInstance, field: 'ultimoModificador', 'errors')}">
-                                    <g:select name="ultimoModificador.id" from="${sapienter.Usuario.list()}" optionKey="id" value="${procesoInstance?.ultimoModificador?.id}"  />
-                                </td>
-                            </tr>
--->                        
                             </table>
                             </td>
                          </tr>
