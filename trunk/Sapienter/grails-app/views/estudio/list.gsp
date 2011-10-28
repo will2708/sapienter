@@ -16,7 +16,7 @@
         <div class="body">
             <h1>Estudio jur&iacutedico</h1>
             <g:if test="${flash.message}">
-            <div class="message">${flash.message}</div>
+                <div class="message">${flash.message}</div>
             </g:if>
             <div class="list">
                 <table class="tabla">
@@ -38,7 +38,7 @@
                         
                             <td><g:link action="show" id="${estudioInstance.id}">${fieldValue(bean: estudioInstance, field: "id")}</g:link></td>
                         
-                            <td><g:link action="show" id="${estudioInstance.id}">${fieldValue(bean: estudioInstance, field: "razonSocial")}</td>
+                            <td><g:link action="show" id="${estudioInstance.id}">${fieldValue(bean: estudioInstance, field: "razonSocial")}</g:link></td>
                         
                             <td>${fieldValue(bean: estudioInstance, field: "domicilioFiscal")}</td>
                         

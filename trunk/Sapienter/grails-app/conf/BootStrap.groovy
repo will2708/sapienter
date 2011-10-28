@@ -12,6 +12,7 @@ import sapienter.SecUserSecRole
 import sapienter.Subcategoria
 import sapienter.TipoDeParte
 import sapienter.Usuario
+import sapienter.CorreoElectronico
 
 class BootStrap {
 
@@ -25,7 +26,7 @@ class BootStrap {
 		perFis.save()
 		if (perFis.hasErrors()) {
 			println perFis.errors
-		}
+		}		
 		perFis = new PersonaFisica(auxiliar:"",informacionTributaria:"",profesion: "",fax: "",telefono:"",codPostal: "",ciudad:"",domicilio:"",conyuge:"",madre: "", padre: "",estadoCivil: "Soltero", fechaNacimiento: new Date(),observaciones:"", nombre: "Nicolas", apellido: "Souto", dni:"30000000", pais: "Argentina", email: "a@a.com", estudio: (Estudio.getAll().get(0)))
 		perFis.save()
 		if (perFis.hasErrors()) {
@@ -111,84 +112,111 @@ class BootStrap {
 				println subCat.errors
 			}
 		subCat = new Subcategoria(subTipoCategoria:"Probatoria", categoria:(Categoria.findByNombreCategoria("Judicial")))
-			subCat.save()
-			if (subCat.hasErrors()){
-				println subCat.errors
-			}
-			subCat = new Subcategoria(subTipoCategoria:"Conclusiva", categoria:(Categoria.findByNombreCategoria("Judicial")))
-			subCat.save()
-			if (subCat.hasErrors()){
-				println subCat.errors
-			}
-			subCat = new Subcategoria(subTipoCategoria:"De Resolución", categoria:(Categoria.findByNombreCategoria("Judicial")))
-			subCat.save()
-			if (subCat.hasErrors()){
-				println subCat.errors
-			}
-			subCat = new Subcategoria(subTipoCategoria:"Impugnitiva", categoria:(Categoria.findByNombreCategoria("Judicial")))
-			subCat.save()
-			if (subCat.hasErrors()){
-				println subCat.errors
-			}
-			subCat = new Subcategoria(subTipoCategoria:"Extra-Judicial", categoria:(Categoria.findByNombreCategoria("Extra-Judicial")))
-			subCat.save()
-			if (subCat.hasErrors()){
-				println subCat.errors
-			}
-			subCat = new Subcategoria(subTipoCategoria:"Mediación", categoria:(Categoria.findByNombreCategoria("Extra-Judicial")))
-			subCat.save()
-			if (subCat.hasErrors()){
-				println subCat.errors
-			}
-			def tipPar
-			tipPar = new TipoDeParte(descripcion:"Contraparte", estudio: (Estudio.getAll().get(0)))
-			tipPar.save()
-			if (tipPar.hasErrors()){
-				println tipPar.errors
-			}
-			tipPar = new TipoDeParte(descripcion:"Abogado oponente", estudio: (Estudio.getAll().get(0)))
-			tipPar.save()
-			if (tipPar.hasErrors()){
-				println tipPar.errors
-			}
+		subCat.save()
+		if (subCat.hasErrors()){
+			println subCat.errors
+		}
+		subCat = new Subcategoria(subTipoCategoria:"Conclusiva", categoria:(Categoria.findByNombreCategoria("Judicial")))
+		subCat.save()
+		if (subCat.hasErrors()){
+			println subCat.errors
+		}
+		subCat = new Subcategoria(subTipoCategoria:"De Resolución", categoria:(Categoria.findByNombreCategoria("Judicial")))
+		subCat.save()
+		if (subCat.hasErrors()){
+			println subCat.errors
+		}
+		subCat = new Subcategoria(subTipoCategoria:"Impugnitiva", categoria:(Categoria.findByNombreCategoria("Judicial")))
+		subCat.save()
+		if (subCat.hasErrors()){
+			println subCat.errors
+		}
+		subCat = new Subcategoria(subTipoCategoria:"Extra-Judicial", categoria:(Categoria.findByNombreCategoria("Extra-Judicial")))
+		subCat.save()
+		if (subCat.hasErrors()){
+			println subCat.errors
+		}
+		subCat = new Subcategoria(subTipoCategoria:"Mediación", categoria:(Categoria.findByNombreCategoria("Extra-Judicial")))
+		subCat.save()
+		if (subCat.hasErrors()){
+			println subCat.errors
+		}
+		def tipPar
+		tipPar = new TipoDeParte(descripcion:"Contraparte", estudio: (Estudio.getAll().get(0)))
+		tipPar.save()
+		if (tipPar.hasErrors()){
+			println tipPar.errors
+		}
+		tipPar = new TipoDeParte(descripcion:"Abogado oponente", estudio: (Estudio.getAll().get(0)))
+		tipPar.save()
+		if (tipPar.hasErrors()){
+			println tipPar.errors
+		}
 
-			tipPar = new TipoDeParte(descripcion:"Testigo", estudio: (Estudio.getAll().get(0))) 
-			tipPar.save()
-			if (tipPar.hasErrors()){
-				println tipPar.errors
-			}
+		tipPar = new TipoDeParte(descripcion:"Testigo", estudio: (Estudio.getAll().get(0))) 
+		tipPar.save()
+		if (tipPar.hasErrors()){
+			println tipPar.errors
+		}
 
-			tipPar = new TipoDeParte(descripcion:"Tercero", estudio: (Estudio.getAll().get(0)))
-			tipPar.save()
-			if (tipPar.hasErrors()){
-				println tipPar.errors
-			}
+		tipPar = new TipoDeParte(descripcion:"Tercero", estudio: (Estudio.getAll().get(0)))
+		tipPar.save()
+		if (tipPar.hasErrors()){
+			println tipPar.errors
+		}
 
-			tipPar = new TipoDeParte(descripcion:"Juez", estudio: (Estudio.getAll().get(0)))
-			tipPar.save()
-			if (tipPar.hasErrors()){
-				println tipPar.errors
-			}
-			tipPar = new TipoDeParte(descripcion:"Mediador", estudio: (Estudio.getAll().get(0)))
-			tipPar.save()
-			if (tipPar.hasErrors()){
-				println tipPar.errors
-			}
-			def calendar =new Calendario()
-			def jrRole = SecRole.findByAuthority('ROLE_JUNIOR') ?: new SecRole(authority: 'ROLE_JUNIOR').save(failOnError: true)
-			def ssrRole = SecRole.findByAuthority('ROLE_SSR') ?: new SecRole(authority: 'ROLE_SSR').save(failOnError: true)
-			def srRole = SecRole.findByAuthority('ROLE_SENIOR') ?: new SecRole(authority: 'ROLE_SENIOR').save(failOnError: true)
-			def adminUser = SecUser.findByUsername('admin') ?: new Usuario(
-				username: 'admin',
-				password: 'admin',
-				nombre: 'Matías',
-				apellido: 'Stanislavsky',
-				calendario: calendar, 
-				estudio: (Estudio.getAll().get(0)),
-				comentarios:'Nada en particular',
-				telefono:'4354242',
-				rol:srRole,
-				enabled: true).save(failOnError: true)
+		tipPar = new TipoDeParte(descripcion:"Juez", estudio: (Estudio.getAll().get(0)))
+		tipPar.save()
+		if (tipPar.hasErrors()){
+			println tipPar.errors
+		}
+		tipPar = new TipoDeParte(descripcion:"Mediador", estudio: (Estudio.getAll().get(0)))
+		tipPar.save()
+		if (tipPar.hasErrors()){
+			println tipPar.errors
+		}
+		def calendar =new Calendario()
+		def jrRole = SecRole.findByAuthority('ROLE_JUNIOR') ?: new SecRole(authority: 'ROLE_JUNIOR').save(failOnError: true)
+		def ssrRole = SecRole.findByAuthority('ROLE_SSR') ?: new SecRole(authority: 'ROLE_SSR').save(failOnError: true)
+		def srRole = SecRole.findByAuthority('ROLE_SENIOR') ?: new SecRole(authority: 'ROLE_SENIOR').save(failOnError: true)
+		def adminUser = SecUser.findByUsername('admin') ?: new Usuario(
+			username: 'admin',
+			password: 'admin',
+			nombre: 'Matías',
+			apellido: 'Stanislavsky',
+			calendario: calendar, 
+			estudio: (Estudio.getAll().get(0)),
+			comentarios:'Nada en particular',
+			telefono:'4354242',
+			rol:srRole,
+			enabled: true).save(failOnError: true)
+ 
+		if (!adminUser.authorities.contains(srRole)) {
+			SecUserSecRole.create adminUser, srRole
+		}
+		
+		def correoElec = new CorreoElectronico(
+				contrasenia: "Sapienter01!",
+				direccion: "sapienterTest@gmail.com", //replace with %40 for imap
+				smtpUrl: "smtp.gmail.com",
+				imapUrl: "imap.gmail.com:993/inbox")
+		correoElec.save()
+		if (correoElec.hasErrors()) {
+			println est.errors
+		}
+		
+		def mailUser = SecUser.findByUsername('gbonsoir') ?: new Usuario(
+			username: 'gbonsoir',
+			password: 'gbonsoir',
+			nombre: 'Gabriel',
+			apellido: 'Bonsoir',
+			calendario: calendar,
+			estudio: (Estudio.getAll().get(0)),
+			comentarios:'Para probar E Mail',
+			telefono:'4354242',
+			rol:srRole,
+			correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
+			enabled: true).save(failOnError: true)
  
 		if (!adminUser.authorities.contains(srRole)) {
 			SecUserSecRole.create adminUser, srRole

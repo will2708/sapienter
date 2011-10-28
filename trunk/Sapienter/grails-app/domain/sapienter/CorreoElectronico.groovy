@@ -1,14 +1,16 @@
 package sapienter
 
 class CorreoElectronico {
-	String contrasenia
 	String direccion
-	String URL
+	String contrasenia
+	String smtpUrl
+	String imapUrl
 	
     static constraints = {
 		direccion(blank:false,mail:true)
-		contrasena(password:true,blank:false)
-		URL(url:true,blank:false)
+		contrasenia(password:true,blank:false)
+		smtpUrl(url:true,blank:false)
+		imapUrl(url:true,blank:false)
     }
 	static belongsTo={usuario:Usuario}
 }
