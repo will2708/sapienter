@@ -10,7 +10,7 @@
     <body>
     	<div class="SubMenu">
 		<div class="buttonCalendario">
-	     <span><g:link class="calendario" action="create"><img src="${createLinkTo(dir: 'images/', file: 'calendario2.gif')}"/></g:link></span>
+	     <span><g:link class="calendario" controller="calendario" action="show" id="1"><img src="${createLinkTo(dir: 'images/', file: 'calendario2.gif')}"/></g:link></span>
 	    </div>        
 		<g:form> 
         <g:hiddenField name="id" value="${tareaInstance?.id}" />

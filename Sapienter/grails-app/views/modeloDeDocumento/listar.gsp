@@ -39,9 +39,9 @@
                     </tbody>
                 </table>
             </div>
-            <div class="paginateButtons">
+            <!-- <div class="paginateButtons">
                 <g:paginate total="${modeloDeDocumentoInstanceTotal}" />
-            </div>
+            </div>-->
         </div>
 
     </body>
