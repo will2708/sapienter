@@ -1,4 +1,4 @@
-
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page import="sapienter.PersonaFisica"%>
 <html>
 <head>
@@ -8,8 +8,52 @@
 	value="${message(code: 'personaFisica.label', default: 'PersonaFisica')}" />
 <title><g:message code="default.show.label" args="[entityName]" />
 </title>
+		<g:javascript library="application" />
+		<g:javascript library="jquery" plugin="jquery" />
+		<jqui:resources theme="ui-lightness" />
 </head>
 <body>
+
+<div id="dialog" title="Confirmación de borrado">
+  ¿Está seguro que desea borrar esta instancia?
+</div>
+
+<g:javascript>
+$(document).ready(function() {
+    $("#dialog").dialog({
+      autoOpen: false,
+	  resizable: false,
+	  height:140,
+      modal: true
+    });
+  });
+ function success(){ 
+ 	document.location.href='${createLink(controller:'persona', action:'list')}'; 
+ }; 
+ function failure(){ 
+	document.location.reload(true); 
+ }; 
+  
+  function confirmarBorrado() {
+	var idObjeto = $("#id").val();
+
+    $("#dialog").dialog({
+      buttons : {
+        "Confirm" : function() {
+         ${remoteFunction(action:"delete", params:"'id=' + idObjeto", onSuccess:'success();', onFailure:'failure();')};
+         $(this).dialog("close");
+        },
+        "Cancel" : function() {
+          $(this).dialog("close");
+        }
+      }
+	});
+	$("#dialog").dialog("open");
+    }
+
+</g:javascript>
+
+
 	<div class="SubMenu">
 	<div class = "buttonSubMenu">
 	 <span><g:link class="list" controller="persona" action="list"><g:message code="persona.list" args="[entityName]"/></g:link></span>
@@ -24,7 +68,7 @@
 	 	</div>
 	 	<div class="buttonForm"> 
 			<span><g:actionSubmit class="delete" action="delete" value="${message(code: 'sapienter.borrar', default: 'Delete')}"
-					onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+					onclick="confirmarBorrado();return false;" />
 			</span>
 		</div>
 	</g:form>
