@@ -38,10 +38,10 @@ class PersonaController {
 		params.put("estudio", estudio)
 		def personaJuridicaInstance = new PersonaJuridica()
 
-		def personaFisicaInstance = new PersonaFisica(params)
-
 		String fechaNacimiento = params.fechaNacimiento
 		params.remove("fechaNacimiento")
+		def personaFisicaInstance = new PersonaFisica(params)
+
 		if (fechaNacimiento != null &&
 			fechaNacimiento != "" ){
 			int anio = Integer.parseInt(fechaNacimiento.substring(6,10))
@@ -55,7 +55,6 @@ class PersonaController {
 			Calendar calendar = new GregorianCalendar(anio,mes,dia,hora,minutos)
 			personaFisicaInstance.fechaNacimiento = calendar.getTime() 
 		}
-		println personaFisicaInstance.fechaNacimiento 
 		if (personaFisicaInstance.save(flush: true)) {
 			flash.message = "${message(code: 'default.created.message', args: [message(code: 'personaFisica.label', default: 'PersonaFisica'), personaFisicaInstance.id])}"
 			redirect(Controller:"personaFisica", action: "show", id:personaFisicaInstance.id)
