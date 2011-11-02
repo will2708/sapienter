@@ -21,6 +21,7 @@
 	</div>
 	</div>
 	<div class="body">
+		<script src="${resource(dir:'js',file:'persona.js')}"></script>
 		<g:if test="${flash.message}">
 			<div class="message">
 				${flash.message}
