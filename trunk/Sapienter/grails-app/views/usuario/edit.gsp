@@ -17,7 +17,7 @@
         <g:hiddenField name="id" value="${usuarioInstance?.id}" />        
 	 	<div class="buttonForm"> 
 			<span><g:actionSubmit class="delete" action="delete" value="${message(code: 'sapienter.borrar', default: 'Delete')}"
-					onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+					 onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')},title');" />
 			</span>
 		</div>
 		</g:form>          
