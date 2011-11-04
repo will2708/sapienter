@@ -8,24 +8,22 @@
         <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
+    	<div class="SubMenu">
+        <div class="buttonSubMenu">
+            <span><g:link class="create" action="create"><g:message code="sapienter.crear" args="[entityName]" /></g:link></span>
+        </div>
         </div>
         <div class="body">
-            <h1><g:message code="default.list.label" args="[entityName]" /></h1>
+            <h1><g:message code="sapienter.categoria" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
             <div class="list">
-                <table>
+                <table class="tabla">
                     <thead>
                         <tr>
-                        
                             <g:sortableColumn property="id" title="${message(code: 'categoria.id.label', default: 'Id')}" />
-                        
-                            <g:sortableColumn property="nombreCategoria" title="${message(code: 'categoria.nombreCategoria.label', default: 'Nombre Categoria')}" />
-                        
+                            <g:sortableColumn property="nombreCategoria" title="${message(code: 'proceso.categoria', default: 'Nombre Categoria')}" />
                         </tr>
                     </thead>
                     <tbody>
@@ -34,15 +32,12 @@
                         
                             <td><g:link action="show" id="${categoriaInstance.id}">${fieldValue(bean: categoriaInstance, field: "id")}</g:link></td>
                         
-                            <td>${fieldValue(bean: categoriaInstance, field: "nombreCategoria")}</td>
+                            <td><g:link action="show" id="${categoriaInstance.id}">${fieldValue(bean: categoriaInstance, field: "nombreCategoria")}</g:link></td>
                         
                         </tr>
                     </g:each>
                     </tbody>
                 </table>
-            </div>
-            <div class="paginateButtons">
-                <g:paginate total="${categoriaInstanceTotal}" />
             </div>
         </div>
     </body>

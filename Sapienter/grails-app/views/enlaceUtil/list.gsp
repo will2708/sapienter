@@ -40,7 +40,7 @@
                     <g:each in="${enlaceUtilInstanceList}" status="i" var="enlaceUtilInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                             <td><g:link action="show" id="${enlaceUtilInstance.id}">${fieldValue(bean: enlaceUtilInstance, field: "id")}</g:link></td>
-                            <td>${fieldValue(bean: enlaceUtilInstance, field: "descripcion")}</td>
+                            <td><g:link action="show" id="${enlaceUtilInstance.id}">${fieldValue(bean: enlaceUtilInstance, field: "descripcion")}</g:link>	</td>
                             <td>${fieldValue(bean: enlaceUtilInstance, field: "direccion")}</td>
                             <td>${fieldValue(bean: enlaceUtilInstance, field: "ultimoUsuario")}</td>                            
                         </tr>

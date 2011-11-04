@@ -102,7 +102,7 @@
 		                           <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'modeloDeDocumento', 'errors')}">
 		                                    <fckeditor:editor 
 		                                    	name="modeloDeDocumento"
-		                                    	width="170%"
+		                                    	width="160%"
 		                                    	heigh="200%"
 		                                    	body="disabled"
 		                                    	value="${modeloDeDocumentoInstance?.modeloDeDocumento}">

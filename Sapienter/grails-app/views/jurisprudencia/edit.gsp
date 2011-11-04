@@ -98,12 +98,8 @@
                        		<td>
                        		<table>
                             <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="usuario"><g:message code="jurisprudencia.usuario.label" default="Usuario" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: jurisprudenciaInstance, field: 'usuario', 'errors')}">
-                                    <g:select class="textField" name="usuario.id" from="${sapienter.Usuario.list()}" optionKey="id" value="${jurisprudenciaInstance?.usuario?.id}"  />
-                                </td>
+                                <td valign="top" class="name"><label for="usuario"><g:message code="usuario.usuarioModificacion" default="Usuario" /></label></td>
+                                <td valign="top" class="value"><g:link controller="usuario" action="show" id="${jurisprudenciaInstance?.usuario?.id}">${jurisprudenciaInstance?.usuario?.encodeAsHTML()}</g:link></td>
                             </tr>
                             </table>
                             </td>
@@ -119,10 +115,6 @@
 -->                    
                         </tbody>
                     </table>
-                </div>
-                <div class="buttons">
-                    <span class="button"><g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" /></span>
-                    <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </div>
             </g:form>
         </div>

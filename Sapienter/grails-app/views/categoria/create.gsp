@@ -9,12 +9,13 @@
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
+    	<div class="SubMenu">
+        <div class="buttonSubMenu">
+            <span><g:link class="list" action="list"><g:message code="sapienter.categoria" args="[entityName]" /></g:link></span>
+        </div>
         </div>
         <div class="body">
-            <h1><g:message code="default.create.label" args="[entityName]" /></h1>
+            <h1><g:message code="sapienter.categoria" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -25,23 +26,24 @@
             </g:hasErrors>
             <g:form action="save" >
                 <div class="dialog">
-                    <table>
+                <div class="margin">
+	                <div class="buttonNewObjects">
+	                    <span><g:submitButton name="create" class="save" value="${message(code: 'sapienter.crear', default: 'Create')}" /></span>
+	                </div>
+	             </div>
+                    <table class="tabla_edit">
                         <tbody>
-                        
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="nombreCategoria"><g:message code="categoria.nombreCategoria.label" default="Nombre Categoria" /></label>
+                                    <label for="nombreCategoria"><g:message code="proceso.categoria" default="Nombre Categoria" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: categoriaInstance, field: 'nombreCategoria', 'errors')}">
-                                    <g:textField name="nombreCategoria" value="${categoriaInstance?.nombreCategoria}" />
+                                    <g:textField class="textField" name="nombreCategoria" value="${categoriaInstance?.nombreCategoria}" />
                                 </td>
                             </tr>
                         
                         </tbody>
                     </table>
-                </div>
-                <div class="buttons">
-                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
                 </div>
             </g:form>
         </div>
