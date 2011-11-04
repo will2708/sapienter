@@ -9,7 +9,7 @@
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
     </head>
     <body>
-    	<div>
+    	<div class="SubMenu">
         <div class="buttonSubMenu">
             <span><g:link class="list" action="list"><g:message code="sapienter.enlaceUtil" args="[entityName]" /></g:link></span>
         </div>

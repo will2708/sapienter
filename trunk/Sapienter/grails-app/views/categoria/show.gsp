@@ -8,10 +8,22 @@
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
+    	<div class="SubMenu">
+        <div class="buttonSubMenu">
+            <span><g:link class="list" action="list"><g:message code="sapienter.categoria" args="[entityName]" /></g:link></span>
+		</div>            
+		<div class="buttonSubMenu">
+            <span><g:link class="create" action="create"><g:message code="sapienter.crear" args="[entityName]" /></g:link></span>
+        </div>
+        <g:form>
+           <g:hiddenField name="id" value="${categoriaInstance?.id}" />
+           	<div class="buttonForm">
+               <span><g:actionSubmit class="edit" action="edit" value="${message(code: 'sapienter.modificar', default: 'Edit')}" /></span>
+			</div>               
+			<div class="buttonForm">
+               <span><g:actionSubmit class="delete" action="delete" value="${message(code: 'sapienter.borrar', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+            </div>   
+        </g:form>
         </div>
         <div class="body">
             <h1><g:message code="default.show.label" args="[entityName]" /></h1>
@@ -19,25 +31,31 @@
             <div class="message">${flash.message}</div>
             </g:if>
             <div class="dialog">
-                <table>
+            	<g:form>
+           		<g:hiddenField name="id" value="${categoriaInstance?.id}" />
+            	<div class="margin">
+                	<div class="buttonNewObjects">
+                    <span><g:actionSubmit class="create" action="crearSubCategoria" value="${message(code: 'sapienter.crearSubCategoria', default: 'Update')}" /></span>
+                	</div>   
+                </div>
+                </g:form>
+                <table class="tabla">
                     <tbody>
-                    
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="categoria.id.label" default="Id" /></td>
-                            
+                            <td valign="top" class="name"><g:message code="sapienter.id" default="Id" /></td>
                             <td valign="top" class="value">${fieldValue(bean: categoriaInstance, field: "id")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="categoria.nombreCategoria.label" default="Nombre Categoria" /></td>
+                            <td valign="top" class="name"><g:message code="proceso.categoria" default="Nombre Categoria" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: categoriaInstance, field: "nombreCategoria")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="categoria.subCategorias.label" default="Sub Categorias" /></td>
+                            <td valign="top" class="name"><g:message code="proceso.subcategoria" default="Sub Categorias" /></td>
                             
                             <td valign="top" style="text-align: left;" class="value">
                                 <ul>
@@ -51,13 +69,6 @@
                     
                     </tbody>
                 </table>
-            </div>
-            <div class="buttons">
-                <g:form>
-                    <g:hiddenField name="id" value="${categoriaInstance?.id}" />
-                    <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
-                    <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
-                </g:form>
             </div>
         </div>
     </body>

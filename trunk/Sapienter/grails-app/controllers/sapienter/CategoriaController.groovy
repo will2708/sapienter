@@ -141,4 +141,9 @@ class CategoriaController {
 		if (categoria != null)
 			render categoria?.subCategorias as JSON
 	}
+	def crearSubCategoria = {
+		def parametros = new HashMap()
+		parametros.put("categoria.id", params.id)
+		redirect(controller:"subcategoria", action:"create", params:parametros)
+	}
 }

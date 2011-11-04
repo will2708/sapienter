@@ -8,12 +8,15 @@
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
     <body>
-    	<div>
+    	<div class="SubMenu">
+	        <div class="buttonSubMenu">
+	            <span><g:link class="list" action="list"><g:message code="sapienter.enlaceUtil" args="[entityName]" /></g:link></span>
+	        </div>
 	        <div class="buttonSubMenu">
 	            <span><g:link class="create" action="create"><g:message code="sapienter.crear" args="[entityName]" /></g:link></span>
 	        </div>
            <g:form>
-           <g:hiddenField name="id" value="${documentoInstance?.id}" />
+           <g:hiddenField name="id" value="${enlaceUtilInstance?.id}" />
            		<div class="buttonForm">
            			<span ><g:actionSubmit class="edit" action="edit" value="${message(code: 'sapienter.modificar', default: 'Edit')}" /></span>
            		</div>
