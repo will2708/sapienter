@@ -42,16 +42,16 @@
 				<g:renderErrors bean="${personaJuridicaInstance}" as="list" />
 			</div>
 		</g:hasErrors>
-
 			<div class="dialog">
-				<richui:tabView id="tabView">
-					<richui:tabLabels>
-						<richui:tabLabel class="buttonNewObjects" selected="${selected1}" title="Persona Fisica" />
-						<richui:tabLabel class="buttonNewObjects" selected="${selected2}" title="Persona Juridica" />
+				<br></br>
+				<richui:tabView skin="custom" id="tabView">
+					<richui:tabLabels >
+						<richui:tabLabel selected="${selected1}" title="Persona Fisica"  />
+						<richui:tabLabel selected="${selected2}" title="Persona Juridica" />
 						</richui:tabLabels>
-						<richui:tabContents>
+						<richui:tabContents  >		
 						<richui:tabContent>
-							<g:form controller="personaFisica" action="save">
+							<g:form  controller="personaFisica" action="save">
 				<div class="margin">
 					<div class="buttonNewObjects">
 						<span><g:submitButton name="create" class="save" value="${message(code: 'sapienter.guardar', default: 'Create')}" /></span>
@@ -196,8 +196,9 @@
 												value="${personaFisicaInstance?.informacionTributaria}" />
 										</td>
 									</tr>
+									<tr><td><br></br></td></tr>
 									<tr class="prop">
-										<td valign="top" class="name"><label for="madre"><g:message
+										<td valign="top" class="descripcion"><label for="madre"><g:message
 													code="persona.datosFamiliares" default="Madre" /> </label>
 										</td>
 									</tr>		
@@ -265,6 +266,7 @@
 							</table>
 							</g:form>
 						</richui:tabContent>
+
 						<richui:tabContent>
 														
 							<g:form controller="personaJuridica" action="save">

@@ -143,6 +143,7 @@
 	width:120px;
 	text-align: center; 
 /*	white-space:nowrap;*/
+	cursor: hand;
 }
 
 .buttonSubMenu:hover{
@@ -201,7 +202,8 @@
 	padding: 5px 10px;
 	width:120px;
 	text-align: center; 
-	white-space:nowrap;    
+	white-space:nowrap;
+	cursor: hand;    
 }
 
 .buttonForm:hover{
@@ -259,7 +261,6 @@
     font-weight: bold;  
     border: 1px solid #224875;  
 }
-
 /*Botón sobre las tablas*/
 .buttonNewObjects{
 	border-top-right-radius: 10px;
@@ -277,6 +278,7 @@
 	padding: 4px 6px;
 	border: 1px solid #ccc; 
 	white-space: nowrap;
+	cursor: hand;
 }
 
 .buttonNewObjects input {
@@ -396,7 +398,6 @@ mandatory{
 	font-weight: bold;
 }
 /* DIALOG */
-
 .dialog table {
     padding: 2px 5px;
 }
@@ -446,7 +447,8 @@ mandatory{
 }
 .prop .textField{
 	border-radius: 5px;	
-}	
+}
+
 /* TABLES */
 .tabla_calendario {
     border: 1px solid #E0E0E0;
@@ -735,9 +737,6 @@ html * {
     right: 0;
 }
 
-
-
-
 a:link, a:visited, a:hover {
     color: #666;
     font-weight: bold;
@@ -820,7 +819,8 @@ input:focus, select:focus, textarea:focus {
     border: 1px solid #b2d1ff;
     color: #006dba;
     margin: 10px 0 5px 0;
-    padding: 5px 5px 5px 30px
+    padding: 5px 5px 5px 30px;
+    border-radius:5px;
 }
 
 div.errors {
@@ -912,10 +912,11 @@ td.errors textarea {
     padding-left: 28px;
 }
  /*RICHUI*//* .yui-navset defaults to .yui-navset-top */
+/* .yui-navset defaults to .yui-navset-top */
 .yui-skin-sam .yui-navset .yui-nav,
 .yui-skin-sam .yui-navset .yui-navset-top .yui-nav { /* protect nested tabviews from other orientations */
-    border:solid #FFCC00; /* color between tab list and content */
-    border-width:0 0 5px;
+/*    border:solid #FFCC00; /* color between tab list and content */
+/*    border-width:0 0 5px;*/
     Xposition:relative;
     zoom:1;
 }
@@ -935,16 +936,19 @@ td.errors textarea {
 .yui-skin-sam .yui-navset .yui-nav a,
 .yui-skin-sam .yui-navset .yui-navset-top .yui-nav a {
     background:#EEEEEE url(../../../../assets/skins/sam/sprite.png) repeat-x; /* tab background */
-    border:solid #a3a3a3;
-    border-width:0 1px;
+/*    border:solid #a3a3a3;
+    border-width:0 1px;*/
     color:#000;
     text-decoration:none;
+	border-top-right-radius:10px;
+	border-top-left-radius: 10px;
+	padding: 7px;
 }
 
 .yui-skin-sam .yui-navset .yui-nav a em,
 .yui-skin-sam .yui-navset .yui-navset-top .yui-nav a em {
-    border:solid #a3a3a3;
-    border-width:1px 0 0;
+/*    border:solid #a3a3a3;
+    border-width:1px 0 0;*/
     cursor:hand;
     padding:0.25em .75em;
     left:0; right: 0; bottom: 0; /* protect from other orientations */
@@ -956,7 +960,7 @@ td.errors textarea {
 .yui-skin-sam .yui-navset .yui-nav .selected a:focus, /* no focus effect for selected */
 .yui-skin-sam .yui-navset .yui-nav .selected a:hover { /* no hover effect for selected */
     background:#FFCC00 url(../../../../assets/skins/sam/sprite.png) repeat-x left -1400px; /* selected tab background */
-    color:#000;
+    color:#000;   
 }
 
 .yui-skin-sam .yui-navset .yui-nav a:hover,
@@ -971,22 +975,23 @@ td.errors textarea {
 
 .yui-skin-sam .yui-navset .yui-nav .selected a,
 .yui-skin-sam .yui-navset .yui-nav .selected a em {
-    border-color:#BBBBBB; /* selected tab border color */
+/*    border-color:#BBBBBB; /* selected tab border color */
 }
 
 .yui-skin-sam .yui-navset .yui-content {
     background:#F1F1F1; /* content background color */
+    border-top-right-radius:10px;
+    border-bottom-right-radius:10px;
+    border-bottom-left-radius:10px;
 }
 
 .yui-skin-sam .yui-navset .yui-content,
 .yui-skin-sam .yui-navset .yui-navset-top .yui-content {
-    border:0px solid #808080; /* content border */
-    border-top-color:#243356; /* different border color */
+/*    border:0px solid #808080; /* content border */
+/*    border-top-color:#243356; /* different border color */
     padding:0.25em 0.5em; /* content padding */
 }
-
 </style>
-
 /*CENTRAR*/
 /*Menu*/
 /*width:210px;
