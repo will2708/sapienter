@@ -9,9 +9,9 @@
     </head>
     <body>
     	<div>
-	        <div class="buttonSubMenu">
+<!--	        <div class="buttonSubMenu">
 	            <span><g:link class="create" action="create"><g:message code="sapienter.crear" args="[entityName]" /></g:link></span>
-	        </div>
+	        </div> -->
         </div> 
         <div class="body">
             <h1>Estudio jur&iacutedico</h1>
