@@ -111,6 +111,41 @@ class MovimientoController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def update = {
+		String fechaInicial = params.fechaDeCreacion
+		String fechaFinal   = params.fechaDeVencimiento
+		params.remove("fechaDeCreacion")
+		params.remove("fechaDeVencimiento")
+		if (fechaInicial != null &&
+			fechaInicial != "" ){
+			int anio = Integer.parseInt(fechaInicial.substring(6,10))
+			int mes = Integer.parseInt(fechaInicial.substring(3,5))
+			int dia = Integer.parseInt(fechaInicial.substring(0,2))
+			int hora = 9
+			int minutos = 00
+
+			mes = mes - 1
+			
+			Calendar calendar = new GregorianCalendar(anio,mes,dia,hora,minutos)
+			params.put("fechaDeCreacion", calendar.getTime())
+		}
+		if (fechaFinal != null &&
+			fechaFinal != ""){
+			int anio = Integer.parseInt(fechaFinal.substring(6,10))
+			int mes = Integer.parseInt(fechaFinal.substring(3,5))
+			int dia = Integer.parseInt(fechaFinal.substring(0,2))
+			int hora = 9
+			int minutos = 00
+			
+			mes = mes - 1
+			
+			Calendar calendar = new GregorianCalendar(anio,mes,dia,hora,minutos)
+			params.put("fechaDeVencimiento", calendar.getTime())
+		}
+
+		def proceso2 = Proceso.get(params.proceso)
+		params.remove("proceso")
+		params.put("proceso", proceso2)	
+
         def movimientoInstance = Movimiento.get(params.id)
         if (movimientoInstance) {
             if (params.version) {
