@@ -16,6 +16,7 @@
         </div>
         </div>	
         <div class="body">
+        	<fckeditor:config CustomConfigurationsPath="${resource(dir:'js',file:'fkeditor.js')}"/>
         	<h1>Crear modelos de documento</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
@@ -104,6 +105,7 @@
 		                                    	name="modeloDeDocumento"
 		                                    	width="160%"
 		                                    	heigh="200%"
+		                                    	toolbar="Sapienter"
 		                                    	body="disabled"
 		                                    	value="${modeloDeDocumentoInstance?.modeloDeDocumento}">
 		                                     	${modeloDeDocumentoInstance?.modeloDeDocumento}

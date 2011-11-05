@@ -12,6 +12,7 @@
     </head>
     <body>
         <div class="body">
+           	<fckeditor:config CustomConfigurationsPath="${resource(dir:'js',file:'fkeditor.js')}"/>
         	<h1>Crear Documento</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
@@ -89,6 +90,7 @@
                                     	name="contenidoDocumento"
                                     	width="200%"
                                     	heigh="200%"
+		                                toolbar="Sapienter"
                                     	body="disabled"
                                     	value="${documentoInstance?.contenidoDocumento}">
                                      	${documentoInstance?.contenidoDocumento}

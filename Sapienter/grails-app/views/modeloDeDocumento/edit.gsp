@@ -63,6 +63,7 @@ $(document).ready(function() {
             </g:form>
         </div>
         <div class="body">
+        	<fckeditor:config CustomConfigurationsPath="${resource(dir:'js',file:'fkeditor.js')}"/>
             <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
@@ -150,7 +151,9 @@ $(document).ready(function() {
 		                                <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'modeloDeDocumento', 'errors')}">
 		                                    <fckeditor:editor 
 		                                    	name="modeloDeDocumento"
-		                                    	width="170%"
+		                                    	width="160%"
+		                                    	heigh="200%"
+		                                    	toolbar="Sapienter"
 		                                    	body="disabled"
 		                                    	value="${modeloDeDocumentoInstance?.modeloDeDocumento}">
 		                                     	${modeloDeDocumentoInstance?.modeloDeDocumento}
