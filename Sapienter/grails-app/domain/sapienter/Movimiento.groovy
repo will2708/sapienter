@@ -19,6 +19,9 @@ class Movimiento {
 		fechaDeVencimiento(nullable:true)
 
 	}
+	String toString(){
+		descripcion
+	}
 	
 	static belongsTo = [proceso:Proceso]
 }

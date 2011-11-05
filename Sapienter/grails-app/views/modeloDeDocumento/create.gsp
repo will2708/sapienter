@@ -33,7 +33,7 @@
                     	<span><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
                 	</div>
                 	</div>
-                    <table class="tabla_edit">
+                    <table class="tabla_calendario">
                         <tbody>
                         <tr>
                         	<td>
@@ -103,7 +103,7 @@
 		                           <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'modeloDeDocumento', 'errors')}">
 		                                    <fckeditor:editor 
 		                                    	name="modeloDeDocumento"
-		                                    	width="160%"
+		                                    	width="700px"
 		                                    	heigh="200%"
 		                                    	toolbar="Sapienter"
 		                                    	body="disabled"

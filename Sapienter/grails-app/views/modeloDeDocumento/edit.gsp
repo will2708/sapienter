@@ -1,5 +1,3 @@
-
-
 <%@ page import="sapienter.ModeloDeDocumento" %>
 <html>
     <head>
@@ -82,7 +80,7 @@ $(document).ready(function() {
 	                    <span><g:actionSubmit class="save" action="update" value="${message(code: 'sapienter.guardar', default: 'Update')}" /></span>
 	                </div>             
 	                </div>  
-                    <table class="tabla_edit">
+                    <table class="tabla_calendario">
                         <tbody>
                         	<tr>
                         		<td>
@@ -151,7 +149,7 @@ $(document).ready(function() {
 		                                <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'modeloDeDocumento', 'errors')}">
 		                                    <fckeditor:editor 
 		                                    	name="modeloDeDocumento"
-		                                    	width="160%"
+		                                    	width="700px"
 		                                    	heigh="200%"
 		                                    	toolbar="Sapienter"
 		                                    	body="disabled"
