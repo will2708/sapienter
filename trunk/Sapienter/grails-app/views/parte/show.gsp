@@ -25,7 +25,7 @@ $(document).ready(function() {
     });
   });
  function success(){ 
- 	document.location.href='${createLink(controller:'persona', action:'list')}'; 
+ 	document.location.href='${createLink(controller:'parte', action:'list')}'; 
  }; 
  function failure(){ 
 	document.location.reload(true); 
