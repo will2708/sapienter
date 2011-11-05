@@ -129,7 +129,13 @@ $(document).ready(function() {
                             		<td valign="top" class="name"><g:message code="proceso.responsable" default="Responsable" /></td>
                             		<td valign="top" class="value"><g:link controller="usuario" action="show" id="${procesoInstance?.responsable?.id}">${procesoInstance?.responsable?.encodeAsHTML()}</g:link></td>
                     				<td valign="top" class="name"><g:message code="proceso.usuariosAutorizados" default="Usuarios Autorizados" /></td>
-                            		<td valign="top" class="value"><g:link controller="usuario" action="show" id="${procesoInstance?.usuariosAutorizados?.id}">${procesoInstance?.usuariosAutorizados?.encodeAsHTML()}</g:link></td>
+<!--                            		<td valign="top" class="value"><g:link controller="usuario" action="show" id="${procesoInstance?.usuariosAutorizados?.id}">${procesoInstance?.usuariosAutorizados?.encodeAsHTML()}</g:link></td> -->
+                            		<td valign="top" style="text-align: left;" class="value">
+	                                <ul>
+	                                <g:each in="${procesoInstance.usuariosAutorizados}" var="e">
+	                                    <li><g:link controller="usuario" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></li>
+	                                </g:each>
+	                                </ul></td>
 	                        	</tr>                                                
                         		<tr class="prop">
                             		<td valign="top" class="descripcion"><g:message code="proceso.documentos" default="Documentos" /></td>

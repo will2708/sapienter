@@ -55,9 +55,9 @@ $(document).ready(function() {
 	        <div class="buttonSubMenu">
 	            <span><g:link class="list" action="list"><g:message code="sapienter.enlaceUtil" args="[entityName]" /></g:link></span>
 	        </div>
-	        <div class="buttonSubMenu">
+<!-- 	        <div class="buttonSubMenu">
 	            <span><g:link class="create" action="create"><g:message code="sapienter.crear" args="[entityName]" /></g:link></span>
-	        </div>
+	        </div> -->
            <g:form>
            <g:hiddenField name="id" value="${enlaceUtilInstance?.id}" />
            		<div class="buttonForm">
@@ -84,7 +84,7 @@ $(document).ready(function() {
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="enlaceUtil.enalace" default="Direccion" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: enlaceUtilInstance, field: "direccion")}</td>
+                            <td> <a href="${fieldValue(bean: enlaceUtilInstance, field: "direccion")}" target="_blank">${fieldValue(bean: enlaceUtilInstance, field: "direccion")}</a> </td>
                             
                         </tr>
                         <tr class="prop">

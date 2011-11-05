@@ -54,9 +54,9 @@ $(document).ready(function() {
     <div class="buttonCalendario">
      <span><g:link class="calendario" controller="calendario" action="show" id="1"><img src="${createLinkTo(dir: 'images/', file: 'calendario2.gif')}"/></g:link></span>
     </div>
-	<div class = "buttonSubMenu"> 
+<!-- 	<div class = "buttonSubMenu"> 
 		 <span><g:link class="create" action="create"><g:message code="sapienter.crear" args="[entityName]" /></g:link></span>
-	</div>
+	</div> -->
 	<g:form>
 	<g:hiddenField name="id" value="${tareaInstance?.id}" />
 		<div class="buttonForm">

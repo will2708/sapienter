@@ -50,9 +50,9 @@ $(document).ready(function() {
     }
 </g:javascript>    
     
-    	<div>
+    	<div class="SubMenu">
 	        <div class="buttonSubMenu">
-	            <span><g:link class="create" action="create"><g:message code="sapienter.crear" args="[entityName]" /></g:link></span>
+	             <span><g:link class="list" action="list"><g:message code="sapienter.jurisprudencia" args="[entityName]" /></g:link></span>
 	        </div>
            <g:form>
            <g:hiddenField name="id" value="${jurisprudenciaInstance?.id}" />
