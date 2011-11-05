@@ -7,9 +7,51 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'personaFisica.label', default: 'PersonaFisica')}" />
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
+        <g:javascript library="application" />
+		<g:javascript library="jquery" plugin="jquery" />
+		<jqui:resources theme="ui-lightness" />
     </head>
     <body>
-    	<div>
+
+<div id="dialog" title="Confirmaci&oacuten de borrado">
+  Est&aacute seguro que desea borrar esta instancia?
+</div>
+
+<g:javascript>
+$(document).ready(function() {
+    $("#dialog").dialog({
+      autoOpen: false,
+	  resizable: false,
+	  height:140,
+      modal: true
+    });
+  });
+ function success(){ 
+ 	document.location.href='${createLink(controller:'persona', action:'list')}'; 
+ }; 
+ function failure(){ 
+	document.location.reload(true); 
+ }; 
+  
+  function confirmarBorrado() {
+	var idObjeto = $("#id").val();
+
+    $("#dialog").dialog({
+      buttons : {
+        "Si" : function() {
+         ${remoteFunction(action:"delete", params:"'id=' + idObjeto", onSuccess:'success();', onFailure:'failure();')};
+         $(this).dialog("close");
+        },
+        "No" : function() {
+          $(this).dialog("close");
+        }
+      }
+	});
+	$("#dialog").dialog("open");
+    }
+</g:javascript>    
+
+    	<div class="SubMenu">
         <div class="buttonSubMenu">
             <!--<span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>-->
             <span><g:link class="list" controller="persona" action="list"><g:message code="persona.list" args="[entityName]" /></g:link></span>
@@ -18,6 +60,14 @@
             <span><g:link class="create" action="create"><g:message code="sapienter.crear" args="[entityName]" /></g:link></span>
         </div>
 		</div>
+		<g:form>
+		<g:hiddenField name="id" value="${personaFisicaInstance?.id}" />
+		 	<div class="buttonForm"> 
+				<span><g:actionSubmit class="delete" action="delete" value="${message(code: 'sapienter.borrar', default: 'Delete')}"
+						onclick="confirmarBorrado();return false;" />
+				</span>
+			</div>
+		</g:form>		
         <div class="body">
             <!--<h1><g:message code="default.edit.label" args="[entityName]" /></h1>-->
             <g:if test="${flash.message}">

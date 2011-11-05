@@ -39,11 +39,11 @@ $(document).ready(function() {
 
     $("#dialog").dialog({
       buttons : {
-        "Confirm" : function() {
+        "Si" : function() {
          ${remoteFunction(action:"delete", params:"'id=' + idObjeto", onSuccess:'success();', onFailure:'failure();')};
          $(this).dialog("close");
         },
-        "Cancel" : function() {
+        "No" : function() {
           $(this).dialog("close");
         }
       }

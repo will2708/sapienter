@@ -9,8 +9,47 @@
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
         <g:javascript library="prototype" />
         <g:javascript library="jquery" plugin="jquery" />
+        <jqui:resources theme="ui-lightness" />
+        <g:javascript library="application" />
     </head>
     <body>
+<div id="dialog" title="Confirmaci&oacuten de borrado">
+  Est&aacute seguro que desea borrar esta instancia?
+</div>
+
+<g:javascript>
+$(document).ready(function() {
+    $("#dialog").dialog({
+      autoOpen: false,
+	  resizable: false,
+	  height:140,
+      modal: true
+    });
+  });
+ function success(){ 
+ 	document.location.href='${createLink(controller:'persona', action:'list')}'; 
+ }; 
+ function failure(){ 
+	document.location.reload(true); 
+ }; 
+  
+  function confirmarBorrado() {
+	var idObjeto = $("#id").val();
+
+    $("#dialog").dialog({
+      buttons : {
+        "Si" : function() {
+         ${remoteFunction(action:"delete", params:"'id=' + idObjeto", onSuccess:'success();', onFailure:'failure();')};
+         $(this).dialog("close");
+        },
+        "No" : function() {
+          $(this).dialog("close");
+        }
+      }
+	});
+	$("#dialog").dialog("open");
+    }
+</g:javascript>        
     	<div>
         <div class="buttonSubMenu">
             <span><g:link class="list" action="list"><g:message code="sapienter.modelosDeDocumento" args="[entityName]" /></g:link></span>
@@ -18,7 +57,8 @@
            <g:form>
            <g:hiddenField name="id" value="${modeloDeDocumentoInstance?.id}" />
            		<div class="buttonForm">
-                	<span><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+                	<span><g:actionSubmit class="delete" action="delete" value="${message(code: 'sapienter.borrar', default: 'Delete')}" 
+                		onclick="confirmarBorrado();return false;" /></span>
                 </div>
             </g:form>
         </div>
