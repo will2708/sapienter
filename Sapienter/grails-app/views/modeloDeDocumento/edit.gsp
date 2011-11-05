@@ -136,7 +136,7 @@ $(document).ready(function() {
 		                                  <label for="estado"><g:message code="proceso.estado" default="Estado" /></label>
 		                                </td>
 		                                <td valign="top" class="value ${hasErrors(bean: modeloDeDocumentoInstance, field: 'estado', 'errors')}">
-		                                    <g:textField class="textField" name="estado" value="${modeloDeDocumentoInstance?.estado}" />
+		                                    <g:select class="textField" name="estado" from="${modeloDeDocumentoInstance.constraints.estado.inList}" value="${modeloDeDocumentoInstance?.estado}" valueMessagePrefix="modeloDeDocumento.estado"  />
 		                                </td>
 		                            </tr>
 		                        </table>

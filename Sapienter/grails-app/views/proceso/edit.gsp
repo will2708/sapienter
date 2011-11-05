@@ -151,11 +151,11 @@ $(document).ready(function() {
                                 	<td valign="top" class="name">
                                   		<label for="estado"><g:message code="proceso.estado" default="Estado" /></label></td>
                                 	<td valign="top" class="value ${hasErrors(bean: procesoInstance, field: 'estado', 'errors')}">
-                                    	<g:textField class="textField" name="estado" value="${procesoInstance?.estado}" /></td>
+                                    	<g:select class="textField" name="estado" from="${procesoInstance.constraints.estado.inList}" value="${procesoInstance?.estado}" valueMessagePrefix="proceso.estado"  /></td>                                    	
                                 	<td valign="top" class="name">
                                   		<label for="etapaProcesal"><g:message code="proceso.etapaProcesal" default="Etapa Procesal" /></label></td>
                                 	<td valign="top" class="value ${hasErrors(bean: procesoInstance, field: 'etapaProcesal', 'errors')}">	
-                                    	<g:textField class="textField" name="etapaProcesal" value="${procesoInstance?.etapaProcesal}" /></td>
+                                    	<g:select class="textField" name="etapaProcesal" from="${procesoInstance.constraints.etapaProcesal.inList}" value="${procesoInstance?.etapaProcesal}" valueMessagePrefix="proceso.etapaProcesal"  /></td>
                             	</tr>                        
                             	<tr class="prop">
                                 	<td valign="top" class="name">

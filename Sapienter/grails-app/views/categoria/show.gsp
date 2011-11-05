@@ -54,9 +54,9 @@ $(document).ready(function() {
         <div class="buttonSubMenu">
             <span><g:link class="list" action="list"><g:message code="sapienter.categoria" args="[entityName]" /></g:link></span>
 		</div>            
-		<div class="buttonSubMenu">
+		<!-- <div class="buttonSubMenu">
             <span><g:link class="create" action="create"><g:message code="sapienter.crear" args="[entityName]" /></g:link></span>
-        </div>
+        </div> -->
         <g:form>
            <g:hiddenField name="id" value="${categoriaInstance?.id}" />
            	<div class="buttonForm">
