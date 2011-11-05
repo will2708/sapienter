@@ -57,6 +57,7 @@ $(document).ready(function() {
              </div>
          </g:form>
         <div class="body">
+           	<fckeditor:config CustomConfigurationsPath="${resource(dir:'js',file:'fkeditor.js')}"/>
             <h1>Modificar Documento</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
@@ -135,6 +136,8 @@ $(document).ready(function() {
                                    <fckeditor:editor 
                                     	name="contenidoDocumento"
                                     	width="200%"
+		                                heigh="200%"
+		                                toolbar="Sapienter"
                                     	body="disabled"
                                     	value="${documentoInstance?.contenidoDocumento}">
                                      	${documentoInstance?.contenidoDocumento}
