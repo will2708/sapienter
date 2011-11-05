@@ -22,7 +22,7 @@ class ParteController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
-		def proceso = params.proceso
+		def proceso =params.proceso
 		params.remove("proceso")
         def parteInstance = new Parte(params)
 		parteInstance.proceso = Proceso.get(proceso)

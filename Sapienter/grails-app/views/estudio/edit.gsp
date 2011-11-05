@@ -11,9 +11,9 @@
     <body>
            <g:form>
            <g:hiddenField name="id" value="${documentoInstance?.id}" />
-           		<div class="buttonForm">
+<!--            		<div class="buttonForm">
                 	<span><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
-                </div>
+                </div> -->
             </g:form>    
         <div class="body">
             <h1>Modificar Estudio</h1>

@@ -7,10 +7,10 @@
 <g:set var="entityName"
 	value="${message(code: 'personaJuridica.label', default: 'PersonaJuridica')}" />
 <title><g:message code="default.show.label" args="[entityName]" />
+</title>
 <g:javascript library="application" />
 <g:javascript library="jquery" plugin="jquery" />
 <jqui:resources theme="ui-lightness" />
-</title>
 </head>
 <body>
 <div id="dialog" title="Confirmaci&oacuten de borrado">
@@ -64,7 +64,7 @@ $(document).ready(function() {
 	 	</div>
 	 	<div class="buttonForm"> 
 			<span><g:actionSubmit class="delete" action="delete" value="${message(code: 'sapienter.borrar', default: 'Delete')}"
-					onclick="confirmarBorrado();return false;" /> />
+					onclick="confirmarBorrado();return false;" />
 			</span>
 		</div>
 	</g:form>
