@@ -41,7 +41,7 @@
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                             <td><g:link action="show" id="${enlaceUtilInstance.id}">${fieldValue(bean: enlaceUtilInstance, field: "id")}</g:link></td>
                             <td><g:link action="show" id="${enlaceUtilInstance.id}">${fieldValue(bean: enlaceUtilInstance, field: "descripcion")}</g:link>	</td>
-                            <td>${fieldValue(bean: enlaceUtilInstance, field: "direccion")}</td>
+                            <td> <a href="${fieldValue(bean: enlaceUtilInstance, field: "direccion")}" target="_blank">${fieldValue(bean: enlaceUtilInstance, field: "direccion")}</a> </td>
                             <td>${fieldValue(bean: enlaceUtilInstance, field: "ultimoUsuario")}</td>                            
                         </tr>
                     </g:each>
