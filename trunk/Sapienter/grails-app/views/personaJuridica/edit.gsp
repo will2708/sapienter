@@ -66,6 +66,7 @@ $(document).ready(function() {
         </g:form>
         </div>
         <div class="body">
+        	<script src="${resource(dir:'js',file:'persona.js')}"></script>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -114,7 +115,8 @@ $(document).ready(function() {
                             		<tr class="prop">
                                 		<td valign="top" class="name"><label for="fechaDeInicioActividades"><g:message code="persona.fechaDeInicioActividades" default="Fecha De Inicio Actividades" /></label></td>
                                 		<td valign="top" class="value ${hasErrors(bean: personaJuridicaInstance, field: 'fechaDeInicioActividades', 'errors')}">
-                                    		<g:datePicker class="textField" name="fechaDeInicioActividades" precision="day" value="${personaJuridicaInstance?.fechaDeInicioActividades}" default="none" noSelection="['': '']" /></td>                            		
+											<g:textField class="textField"class="textField" name="fechaDeInicioActividades" 
+														value="${personaJuridicaInstance?.fechaDeInicioActividades}"/></td>                            		
                                 		<td valign="top" class="name"><label for="auxiliares"><g:message code="persona.auxiliares" default="Auxiliares" /></label></td>
                                 		<td valign="top" class="value ${hasErrors(bean: personaJuridicaInstance, field: 'auxiliares', 'errors')}">
                                     		<g:textField class="textField" name="auxiliares" value="${personaJuridicaInstance?.auxiliares}" /></td>

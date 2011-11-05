@@ -58,6 +58,7 @@ $(document).ready(function() {
             </g:form>
 		</div>    
         <div class="body">
+        	<script src="${resource(dir:'js',file:'gastos.js')}"></script>
             <h1>Modificar gasto</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
@@ -110,7 +111,7 @@ $(document).ready(function() {
                                   <label for="fecha"><g:message code="gasto.fecha.label" default="Fecha" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: gastoInstance, field: 'fecha', 'errors')}">
-                                    <g:datePicker class="textField" name="fecha" precision="day" value="${gastoInstance?.fecha}"  />
+                                    <g:textField class="textField" name="fecha" value="${gastoInstance?.fecha}"/>
                                 </td>
                             </tr>
                         

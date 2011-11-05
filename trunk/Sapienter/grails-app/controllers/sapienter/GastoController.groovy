@@ -22,6 +22,23 @@ class GastoController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
+		String fecha = params.fecha
+		params.remove("fecha")
+		if (fecha != null &&
+			fecha != "" ){
+			int anio = Integer.parseInt(fecha.substring(6,10))
+			int mes = Integer.parseInt(fecha.substring(3,5))
+			int dia = Integer.parseInt(fecha.substring(0,2))
+			int hora = 9
+			int minutos = 00
+
+			mes = mes - 1
+			
+			Calendar calendar = new GregorianCalendar(anio,mes,dia,hora,minutos)
+			params.put("fecha", calendar.getTime())
+		}
+
+		
 		def proceso = params.proceso
 		params.remove("proceso")
 		

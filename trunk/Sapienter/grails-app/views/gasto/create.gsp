@@ -7,9 +7,13 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'gasto.label', default: 'Gasto')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
+		<g:javascript library="application" />
+		<g:javascript library="jquery" plugin="jquery" />
+		<jqui:resources theme="ui-lightness" />        
     </head>
     <body>
         <div class="body">
+        	<script src="${resource(dir:'js',file:'gastos.js')}"></script>
             <h1>Crear Gasto</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
@@ -60,7 +64,7 @@
                                     <label for="fecha"><g:message code="gasto.fecha" default="Fecha" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: gastoInstance, field: 'fecha', 'errors')}">
-                                    <g:datePicker class="textField" name="fecha" precision="day" value="${gastoInstance?.fecha}"  />
+                                    <g:textField class="textField" name="fecha" value="${gastoInstance?.fecha}"/>
                                 </td>
                             </tr>
                             <tr class="prop">

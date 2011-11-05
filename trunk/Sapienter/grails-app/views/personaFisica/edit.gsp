@@ -69,6 +69,7 @@ $(document).ready(function() {
 			</div>
 		</g:form>		
         <div class="body">
+        	<script src="${resource(dir:'js',file:'persona.js')}"></script>
             <!--<h1><g:message code="default.edit.label" args="[entityName]" /></h1>-->
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
@@ -113,7 +114,8 @@ $(document).ready(function() {
 	                                    <g:textField class="textField" name="apellido" value="${personaFisicaInstance?.apellido}" /></td>
 	 								<td valign="top" class="name"><label for="fechaNacimiento"><g:message code="persona.fechaNacimiento" default="Fecha Nacimiento" default="none" noSelection="['': '']"/></label></td>
 	                                <td valign="top" class="value ${hasErrors(bean: personaFisicaInstance, field: 'fechaNacimiento', 'errors')}">
-	                                    <g:datePicker class="textField" name="fechaNacimiento" precision="day" value="${personaFisicaInstance?.fechaNacimiento}" /></td>                                    
+	                                    <g:textField class="textField"class="textField" name="fechaNacimiento" 
+														value="${personaFisicaInstance?.fechaNacimiento}"/></td>
 	                            </tr>                        
 	                            <tr class="prop">
 	                                <td valign="top" class="name"><label for="nombre"><g:message code="persona.nombre" default="Nombre" /><mandatory> *</mandatory></label></td>

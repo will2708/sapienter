@@ -69,7 +69,25 @@ class PersonaController {
 		def estudio = user.estudio
 		params.put("estudio", estudio)
 
+		String fechaDeInicioActividades = params.fechaDeInicioActividades
+		params.remove("fechaDeInicioActividades")
 		def personaJuridicaInstance = new PersonaJuridica(params)
+
+		if (fechaDeInicioActividades != null &&
+			fechaDeInicioActividades != "" ){
+			int anio = Integer.parseInt(fechaDeInicioActividades.substring(6,10))
+			int mes = Integer.parseInt(fechaDeInicioActividades.substring(3,5))
+			int dia = Integer.parseInt(fechaDeInicioActividades.substring(0,2))
+			int hora = 9
+			int minutos = 00
+
+			mes = mes - 1
+			
+			Calendar calendar = new GregorianCalendar(anio,mes,dia,hora,minutos)
+			personaJuridicaInstance.fechaDeInicioActividades = calendar.getTime()
+		}
+		
+		
 		def personaFisicaInstance   = new PersonaFisica()
 
 		if (personaJuridicaInstance.save(flush: true)) {

@@ -310,9 +310,8 @@
 										</td>
 										<td valign="top"
 											class="value ${hasErrors(bean: personaJuridicaInstance, field: 'fechaDeInicioActividades', 'errors')}">
-											<g:datePicker class="textField" name="fechaDeInicioActividades" precision="day"
-												value="${personaJuridicaInstance?.fechaDeInicioActividades}"
-												default="none" noSelection="['': '']" />
+											<g:textField class="textField"class="textField" name="fechaDeInicioActividades" 
+														value="${personaJuridicaInstance?.fechaDeInicioActividades}"/>
 										</td>
 										<td valign="top" class="name"><label for="auxiliares"><g:message
 													code="persona.auxiliares"
