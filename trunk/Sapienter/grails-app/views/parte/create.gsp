@@ -81,7 +81,6 @@
                         		<td>
                         			<table>
 		                            <tr class="prop">		
-                  
 		                                <td valign="top" class="name">
 		                                    <label for="persona"><g:message code="sapienter.persona" default="Persona" /></label>
 		                                </td>
