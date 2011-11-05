@@ -22,7 +22,7 @@
 		</ul>
 		</li>
 		<li><ul> </ul></li>
-		<li><a id=<g:currentMenu title="calendario"/> href="${createLink(uri: '/calendario/show/1')}" target="_self" ><img src="${createLinkTo(dir: 'images/', file: 'calendario2.gif')}" alt="Grails"/></a>
+		<li><a id=<g:currentMenu title="calendario"/> href="${createLink(uri: '/calendario/show')}" target="_self" ><img src="${createLinkTo(dir: 'images/', file: 'calendario2.gif')}" alt="Grails"/></a>
 		<ul>
 			<li><a href="${createLink(uri: '/tarea/create?calendario.id=1')}" target="_self"><g:message code="default.tarea.label"/></a></li>
 		</ul></li>

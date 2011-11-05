@@ -7,7 +7,7 @@ import java.util.Date
 import grails.plugins.springsecurity.Secured
 
 class CalendarioController {
-
+	def springSecurityService
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def index = {
@@ -38,7 +38,8 @@ class CalendarioController {
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def show = {
 		if (params.id != "events"){
-	        def calendarioInstance = Calendario.get(params.id)
+			def user = SecUser.get(springSecurityService.principal.id)
+	        def calendarioInstance = user.calendario
 	        if (!calendarioInstance) {
 	            flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'calendario.label', default: 'Calendario'), params.id])}"
 	            redirect(action: "list")
