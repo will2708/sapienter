@@ -37,8 +37,9 @@ class ProcesoController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
+		def userAut = null
 		if (params.usuariosAutorizados != null)
-			def userAut = params.usuariosAutorizados.id
+			userAut = params.usuariosAutorizados.id
 		def personaInstance = Persona.get(params.persona)
 		params.remove("persona") 
 		params.put("persona", personaInstance)
