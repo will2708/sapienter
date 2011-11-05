@@ -81,7 +81,7 @@ $(document).ready(function() {
                     <table class="tabla_edit">
                         <tbody>
                         	<tr><td><table>
-	                    	<g:hiddenField name="proceso" value="${gastoInstance?.proceso?.id}" />
+	                    	<g:hiddenField name="proceso" value="${movimientoInstance?.proceso?.id}" />
 	                        <tr class="prop">
 	                            <td valign="top" class="descripcion"><g:message code="sapienter.id" default="Id" /></td>
 	                            <td valign="top" class="value">${fieldValue(bean: movimientoInstance, field: "id")}</td>

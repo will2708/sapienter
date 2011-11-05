@@ -260,21 +260,11 @@ $.format = (function () {
 
 $(function() {
 	
-		$( "#fechaNacimiento" ).datepicker();
-		$( "#fechaDeInicioActividades" ).datepicker();
-
-		ver fechaAc = $("#fechaDeInicioActividades").val();
-		var fechaC  = $("#fechaNacimiento").val();
+		$( "#fecha" ).datepicker();
+		var fechaC = $("#fecha").val();
+		$( "#fecha" ).datepicker( "option", "dateFormat", 'dd-mm-yy' );			
 		
-		$( "#fechaNacimiento" ).datepicker( "option", "dateFormat", 'dd-mm-yy' );
-		$( "#fechaDeInicioActividadeso" ).datepicker( "option", "dateFormat", 'dd-mm-yy' );
-		
-	if ( fechaC != '') {
-		$("#fechaNacimiento").val($.format.date(fechaC, 'dd-MM-yyyy'));
-	}
-
-	if ( fechaAc != '') {
-		$("#fechaDeInicioActividadeso").val($.format.date(fechaAc, 'dd-MM-yyyy'));
-	}	
+	if ( fechaC != '') 
+		$("#fecha").val($.format.date(fechaC, 'dd-MM-yyyy'));
 	
 });
