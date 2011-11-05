@@ -76,7 +76,7 @@ $(document).ready(function() {
                     		<span><g:actionSubmit class="save" action="update" value="${message(code: 'sapienter.guardar', default: 'Update')}" /></span>
                     	</div>											
 					</div>                          
-                    <table class="tabla_edit">
+                    <table class="tabla_calendario">
                         <tbody>
                         <tr>
                         	<td>
@@ -135,7 +135,7 @@ $(document).ready(function() {
                                 <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'contenidoDocumento', 'errors')}">
                                    <fckeditor:editor 
                                     	name="contenidoDocumento"
-                                    	width="200%"
+                                    	width="700px"
 		                                heigh="200%"
 		                                toolbar="Sapienter"
                                     	body="disabled"

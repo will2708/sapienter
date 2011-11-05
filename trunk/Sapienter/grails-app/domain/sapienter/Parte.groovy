@@ -12,6 +12,8 @@ class Parte {
 		tipo()
 		persona(nullable:true)
     }
-	
+	String toString(){
+		tipo
+	}
 	static belongsTo = [proceso:Proceso]
 }

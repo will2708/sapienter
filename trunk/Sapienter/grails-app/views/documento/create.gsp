@@ -36,7 +36,7 @@
 							<modalbox:createLink controller="modeloDeDocumento" action="listar"  id="${documentoInstance?.proceso?.id}" title="Modelos de Documentos" width="600">Modelos de documento</modalbox:createLink>
 						</div>
 					</div>
-                    <table class="tabla_edit">
+                    <table class="tabla_calendario">
                         <tbody>
                         <tr>
                         	<td>
@@ -45,8 +45,7 @@
                             <tr class="prop">
                                 <td valign="top" class="descripcion">
                                     <label for="proceso"><g:message code="proceso.proceso" default="Proceso" /></label></td>
-                                	<td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'proceso', 'errors')}">
-                                    		${documentoInstance?.proceso}</td>
+                                	<td valign="top" class="value"><g:link controller="proceso" action="show" id="${documentoInstance?.proceso?.id}">${documentoInstance?.proceso?.encodeAsHTML()}</g:link></td> 
 <!--                                  <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'proceso', 'errors')}">
                                     <g:select name="proceso.id" from="${sapienter.Proceso.list()}" optionKey="id" value="${documentoInstance?.proceso?.id}"  /></td>-->
                             </tr>
@@ -88,7 +87,7 @@
                                 <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'contenidoDocumento', 'errors')}">
                                     <fckeditor:editor 
                                     	name="contenidoDocumento"
-                                    	width="200%"
+                                    	width="700px"
                                     	heigh="200%"
 		                                toolbar="Sapienter"
                                     	body="disabled"
