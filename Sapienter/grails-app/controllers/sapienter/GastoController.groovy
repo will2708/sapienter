@@ -51,6 +51,11 @@ class GastoController {
         else {
             render(view: "create", model: [gastoInstance: gastoInstance])
         }
+		
+		def files = []  
+			params.factura.each {  
+			files.add(it.value)  
+ }  
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def show = {
@@ -126,4 +131,5 @@ class GastoController {
 
         }
     }
+
 }

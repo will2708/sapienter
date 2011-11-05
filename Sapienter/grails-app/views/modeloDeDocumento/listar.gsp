@@ -15,6 +15,12 @@
         	<h2>Haga click sobre el modelo que desea utilizar<br></h2>
             <g:hiddenField name="proceso" value="${proceso}"/>
             <div class="list">
+<!--             	<g:form>
+		       		<div class="buttonNewObjects">
+						<g:textField class="find_text" name="q" value="${params.q}" />
+						<g:submitButton class="find" name="listar" value="Buscar" />
+					</div>		
+			   	</g:form>-->
                 <table class="tabla_popup">
                     <thead>
                         <tr>
