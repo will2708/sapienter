@@ -37,6 +37,8 @@ class ProcesoController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
+		
+		def userAut = params.usuariosAutorizados.id
 		def personaInstance = Persona.get(params.persona)
 		params.remove("persona") 
 		params.put("persona", personaInstance)
@@ -47,6 +49,11 @@ class ProcesoController {
 		def procesoInstance = new Proceso(params)
 		def user = SecUser.get(springSecurityService.principal.id)
 		procesoInstance.ultimoModificador = user
+		
+		for (int i = 0; i < userAut.size(); i++) {
+			procesoInstance.usuariosAutorizados.add(userAut[i])
+		}
+		
         if (procesoInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'proceso.label', default: 'Proceso'), procesoInstance.id])}"
             redirect(action: "show", id: procesoInstance.id)
