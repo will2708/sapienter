@@ -214,12 +214,12 @@ class BootStrap {
 			estudio: (Estudio.getAll().get(0)),
 			comentarios:'Usuario Senior',
 			telefono:'4435-4242',
-			rol:srRole,
+			rol:jrRole,
 			correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
 			enabled: true).save(failOnError: true)
  
-		if (!adminUser.authorities.contains(srRole)) {
-			SecUserSecRole.create adminUser, srRole
+		if (!adminUser.authorities.contains(jrRole)) {
+			SecUserSecRole.create mailUser, jrRole
 		}
 		
 		
