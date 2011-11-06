@@ -99,7 +99,7 @@ $(document).ready(function() {
                         </tr>
                             <tr class="prop">
 	                            <td valign="top" class="name"><g:message code="movimiento.tareaAsociada" default="Movimiento" /></td>
-	                            <td><g:link controller="movimiento" action="show" id="${movimiento.tareaAsociada.id}">${fieldValue(bean: movimiento, field: "tareaAsociada")}</g:link></td>
+	                            <td><g:link controller="movimiento" action="show" id="${movimiento?.tareaAsociada?.id}">${fieldValue(bean: movimiento, field: "tareaAsociada")}</g:link></td>
                         	</tr>    
                     </tbody>
                 </table>
