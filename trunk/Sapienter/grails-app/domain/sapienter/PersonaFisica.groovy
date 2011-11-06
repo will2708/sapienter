@@ -38,7 +38,7 @@ class PersonaFisica extends Persona{
 		observaciones (maxsize:1000, nullable:true)
 		pais (nullable:false, blank:false)
 		dni(blank:false , maxLength:8 , minLength:8, matches:"[0-9]+((([0-9])+)*)", unique:true)
-		fechaNacimiento()
+		fechaNacimiento(validator:{return(it < new Date())})
 		estadoCivil (inList:["Soltero","Casado","Viudo","Divorciado"])
 		padre (matches:"[A-ZÑÁÉÍÓÚa-zñáéíóú]+(([ '-][A-ZÑÁÉÍÓÚa-zñáéíóú]+)*)")
 		madre (matches:"[A-ZÑÁÉÍÓÚa-zñáéíóú]+(([ '-][A-ZÑÁÉÍÓÚa-zñáéíóú]+)*)")
