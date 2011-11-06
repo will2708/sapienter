@@ -47,6 +47,23 @@ class PersonaJuridicaController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def update = {
+		String fechaDeInicioActividades = params.fechaDeInicioActividades
+		params.remove("fechaDeInicioActividades")
+
+		if (fechaDeInicioActividades != null &&
+			fechaDeInicioActividades != "" ){
+			int anio = Integer.parseInt(fechaDeInicioActividades.substring(6,10))
+			int mes = Integer.parseInt(fechaDeInicioActividades.substring(3,5))
+			int dia = Integer.parseInt(fechaDeInicioActividades.substring(0,2))
+			int hora = 9
+			int minutos = 00
+
+			mes = mes - 1
+			
+			Calendar calendar = new GregorianCalendar(anio,mes,dia,hora,minutos)
+			params.put("fechaDeInicioActividades", calendar.getTime())
+		}
+		
         def personaJuridicaInstance = PersonaJuridica.get(params.id)
         if (personaJuridicaInstance) {
             if (params.version) {

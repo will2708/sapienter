@@ -69,7 +69,7 @@ $(document).ready(function() {
 			</div>
 		</g:form>		
         <div class="body">
-        	<script src="${resource(dir:'js',file:'persona.js')}"></script>
+        	<script src="${resource(dir:'js',file:'personaFisica.js')}"></script>
             <!--<h1><g:message code="default.edit.label" args="[entityName]" /></h1>-->
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
