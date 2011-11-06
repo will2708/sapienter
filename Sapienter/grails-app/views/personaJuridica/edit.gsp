@@ -66,7 +66,7 @@ $(document).ready(function() {
         </g:form>
         </div>
         <div class="body">
-        	<script src="${resource(dir:'js',file:'persona.js')}"></script>
+        	<script src="${resource(dir:'js',file:'personaJuridica.js')}"></script>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>

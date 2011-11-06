@@ -261,20 +261,13 @@ $.format = (function () {
 $(function() {
 	
 		$( "#fechaNacimiento" ).datepicker();
-		$( "#fechaDeInicioActividades" ).datepicker();
 
-		var fechaAc = $("#fechaDeInicioActividades").val();
 		var fechaC  = $("#fechaNacimiento").val();
 		
 		$( "#fechaNacimiento" ).datepicker( "option", "dateFormat", 'dd-mm-yy' );
-		$( "#fechaDeInicioActividadeso" ).datepicker( "option", "dateFormat", 'dd-mm-yy' );
 		
 	if ( fechaC != '') {
 		$("#fechaNacimiento").val($.format.date(fechaC, 'dd-MM-yyyy'));
 	}
-
-	if ( fechaAc != '') {
-		$("#fechaDeInicioActividadeso").val($.format.date(fechaAc, 'dd-MM-yyyy'));
-	}	
 	
 });
