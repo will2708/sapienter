@@ -3,7 +3,7 @@ package sapienter
 import grails.plugins.springsecurity.Secured
 
 class GastoController {
-
+	def springSecurityService
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def index = {
@@ -16,12 +16,40 @@ class GastoController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {
-        def gastoInstance = new Gasto()
+		def proceso = Proceso.get(params.proceso.id)
+		def user = SecUser.get(springSecurityService.principal.id)
+		def srRole = SecRole.findByAuthority('ROLE_SENIOR')
+		if (user.rol != srRole) {
+			if (proceso.usuariosAutorizados != null) {
+				if (proceso.usuariosAutorizados.contains(user)){
+				}
+				else {
+					flash.message = "${message(code: 'default.not.authorized.message')}"
+					redirect(controller:"proceso", action: "list")
+					return
+				}
+			}
+		}
+		def gastoInstance = new Gasto()
         gastoInstance.properties = params
         return [gastoInstance: gastoInstance]
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
+		def proceso = Proceso.get(params.proceso.id)
+		def user = SecUser.get(springSecurityService.principal.id)
+		def srRole = SecRole.findByAuthority('ROLE_SENIOR')
+		if (user.rol != srRole) {
+			if (proceso.usuariosAutorizados != null) {
+				if (proceso.usuariosAutorizados.contains(user)){
+				}
+				else {
+					flash.message = "${message(code: 'default.not.authorized.message')}"
+					redirect(controller:"proceso", action: "list")
+					return
+				}
+			}
+		}
 		String fecha = params.fecha
 		params.remove("fecha")
 		if (fecha != null &&
@@ -39,7 +67,8 @@ class GastoController {
 		}
 
 		
-		def proceso = params.proceso
+		
+
 		params.remove("proceso")
 		
         def gastoInstance = new Gasto(params)
@@ -119,6 +148,7 @@ class GastoController {
                 def parametros = new HashMap()
 				parametros.put("id", gastoInstance.proceso.id)
 				redirect(controller:"proceso", action:"show", params:parametros)
+				return
             }
             catch (org.springframework.dao.DataIntegrityViolationException e) {
                 flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'gasto.label', default: 'Gasto'), params.id])}"

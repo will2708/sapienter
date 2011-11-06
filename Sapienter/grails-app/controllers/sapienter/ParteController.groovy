@@ -3,7 +3,7 @@ package sapienter
 import grails.plugins.springsecurity.Secured
 
 class ParteController {
-
+	def springSecurityService
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def index = {
@@ -16,12 +16,42 @@ class ParteController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {
+		def proceso1 = Proceso.get(params.proceso.id)
+		def user = SecUser.get(springSecurityService.principal.id)
+		def srRole = SecRole.findByAuthority('ROLE_SENIOR')
+		if (user.rol != srRole) {
+			if (proceso1.usuariosAutorizados != null) {
+				if (proceso1.usuariosAutorizados.contains(user)){
+				}
+				else {
+					flash.message = "${message(code: 'default.not.authorized.message')}"
+					redirect(controller:"proceso", action: "list")
+					return
+				}
+			}
+		}
+
         def parteInstance = new Parte()
         parteInstance.properties = params
         return [parteInstance: parteInstance]
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
+		def proceso1 = Proceso.get(params.proceso.id)
+		def user = SecUser.get(springSecurityService.principal.id)
+		def srRole = SecRole.findByAuthority('ROLE_SENIOR')
+		if (user.rol != srRole) {
+			if (proceso1.usuariosAutorizados != null) {
+				if (proceso1.usuariosAutorizados.contains(user)){
+				}
+				else {
+					flash.message = "${message(code: 'default.not.authorized.message')}"
+					redirect(controller:"proceso", action: "list")
+					return
+				}
+			}
+		}
+
 		def proceso =params.proceso
 		params.remove("proceso")
         def parteInstance = new Parte(params)
@@ -47,6 +77,21 @@ class ParteController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def edit = {
+		def proceso1 = Proceso.get(params.proceso.id)
+		def user = SecUser.get(springSecurityService.principal.id)
+		def srRole = SecRole.findByAuthority('ROLE_SENIOR')
+		if (user.rol != srRole) {
+			if (proceso1.usuariosAutorizados != null) {
+				if (proceso1.usuariosAutorizados.contains(user)){
+				}
+				else {
+					flash.message = "${message(code: 'default.not.authorized.message')}"
+					redirect(controller:"proceso", action: "list")
+					return
+				}
+			}
+		}
+
         def parteInstance = Parte.get(params.id)
         if (!parteInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'parte.label', default: 'Parte'), params.id])}"

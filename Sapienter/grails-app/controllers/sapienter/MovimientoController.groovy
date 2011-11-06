@@ -3,7 +3,7 @@ package sapienter
 import grails.plugins.springsecurity.Secured
 
 class MovimientoController {
-
+	def springSecurityService
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def index = {
@@ -16,12 +16,42 @@ class MovimientoController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def create = {
+		def proceso1 = Proceso.get(params.proceso.id)
+		def user = SecUser.get(springSecurityService.principal.id)
+		def srRole = SecRole.findByAuthority('ROLE_SENIOR')
+		if (user.rol != srRole) {
+			if (proceso1.usuariosAutorizados != null) {
+				if (proceso1.usuariosAutorizados.contains(user)){
+				}
+				else {
+					flash.message = "${message(code: 'default.not.authorized.message')}"
+					redirect(controller:"proceso", action: "list")
+					return
+				}
+			}
+		}
+
         def movimientoInstance = new Movimiento()
         movimientoInstance.properties = params
         return [movimientoInstance: movimientoInstance]
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
+		def proceso1 = Proceso1.get(params.proceso.id)
+		def user = SecUser.get(springSecurityService.principal.id)
+		def srRole = SecRole.findByAuthority('ROLE_SENIOR')
+		if (user.rol != srRole) {
+			if (proceso.usuariosAutorizados != null) {
+				if (proceso.usuariosAutorizados.contains(user)){
+				}
+				else {
+					flash.message = "${message(code: 'default.not.authorized.message')}"
+					redirect(controller:"proceso", action: "list")
+					return
+				}
+			}
+		}
+
 		String fechaInicial = params.fechaDeCreacion
 		String fechaFinal   = params.fechaDeVencimiento
 		params.remove("fechaDeCreacion")
