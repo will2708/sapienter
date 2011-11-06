@@ -50,6 +50,8 @@ class TareaController {
         }
         else {
 			def movimiento = Movimiento.findByTareaAsociada(tareaInstance)
+			if (movimiento == null)
+				movimiento = new Movimiento()
             [tareaInstance: tareaInstance, movimiento:movimiento]
         }
     }
