@@ -1,7 +1,13 @@
 package sapienter
+
+import ar.com.fdvs.dj.core.layout.HorizontalBandAlignment
+import ar.com.fdvs.dj.domain.AutoText
 //TODO: bajar plugin de monedas, generar archivo con tipos de estado
 class Gasto {
-	def static reportable = [:]
+	def static reportable = [
+		columns: ['concepto', 'estado', 'fecha', 'monto', 'moneda'],
+		columnTitles: ['concepto': 'Concepto', 'estado': 'Estado', 'fecha': 'Fecha', 'monto':'Monto', 'moneda': 'Moneda'],
+		autoTexts: [new AutoText(AutoText.AUTOTEXT_PAGE_X_OF_Y, AutoText.POSITION_FOOTER, HorizontalBandAlignment.buildAligment(AutoText.ALIGMENT_CENTER), (byte)0, 200, 200)]]
 			String concepto
 			String estado
 			byte[] factura

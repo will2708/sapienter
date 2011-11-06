@@ -5,8 +5,8 @@ import ar.com.fdvs.dj.domain.AutoText
 
 class Usuario extends SecUser {
 	def static reportable = [
-            columns: ['userName', 'nombre', 'apellido', 'comentarios', 'telefono'],
-            columnTitles: ['userName': 'ID Usuario', 'nombre': 'Nombre', 'apellido': 'Apellido', 'comentarios':'Comentarios','telefono': 'Telefono'],
+            columns: ['username', 'nombre', 'apellido', 'comentarios', 'telefono'],
+            columnTitles: ['username': 'ID Usuario', 'nombre': 'Nombre', 'apellido': 'Apellido', 'comentarios':'Comentarios','telefono': 'Telefono'],
             autoTexts: [new AutoText(AutoText.AUTOTEXT_PAGE_X_OF_Y, AutoText.POSITION_FOOTER, HorizontalBandAlignment.buildAligment(AutoText.ALIGMENT_CENTER), (byte)0, 200, 200)]
     ]
 	static searchable = true
