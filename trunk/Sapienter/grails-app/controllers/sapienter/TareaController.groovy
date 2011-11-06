@@ -49,7 +49,8 @@ class TareaController {
             redirect(action: "list")
         }
         else {
-            [tareaInstance: tareaInstance]
+			def movimiento = Movimiento.findByTareaAsociada(tareaInstance)
+            [tareaInstance: tareaInstance, movimiento:movimiento]
         }
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
