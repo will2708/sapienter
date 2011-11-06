@@ -21,7 +21,6 @@ class Proceso {
 	Usuario responsable
 	Subcategoria subCategoria
 	Usuario ultimoModificador
-	Set<Usuario> usuariosAutorizados
 	
 	String toString(){
 		caratula
@@ -47,5 +46,6 @@ class Proceso {
 		              gastos:Gasto,
 					  movimientos:Movimiento,
 					  partes:Parte,
-					  procesosRelacionados:Proceso]
+					  procesosRelacionados:Proceso,
+					  usuariosAutorizados:Usuario]
 }

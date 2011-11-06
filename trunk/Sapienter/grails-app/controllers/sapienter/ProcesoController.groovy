@@ -40,6 +40,8 @@ class ProcesoController {
 		def userAut = null
 		if (params.usuariosAutorizados != null)
 			userAut = params.usuariosAutorizados.id
+			
+		params.remove("usuariosAutorizados")
 		def personaInstance = Persona.get(params.persona)
 		params.remove("persona") 
 		params.put("persona", personaInstance)
@@ -53,11 +55,13 @@ class ProcesoController {
 		
 		if (userAut != null)
 			for (int i = 0; i < userAut.size(); i++) {
-				procesoInstance.usuariosAutorizados.add(userAut[i])
+				Integer idAux = new Integer(userAut[i])
+				def userAux = Usuario.get(idAux)
+				procesoInstance.usuariosAutorizados.add(userAux)
 			}
 		
         if (procesoInstance.save(flush: true)) {
-            flash.message = "${message(code: 'default.created.message', args: [message(code: 'proceso.label', default: 'Proceso'), procesoInstance.id])}"
+			flash.message = "${message(code: 'default.created.message', args: [message(code: 'proceso.label', default: 'Proceso'), procesoInstance.id])}"
             redirect(action: "show", id: procesoInstance.id)
         }
         else {
@@ -67,7 +71,7 @@ class ProcesoController {
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def show = {
         def procesoInstance = Proceso.get(params.id)
-        if (!procesoInstance) {
+		if (!procesoInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'proceso.label', default: 'Proceso'), params.id])}"
             redirect(action: "list")
         }
