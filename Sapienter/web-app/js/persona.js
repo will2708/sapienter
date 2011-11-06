@@ -267,14 +267,14 @@ $(function() {
 		var fechaC  = $("#fechaNacimiento").val();
 		
 		$( "#fechaNacimiento" ).datepicker( "option", "dateFormat", 'dd-mm-yy' );
-		$( "#fechaDeInicioActividadeso" ).datepicker( "option", "dateFormat", 'dd-mm-yy' );
+		$( "#fechaDeInicioActividades" ).datepicker( "option", "dateFormat", 'dd-mm-yy' );
 		
 	if ( fechaC != '') {
 		$("#fechaNacimiento").val($.format.date(fechaC, 'dd-MM-yyyy'));
 	}
 
 	if ( fechaAc != '') {
-		$("#fechaDeInicioActividadeso").val($.format.date(fechaAc, 'dd-MM-yyyy'));
+		$("#fechaDeInicioActividades").val($.format.date(fechaAc, 'dd-MM-yyyy'));
 	}	
 	
 });
