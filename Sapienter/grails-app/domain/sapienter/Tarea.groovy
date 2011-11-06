@@ -13,7 +13,7 @@ class Tarea {
 		fechaInicio(blank:false)
 		fechaFin(blank:false,
 			validator: { val, obj ->
-						return ! val.after(obj.fechaInicio)
+						return val.after(obj.fechaInicio)
         })
 
 		observacion(blank:false)

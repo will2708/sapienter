@@ -76,6 +76,8 @@ class MovimientoController {
 									  calendario:calendario,
 									  observacion: movimientoInstance.getProperty("descripcion"))
 				tarea.save()
+				movimientoInstance.tareaAsociada = tarea
+				movimientoInstance.save()
 				if (tarea.hasErrors()) {
 					println tarea.errors
 				}
@@ -134,7 +136,7 @@ class MovimientoController {
 			int mes = Integer.parseInt(fechaFinal.substring(3,5))
 			int dia = Integer.parseInt(fechaFinal.substring(0,2))
 			int hora = 9
-			int minutos = 00
+			int minutos = 15
 			
 			mes = mes - 1
 			
@@ -159,7 +161,12 @@ class MovimientoController {
             }
             movimientoInstance.properties = params
             if (!movimientoInstance.hasErrors() && movimientoInstance.save(flush: true)) {
-                flash.message = "${message(code: 'default.updated.message', args: [message(code: 'movimiento.label', default: 'Movimiento'), movimientoInstance.id])}"
+				if (movimientoInstance.tareaAsociada != null){
+					movimientoInstance.tareaAsociada.fechaFin = movimientoInstance.fechaDeVencimiento 
+					movimientoInstance.tareaAsociada.fechaInicio = movimientoInstance.fechaDeCreacion
+					movimientoInstance.tareaAsociada.save()
+				}
+				flash.message = "${message(code: 'default.updated.message', args: [message(code: 'movimiento.label', default: 'Movimiento'), movimientoInstance.id])}"
                 redirect(action: "show", id: movimientoInstance.id)
             }
             else {
@@ -174,11 +181,14 @@ class MovimientoController {
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def delete = {
         def movimientoInstance = Movimiento.get(params.id)
-        if (movimientoInstance) {
+		def tarea = movimientoInstance.tareaAsociada
+		if (movimientoInstance) {
             try {
                 movimientoInstance.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'movimiento.label', default: 'Movimiento'), params.id])}"
                 def parametros = new HashMap()
+				if (tarea != null) 
+					tarea.delete(flush: true)
 				parametros.put("id", movimientoInstance.proceso.id)
 				redirect(controller:"proceso", action:"show", params:parametros)
             }

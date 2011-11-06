@@ -8,6 +8,7 @@ class Movimiento {
 	Date fechaDeVencimiento
 	Date fechaDeCreacion
 	String tipoDeMovimiento
+	Tarea tareaAsociada
 
     static constraints = {
 		descripcion(blank:false)
@@ -19,6 +20,7 @@ class Movimiento {
 		fechaDeVencimiento(nullable:true, 
    						   validator:{return(it > new Date())}
 						 )
+		tareaAsociada(nullable:true,blank:true)
 	}
 	
 	String toString(){
