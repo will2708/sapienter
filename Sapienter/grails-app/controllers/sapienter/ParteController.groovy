@@ -37,7 +37,7 @@ class ParteController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
-		def proceso1 = Proceso.get(params.proceso.id)
+		def proceso1 = params.proceso
 		def user = SecUser.get(springSecurityService.principal.id)
 		def srRole = SecRole.findByAuthority('ROLE_SENIOR')
 		if (user.rol != srRole) {
@@ -77,7 +77,7 @@ class ParteController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def edit = {
-		def proceso1 = Proceso.get(params.proceso.id)
+		def proceso1 = params.proceso
 		def user = SecUser.get(springSecurityService.principal.id)
 		def srRole = SecRole.findByAuthority('ROLE_SENIOR')
 		if (user.rol != srRole) {
