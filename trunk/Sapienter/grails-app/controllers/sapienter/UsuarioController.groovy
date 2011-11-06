@@ -56,7 +56,7 @@ class UsuarioController {
 			render(view: "create", model: [usuarioInstance: usuarioInstance])
 		}
 	}
-	@Secured(['IS_AUTHENTICATED_FULLY'])
+	@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])
 	def show = {
 		def usuarioInstance = Usuario.get(params.id)
 		if (!usuarioInstance) {
@@ -67,7 +67,7 @@ class UsuarioController {
 			[usuarioInstance: usuarioInstance]
 		}
 	}
-	@Secured(['IS_AUTHENTICATED_FULLY'])
+	@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])
 	def edit = {
 		def usuarioInstance = Usuario.get(params.id)
 		if (!usuarioInstance) {

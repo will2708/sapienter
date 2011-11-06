@@ -1,4 +1,4 @@
-#Mon Oct 24 14:32:47 ART 2011
+#Sat Nov 05 14:10:03 ART 2011
 eclipse.preferences.version=1
 encoding//.link_to_grails_plugins/activiti-5.7/grails-app/i18n/messages.properties=UTF-8
 encoding//.link_to_grails_plugins/activiti-spring-security-0.4.4/grails-app/i18n/messages.properties=UTF-8
@@ -10,7 +10,6 @@ encoding//.link_to_grails_plugins/countries-0.2/grails-app/i18n/countries_es.pro
 encoding//.link_to_grails_plugins/countries-0.2/grails-app/i18n/countries_fr.properties=UTF-8
 encoding//.link_to_grails_plugins/countries-0.2/grails-app/i18n/countries_it.properties=UTF-8
 encoding//.link_to_grails_plugins/countries-0.2/grails-app/i18n/countries_pt_BR.properties=UTF-8
-encoding//.link_to_grails_plugins/dynamic-jasper-0.6/grails-app/i18n/messages.properties=UTF-8
 encoding//.link_to_grails_plugins/fckeditor-0.9.5/grails-app/i18n/messages.properties=UTF-8
 encoding//.link_to_grails_plugins/full-calendar-1.5.0.1/grails-app/i18n/messages.properties=UTF-8
 encoding//.link_to_grails_plugins/jquery-1.6.1.1/grails-app/i18n/messages.properties=UTF-8

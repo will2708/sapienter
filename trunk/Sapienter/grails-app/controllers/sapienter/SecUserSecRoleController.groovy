@@ -5,22 +5,22 @@ import grails.plugins.springsecurity.Secured
 class SecUserSecRoleController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-	@Secured(['IS_AUTHENTICATED_FULLY'])
+		@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])
     def index = {
         redirect(action: "list", params: params)
     }
-	@Secured(['IS_AUTHENTICATED_FULLY'])
+		@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [secUserSecRoleInstanceList: SecUserSecRole.list(params), secUserSecRoleInstanceTotal: SecUserSecRole.count()]
     }
-	@Secured(['IS_AUTHENTICATED_FULLY'])
+		@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])
     def create = {
         def secUserSecRoleInstance = new SecUserSecRole()
         secUserSecRoleInstance.properties = params
         return [secUserSecRoleInstance: secUserSecRoleInstance]
     }
-	@Secured(['IS_AUTHENTICATED_FULLY'])
+		@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])
     def save = {
         def secUserSecRoleInstance = new SecUserSecRole(params)
         if (secUserSecRoleInstance.save(flush: true)) {
@@ -31,7 +31,7 @@ class SecUserSecRoleController {
             render(view: "create", model: [secUserSecRoleInstance: secUserSecRoleInstance])
         }
     }
-	@Secured(['IS_AUTHENTICATED_FULLY'])
+		@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])
     def show = {
         def secUserSecRoleInstance = SecUserSecRole.get(params.id)
         if (!secUserSecRoleInstance) {

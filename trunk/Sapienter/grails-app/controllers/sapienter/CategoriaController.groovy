@@ -6,22 +6,22 @@ import grails.plugins.springsecurity.Secured
 class CategoriaController {
 
 	static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-	@Secured(['IS_AUTHENTICATED_FULLY'])
+		@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])
 	def index = {
 		redirect(action: "list", params: params)
 	}
-	@Secured(['IS_AUTHENTICATED_FULLY'])
+		@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])
 	def list = {
 		params.max = Math.min(params.max ? params.int('max') : 10, 100)
 		[categoriaInstanceList: Categoria.list(params), categoriaInstanceTotal: Categoria.count()]
 	}
-	@Secured(['IS_AUTHENTICATED_FULLY'])
+	@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])
 	def create = {
 		def categoriaInstance = new Categoria()
 		categoriaInstance.properties = params
 		return [categoriaInstance: categoriaInstance]
 	}
-	@Secured(['IS_AUTHENTICATED_FULLY'])
+		@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])
 	def save = {
 		def categoriaInstance = new Categoria(params)
 		if (categoriaInstance.save(flush: true)) {
@@ -32,7 +32,7 @@ class CategoriaController {
 			render(view: "create", model: [categoriaInstance: categoriaInstance])
 		}
 	}
-	@Secured(['IS_AUTHENTICATED_FULLY'])
+		@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])
 	def show = {
 		def categoriaInstance = Categoria.get(params.id)
 		if (!categoriaInstance) {
@@ -43,7 +43,7 @@ class CategoriaController {
 			[categoriaInstance: categoriaInstance]
 		}
 	}
-	@Secured(['IS_AUTHENTICATED_FULLY'])
+		@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])
 	def edit = {
 		def categoriaInstance = Categoria.get(params.id)
 		if (!categoriaInstance) {
@@ -54,7 +54,7 @@ class CategoriaController {
 			return [categoriaInstance: categoriaInstance]
 		}
 	}
-	@Secured(['IS_AUTHENTICATED_FULLY'])
+		@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])
 	def update = {
 		def categoriaInstance = Categoria.get(params.id)
 		if (categoriaInstance) {
@@ -83,7 +83,7 @@ class CategoriaController {
 			redirect(action: "list")
 		}
 	}
-	@Secured(['IS_AUTHENTICATED_FULLY'])
+		@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])
 	def delete = {
 		def categoriaInstance = Categoria.get(params.id)
 		if (categoriaInstance) {
