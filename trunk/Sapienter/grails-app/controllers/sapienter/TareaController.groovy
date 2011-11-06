@@ -93,10 +93,13 @@ class TareaController {
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def delete = {
         def tareaInstance = Tarea.get(params.id)
+		def movimiento = Movimiento.findByTareaAsociada(tareaInstance)
         if (tareaInstance) {
             try {
                 tareaInstance.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'tarea.label', default: 'Tarea'), params.id])}"
+				movimiento.tareaAsociada = null
+				movimiento.save()
 				def parametros = new HashMap()
 				parametros.put("id", tareaInstance.calendario.id)
 				redirect(controller:"calendario", action:"show", params:parametros)
