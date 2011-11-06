@@ -26,7 +26,10 @@ $(document).ready(function() {
     });
   });
  function success(){ 
- 	document.location.href='${createLink(controller:'gasto', action:'list')}'; 
+ 		var idProceso = $("#proceso").val();
+ 	var direccion = '${createLink(controller:'proceso', action:'show');}';
+ 	direccion = direccion + '/' + idProceso
+ 	document.location.href=direccion; 
  }; 
  function failure(){ 
 	document.location.reload(true); 
@@ -52,6 +55,7 @@ $(document).ready(function() {
     	<div>
            <g:form>
            <g:hiddenField name="id" value="${gastoInstance?.id}" />
+           <g:hiddenField name="proceso" value="${documentoInstance?.proceso?.id}" />
            		<div class="buttonForm">
                 	<span><g:actionSubmit class="delete" action="delete" value="${message(code: 'sapienter.borrar', default: 'Delete')}" onclick="confirmarBorrado();return false;" /></span>
                 </div>
