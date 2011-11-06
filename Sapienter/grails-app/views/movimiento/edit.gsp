@@ -144,6 +144,10 @@ $(document).ready(function() {
 									<g:textField class="textField" name="fechaDeVencimiento" value="${movimientoInstance?.fechaDeVencimiento}" default="none" noSelection="['': '']" />
                                 </td>
                             </tr>
+                            <tr class="prop">
+	                            <td valign="top" class="name"><g:message code="movimiento.tareaAsociada" default="Tarea" /></td>
+	                            <td><g:link controller="tarea" action="show" id="${movimientoInstance.tareaAsociada.id}">${fieldValue(bean: movimientoInstance, field: "tareaAsociada")}</g:link></td>
+                        	</tr>
                         	</table></td></tr>
                         	<tr><td><table>
                             <tr class="prop">

@@ -98,6 +98,10 @@ $(document).ready(function() {
                             <td valign="top" class="value"><g:formatDate date="${movimientoInstance?.fechaDeVencimiento}" /></td>
                         </tr>
                         <tr class="prop">
+                            <td valign="top" class="name"><g:message code="movimiento.tareaAsociada" default="Tarea" /></td>
+                            <td><g:link controller="tarea" action="show" id="${movimientoInstance.tareaAsociada.id}">${fieldValue(bean: movimientoInstance, field: "tareaAsociada")}</g:link></td>
+                        </tr>                        
+                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="movimiento.comentario.label" default="Comentario" /></td>
                             <td valign="top" class="value">${fieldValue(bean: movimientoInstance, field: "comentario")}</td>
                         </tr>                        
