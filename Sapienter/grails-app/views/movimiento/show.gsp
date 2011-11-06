@@ -26,7 +26,10 @@ $(document).ready(function() {
     });
   });
  function success(){ 
- 	document.location.href='${createLink(controller:'movimiento', action:'list')}'; 
+ 	var idProceso = $("#proceso").val();
+ 	var direccion = '${createLink(controller:'proceso', action:'show');}';
+ 	direccion = direccion + '/' + idProceso
+ 	document.location.href=direccion;  
  }; 
  function failure(){ 
 	document.location.reload(true); 
@@ -52,6 +55,7 @@ $(document).ready(function() {
 
            <g:form>
            <g:hiddenField name="id" value="${movimientoInstance?.id}" />
+           <g:hiddenField name="proceso" value="${documentoInstance?.proceso?.id}" />
            		<div class="buttonForm">
            			<span ><g:actionSubmit class="edit" action="edit" value="${message(code: 'sapienter.modificar', default: 'Edit')}" /></span>
            		</div>
