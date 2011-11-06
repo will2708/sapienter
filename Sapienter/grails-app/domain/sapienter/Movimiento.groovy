@@ -16,9 +16,11 @@ class Movimiento {
 		comentario(nullable:true)
 		fechaDeCreacion(blank:false)
 		diasDeValidez(range:1..365,nullable:true)
-		fechaDeVencimiento(nullable:true)
-
+		fechaDeVencimiento(nullable:true, 
+   						   validator:{return(it > new Date())}
+						 )
 	}
+	
 	String toString(){
 		descripcion
 	}
