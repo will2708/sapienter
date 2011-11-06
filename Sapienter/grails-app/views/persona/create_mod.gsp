@@ -230,8 +230,6 @@
 											<g:textField class="textField" name="conyuge"
 												value="${personaFisicaInstance?.conyuge}" />
 										</td>
-									</tr>
-									<tr class="prop">
 										<td valign="top" class="name"><label for="auxiliar"><g:message
 													code="persona.auxiliar" default="Auxiliar" />
 										</label>
