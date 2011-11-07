@@ -1,5 +1,5 @@
+
 <div class="menu">
-	
 	<ul>
 		<li><a id=<g:currentMenu title="inicio"/> href="${createLink(uri: '/')}" target="_self" ><g:message code="default.home.label"/></a></li>
 		<li><a id=<g:currentMenu title="persona"/> href="${createLink(uri: '/persona')}" target="_self" ><g:message code="default.persona.label"/></a></li>
@@ -21,12 +21,14 @@
 		</ul>
 		</li>
 		<li><ul> </ul></li>
-		<li><a id=<g:currentMenu title="calendario"/> href="${createLink(uri: '/calendario/show')}" target="_self" ><img src="${createLinkTo(dir: 'images/', file: 'calendario2.gif')}" alt="Grails"/></a>
+		<li><a id=<g:currentMenu title="calendario"/> href="${createLink(uri: '/calendario/show')}" target="_self" ><img src="${createLinkTo(dir: 'images/', file: 'calendario2.gif')}" alt="Calendario"/></a>
 		<ul>
 			<li><a href="${createLink(uri: '/tarea/create?calendario.id=1')}" target="_self"><g:message code="default.tarea.label"/></a></li>
 		</ul></li>
-</a></li>
+<!-- 		  		<li><a id=<icep:region group="notifyGroup" controller="mail" action="alert" /> href="http://www.gmail.com" target="_blank" ><img src="${createLinkTo(dir: 'images/', file: 'email_envelope.png')}" alt="Correo Electronico"/></a></li>  
+ <icep:region group="notifyGroup" controller="mail" action="alert" />
+            <a href="http://www.gmail.com" target="_blank">gmail</a>
+-->
+		<li><a id=noCurrent href="http://www.gmail.com" target="_blank" ><img src="${createLinkTo(dir: 'images/', file: 'email_envelope.png')}" alt="Correo Electronico"/></a></li>
 	</ul>	
-	</div>
-	
-	
+</div>
