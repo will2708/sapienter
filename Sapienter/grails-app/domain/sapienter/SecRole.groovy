@@ -1,15 +1,19 @@
 package sapienter
 
-class SecRole {
-
+class SecRole  implements org.activiti.engine.identity.Group  {
+	String id
+	String name
 	String authority
-
-	String toString(){
-		authority
+	String type
+	
+	static mapping = {
+		cache true
+		id generator: 'assigned'
 	}
-	static mapping = { cache true }
 
 	static constraints = {
 		authority blank: false, unique: true
+		name blank: false
+		type nullable: true
 	}
 }
