@@ -19,9 +19,18 @@ class MovimientoController {
 		def proceso1 = Proceso.get(params.proceso.id)
 		def user = SecUser.get(springSecurityService.principal.id)
 		def srRole = SecRole.findByAuthority('ROLE_SENIOR')
-		if (user.rol != srRole) {
+		def userAut = false
+		if (user.role != srRole) {
+			
 			if (proceso1.usuariosAutorizados != null) {
-				if (proceso1.usuariosAutorizados.contains(user)){
+				for (Iterator iterator = proceso1.usuariosAutorizados.iterator(); iterator
+						.hasNext();) {
+					SecUser users = (SecUser) iterator.next();
+					if (users.id == user.id)
+						userAut = true										
+				}
+				
+				if (userAut){
 				}
 				else {
 					flash.message = "${message(code: 'default.not.authorized.message')}"
@@ -37,12 +46,23 @@ class MovimientoController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
-		def proceso1 = params.proceso
+		def map = params
+		def test = params
+		def proceso1 = Proceso.get(params.proceso)
 		def user = SecUser.get(springSecurityService.principal.id)
 		def srRole = SecRole.findByAuthority('ROLE_SENIOR')
-		if (user.rol != srRole) {
-			if (proceso.usuariosAutorizados != null) {
-				if (proceso.usuariosAutorizados.contains(user)){
+		def userAut = false
+		if (user.role != srRole) {
+			
+			if (proceso1.usuariosAutorizados != null) {
+				for (Iterator iterator = proceso1.usuariosAutorizados.iterator(); iterator
+						.hasNext();) {
+					SecUser users = (SecUser) iterator.next();
+					if (users.id == user.id)
+						userAut = true										
+				}
+				
+				if (userAut){
 				}
 				else {
 					flash.message = "${message(code: 'default.not.authorized.message')}"
