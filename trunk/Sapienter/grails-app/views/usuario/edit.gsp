@@ -56,11 +56,6 @@ $(document).ready(function() {
         </div>
         <g:form>
         <g:hiddenField name="id" value="${usuarioInstance?.id}" />        
-	 	<div class="buttonForm"> 
-			<span><g:actionSubmit class="delete" action="delete" value="${message(code: 'sapienter.borrar', default: 'Delete')}"
-					 onclick="confirmarBorrado();return false;" />
-			</span>
-		</div>
 		</g:form>          
         </div>
         <div class="body">
