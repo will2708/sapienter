@@ -66,13 +66,15 @@ class GastoController {
 			params.put("fecha", calendar.getTime())
 		}
 
-		
-		
-
 		params.remove("proceso")
 		
+		def uploadedFile = request.getFile('factura')
+		
         def gastoInstance = new Gasto(params)
-		gastoInstance.proceso = Proceso.get(proceso)
+		gastoInstance.proceso = proceso
+		if (uploadedFile != null)
+			gastoInstance.facturaArchivo = uploadedFile.originalFilename
+		
         if (gastoInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'gasto.label', default: 'Gasto'), gastoInstance.id])}"
             redirect(action: "show", id: gastoInstance.id)
@@ -81,10 +83,6 @@ class GastoController {
             render(view: "create", model: [gastoInstance: gastoInstance])
         }
 		
-		def files = []  
-			params.factura.each {  
-			files.add(it.value)  
- }  
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def show = {
@@ -161,5 +159,15 @@ class GastoController {
 
         }
     }
-
+	def bajar = {
+		def gasto = Gasto.get(params.id)
+		def file = gasto.factura
+		def filename = gasto.facturaArchivo
+		if (file != null){ 
+			response.setContentType( "application-xdownload")
+			response.setHeader("Content-Disposition", "attachment;filename=${filename}")
+			response.getOutputStream() << new ByteArrayInputStream( file )
+		}else
+			redirect(action: "show", id: params.id)
+	}
 }
