@@ -183,14 +183,10 @@ class DocumentoController {
 		def proceso = Proceso.get(session["procesid"])
 		def user = SecUser.get(springSecurityService.principal.id)
 		def srRole = SecRole.findByAuthority('ROLE_SENIOR')
-<<<<<<< .mine
 		def userAut = false
-		if (user.role != srRole) {
-			
-=======
+		
 		def documentoInstance = Documento.get(params.id)
 		if (user.rol != srRole) {
->>>>>>> .r497
 			if (proceso.usuariosAutorizados != null) {
 				for (Iterator iterator = proceso.usuariosAutorizados.iterator(); iterator
 						.hasNext();) {
@@ -208,7 +204,7 @@ class DocumentoController {
 				}
 			}
 		}
-        def documentoInstance = Documento.get(params.id)
+        
         if (!documentoInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'documento.label', default: 'Documento'), params.id])}"
             redirect(action: "list")
@@ -261,14 +257,13 @@ class DocumentoController {
 		def proceso = Proceso.get(session["procesid"])
 		def user = SecUser.get(springSecurityService.principal.id)
 		def srRole = SecRole.findByAuthority('ROLE_SENIOR')
-<<<<<<< .mine
 		def userAut = false
-		if (user.role != srRole) {
+		
 			
-=======
+
 		def documentoInstance = Documento.get(params.id)
 		if (user.rol != srRole) {
->>>>>>> .r497
+
 			if (proceso.usuariosAutorizados != null) {
 				for (Iterator iterator = proceso.usuariosAutorizados.iterator(); iterator
 						.hasNext();) {
@@ -287,7 +282,7 @@ class DocumentoController {
 			}
 		}
 
-        def documentoInstance = Documento.get(params.id)
+        
         if (documentoInstance) {
             try {
                 documentoInstance.delete(flush: true)
