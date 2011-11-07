@@ -238,13 +238,19 @@ class BootStrap {
 				comentarios:'selalastramal',
 				telefono:'4354444',
 				role:juniorRol,
-				correoElectronico: 'lezana@gmail.com',
+				correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
 				email: 'lezana@gmail.com',
 				password: 'franco',
 				enabled: true).save(failOnError: true)
 		calendar.save()
+		
 		calendar =new Calendario()
-				
+		correoElec = new CorreoElectronico(
+			contrasenia: "Sapienter01!",
+			direccion: "sapienterTest2@gmail.com", //replace with %40 for imap
+			smtpUrl: "smtp.gmail.com",
+			imapUrl: "imap.gmail.com:993/inbox")
+		correoElec.save()
 		def admin = Usuario.findByUsername('admin') ?: new Usuario(
 				username: 'admin',
 				nombre: 'Matías',
@@ -261,11 +267,17 @@ class BootStrap {
 				password: 'admin',
 				enabled: true).save(failOnError: true)
 		calendar.save()
+		
 		calendar =new Calendario()
-
+		correoElec = new CorreoElectronico(
+			contrasenia: "Sapienter01!",
+			direccion: "sapienterTest2@gmail.com", //replace with %40 for imap
+			smtpUrl: "smtp.gmail.com",
+			imapUrl: "imap.gmail.com:993/inbox")
+		correoElec.save()
 		def ssr = Usuario.findByUsername('ssr') ?: new Usuario(
 				username: 'ssr',
-				correoElectronico: 'matias.toth@gmail.com',
+				correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
 				email: 'matias.toth@gmail.com',
 				nombre: 'Peter',
 				firstName: 'Stanislavsky',
@@ -279,7 +291,6 @@ class BootStrap {
 				password: 'ssr',
 				enabled: true).save(failOnError: true)
 		calendar.save()
-		calendar =new Calendario()
 				
 		if (!juniorUser.authorities.contains(juniorRol)) {
 			SecUserSecRole.create juniorUser, juniorRol
