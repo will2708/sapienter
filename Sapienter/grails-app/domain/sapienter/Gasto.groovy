@@ -10,6 +10,7 @@ class Gasto {
 		autoTexts: [new AutoText(AutoText.AUTOTEXT_PAGE_X_OF_Y, AutoText.POSITION_FOOTER, HorizontalBandAlignment.buildAligment(AutoText.ALIGMENT_CENTER), (byte)0, 200, 200)]]
 			String concepto
 			String estado
+			String facturaArchivo
 			byte[] factura
 			Date fecha
 			String moneda
@@ -21,7 +22,8 @@ class Gasto {
 		fecha(blank:false)
 		moneda(inList:['Pesos','Dolares','Euros'],blank:false)
 		monto(blank:false)
-		factura()
+		facturaArchivo(blank:true)
+		factura(nullable:true)
     }
 	
 	String toString(){

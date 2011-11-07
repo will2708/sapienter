@@ -86,6 +86,7 @@
                                     <label for="factura"><g:message code="gasto.factura" default="Factura" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: gastoInstance, field: 'factura', 'errors')}">
+
                                     <input  class="buttonIntoTable" type="file" id="factura" name="factura" />
                                 </td>
                             </tr>                        
