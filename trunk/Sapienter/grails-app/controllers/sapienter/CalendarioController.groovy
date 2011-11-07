@@ -150,4 +150,8 @@ class CalendarioController {
 		
 		return cal.getTime();
 	}
+    def login = {
+		redirect(controller:"calendario" ,action:"show")
+		
+		}
 }
