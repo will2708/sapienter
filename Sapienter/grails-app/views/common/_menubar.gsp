@@ -25,10 +25,6 @@
 		<ul>
 			<li><a href="${createLink(uri: '/tarea/create?calendario.id=1')}" target="_self"><g:message code="default.tarea.label"/></a></li>
 		</ul></li>
-<!-- 		  		<li><a id=<icep:region group="notifyGroup" controller="mail" action="alert" /> href="http://www.gmail.com" target="_blank" ><img src="${createLinkTo(dir: 'images/', file: 'email_envelope.png')}" alt="Correo Electronico"/></a></li>  
- <icep:region group="notifyGroup" controller="mail" action="alert" />
-            <a href="http://www.gmail.com" target="_blank">gmail</a>
--->
-		<li><a id=noCurrent href="http://www.gmail.com" target="_blank" ><img class="image" src="${createLinkTo(dir: 'images/', file: 'email13.png')}" alt="Correo Electronico"/></a></li>
+		<li><a id=noCurrent href="http://www.gmail.com" target="_blank" ><icep:region group="notifyGroup" controller="util" action="alert" /></a></li>
 	</ul>	
 </div>

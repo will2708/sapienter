@@ -73,20 +73,18 @@ class MailController {
 		}
 	}
 	
-	def alert = {
-		def mailStatus = ApplicationHolder.application.mainContext.getBean("mailStatus")
-		if( (mailStatus == null) || mailStatus?.status == null)
-			mailStatus.status="noCurrent"
-		render mailStatus.status // Just renders the User count and we are done !!!
-	}
+	
 	
 	def statusChange = {
+		
 		def mailStatus = ApplicationHolder.application.mainContext.getBean("mailStatus")
 		if( mailStatus.status == "current" )
 			mailStatus.status="noCurrent"
 		else
 			mailStatus.status="current"
 		
+//		new Categoria(nombreCategoria:"Extra-Judicial").save(flush:true)
+//		render "Cambiado a "+"${Categoria.count()}"+mailStatus.status
 		render "Cambiado a "+mailStatus.status
 	}
 	
