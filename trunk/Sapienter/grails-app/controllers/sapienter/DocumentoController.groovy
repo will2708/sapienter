@@ -107,7 +107,7 @@ class DocumentoController {
 				saveTask(params)
 			}
 			
-            redirect(action: "show", id: documentoInstance.id)
+            redirect(action: "show", id: documentoInstance.id,params : params)
         }
         else {
             render(view: "create", model: [documentoInstance: documentoInstance,myTasksCount: assignedTasksCount])
@@ -145,10 +145,12 @@ class DocumentoController {
 					 return
 				 }
 			 }
-			 documentoInstance.properties = params
-			 def map = params
 			 params.remove("usuarioResponsable")
 			 params.remove("usuarioResponsable.id")
+			 params.remove("proceso")
+			 documentoInstance.properties = params
+			 def map = params
+
 			 if (!documentoInstance.hasErrors() && documentoInstance.save(flush: true)) {
 				 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'documento.label', default: 'Documento'), documentoInstance.id])}"
 				 if (params.complete) {
@@ -217,7 +219,6 @@ class DocumentoController {
 
 	@Secured(['IS_AUTHENTICATED_FULLY'])
 	def update = {
-		def map = params
         def documentoInstance = Documento.get(params.id)
         if (documentoInstance) {
             if (params.version) {
@@ -230,7 +231,11 @@ class DocumentoController {
                     return
                 }
             }
+			params.remove("usuarioResponsable")
+			params.remove("usuarioResponsable.id")
+			params.remove("proceso")
             documentoInstance.properties = params
+
             if (!documentoInstance.hasErrors() && documentoInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'documento.label', default: 'Documento'), documentoInstance.id])}"
 				        Boolean isComplete = params["_action_update"].equals(message(code: 'default.button.complete.label', default: 'Complete'))
