@@ -22,7 +22,12 @@ class SubcategoriaController {
     }
 	@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])
     def save = {
-        def subcategoriaInstance = new Subcategoria(params)
+		def categoria = Categoria.get(params.categoria)
+		params.remove("categoria")
+		params.put("categoria", categoria)
+		
+		
+		def subcategoriaInstance = new Subcategoria(params)
         if (subcategoriaInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'subcategoria.label', default: 'Subcategoria'), subcategoriaInstance.id])}"
             redirect(action: "show", id: subcategoriaInstance.id)

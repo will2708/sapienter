@@ -21,6 +21,7 @@
             </g:hasErrors>
             <g:form action="save" >
                 <g:hiddenField name="id" value="${subcategoria?.id}" />
+                <g:hiddenField name="categoria" value="${subcategoriaInstance?.categoria?.id}" />
                 <div class="dialog">
                    <div class="margin">
                    <div class="buttonNewObjects">
