@@ -1,6 +1,7 @@
 
 
 <%@ page import="sapienter.Documento" %>
+<%@ page import="org.grails.activiti.ApprovalStatus" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -74,11 +75,15 @@ $(document).ready(function() {
             <g:form method="post" >
                 <g:hiddenField name="id" value="${documentoInstance?.id}" />
                 <g:hiddenField name="version" value="${documentoInstance?.version}" />
+                <g:hiddenField name="taskId" value="${params.taskId}" />
                 <div class="dialog">
 					<div class="margin">
 						<div class="buttonNewObjects">
                     		<span><g:actionSubmit class="save" action="update" value="${message(code: 'sapienter.guardar', default: 'Update')}" /></span>
-                    	</div>											
+                    	</div>							
+                    	<div class="buttonNewObjects">
+                    		<span class="button"><g:actionSubmit class="save" action="update" value="${message(code: 'default.button.complete.label', default: 'Complete')}" /></span>
+                    	</div>				
 					</div>                          
                     <table class="tabla_calendario">
                         <tbody>
@@ -151,7 +156,32 @@ $(document).ready(function() {
                         	</table>
                         	</td>
                         </tr>
+						<g:if test="${documentoInstance.estado != ApprovalStatus.PENDING}">
+		                        <tr class="prop">
+		                            <td valign="top" class="name"><g:message code="documento.estado.label" default="Estado" /></td>
+		                            
+		                            <td valign="top" class="value">${documentoInstance?.estado?.encodeAsHTML()}</td>
+		                            
+		                        </tr>
+		                    
+		                        <tr class="prop">
+		                            <td valign="top" class="name"><g:message code="documento.approvalRemark.label" default="Approval Remark" /></td>
+		                            
+		                            <td valign="top" class="value">${fieldValue(bean: documentoInstance, field: "approvalRemark")}</td>
+		                            
+		                        </tr>
+                        </g:if>
                         
+                    		<g:if test="${documentoInstance.estado == ApprovalStatus.REJECTED}">                
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="resendRequest"><g:message code="documento.resendRequest.label" default="Resend Request" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'resendRequest', 'errors')}">
+                                    <g:checkBox name="resendRequest" value="${documentoInstance?.resendRequest}" />
+                                </td>
+                            </tr>
+                        </g:if>                         
                         </tbody>
                     </table>
                 </div>

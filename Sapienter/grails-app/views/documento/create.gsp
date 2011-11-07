@@ -1,6 +1,5 @@
-
-
 <%@ page import="sapienter.Documento" %>
+<%@ page import="org.grails.activiti.ApprovalStatus" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -30,6 +29,11 @@
 						<div class="buttonNewObjects">
 							<span><g:submitButton name="create" class="save" value="${message(code: 'sapienter.guardar', default: 'Create')}" /></span>
 						</div>						
+					</div>
+					<div class="margin">
+						<div class="buttonNewObjects">
+							<span class="button"><g:submitButton name="complete" class="save" value="${message(code: 'default.button.complete.label', default: 'Complete')}" /></span>
+						</div>
 					</div>    
 					<div class="margin">            	
 						<div class="buttonIntoTable">
@@ -44,10 +48,9 @@
                         	<g:hiddenField name="proceso" value="${documentoInstance?.proceso?.id}" />
                             <tr class="prop">
                                 <td valign="top" class="descripcion">
-                                    <label for="proceso"><g:message code="proceso.proceso" default="Proceso" /></label></td>
-                                	<td valign="top" class="value"><g:link controller="proceso" action="show" id="${documentoInstance?.proceso?.id}">${documentoInstance?.proceso?.encodeAsHTML()}</g:link></td> 
-<!--                                  <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'proceso', 'errors')}">
-                                    <g:select name="proceso.id" from="${sapienter.Proceso.list()}" optionKey="id" value="${documentoInstance?.proceso?.id}"  /></td>-->
+                                    <label for="proceso"><g:message code="proceso.proceso" default="Proceso" /></label>
+                                </td>
+                                <td valign="top" class="value"><g:link controller="proceso" action="show" id="${documentoInstance?.proceso?.id}">${documentoInstance?.proceso?.encodeAsHTML()}</g:link></td> 
                             </tr>
                             <tr><td><br></td></tr>
                             <tr class="prop">
@@ -102,6 +105,7 @@
                         </tbody>
                     </table>
                 </div>
+                <g:hiddenField name="taskId" value="${params.taskId}" />
             </g:form>
         </div>
     </body>

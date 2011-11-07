@@ -54,12 +54,13 @@ $(document).ready(function() {
 </g:javascript>    
     
     	<div>
-	        <div class="buttonSubMenu">
-	            <span><g:link class="create" action="create"><g:message code="sapienter.crear" args="[entityName]" /></g:link></span>
-	        </div>
            <g:form>
            <g:hiddenField name="id" value="${documentoInstance?.id}" />
+<<<<<<< .mine
+           <g:hiddenField name="taskId" value="${params.taskId}" />
+=======
            <g:hiddenField name="proceso" value="${documentoInstance?.proceso?.id}" />
+>>>>>>> .r497
            		<div class="buttonForm">
            			<span ><g:actionSubmit class="edit" action="edit" value="${message(code: 'sapienter.modificar', default: 'Edit')}" /></span>
            		</div>

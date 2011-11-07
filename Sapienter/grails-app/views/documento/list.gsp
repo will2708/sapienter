@@ -33,7 +33,8 @@
                             <g:sortableColumn property="tipoDeDocumento" title="${message(code: 'documento.tipoDeDocumento.label', default: 'Tipo De Documento')}" />
                         
                             <th><g:message code="documento.usuarioResponsable.label" default="Usuario Responsable" /></th>
-                        
+                         	
+                         	<g:sortableColumn property="approvalRemark" title="${message(code: 'documento.approvalRemark.label', default: 'Approval Remark')}" />
                         </tr>
                     </thead>
                     <tbody>
@@ -51,6 +52,8 @@
                             <td>${fieldValue(bean: documentoInstance, field: "tipoDeDocumento")}</td>
                         
                             <td>${fieldValue(bean: documentoInstance, field: "usuarioResponsable")}</td>
+                            
+                            <td>${fieldValue(bean: documentoInstance, field: "approvalRemark")}</td>  
                         
                         </tr>
                     </g:each>
