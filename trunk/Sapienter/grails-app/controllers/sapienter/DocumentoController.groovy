@@ -80,6 +80,7 @@ class DocumentoController {
 		def proceso = params.proceso
 		def user = SecUser.get(springSecurityService.principal.id)
 		def srRole = SecRole.findByAuthority('ROLE_SENIOR')
+		def documentoInstance = Documento.get(params.id)
 		if (user.rol != srRole) {
 			if (proceso.usuariosAutorizados != null) {
 				if (proceso.usuariosAutorizados.contains(user)){
@@ -133,6 +134,7 @@ class DocumentoController {
 				def proceso = params.proceso
 		def user = SecUser.get(springSecurityService.principal.id)
 		def srRole = SecRole.findByAuthority('ROLE_SENIOR')
+		def documentoInstance = Documento.get(params.id)
 		if (user.rol != srRole) {
 			if (proceso.usuariosAutorizados != null) {
 				if (proceso.usuariosAutorizados.contains(user)){
