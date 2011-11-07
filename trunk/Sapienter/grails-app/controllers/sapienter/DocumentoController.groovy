@@ -186,7 +186,7 @@ class DocumentoController {
 		def userAut = false
 		
 		def documentoInstance = Documento.get(params.id)
-		if (user.rol != srRole) {
+		if (user.role != srRole) {
 			if (proceso.usuariosAutorizados != null) {
 				for (Iterator iterator = proceso.usuariosAutorizados.iterator(); iterator
 						.hasNext();) {
@@ -217,6 +217,7 @@ class DocumentoController {
 
 	@Secured(['IS_AUTHENTICATED_FULLY'])
 	def update = {
+		def map = params
         def documentoInstance = Documento.get(params.id)
         if (documentoInstance) {
             if (params.version) {
@@ -262,7 +263,7 @@ class DocumentoController {
 			
 
 		def documentoInstance = Documento.get(params.id)
-		if (user.rol != srRole) {
+		if (user.role != srRole) {
 
 			if (proceso.usuariosAutorizados != null) {
 				for (Iterator iterator = proceso.usuariosAutorizados.iterator(); iterator
