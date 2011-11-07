@@ -242,7 +242,9 @@ class BootStrap {
 				email: 'lezana@gmail.com',
 				password: 'franco',
 				enabled: true).save(failOnError: true)
-
+		calendar.save()
+		calendar =new Calendario()
+				
 		def admin = Usuario.findByUsername('admin') ?: new Usuario(
 				username: 'admin',
 				nombre: 'Matías',
@@ -258,7 +260,8 @@ class BootStrap {
 				email: 'matunga@gmail.com',
 				password: 'admin',
 				enabled: true).save(failOnError: true)
-				
+		calendar.save()
+		calendar =new Calendario()
 
 		def ssr = Usuario.findByUsername('ssr') ?: new Usuario(
 				username: 'ssr',
@@ -275,7 +278,9 @@ class BootStrap {
 				role:ssrRol,
 				password: 'ssr',
 				enabled: true).save(failOnError: true)
-		
+		calendar.save()
+		calendar =new Calendario()
+				
 		if (!juniorUser.authorities.contains(juniorRol)) {
 			SecUserSecRole.create juniorUser, juniorRol
 		}
