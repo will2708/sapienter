@@ -113,10 +113,10 @@ $(document).ready(function() {
                             </tr>              
                              <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="Rol"><g:message code="usuario.rol" default="Rol" /></label>
+                                    <label for="Role"><g:message code="usuario.role" default="Role" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'rol', 'errors')}">
-                                    <g:select class="textField" name="rol.id" from="${sapienter.SecRole.list()}" optionKey="id" value="${usuarioInstance?.rol?.id}" noSelection="['null': '']" />
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'role', 'errors')}">
+                                    <g:select class="textField" name="role.id" from="${sapienter.SecRole.list()}" optionKey="id" value="${usuarioInstance?.role?.id}" noSelection="['null': '']" />
                                 </td>
                             </tr>                                          
                             <tr class="prop">

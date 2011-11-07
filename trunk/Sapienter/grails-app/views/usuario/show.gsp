@@ -86,8 +86,8 @@ $(document).ready(function() {
                             <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "apellido")}</td>
                         </tr>
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.rol" default="Rol" /></td>
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "rol")}</td>
+                            <td valign="top" class="name"><g:message code="usuario.role" default="Role" /></td>
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "role")}</td>
                         </tr>                        
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.habilitado" default="Enabled" /></td>
