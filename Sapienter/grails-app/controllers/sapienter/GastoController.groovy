@@ -36,7 +36,7 @@ class GastoController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
-		def proceso = params.proceso
+		def proceso = Proceso.get(params.proceso)
 		def user = SecUser.get(springSecurityService.principal.id)
 		def srRole = SecRole.findByAuthority('ROLE_SENIOR')
 		if (user.rol != srRole) {
