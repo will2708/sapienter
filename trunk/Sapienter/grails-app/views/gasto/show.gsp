@@ -99,6 +99,7 @@ $(document).ready(function() {
                         </tr>                    
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="gasto.factura" default="Factura" /></td>
+							<td valign="top" class="value"><g:link action="bajar" id="${gastoInstance?.id}">${fieldValue(bean: gastoInstance, field: "facturaArchivo")}</g:link></td>
                         </tr>
                     
                     </tbody>
