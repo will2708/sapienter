@@ -101,8 +101,10 @@ class TareaController {
             try {
                 tareaInstance.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'tarea.label', default: 'Tarea'), params.id])}"
-				movimiento.tareaAsociada = null
-				movimiento.save()
+				if (movimiento != null){
+					movimiento.tareaAsociada = null
+					movimiento.save()
+				}
 				def parametros = new HashMap()
 				parametros.put("id", tareaInstance.calendario.id)
 				redirect(controller:"calendario", action:"show", params:parametros)

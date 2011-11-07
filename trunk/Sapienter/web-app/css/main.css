@@ -993,6 +993,9 @@ td.errors textarea {
 /*    border-top-color:#243356; /* different border color */
     padding:0.25em 0.5em; /* content padding */
 }
+.image{
+	padding-top: 8px;
+}
 </style>
 /*CENTRAR*/
 /*Menu*/

@@ -29,6 +29,6 @@
  <icep:region group="notifyGroup" controller="mail" action="alert" />
             <a href="http://www.gmail.com" target="_blank">gmail</a>
 -->
-		<li><a id=noCurrent href="http://www.gmail.com" target="_blank" ><img src="${createLinkTo(dir: 'images/', file: 'email_envelope.png')}" alt="Correo Electronico"/></a></li>
+		<li><a id=noCurrent href="http://www.gmail.com" target="_blank" ><img class="image" src="${createLinkTo(dir: 'images/', file: 'email13.png')}" alt="Correo Electronico"/></a></li>
 	</ul>	
 </div>

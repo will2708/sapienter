@@ -26,7 +26,7 @@ $(document).ready(function() {
     });
   });
  function success(){ 
- 	document.location.href='${createLink(controller:'subcategoria', action:'list')}'; 
+ 	document.location.href='${createLink(controller:'categoría', action:'list')}'; 
  }; 
  function failure(){ 
 	document.location.reload(true); 
