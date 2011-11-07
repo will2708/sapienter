@@ -1,20 +1,25 @@
 package sapienter
 //TODO: Verificar el tema de aprobadores.
+import org.grails.activiti.ApprovalStatus
 class Documento {
 	String contenidoDocumento
 	String descripcion
-	String estado
 	String nombre
 	String tipoDeDocumento
-	Usuario usuarioResponsable 
+	Usuario usuarioResponsable  
+	ApprovalStatus estado = ApprovalStatus.PENDING
+	String approvalRemark
+	Boolean reenviarDocumento
 
     static constraints = {
 		nombre(blank:false)
 		descripcion(blank:false)
-		estado(inList:['No Revisado', 'Pedido de revisión', 'Pedido de modificación', 'Revisado'],blank:false)
+		estado nullable:false
 		tipoDeDocumento(inList:['Procesal','Extraprocesal'])
 		usuarioResponsable()
 		contenidoDocumento()
+		approvalRemark nullable:true
+		reenviarDocumento nullable:true
     }
 
 	String toString(){

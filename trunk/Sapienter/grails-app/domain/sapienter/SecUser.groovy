@@ -1,15 +1,19 @@
 package sapienter
 
-class SecUser {
+class SecUser implements org.activiti.engine.identity.User {
 
 	transient springSecurityService
-
+	String id
 	String username
+	String email
+	String firstName
+	String lastName
 	String password
 	boolean enabled
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
+	
 
 	static constraints = {
 		username blank: false, unique: true
@@ -18,6 +22,7 @@ class SecUser {
 
 	static mapping = {
 		password column: '`password`'
+		id generator: 'uuid'
 	}
 
 	Set<SecRole> getAuthorities() {
