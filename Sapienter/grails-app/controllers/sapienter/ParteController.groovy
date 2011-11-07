@@ -19,9 +19,18 @@ class ParteController {
 		def proceso1 = Proceso.get(params.proceso.id)
 		def user = SecUser.get(springSecurityService.principal.id)
 		def srRole = SecRole.findByAuthority('ROLE_SENIOR')
-		if (user.rol != srRole) {
+		def userAut = false
+		if (user.role != srRole) {
+			
 			if (proceso1.usuariosAutorizados != null) {
-				if (proceso1.usuariosAutorizados.contains(user)){
+				for (Iterator iterator = proceso1.usuariosAutorizados.iterator(); iterator
+						.hasNext();) {
+					SecUser users = (SecUser) iterator.next();
+					if (users.id == user.id)
+						userAut = true										
+				}
+				
+				if (userAut){
 				}
 				else {
 					flash.message = "${message(code: 'default.not.authorized.message')}"
@@ -37,12 +46,21 @@ class ParteController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
-		def proceso1 = params.proceso
+		def proceso1 = Proceso.get(params.proceso)
 		def user = SecUser.get(springSecurityService.principal.id)
 		def srRole = SecRole.findByAuthority('ROLE_SENIOR')
-		if (user.rol != srRole) {
+		def userAut = false
+		if (user.role != srRole) {
+			
 			if (proceso1.usuariosAutorizados != null) {
-				if (proceso1.usuariosAutorizados.contains(user)){
+				for (Iterator iterator = proceso1.usuariosAutorizados.iterator(); iterator
+						.hasNext();) {
+					SecUser users = (SecUser) iterator.next();
+					if (users.id == user.id)
+						userAut = true										
+				}
+				
+				if (userAut){
 				}
 				else {
 					flash.message = "${message(code: 'default.not.authorized.message')}"
@@ -77,12 +95,23 @@ class ParteController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def edit = {
-		def proceso1 = params.proceso
+		def map = params
+		def parteInstance = Parte.get(params.id)
+		def proceso1 = parteInstance.proceso
 		def user = SecUser.get(springSecurityService.principal.id)
 		def srRole = SecRole.findByAuthority('ROLE_SENIOR')
-		if (user.rol != srRole) {
+		def userAut = false
+		if (user.role != srRole) {
+			
 			if (proceso1.usuariosAutorizados != null) {
-				if (proceso1.usuariosAutorizados.contains(user)){
+				for (Iterator iterator = proceso1.usuariosAutorizados.iterator(); iterator
+						.hasNext();) {
+					SecUser users = (SecUser) iterator.next();
+					if (users.id == user.id)
+						userAut = true										
+				}
+				
+				if (userAut){
 				}
 				else {
 					flash.message = "${message(code: 'default.not.authorized.message')}"
@@ -92,7 +121,7 @@ class ParteController {
 			}
 		}
 
-        def parteInstance = Parte.get(params.id)
+        
         if (!parteInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'parte.label', default: 'Parte'), params.id])}"
             redirect(action: "list")

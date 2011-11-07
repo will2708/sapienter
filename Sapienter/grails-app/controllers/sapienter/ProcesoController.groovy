@@ -55,8 +55,8 @@ class ProcesoController {
 
 		if (userAut != null)
 			for (int i = 0; i < userAut.size(); i++) {
-				Integer idAux = new Integer(userAut[i])
-				def userAux = Usuario.get(idAux)
+				//Integer idAux = new Integer(userAut[i])
+				def userAux = SecUser.get(userAut[i])
 				procesoInstance.usuariosAutorizados.add(userAux)
 			}
 
@@ -84,7 +84,7 @@ class ProcesoController {
 		def user = SecUser.get(springSecurityService.principal.id)
 		def srRole = SecRole.findByAuthority('ROLE_SENIOR')
 		def procesoInstance = Proceso.get(params.id)
-		if (user.rol != srRole) {
+		if (user.role != srRole) {
 			if (procesoInstance.usuariosAutorizados != null) {
 				if (procesoInstance.usuariosAutorizados.contains(user)){
 				}
@@ -160,7 +160,7 @@ class ProcesoController {
 	def crearDocumento = {
 		def parametros = new HashMap()
 		parametros.put("proceso.id", params.id)
-		redirect(controller:"documento", action:"create", params:parametros)
+		redirect(controller:"documento", action:"start", params:parametros)
 	}
 	@Secured(['IS_AUTHENTICATED_FULLY'])
 	def crearMovimiento = {

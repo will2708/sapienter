@@ -40,7 +40,7 @@ class UsuarioController {
 		def estudio = user.estudio
 		params.put("estudio", estudio)
 		def usuarioInstance = new Usuario(params)
-		usuarioInstance.rol = role
+		usuarioInstance.role = role
 		usuarioInstance.usuarioCreacion = user
 		if (usuarioInstance.save(flush: true)) {
 			flash.message = "${message(code: 'default.created.message', args: [message(code: 'usuario.label', default: 'Usuario'), usuarioInstance.id])}"
@@ -84,7 +84,7 @@ class UsuarioController {
 		def user = SecUser.get(springSecurityService.principal.id)
 		
 		def usuarioInstance = Usuario.get(params.id)
-		def role = usuarioInstance.rol
+		def role = usuarioInstance.role
 		if (usuarioInstance) {
 			if (params.version) {
 				def version = params.version.toLong()
