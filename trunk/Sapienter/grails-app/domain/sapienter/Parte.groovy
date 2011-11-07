@@ -9,15 +9,19 @@ class Parte {
     static constraints = {
 		Apellido(validator: { val, obj ->
 				def oneOrTheOther = true
-				if ((val != null || obj.Nombre != null) &&
-					obj.persona != null)
+				if ((((val != null || obj.Nombre != null) &&
+					obj.persona != null)) ||
+				(val == null && obj.Nombre == null && obj.persona == null)
+				)
 				oneOrTheOther = false
 				return oneOrTheOther
         })
 		Nombre(validator: { val, obj ->
 				def oneOrTheOther = true
-				if ((obj.Nombre != null || val != null) &&
-					obj.persona != null)
+				if (((obj.Nombre != null || val != null) &&
+					obj.persona != null) ||
+				    (val == null && obj.Nombre == null && obj.persona == null)
+				)
 				oneOrTheOther = false
 				return oneOrTheOther
         })
@@ -25,10 +29,13 @@ class Parte {
 		persona(nullable:true,validator: { val, obj ->
 			def oneOrTheOther = true
 			if (
-				
+				(
 				(  (obj.Apellido != null && obj.Apellido != "")
 				|| (obj.Nombre != null   && obj.Nombre != "") ) 
 				&& (val != null && val != ""))
+				||
+				(val == null && obj.Nombre == "" && obj.Apellido == "")
+				)
 				oneOrTheOther = false
 			return oneOrTheOther
         })
