@@ -6,7 +6,7 @@ class Usuario extends SecUser {
 	String apellido
 	Calendario calendario
 	String comentarios
-	String correoElectronico
+	CorreoElectronico correoElectronico
 	Date dateCreated
 	Date lastUpdated
 	String nombre
