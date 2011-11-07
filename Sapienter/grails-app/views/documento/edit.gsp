@@ -54,13 +54,13 @@ $(document).ready(function() {
 	$("#dialog").dialog("open");
     }
 </g:javascript>        
-        <g:form>
+        <g:form method="post" >
         <g:hiddenField name="id" value="${documentoInstance?.id}" />
         <g:hiddenField name="proceso" value="${documentoInstance?.proceso?.id}" />
         		<div class="buttonForm">
              	<span><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="confirmarBorrado();return false;"  /></span>
              </div>
-         </g:form>
+         
         <div class="body">
            	<fckeditor:config CustomConfigurationsPath="${resource(dir:'js',file:'fkeditor.js')}"/>
             <h1>Modificar Documento</h1>
@@ -72,8 +72,8 @@ $(document).ready(function() {
                 <g:renderErrors bean="${documentoInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form method="post" >
-                <g:hiddenField name="id" value="${documentoInstance?.id}" />
+            
+                
                 <g:hiddenField name="version" value="${documentoInstance?.version}" />
                 <g:hiddenField name="taskId" value="${params.taskId}" />
                 <div class="dialog">
@@ -94,19 +94,19 @@ $(document).ready(function() {
 	                            <td valign="top" class="descripcion"><g:message code="sapienter.id" default="Id" /></td>	                            
 	                            <td valign="top" class="value">${fieldValue(bean: documentoInstance, field: "id")}</td>
  								<td valign="top" class="descripcion">
-                                    <label for="proceso"><g:message code="proceso.proceso" default="Proceso" /></label></td>
+                                    <label for="proceso"><g:message code="documento.proceso" default="Proceso" /></label></td>
 								<td valign="top" class="value"><g:link controller="proceso" action="show" id="${documentoInstance?.proceso?.id}">${documentoInstance?.proceso?.encodeAsHTML()}</g:link></td>                            
 	                        </tr>  
 	                        <tr><td><br></td></tr>                      
 							<tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="nombre"><g:message code="documento.nombre" default="Nombre" /><mandatory> *</mandatory></label>
+                                  <label for="nombre"><g:message code="documento.nombre.label" default="Nombre" /><mandatory> *</mandatory></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'nombre', 'errors')}">
                                     <g:textField class="textField"  name="nombre" value="${documentoInstance?.nombre}" />
                                 </td>
                                 <td valign="top" class="name">
-                                  <label for="descripcion"><g:message code="proceso.descripcion" default="Descripcion" /><mandatory> *</mandatory></label>
+                                  <label for="descripcion"><g:message code="documento.descripcion.label" default="Descripcion" /><mandatory> *</mandatory></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'descripcion', 'errors')}">
                                     <g:textField class="textField"  name="descripcion" value="${documentoInstance?.descripcion}" />
@@ -114,13 +114,13 @@ $(document).ready(function() {
                             </tr>
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="estado"><g:message code="proceso.estado" default="Estado" /></label>
+                                  <label for="estado"><g:message code="documento.estado.label" default="Estado" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'estado', 'errors')}">
                                     <g:select class="textField"  name="estado" from="${documentoInstance.constraints.estado.inList}" value="${documentoInstance?.estado}" valueMessagePrefix="documento.estado"  />
                                 </td>
                                 <td valign="top" class="name">
-                                  <label for="tipoDeDocumento"><g:message code="documento.tipoDeDocumento" default="Tipo De Documento" /></label>
+                                  <label for="tipoDeDocumento"><g:message code="documento.tipoDeDocumento.label" default="Tipo De Documento" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'tipoDeDocumento', 'errors')}">
                                     <g:select class="textField" name="tipoDeDocumento" from="${documentoInstance.constraints.tipoDeDocumento.inList}" value="${documentoInstance?.tipoDeDocumento}" valueMessagePrefix="documento.tipoDeDocumento"  />
