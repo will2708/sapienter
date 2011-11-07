@@ -5,6 +5,8 @@ import grails.plugins.springsecurity.Secured
 class JuzgadoController {
 
 	static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+	def springSecurityService
+	
 	@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])
 	def index = {
 		redirect(action: "list", params: params)
@@ -36,6 +38,10 @@ class JuzgadoController {
 	@Secured(['ROLE_SENIOR','IS_AUTHENTICATED_FULLY'])
 	def save = {
 		def juzgadoInstance = new Juzgado(params)
+		
+		def user = SecUser.get(springSecurityService.principal.id)
+		juzgadoInstance.estudio = user.estudio
+		
 		if (juzgadoInstance.save(flush: true)) {
 			flash.message = "${message(code: 'default.created.message', args: [message(code: 'juzgado.label', default: 'Juzgado'), juzgadoInstance.id])}"
 			redirect(action: "show", id: juzgadoInstance.id)
