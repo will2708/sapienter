@@ -52,15 +52,12 @@ $(document).ready(function() {
 	$("#dialog").dialog("open");
     }
 </g:javascript>    
-    
+    <g:if test="${!params.complete && params.taskId}">
     	<div>
-           <g:form>
+    	   <g:form>
            <g:hiddenField name="id" value="${documentoInstance?.id}" />
-<<<<<<< .mine
            <g:hiddenField name="taskId" value="${params.taskId}" />
-=======
            <g:hiddenField name="proceso" value="${documentoInstance?.proceso?.id}" />
->>>>>>> .r497
            		<div class="buttonForm">
            			<span ><g:actionSubmit class="edit" action="edit" value="${message(code: 'sapienter.modificar', default: 'Edit')}" /></span>
            		</div>
@@ -68,7 +65,8 @@ $(document).ready(function() {
                 	<span><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="confirmarBorrado();return false;"  /></span>
                 </div>
             </g:form>
-        </div>        
+        </div>  
+        </g:if>             
         <div class="body">
             <h1>Documento</h1>
             <g:if test="${flash.message}">
