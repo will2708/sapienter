@@ -1,5 +1,5 @@
 import java.util.Date
-
+import org.activiti.engine.identity.User
 import sapienter.Calendario
 import sapienter.Categoria
 import sapienter.Estudio
@@ -161,68 +161,6 @@ class BootStrap {
 			println tipPar.errors
 		}
 		
-		
-
-		
-		
-		/* Roles*/		
-		def jrRole = SecRole.findByAuthority('ROLE_JUNIOR') ?: new SecRole(authority: 'ROLE_JUNIOR').save(failOnError: true)
-		def ssrRole = SecRole.findByAuthority('ROLE_SSR') ?: new SecRole(authority: 'ROLE_SSR').save(failOnError: true)
-		def srRole = SecRole.findByAuthority('ROLE_SENIOR') ?: new SecRole(authority: 'ROLE_SENIOR').save(failOnError: true)
-		
-		/* Usuarios con su calendario y correo electronico */
-		def calendar =new Calendario()
-		def correoElec = new CorreoElectronico(
-			contrasenia: "Sapienter01!",
-			direccion: "sapienterTest@gmail.com", //replace with %40 for imap
-			smtpUrl: "smtp.gmail.com",
-			imapUrl: "imap.gmail.com:993/inbox")
-		correoElec.save()
-		def adminUser = SecUser.findByUsername('admin') ?: new Usuario(
-			username: 'admin',
-			password: 'admin',
-			nombre: 'Matías',
-			apellido: 'Stanislavsky',
-			calendario: calendar, 
-			estudio: (Estudio.getAll().get(0)),
-			comentarios:'Administrador del sistema',
-			telefono:'4354242',
-			rol:srRole,
-			correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
-			enabled: true).save(failOnError: true)
- 
-		if (!adminUser.authorities.contains(srRole)) {
-			SecUserSecRole.create adminUser, srRole
-		}
-		
-		correoElec = new CorreoElectronico(
-				contrasenia: "Sapienter01!",
-				direccion: "sapienterTest@gmail.com", //replace with %40 for imap
-				smtpUrl: "smtp.gmail.com",
-				imapUrl: "imap.gmail.com:993/inbox")
-		correoElec.save()
-		if (correoElec.hasErrors()) {
-			println est.errors
-		}
-		calendar =new Calendario()
-		def mailUser = SecUser.findByUsername('gbonsoir') ?: new Usuario(
-			username: 'gbonsoir',
-			password: 'gbonsoir',
-			nombre: 'Gabriel',
-			apellido: 'Bonsoir',
-			calendario: calendar,
-			estudio: (Estudio.getAll().get(0)),
-			comentarios:'Usuario Senior',
-			telefono:'4435-4242',
-			rol:jrRole,
-			correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
-			enabled: true).save(failOnError: true)
- 
-		if (!adminUser.authorities.contains(jrRole)) {
-			SecUserSecRole.create mailUser, jrRole
-		}
-		
-		
 		/* Personas Fisicas - Sin procesos */
 		def perFis = new PersonaFisica(auxiliar:"",informacionTributaria:"",profesion: "Contador",fax: "",telefono:"4107-7326",codPostal: "1003",ciudad:"CABA",domicilio:"San Martin 344",conyuge:"",madre: "", padre: "",estadoCivil: "Soltero", fechaNacimiento: new Date(),observaciones:"", nombre: "Gabriel", apellido: "Bonsoir", dni: "27123985", pais: "Argentina", email: "gbonsoir@sapienter.org.com", estudio: (Estudio.getAll().get(0)))
 		perFis.save()
@@ -256,8 +194,100 @@ class BootStrap {
 			println perJur.errors
 		}
 		
+		createUsersAndGroups()
 	}
 	
+	private void createUsersAndGroups() {
+				
+		/* Roles*/
+		def juniorRol = SecRole.findByAuthority('ROLE_JUNIOR')
+		if (!juniorRol) {
+		 juniorRol = new SecRole(authority: 'ROLE_JUNIOR', name: 'Junior')
+		 juniorRol.id = 'ROLE_JUNIOR'
+		 juniorRol.save(failOnError: true)
+		}
+		def ssrRol = SecRole.findByAuthority('ROLE_SSR')
+		if (!ssrRol) {
+		 ssrRol = new SecRole(authority: 'ROLE_SSR', name: 'SSR')
+		 ssrRol.id = 'ROLE_SSR'
+		 ssrRol.save(failOnError: true)
+		}
+		def seniorRole = SecRole.findByAuthority('ROLE_SENIOR')
+		if (!seniorRole) {
+		 seniorRole = new SecRole(authority: 'ROLE_SENIOR', name: 'SENIOR')
+		 seniorRole.id = 'ROLE_SENIOR'
+		 seniorRole.save(failOnError: true)
+		}
+		/* Usuarios con su calendario y correo electronico */
+		def calendar =new Calendario()
+		def correoElec = new CorreoElectronico(
+			contrasenia: "Sapienter01!",
+			direccion: "sapienterTest@gmail.com", //replace with %40 for imap
+			smtpUrl: "smtp.gmail.com",
+			imapUrl: "imap.gmail.com:993/inbox")
+		correoElec.save()
+		
+		def juniorUser = Usuario.findByUsername('franco') ?: new Usuario(
+				username: 'franco',
+				nombre: 'franco',
+				firstName: 'franco',
+				apellido: 'lezana',
+				lastName: 'lezana',
+				calendario: calendar,
+				estudio: (Estudio.getAll().get(0)),
+				comentarios:'selalastramal',
+				telefono:'4354444',
+				role:juniorRol,
+				correoElectronico: 'lezana@gmail.com',
+				email: 'lezana@gmail.com',
+				password: 'franco',
+				enabled: true).save(failOnError: true)
+
+		def admin = Usuario.findByUsername('admin') ?: new Usuario(
+				username: 'admin',
+				nombre: 'Matías',
+				firstName: 'Matías',
+				apellido: 'Stanislavsky',
+				lastName: 'Stanislavsky',
+				calendario: calendar,
+				estudio: (Estudio.getAll().get(0)),
+				comentarios:'Nada en particular',
+				telefono:'4354242',
+				role:seniorRole,
+				correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
+				email: 'matunga@gmail.com',
+				password: 'admin',
+				enabled: true).save(failOnError: true)
+				
+
+		def ssr = Usuario.findByUsername('ssr') ?: new Usuario(
+				username: 'ssr',
+				correoElectronico: 'matias.toth@gmail.com',
+				email: 'matias.toth@gmail.com',
+				nombre: 'Peter',
+				firstName: 'Stanislavsky',
+				apellido: 'Management',
+				lastName: 'Management',
+				calendario: calendar,
+				estudio: (Estudio.getAll().get(0)),
+				comentarios:'todo en particular',
+				telefono:'4354222',
+				role:ssrRol,
+				password: 'ssr',
+				enabled: true).save(failOnError: true)
+		
+		if (!juniorUser.authorities.contains(juniorRol)) {
+			SecUserSecRole.create juniorUser, juniorRol
+		}
+		
+		if (!admin.authorities.contains(seniorRole)) {
+			SecUserSecRole.create admin, seniorRole
+		}
+		
+		if (!ssr.authorities.contains(ssrRol)) {
+			SecUserSecRole.create ssr, ssrRol
+		}
+	}
 	def destroy = {
 	}
 }
