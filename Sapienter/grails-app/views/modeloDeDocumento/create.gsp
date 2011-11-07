@@ -30,7 +30,7 @@
                 <div class="dialog">
                 	<div class="margin">
 			    	<div class="buttonNewObjects">
-                    	<span><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
+                    	<span><g:submitButton name="create" class="save" value="${message(code: 'sapienter.guardar', default: 'Create')}" /></span>
                 	</div>
                 	</div>
                     <table class="tabla_calendario">

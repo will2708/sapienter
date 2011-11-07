@@ -143,9 +143,9 @@ $(document).ready(function() {
 										<td valign="top" class="name"><g:message
 												code="sapienter.persona" default="Concepto" />
 										</td>
-										<td valign="top" class="value">
-											${fieldValue(bean: parteInstance, field: "persona")}
-										</td>
+										<td valign="top" class="value"><g:link controller="persona" action="show" id="${parteInstance?.persona?.id}">
+											${parteInstance?.persona?.encodeAsHTML()}</g:link></td>
+										
 									</tr>
 								</table></td>
 							</tr>

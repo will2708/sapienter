@@ -89,7 +89,7 @@ $(document).ready(function() {
 	                            <td valign="top" class="name"><g:message code="sapienter.id" default="Id" /></td>
     	                        <td valign="top" class="value">${fieldValue(bean: jurisprudenciaInstance, field: "id")}</td>
                                 <td valign="top" class="name">
-                                  <label for="descripcion"><g:message code=proceso.descripcion" default="Descripcion" /><mandatory> *</mandatory></label>
+                                  <label for="descripcion"><g:message code="proceso.descripcion" default="Descripcion" /><mandatory> *</mandatory></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: jurisprudenciaInstance, field: 'descripcion', 'errors')}">
                                     <g:textField class="textField" name="descripcion" value="${jurisprudenciaInstance?.descripcion}" />
