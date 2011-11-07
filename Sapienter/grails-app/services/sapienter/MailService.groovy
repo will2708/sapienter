@@ -27,6 +27,8 @@ import org.springframework.integration.core.MessageHandler;
 
 import org.codehaus.groovy.grails.commons.ApplicationHolder
 
+import org.springframework.context.support.FileSystemXmlApplicationContext
+
 class MailService {
 
     static transactional = false
@@ -81,9 +83,19 @@ class MailService {
 	def recvMail() {
 //		TODO Sacar, solo agregado para tener linea donde frenar debug
 		def d = new Date();
-
+		
+		def imapAdapter = ApplicationHolder.application.mainContext.getBean("customAdapter")
+		
 		DirectChannel inputChannel = ApplicationHolder.application.mainContext.getBean("inputChannel", DirectChannel.class)
-
+		imapAdapter.outputChannel.subscribe(new MessageHandler() {
+			public void handleMessage(Message<?> message) throws MessagingException {
+				
+//			TODO ver que hacer con el mensaje que llega
+//				LOG.info("Message: " + message);
+				println "Message: " + message
+			}
+		});
+			/*
 		inputChannel.subscribe(new MessageHandler() {
 			public void handleMessage(Message<?> message) throws MessagingException {
 				
@@ -92,7 +104,36 @@ class MailService {
 				println "Message: " + message
 			}
 		});
+	*/	
+	}
+	
+	def recvMail2() {
+//		TODO Sacar, solo agregado para tener linea donde frenar debug
+		def d = new Date();
 		
+		def imapAdapter = ApplicationHolder.application.mainContext.getBean("customAdapter2")
+		
+		DirectChannel inputChannel = ApplicationHolder.application.mainContext.getBean("inputChannel2", DirectChannel.class)
+		imapAdapter.outputChannel.subscribe(new MessageHandler() {
+			public void handleMessage(Message<?> message) throws MessagingException {
+				
+//			TODO ver que hacer con el mensaje que llega
+//				LOG.info("Message: " + message);
+				println "Message2: " + message
+			}
+		});
+	
 	}
 
+	def start(){
+		def imapAdapter = ApplicationHolder.application.mainContext.getBean("customAdapter")
+		
+		imapAdapter.start()
+	}
+	
+	def stop(){
+		def imapAdapter = ApplicationHolder.application.mainContext.getBean("customAdapter")
+		
+		imapAdapter.stop()
+	}
 }
