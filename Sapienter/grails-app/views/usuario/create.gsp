@@ -63,7 +63,7 @@
                             </tr>                            
                              <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="Rol"><g:message code="usuario.rol" default="Rol" /></label>
+                                    <label for="Role"><g:message code="usuario.role" default="Role" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: secRoleInstance, field: 'authority', 'errors')}">
                                     <g:select class="textField" name="secRole.id" from="${sapienter.SecRole.list()}" optionKey="id" value="${secRoleInstance?.id}"  />
