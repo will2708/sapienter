@@ -188,6 +188,8 @@ class DocumentoController {
 		def userAut = false
 		
 		def documentoInstance = Documento.get(params.id)
+		if (proceso == null)
+			proceso = Proceso.get(documentoInstance.proceso.id)
 		if (user.role != srRole) {
 			if (proceso.usuariosAutorizados != null) {
 				for (Iterator iterator = proceso.usuariosAutorizados.iterator(); iterator
