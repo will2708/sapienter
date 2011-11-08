@@ -98,4 +98,10 @@ class MailController {
 		println "Cambiado a "+mailStatus?.status
 	}
 	
+	def leerMail = {
+		def mailStatus = ApplicationHolder.application.mainContext.getBean("mailStatus")
+		mailStatus.status="noCurrent"
+		redirect(url:"http://www.gmail.com")
+	}
+	
 }
