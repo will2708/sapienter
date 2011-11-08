@@ -11,11 +11,9 @@
         <title><g:message code="default.approve.label" args="[entityName]" default="Approve {0}" /></title>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" controller="task" action="myTaskList"><g:message code="myTasks.label" default="My Tasks ({0})" args="[myTasksCount]" /></g:link></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
-            <span class="menuButton"><g:link class="create" action="start"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
+        <div class="SubMenu">
+        	<div class="buttonSubMenu">
+            <span><g:link class="list" controller="task" action="myTaskList"><g:message code="myTasks.label" default="Mis tareas ({0})" args="[myTasksCount]" /></g:link></span></div>
         </div>
         <div class="body">
             <h1><g:message code="default.approve.label" args="[entityName]" default="Approve {0}"/></h1>
@@ -24,7 +22,14 @@
             </g:if>
             <g:form action="performApproval" >
             <div class="dialog">
-                <table>
+            	<div class="margin">
+            	<div class="buttonNewObjects">
+                    <span><g:submitButton name="save" class="save" value="${message(code: 'default.button.save.label', default: 'Guardar')}" /></span> </div>
+                <div class="buttonNewObjects">    
+                    <span class="button"><g:submitButton name="complete" class="save" value="${message(code: 'default.button.complete.label', default: 'Completar')}" /></span>
+                </div>            
+                </div>
+                <table class="tabla">
                     <tbody>
                     
                         <tr class="prop">
@@ -48,26 +53,23 @@
                                     <label for="estado"><g:message code="documento.estado.label" default="Estado" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'estado', 'errors')}">
-                                    <g:select name="estado" from="${[ApprovalStatus.APPROVED, ApprovalStatus.REJECTED]}" value="${documentoInstance?.estado}"  />
+                                    <g:select class="textField" name="estado" from="${[ApprovalStatus.APPROVED, ApprovalStatus.REJECTED]}" value="${documentoInstance?.estado}"  />
                                 </td>
                             </tr>
                         
                             <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="approvalRemark"><g:message code="documento.approvalRemark.label" default="Approval Remark" /></label>
+                                <td valign="top" class="descripcion">
+                                    <label for="approvalRemark"><g:message code="documento.approvalRemark.label" default="Comentarios" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'approvalRemark', 'errors')}">
-                                    <g:textArea name="approvalRemark" cols="40" rows="5" value="${documentoInstance?.approvalRemark}" />
+                                    <g:textArea  class="textField" name="approvalRemark" cols="40" rows="5" value="${documentoInstance?.approvalRemark}" />
                                 </td>
                             </tr>
                     
                     </tbody>
                 </table>
             </div>
-            		<div class="buttons">
-                    <span class="button"><g:submitButton name="save" class="save" value="${message(code: 'default.button.save.label', default: 'Save')}" /></span>
-                    <span class="button"><g:submitButton name="complete" class="save" value="${message(code: 'default.button.complete.label', default: 'Complete')}" /></span>
-                </div>
+
                 <g:hiddenField name="id" value="${documentoInstance?.id}" />
                 <g:hiddenField name="taskId" value="${params.taskId}" />
             </g:form>            
