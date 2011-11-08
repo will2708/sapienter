@@ -12,7 +12,7 @@ class Jurisprudencia {
 	
     static constraints = {
 		descripcion(blank:false)
-		fuero(blank:false,inList:['Civil ',' Familia',' Penal',' Comercial',' Laboral',' Tributario',' Constitucional',' Administrativo',' Ambiental'])
+		fuero(blank:false,inList:['Civil',' Familia',' Penal',' Comercial',' Laboral',' Tributario',' Constitucional',' Administrativo',' Ambiental'])
 		origen()
 		sitio(url:true)
 		jurisprudencia(blank:false)
