@@ -48,7 +48,7 @@ class DocumentoController {
 				if (userAut){
 				}
 				else {
-					flash.message = "${message(code: 'default.not.authorized.message')}"
+					flash.message = "${message(code: 'default.not.authorized.create.message')}"
 					redirect(controller:"proceso", action: "list")
 					return
 				}
