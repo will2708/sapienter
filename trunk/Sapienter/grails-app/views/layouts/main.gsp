@@ -15,7 +15,7 @@
 	href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <g:layoutHead />
-<icep:bridge/>
+<!-- <icep:bridge/> -->
 </head>
 <body>
 	

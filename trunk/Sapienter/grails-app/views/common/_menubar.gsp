@@ -27,7 +27,8 @@
 		<ul>
 			<li><a href="${createLink(uri: '/tarea/create?calendario.id=1')}" target="_self"><g:message code="default.tarea.label"/></a></li>
 		</ul></li>
-		<li><a id=noCurrent href="${createLink(uri: '/mail/leerMail')}" target="_blank" ><icep:region group="notifyGroup" controller="util" action="alert" /></a></li>
+<!-- 	<li><a id=noCurrent href="${createLink(uri: '/mail/leerMail')}" target="_blank" ><icep:region group="notifyGroup" controller="util" action="alert" /></a></li>  -->
+		<li><a id=noCurrent href="${createLink(uri: '/mail/leerMail')}" target="_blank" ><g:notificacionMail /></a></li>
 	</ul>	
 </div>
 </sec:ifLoggedIn>
