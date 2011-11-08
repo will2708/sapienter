@@ -6,7 +6,7 @@ import org.codehaus.groovy.grails.web.context.ServletContextHolder as SCH
 class FlowcheckFilters {
 
     def filters = {
-        all(controller:'*', action:'*') {
+        all(controller:'mail', action:'statusChange') {
              before = {
 				push 'notifyGroup'
             }

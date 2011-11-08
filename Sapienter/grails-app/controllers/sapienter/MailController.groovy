@@ -1,4 +1,6 @@
+
 package sapienter
+
 
 import org.codehaus.groovy.grails.commons.ApplicationHolder
 
@@ -30,7 +32,12 @@ class MailController {
 		}
 		*/
 		try{
-			mailService.recvMail()
+			MailStatus mailStatus = ApplicationHolder.application.mainContext.getBean("mailStatus")
+//			mailStatus.setController(this)
+//			def h = ApplicationHolder.application.mainContext.getBean("imapMessageHandler")
+
+			mailStatus.imapMessageHandler.setMailStatus(mailStatus)
+			mailService.recvMail(mailStatus.imapMessageHandler, "customAdapter", "inputChannel")
 			render "Recibio Email sin error"
 		}
 		catch(Exception ex)
@@ -39,7 +46,7 @@ class MailController {
 			render "Tiro un error en recv"
 		}
 		try{
-			mailService.recvMail2()
+//			mailService.recvMail2()
 			render "Recibio Email sin error"
 		}
 		catch(Exception ex)
@@ -75,8 +82,8 @@ class MailController {
 	
 	
 	
-	def statusChange = {
-		
+	def statusChange = { mailStatus ->
+		/*
 		def mailStatus = ApplicationHolder.application.mainContext.getBean("mailStatus")
 		if( mailStatus.status == "current" )
 			mailStatus.status="noCurrent"
@@ -85,7 +92,10 @@ class MailController {
 		
 //		new Categoria(nombreCategoria:"Extra-Judicial").save(flush:true)
 //		render "Cambiado a "+"${Categoria.count()}"+mailStatus.status
-		render "Cambiado a "+mailStatus.status
+ * */
+ 
+//		render "Cambiado a "+mailStatus.status
+		println "Cambiado a "+mailStatus?.status
 	}
 	
 }
