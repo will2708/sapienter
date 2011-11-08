@@ -31,6 +31,13 @@ class DocumentoController {
 	
 	@Secured(['IS_AUTHENTICATED_FULLY'])
 	def create = {
+		def map = params
+		if (params.taskId != "" && params.id != "code.icepush"){
+			session["taskId"] = params.get("taskId")
+		}else{
+			params.taskId = session["taskId"]
+		}
+		
 		def proceso = Proceso.get(session["procesid"])
 		def user = SecUser.get(springSecurityService.principal.id)
 		def srRole = SecRole.findByAuthority('ROLE_SENIOR')
@@ -66,6 +73,12 @@ class DocumentoController {
 	
 	@Secured(['IS_AUTHENTICATED_FULLY'])
 	def save = {
+		def map = params
+		if (params.taskId != "" && params.id != "code.icepush"){
+			session["taskId"] = params.get("taskId")
+		}else{
+			params.taskId = session["taskId"]
+		}
 		def proceso = Proceso.get(session["procesid"])
 		def user = SecUser.get(springSecurityService.principal.id)
 		def srRole = SecRole.findByAuthority('ROLE_SENIOR')
@@ -97,6 +110,7 @@ class DocumentoController {
 		
 		params.remove("usuarioResponsable")
 		params.remove("usuarioResponsable.id")
+		
         if (documentoInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'documento.label', default: 'Documento'), documentoInstance.id])}"
 			params.id = documentoInstance.id
@@ -309,6 +323,7 @@ class DocumentoController {
 	}
 	@Secured(['IS_AUTHENTICATED_FULLY'])
 	def createDesdeModelo = {
+		def map = params
 		println params
 		def id = params.modId
 		def modeloDeDocumentoInstance = ModeloDeDocumento.get(id)
