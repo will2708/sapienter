@@ -38,7 +38,13 @@ class UsuarioController {
 		def user = SecUser.get(springSecurityService.principal.id)
 		def role = SecRole.findById(params["secRole"].id)
 		def estudio = user.estudio
+		def nombre = params.nombre
+		def apellido = params.apellido
+		
+		params.put("firstName", nombre)
+		params.put("lastName", apellido)
 		params.put("estudio", estudio)
+		
 		def usuarioInstance = new Usuario(params)
 		usuarioInstance.role = role
 		usuarioInstance.usuarioCreacion = user

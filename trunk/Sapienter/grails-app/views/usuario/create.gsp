@@ -105,7 +105,7 @@
                                     <label for="correoElectronico"><g:message code="usuario.correoElectronico.label" default="Correo Electronico" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'correoElectronico', 'errors')}">
-                                    <g:select class="textField" name="correoElectronico.id" from="${sapienter.CorreoElectronico.list()}" optionKey="id" value="${usuarioInstance?.correoElectronico?.id}" noSelection="['null': '']" />
+                                    <g:textField class="textField" name="email" value="${usuarioInstance?.email}" />
                                 </td>
                                 <td valign="top" class="name">
                                     <label for="telefono"><g:message code="usuario.telefono.label" default="Telefono" /></label>
