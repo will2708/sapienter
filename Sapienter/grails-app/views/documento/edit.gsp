@@ -113,12 +113,12 @@ $(document).ready(function() {
                                 </td>
                             </tr>
                             <tr class="prop">
-                                <td valign="top" class="name">
+                               <!--  td valign="top" class="name">
                                   <label for="estado"><g:message code="documento.estado.label" default="Estado" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'estado', 'errors')}">
                                     <g:select class="textField"  name="estado" from="${documentoInstance.constraints.estado.inList}" value="${documentoInstance?.estado}" valueMessagePrefix="documento.estado"  />
-                                </td>
+                                </td> -->
                                 <td valign="top" class="name">
                                   <label for="tipoDeDocumento"><g:message code="documento.tipoDeDocumento.label" default="Tipo De Documento" /></label>
                                 </td>
@@ -175,10 +175,10 @@ $(document).ready(function() {
                     		<g:if test="${documentoInstance.estado == ApprovalStatus.REJECTED}">                
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="resendRequest"><g:message code="documento.resendRequest.label" default="Resend Request" /></label>
+                                  <label for="reenviarDocumento"><g:message code="documento.reenviarDocumento.label" default="Reenviar Documento" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'resendRequest', 'errors')}">
-                                    <g:checkBox name="resendRequest" value="${documentoInstance?.resendRequest}" />
+                                <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'reenviarDocumento', 'errors')}">
+                                    <g:checkBox name="reenviarDocumento" value="${documentoInstance?.reenviarDocumento}" />
                                 </td>
                             </tr>
                         </g:if>                         

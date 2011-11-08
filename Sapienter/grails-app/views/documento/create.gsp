@@ -63,9 +63,9 @@
                                     <g:textField class="textField" name="descripcion" value="${documentoInstance?.descripcion}" /></td>
                             </tr>                        
                             <tr class="prop">
-                                <td valign="top" class="name">
+                                <!-- td valign="top" class="name">
                                     <label for="estado"><g:message code="proceso.estado" default="Estado" /></label></td>
-                                <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'estado', 'errors')}">
+                                <td valign="top" class="value ${hasErrors(bean: documentoInstance, field: 'estado', 'errors')}"> -->
                                     <g:select class="textField" name="estado" from="${documentoInstance.constraints.estado.inList}" value="${documentoInstance?.estado}" valueMessagePrefix="documento.estado"  /></td>
                                 <td valign="top" class="name">
                                     <label for="tipoDeDocumento"><g:message code="documento.tipoDeDocumento" default="Tipo De Documento" /></label></td>
