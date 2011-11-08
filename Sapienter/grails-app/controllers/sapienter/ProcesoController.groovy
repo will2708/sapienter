@@ -1,5 +1,6 @@
 package sapienter
 
+import java.util.Iterator;
 import grails.plugins.springsecurity.Secured
 
 class ProcesoController {
@@ -168,6 +169,14 @@ class ProcesoController {
 		def procesoInstance = Proceso.get(params.id)
 		if (procesoInstance) {
 			try {
+				if (procesoInstance.movimientos != null){
+					for (Iterator iterator = procesoInstance.movimientos.iterator(); iterator
+							.hasNext();) {
+						Movimiento movimiento = (Movimiento) iterator.next();
+						if (movimiento.tareaAsociada !=null)
+							movimiento.tareaAsociada.delete()
+					}
+				}
 				procesoInstance.delete(flush: true)
 				flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'proceso.label', default: 'Proceso'), params.id])}"
 				redirect(action: "list")
