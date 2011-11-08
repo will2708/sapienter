@@ -79,12 +79,6 @@ class BootStrap {
 		/* Modelos de documentos */
 		/* TODO cargar */
 
-		/* Enlace Util */
-		/* TODO cargar */
-
-		/* Jurisprudencia */
-		/* TODO cargar */
-
 		/* Juzgados */
 		def juzgado = new Juzgado(estudio: (Estudio.getAll().get(0)), nombreDeJuzgado: "Juzgado 1", numeroDeJuzgado:"1", direccionJuzgado: "AV. DE LOS INMIGRANTES 1950 PISO 4°")
 		juzgado.save()
@@ -408,44 +402,23 @@ class BootStrap {
 		imapUrl: "imap.gmail.com:993/inbox")
 		correoElec.save()
 
-		def juniorUser = Usuario.findByUsername('franco') ?: new Usuario(
-		username: 'franco',
-		nombre: 'franco',
-		firstName: 'franco',
-		apellido: 'lezana',
-		lastName: 'lezana',
+		def flezana = Usuario.findByUsername('flezana') ?: new Usuario(
+		username: 'flezana',
+		nombre: 'Franco',
+		firstName: 'Franco',
+		apellido: 'Lezana',
+		lastName: 'Lezana',
 		calendario: calendar,
 		estudio: (Estudio.getAll().get(0)),
-		comentarios:'selalastramal',
+		comentarios:'Usuario Junior',
 		telefono:'4354444',
 		role:juniorRol,
 		correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
 		email: 'lezana@gmail.com',
-		password: 'franco',
-		enabled: true).save(failOnError: true)
-		calendar.save()
-
-		calendar =new Calendario()
-		correoElec = new CorreoElectronico(
-		contrasenia: "Sapienter01!",
-		direccion: "sapienterTest2@gmail.com", //replace with %40 for imap
-		smtpUrl: "smtp.gmail.com",
-		imapUrl: "imap.gmail.com:993/inbox")
-		correoElec.save()
-		def admin = Usuario.findByUsername('admin') ?: new Usuario(
-		username: 'admin',
-		nombre: 'Matías',
-		firstName: 'Matías',
-		apellido: 'Stanislavsky',
-		lastName: 'Stanislavsky',
-		calendario: calendar,
-		estudio: (Estudio.getAll().get(0)),
-		comentarios:'Nada en particular',
-		telefono:'4354242',
-		role:seniorRole,
-		correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
-		email: 'matunga@gmail.com',
-		password: 'admin',
+		adapter: 'customAdapter',
+		channel: 'inputChannel',
+		mailActivo: false,
+		password: 'flezana',
 		enabled: true).save(failOnError: true)
 		calendar.save()
 
@@ -460,13 +433,16 @@ class BootStrap {
 		username: 'mtoth',
 		correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
 		email: 'matias.toth@gmail.com',
+		adapter: 'customAdapter',
+		channel: 'inputChannel',
+		mailActivo: false,
 		nombre: 'Matias',
-		firstName: 'Toth',
-		apellido: 'Management',
-		lastName: 'Management',
+		firstName: 'Matias',
+		apellido: 'Toth',
+		lastName: 'Toth',
 		calendario: calendar,
 		estudio: (Estudio.getAll().get(0)),
-		comentarios:'todo en particular',
+		comentarios:'Usuarions Semi Senior',
 		telefono:'4354222',
 		role:ssrRol,
 		password: 'mtoth',
@@ -484,15 +460,18 @@ class BootStrap {
 		username: 'rperrone',
 		correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
 		email: 'romina.perrone@gmail.com',
+		adapter: 'customAdapter2',
+		channel: 'inputChannel2',
+		mailActivo: true,
 		nombre: 'Romina',
-		firstName: 'Perrone',
-		apellido: 'Management',
-		lastName: 'Management',
+		firstName: 'Romina',
+		apellido: 'Perrone',
+		lastName: 'Perrone',
 		calendario: calendar,
 		estudio: (Estudio.getAll().get(0)),
-		comentarios:'todo en particular',
+		comentarios:'Usuario Senior',
 		telefono:'4354222',
-		role:ssrRol,
+		role:seniorRole,
 		password: 'rperrone',
 		enabled: true).save(failOnError: true)
 		calendar.save()
@@ -508,13 +487,16 @@ class BootStrap {
 		username: 'mstani',
 		correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
 		email: 'matias.stani@gmail.com',
+		adapter: 'customAdapter2',
+		channel: 'inputChannel2',
+		mailActivo: false,
 		nombre: 'Matias',
-		firstName: 'Stanislavsky',
-		apellido: 'Management',
-		lastName: 'Management',
+		firstName: 'Matias',
+		apellido: 'Stanislavsky',
+		lastName: 'Stanislavsky',
 		calendario: calendar,
 		estudio: (Estudio.getAll().get(0)),
-		comentarios:'todo en particular',
+		comentarios:'Usuario Semi Senior',
 		telefono:'4354222',
 		role:ssrRol,
 		password: 'mstani',
@@ -532,30 +514,104 @@ class BootStrap {
 		username: 'nsouto',
 		correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
 		email: 'nicolas.souto@gmail.com',
+		adapter: 'customAdapter2',
+		channel: 'inputChannel2',
+		mailActivo: false,
 		nombre: 'Nicolas',
-		firstName: 'Souto',
-		apellido: 'Management',
-		lastName: 'Management',
+		firstName: 'Nicolas',
+		apellido: 'Souto',
+		lastName: 'Souto',
 		calendario: calendar,
 		estudio: (Estudio.getAll().get(0)),
-		comentarios:'todo en particular',
+		comentarios:'Usuario Senior',
 		telefono:'4354222',
-		role:ssrRol,
+		role:seniorRole,
 		password: 'nsouto',
 		enabled: true).save(failOnError: true)
 		calendar.save()
+		
+		calendar =new Calendario()
+		correoElec = new CorreoElectronico(
+		contrasenia: "Sapienter01!",
+		direccion: "sapienterTest2@gmail.com", //replace with %40 for imap
+		smtpUrl: "smtp.gmail.com",
+		imapUrl: "imap.gmail.com:993/inbox")
+		correoElec.save()
+		def gbonsoir = Usuario.findByUsername('gbonsoir') ?: new Usuario(
+		username: 'gbonsoir',
+		correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
+		email: 'nicolas.souto@gmail.com',
+		adapter: 'customAdapter3',
+		channel: 'inputChannel3',
+		mailActivo: true,
+		nombre: 'Gabriel',
+		firstName: 'Gabriel',
+		apellido: 'Bonsoir',
+		lastName: 'Bonsoir',
+		calendario: calendar,
+		estudio: (Estudio.getAll().get(0)),
+		comentarios:'Usuario Semi Senior',
+		telefono:'4354222',
+		role:ssrRol,
+		password: 'gbonsoir',
+		enabled: true).save(failOnError: true)
+		calendar.save()
+		
+		calendar =new Calendario()
+		correoElec = new CorreoElectronico(
+		contrasenia: "Sapienter01!",
+		direccion: "sapienterTest2@gmail.com", //replace with %40 for imap
+		smtpUrl: "smtp.gmail.com",
+		imapUrl: "imap.gmail.com:993/inbox")
+		correoElec.save()
+		def admin = Usuario.findByUsername('admin') ?: new Usuario(
+		username: 'admin',
+		nombre: 'Administrador',
+		firstName: 'Administrador',
+		apellido: 'Administrador',
+		lastName: 'Administrado',
+		calendario: calendar,
+		estudio: (Estudio.getAll().get(0)),
+		comentarios:'Nada en particular',
+		telefono:'4354242',
+		role:seniorRole,
+		correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
+		email: 'matunga@gmail.com',
+		adapter: 'customAdapter',
+		channel: 'inputChannel',
+		mailActivo: true,
+		password: 'admin',
+		enabled: true).save(failOnError: true)
+		calendar.save()
 
-		if (!juniorUser.authorities.contains(juniorRol)) {
-			SecUserSecRole.create juniorUser, juniorRol
+		if (!flezana.authorities.contains(juniorRol)) {
+			SecUserSecRole.create flezana, juniorRol
 		}
-
+		
+		if (!mtoth.authorities.contains(ssrRol)) {
+			SecUserSecRole.create mtoth, ssrRol
+		}
+		
+		if (!rperrone.authorities.contains(seniorRole)) {
+			SecUserSecRole.create rperrone, seniorRole
+		}
+		
+		if (!mstani.authorities.contains(ssrRol)) {
+			SecUserSecRole.create mstani, ssrRol
+		}
+		
+		if (!nsouto.authorities.contains(seniorRole)) {
+			SecUserSecRole.create nsouto, seniorRole
+		}
+		
 		if (!admin.authorities.contains(seniorRole)) {
 			SecUserSecRole.create admin, seniorRole
 		}
-
-		if (!nsouto.authorities.contains(ssrRol)) {
-			SecUserSecRole.create nsouto, ssrRol
+		
+		if (!gbonsoir.authorities.contains(ssrRol)) {
+			SecUserSecRole.create gbonsoir, ssrRol
 		}
+		
 		def eUt= new EnlaceUtil(descripcion:"Corte Interamericana de derechos humanos", direccion:"http://www.corteidh.or.cr/bus_fechas.cfm", ultimoUsuario: (Usuario.getAll().get(0)), estudio: (Estudio.getAll().get(0)))
 		eUt.save()
 		if (eUt.hasErrors()) {
