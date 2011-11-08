@@ -49,7 +49,7 @@
                         <tr class="prop"><td class="descripcion"><br></br>Informaci&oacuten Estudio:</td></tr>                                                                             
                         <tr class="odd">
                             <td>Usuarios</td>
-                            <td><a href="/Sapienter/djReport/?entity=usuario" target="_blank">Usuarios</a></td>
+                            <td><a href="/Sapienter/djReport/?entity=usuario" target="_blank">Reporte Usuarios</a></td>
                         </tr>
                         <tr class="even">
                             <td>Estudio</td>
