@@ -1,18 +1,18 @@
 import java.util.Date
-import org.activiti.engine.identity.User
+
 import sapienter.Calendario
 import sapienter.Categoria
+import sapienter.CorreoElectronico
 import sapienter.Estudio
 import sapienter.Juzgado
 import sapienter.PersonaFisica
 import sapienter.PersonaJuridica
+import sapienter.Proceso
 import sapienter.SecRole
-import sapienter.SecUser
 import sapienter.SecUserSecRole
 import sapienter.Subcategoria
 import sapienter.TipoDeParte
 import sapienter.Usuario
-import sapienter.CorreoElectronico
 
 class BootStrap {
 
@@ -162,52 +162,52 @@ class BootStrap {
 		}
 		
 		/* Personas Fisicas - Sin procesos */
-		def perFis = new PersonaFisica(auxiliar:"",informacionTributaria:"",profesion: "Contador",fax: "",telefono:"4107-7326",codPostal: "1003",ciudad:"CABA",domicilio:"San Martin 344",conyuge:"",madre: "", padre: "",estadoCivil: "Soltero", fechaNacimiento: new Date(),observaciones:"", nombre: "Gabriel", apellido: "Bonsoir", dni: "26.624.132", pais: "Argentina", email: "gbonsoir@sapienter.org", estudio: (Estudio.getAll().get(0)))
+		def perFis = new PersonaFisica(auxiliar:"",informacionTributaria:"",profesion: "Contador",fax: "",telefono:"4107-7326",codPostal: "1003",ciudad:"CABA",domicilio:"San Martin 344",conyuge:"",madre: "", padre: "",estadoCivil: "Soltero", fechaNacimiento: new Date(),observaciones:"", nombre: "Gabriel", apellido: "Bonsoir", dni: "26624132", pais: "Argentina", email: "gbonsoir@sapienter.org", estudio: (Estudio.getAll().get(0)))
 		perFis.save()
 		if (perFis.hasErrors()) {
 			println perFis.errors
 		}
-		perFis = new PersonaFisica(auxiliar:"",informacionTributaria:"",profesion: "",fax: "",telefono:"15462-8989",codPostal: "",ciudad:"",domicilio:"",conyuge:"",madre: "", padre: "",estadoCivil: "Soltero", fechaNacimiento: new Date(),observaciones:"", nombre: "Nicolas", apellido: "Souto", dni:"32.456.777", pais: "Argentina", email: "nsouto@sapienter.org", estudio: (Estudio.getAll().get(0)))
+		perFis = new PersonaFisica(auxiliar:"",informacionTributaria:"",profesion: "",fax: "",telefono:"15462-8989",codPostal: "",ciudad:"",domicilio:"",conyuge:"",madre: "", padre: "",estadoCivil: "Soltero", fechaNacimiento: new Date(),observaciones:"", nombre: "Nicolas", apellido: "Souto", dni:"32456777", pais: "Argentina", email: "nsouto@sapienter.org", estudio: (Estudio.getAll().get(0)))
 		perFis.save()
 		if (perFis.hasErrors()) {
 			println perFis.errors
 		}
-		perFis = new PersonaFisica(auxiliar:"",informacionTributaria:"",profesion: "Analista de sistemas",fax: "",telefono:"155376-9878",codPostal: "",ciudad:"",domicilio:"",conyuge:"",madre: "", padre: "",estadoCivil: "Soltero", fechaNacimiento: new Date(),observaciones:"", nombre: "Romina", apellido: "Perrone", dni: "32.677.644", pais: "Argentina", email: "rperrone@sapienter.org", estudio: (Estudio.getAll().get(0)))
+		perFis = new PersonaFisica(auxiliar:"",informacionTributaria:"",profesion: "Analista de sistemas",fax: "",telefono:"155376-9878",codPostal: "",ciudad:"",domicilio:"",conyuge:"",madre: "", padre: "",estadoCivil: "Soltero", fechaNacimiento: new Date(),observaciones:"", nombre: "Romina", apellido: "Perrone", dni: "32677644", pais: "Argentina", email: "rperrone@sapienter.org", estudio: (Estudio.getAll().get(0)))
 		perFis.save()
 		if (perFis.hasErrors()) {
 			println perFis.errors
 		}
-		perFis = new PersonaFisica(auxiliar:"",informacionTributaria:"",profesion: "Diseñadora Gráfica",fax: "",telefono:"4855-2424",codPostal: "1224",ciudad:"CABA",domicilio:"Sarmiento 3208 PB 2",conyuge:"Germán Camardella",madre: "", padre: "",estadoCivil: "Soltero", fechaNacimiento: new Date(),observaciones:"", nombre: "Mailen", apellido: "Brandao", dni: "32.675.888", pais: "Argentina", email: "mailen.brandaor@gmail.com", estudio: (Estudio.getAll().get(0)))
+		perFis = new PersonaFisica(auxiliar:"",informacionTributaria:"",profesion: "Diseñadora Gráfica",fax: "",telefono:"4855-2424",codPostal: "1224",ciudad:"CABA",domicilio:"Sarmiento 3208 PB 2",conyuge:"Germán Camardella",madre: "", padre: "",estadoCivil: "Soltero", fechaNacimiento: new Date(),observaciones:"", nombre: "Mailen", apellido: "Brandao", dni: "32675888", pais: "Argentina", email: "mailen.brandaor@gmail.com", estudio: (Estudio.getAll().get(0)))
 		perFis.save()
 		if (perFis.hasErrors()) {
 			println perFis.errors
 		}
-		perFis = new PersonaFisica(auxiliar:"",informacionTributaria:"",profesion: "Arquitecta",fax: "",telefono:"4958-2934",codPostal: "1224",ciudad:"CABA",domicilio:"Agrelo 4050",conyuge:"",madre: "", padre: "",estadoCivil: "Casado", fechaNacimiento: new Date(),observaciones:"", nombre: "Manuela", apellido: "Bresso", dni: "14.676.888", pais: "Argentina", email: "manuela_bresso@yahoo.com.ar", estudio: (Estudio.getAll().get(0)))
+		perFis = new PersonaFisica(auxiliar:"",informacionTributaria:"",profesion: "Arquitecta",fax: "",telefono:"4958-2934",codPostal: "1224",ciudad:"CABA",domicilio:"Agrelo 4050",conyuge:"",madre: "", padre: "",estadoCivil: "Casado", fechaNacimiento: new Date(),observaciones:"", nombre: "Manuela", apellido: "Bresso", dni: "14676888", pais: "Argentina", email: "manuela_bresso@yahoo.com.ar", estudio: (Estudio.getAll().get(0)))
 		perFis.save()
 		if (perFis.hasErrors()) {
 			println perFis.errors
 		}
-		perFis = new PersonaFisica(auxiliar:"",informacionTributaria:"",profesion: "Docente",fax: "",telefono:"4637-7267",codPostal: "1437",ciudad:"CABA",domicilio:"Varela 887 1°D",conyuge:"",madre: "", padre: "",estadoCivil: "Casado", fechaNacimiento: new Date(),observaciones:"", nombre: "Alejandro", apellido: "Sanchez", dni: "11.632.765", pais: "Argentina", email: "alejandro_sanchez@hotmail.com", estudio: (Estudio.getAll().get(0)))
+		perFis = new PersonaFisica(auxiliar:"",informacionTributaria:"",profesion: "Docente",fax: "",telefono:"4637-7267",codPostal: "1437",ciudad:"CABA",domicilio:"Varela 887 1°D",conyuge:"",madre: "", padre: "",estadoCivil: "Casado", fechaNacimiento: new Date(),observaciones:"", nombre: "Alejandro", apellido: "Sanchez", dni: "11632765", pais: "Argentina", email: "alejandro_sanchez@hotmail.com", estudio: (Estudio.getAll().get(0)))
 		perFis.save()
 		if (perFis.hasErrors()) {
 			println perFis.errors
 		}
-		perFis = new PersonaFisica(auxiliar:"",informacionTributaria:"",profesion: "Ingeniero",fax: "",telefono:"4456-5656",codPostal: "1433",ciudad:"CABA",domicilio:"Matheu 564 4°A",conyuge:"",madre: "", padre: "",estadoCivil: "Soltero", fechaNacimiento: new Date(),observaciones:"", nombre: "Fabian", apellido: "Ippolito", dni: "28.712.111", pais: "Argentina", email: "fabian.ippolito@gmail.com", estudio: (Estudio.getAll().get(0)))
+		perFis = new PersonaFisica(auxiliar:"",informacionTributaria:"",profesion: "Ingeniero",fax: "",telefono:"4456-5656",codPostal: "1433",ciudad:"CABA",domicilio:"Matheu 564 4°A",conyuge:"",madre: "", padre: "",estadoCivil: "Soltero", fechaNacimiento: new Date(),observaciones:"", nombre: "Fabian", apellido: "Ippolito", dni: "28712111", pais: "Argentina", email: "fabian.ippolito@gmail.com", estudio: (Estudio.getAll().get(0)))
 		perFis.save()
 		if (perFis.hasErrors()) {
 			println perFis.errors
 		}
-		perFis = new PersonaFisica(auxiliar:"",informacionTributaria:"",profesion: "Fonaudiologa",fax: "",telefono:"4456-8798",codPostal: "1433",ciudad:"CABA",domicilio:"Alberti 1632",conyuge:"",madre: "", padre: "",estadoCivil: "Soltero", fechaNacimiento: new Date(),observaciones:"", nombre: "Natalia", apellido: "Ippolito", dni: "32.564.878", pais: "Argentina", email: "nataliaippolito@gmail.com", estudio: (Estudio.getAll().get(0)))
+		perFis = new PersonaFisica(auxiliar:"",informacionTributaria:"",profesion: "Fonaudiologa",fax: "",telefono:"4456-8798",codPostal: "1433",ciudad:"CABA",domicilio:"Alberti 1632",conyuge:"",madre: "", padre: "",estadoCivil: "Soltero", fechaNacimiento: new Date(),observaciones:"", nombre: "Natalia", apellido: "Ippolito", dni: "32564878", pais: "Argentina", email: "nataliaippolito@gmail.com", estudio: (Estudio.getAll().get(0)))
 		perFis.save()
 		if (perFis.hasErrors()) {
 			println perFis.errors
 		}
-		perFis = new PersonaFisica(auxiliar:"",informacionTributaria:"",profesion: "Docente",fax: "",telefono:"4982-4444",codPostal: "1424",ciudad:"CABA",domicilio:"Rosario 78 6°B",conyuge:"",madre: "", padre: "",estadoCivil: "Divorciada", fechaNacimiento: new Date(),observaciones:"", nombre: "Susana", apellido: "Muñoz", dni: "11.632.444", pais: "Argentina", email: "susana_muñoz@hotmail.com", estudio: (Estudio.getAll().get(0)))
+		perFis = new PersonaFisica(auxiliar:"",informacionTributaria:"",profesion: "Docente",fax: "",telefono:"4982-4444",codPostal: "1424",ciudad:"CABA",domicilio:"Rosario 78 6°B",conyuge:"",madre: "", padre: "",estadoCivil: "Divorciado", fechaNacimiento: new Date(),observaciones:"", nombre: "Susana", apellido: "Muñoz", dni: "11632444", pais: "Argentina", email: "susana_muñoz@hotmail.com", estudio: (Estudio.getAll().get(0)))
 		perFis.save()
 		if (perFis.hasErrors()) {
 			println perFis.errors
 		}
-		perFis = new PersonaFisica(auxiliar:"",informacionTributaria:"",profesion: "Carpintero",fax: "",telefono:"4432-8877",codPostal: "1423",ciudad:"CABA",domicilio:"Pedernera 897",conyuge:"",madre: "", padre: "",estadoCivil: "Viudo", fechaNacimiento: new Date(),observaciones:"", nombre: "Marcelo", apellido: "Colagiovani", dni: "23.787.898", pais: "Argentina", email: "susana_muñoz@hotmail.com", estudio: (Estudio.getAll().get(0)))
+		perFis = new PersonaFisica(auxiliar:"",informacionTributaria:"",profesion: "Carpintero",fax: "",telefono:"4432-8877",codPostal: "1423",ciudad:"CABA",domicilio:"Pedernera 897",conyuge:"",madre: "", padre: "",estadoCivil: "Viudo", fechaNacimiento: new Date(),observaciones:"", nombre: "Marcelo", apellido: "Colagiovani", dni: "23787898", pais: "Argentina", email: "susana_muñoz@hotmail.com", estudio: (Estudio.getAll().get(0)))
 		perFis.save()
 		if (perFis.hasErrors()) {
 			println perFis.errors
@@ -259,9 +259,44 @@ class BootStrap {
 			println perJur.errors
 		}
 		perJur = new PersonaJuridica(razonSocial:"Femsa SA", cuit:"27-324556-2", email:"legales@coca-cola.com.ar",telefonoDeContacto:"4922-6767", auxiliares:"", fax:"", observaciones:"", estudio: (Estudio.getAll().get(0)))
-		perJur.save()
 		if (perJur.hasErrors()) {
 			println perJur.errors
+		}
+		/*Procesos*/
+		def proceso = new Proceso(caratula: "DA CORTE, Carlos Marcelo" , categoria: "Judicial" , descripcion: "s/recurso extraordinario", estado: "Cerrado", etapaProcesal: "De Resolución" , juzgado:"Juzgado 3" , numeroDeProcesoEnJuzgado:"45469" , observaciones: "Fallo: Se rechaza el recurso extraordinario impuesto" , responsable: "mtoth", subCategoría: "De Resolución", ultimoModificador:"mtoth" , estudio: (Estudio.getAll().get(0)), persona: (PersonaFisica.getAll().get(3)) )
+		proceso.save()
+		if (proceso.hasErrors()) {
+			println proceso.errors
+		}
+		proceso = new Proceso(caratula: "Caña, Gabriela Cecilia" , categoria: "Judicial" , descripcion: "s/sobreseimiento", estado: "Abierto a pruebas", etapaProcesal: "Probatoria" , juzgado:"Juzgado 2" , numeroDeProcesoEnJuzgado:"45894" , observaciones: "Testigo citado para el 12/12" , responsable: "gbonsoir", subCategoría: "Probatoria", ultimoModificador:"gbonsoir" , estudio: (Estudio.getAll().get(0)), persona: (PersonaFisica.getAll().get(3)) )
+		proceso.save()
+		if (proceso.hasErrors()) {
+			println proceso.errors
+		}
+		proceso = new Proceso(caratula: "Moneta, Raúl J. P." , categoria: "Extra-Judicial" , descripcion: "s/ procesamiento y embargo", estado: "En tratamiento", etapaProcesal: "Extra-judicial" , juzgado:"Juzgado 6" , numeroDeProcesoEnJuzgado:"30748" , observaciones: "Mediación" , responsable: "rperrone", subCategoría: "Mediación", ultimoModificador:"gbonsoir" , estudio: (Estudio.getAll().get(0)), persona: (PersonaJuridica.getAll().get(6)) )
+		proceso.save()
+		if (proceso.hasErrors()) {
+			println proceso.errors
+		}
+		proceso = new Proceso(caratula: "Barbarosch, Alfredo" , categoria: "Extra-Judicial" , descripcion: "s/ recurso de queja por retardo de justicia", estado: "En tratamiento", etapaProcesal: "Extra-judicial" , juzgado:"Juzgado 4" , numeroDeProcesoEnJuzgado:"31165" , observaciones: "Mediación" , responsable: "nsouto", subCategoría: "Mediación", ultimoModificador:"nsouto" , estudio: (Estudio.getAll().get(0)), persona: (PersonaJuridica.getAll().get(5)) )
+		proceso.save()
+		if (proceso.hasErrors()) {
+			println proceso.errors
+		}
+		proceso = new Proceso(caratula: "Daysi Felicita y Chirino Navarro, José Antonio" , categoria: "Judicial" , descripcion: "s/procesamiento y prisión preventiva", estado: "Demanda en preparación", etapaProcesal: "Impugnitiva" , juzgado:"Juzgado 2" , numeroDeProcesoEnJuzgado:"46286" , observaciones: "Robo a mano armada" , responsable: "mstani", subCategoría: "Impugnitiva", ultimoModificador:"mstani" , estudio: (Estudio.getAll().get(0)), persona: (PersonaFisica.getAll().get(7)) )
+		proceso.save()
+		if (proceso.hasErrors()) {
+			println proceso.errors
+		}
+		proceso = new Proceso(caratula: "Chirino Navarro, José Antonio" , categoria: "Judicial" , descripcion: "s/rechazo de excarcelación", estado: "Demanda en preparación", etapaProcesal: "Impugnitiva" , juzgado:"Juzgado 6" , numeroDeProcesoEnJuzgado:"46289" , observaciones: "" , responsable: "mstani", subCategoría: "Impugnitiva", ultimoModificador:"mstani" , estudio: (Estudio.getAll().get(0)), persona: (PersonaFisica.getAll().get(7)) )
+		proceso.save()
+		if (proceso.hasErrors()) {
+			println proceso.errors
+		}
+		proceso = new Proceso(caratula: "Carmelo, Messina" , categoria: "Extra-Judicial" , descripcion: "s/levantamiento de clausura", estado: "De Resolución", etapaProcesal: "Extra-judicial" , juzgado:"Juzgado 4" , numeroDeProcesoEnJuzgado:"46045" , observaciones: "" , responsable: "mstani", subCategoría: "Impugnitiva", ultimoModificador:"mstani" , estudio: (Estudio.getAll().get(0)), persona: (PersonaFisica.getAll().get(7)) )
+		proceso.save()
+		if (proceso.hasErrors()) {
+			println proceso.errors
 		}
 		createUsersAndGroups()
 	}
