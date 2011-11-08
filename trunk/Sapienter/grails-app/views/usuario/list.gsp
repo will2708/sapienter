@@ -30,7 +30,7 @@
                 <table class="tabla">
                     <thead>
                         <tr>
-                            <g:sortableColumn property="id" title="${message(code: 'sapienter.id', default: 'Id')}" />
+<!--                             <g:sortableColumn property="id" title="${message(code: 'sapienter.id', default: 'Id')}" /> -->
                             <g:sortableColumn property="username" title="${message(code: 'usuario.usuario', default: 'Username')}" />
                             <g:sortableColumn property="nombre" title="${message(code: 'persona.nombre', default: 'Username')}" />
                             <g:sortableColumn property="apellido" title="${message(code: 'persona.apellido', default: 'Username')}" />
@@ -42,7 +42,7 @@
                     <tbody>
                     <g:each in="${usuarioInstanceList}" status="i" var="usuarioInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-                            <td><g:link action="show" id="${usuarioInstance.id}">${fieldValue(bean: usuarioInstance, field: "id")}</g:link></td>
+<!--                             <td><g:link action="show" id="${usuarioInstance.id}">${fieldValue(bean: usuarioInstance, field: "id")}</g:link></td> -->
                             <td><g:link action="show" id="${usuarioInstance.id}">${fieldValue(bean: usuarioInstance, field: "username")}</g:link></td>
                             <td><g:link action="show" id="${usuarioInstance.id}">${fieldValue(bean: usuarioInstance, field: "nombre")}</g:link></td>
                             <td><g:link action="show" id="${usuarioInstance.id}">${fieldValue(bean: usuarioInstance, field: "apellido")}</g:link></td>

@@ -79,10 +79,10 @@ $(document).ready(function() {
 					</div>                  
                     <table class="tabla_edit">
                         <tbody>
-	                        <tr class="prop">
+	                        <!-- <tr class="prop">
 	                            <td valign="top" class="descripcion"><g:message code="sapienter.id" default="Id" /></td>
 	                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "id")}</td>
-	                        </tr>                        
+	                        </tr>-->                        
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="username"><g:message code="usuario.usuario" default="Username" /><mandatory> *</mandatory></label>

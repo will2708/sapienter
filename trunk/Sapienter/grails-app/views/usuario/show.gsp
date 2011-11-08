@@ -71,10 +71,10 @@ $(document).ready(function() {
             <div class="dialog">
                 <table class="tabla">
                     <tbody>
-                        <tr class="prop">
+<!--                         <tr class="prop">
                             <td valign="top" class="descripcion"><g:message code="sapienter.id" default="Id" /></td>
                             <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "id")}</td>
-                        </tr>
+                        </tr> -->
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.usuario" default="Username" /></td>
                             <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "username")}</td>
