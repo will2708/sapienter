@@ -114,6 +114,22 @@ class ProcesoController {
 		def user = SecUser.get(springSecurityService.principal.id)
 		def procesoInstance = Proceso.get(params.id)
 		procesoInstance.ultimoModificador = user
+
+		def userAut = null
+		if (params.usuariosAutorizados != null)
+			userAut = params.usuariosAutorizados.id
+
+		if (userAut != null)
+			if (userAut instanceof String)
+				procesoInstance.usuariosAutorizados.add(Usuario.get(userAut))
+			else
+				for (int i = 0; i < userAut.size(); i++) {
+					//Integer idAux = new Integer(userAut[i])
+					def userAux = Usuario.get(userAut[i])
+					procesoInstance.usuariosAutorizados.add(userAux)
+				}
+		
+		
 		if (procesoInstance) {
 			if (params.version) {
 				def version = params.version.toLong()
