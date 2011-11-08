@@ -3,7 +3,9 @@ import java.util.Date
 import sapienter.Calendario
 import sapienter.Categoria
 import sapienter.CorreoElectronico
+import sapienter.EnlaceUtil
 import sapienter.Estudio
+import sapienter.Jurisprudencia
 import sapienter.Juzgado
 import sapienter.PersonaFisica
 import sapienter.PersonaJuridica
@@ -16,8 +18,9 @@ import sapienter.Usuario
 
 class BootStrap {
 
-	def init = { servletContext ->
-		
+	def init = {
+		servletContext ->
+
 		/* Categorias */
 		def cat = new Categoria(nombreCategoria:"Judicial")
 		cat.save()
@@ -27,9 +30,9 @@ class BootStrap {
 		cat = new Categoria(nombreCategoria:"Extra-Judicial")
 		cat.save()
 		if (cat.hasErrors()){
-				println cat.errors
+			println cat.errors
 		}
-		
+
 		/* Sub Categorias */
 		def subCat = new Subcategoria(subTipoCategoria:"Postulatoria", categoria:(Categoria.findByNombreCategoria("Judicial")))
 		subCat.save()
@@ -66,7 +69,7 @@ class BootStrap {
 		if (subCat.hasErrors()){
 			println subCat.errors
 		}
-		
+
 		/* Estudio */
 		def est = new Estudio(razonSocial: "Sapienter", cuit: "20-30409317-0", domicilioFiscal: "Av. Cordoba 600")
 		est.save()
@@ -75,38 +78,38 @@ class BootStrap {
 		}
 		/* Modelos de documentos */
 		/* TODO cargar */
-		
+
 		/* Enlace Util */
 		/* TODO cargar */
-		
+
 		/* Jurisprudencia */
 		/* TODO cargar */
-		
+
 		/* Juzgados */
 		def juzgado = new Juzgado(estudio: (Estudio.getAll().get(0)), nombreDeJuzgado: "Juzgado 1", numeroDeJuzgado:"1", direccionJuzgado: "AV. DE LOS INMIGRANTES 1950 PISO 4°")
 		juzgado.save()
 		if (juzgado.hasErrors()){
 			println juzgado.errors
 		}
-		
+
 		juzgado = new Juzgado(estudio: (Estudio.getAll().get(0)),nombreDeJuzgado: "Juzgado 2", numeroDeJuzgado:"2", direccionJuzgado: "TALCAHUANO 490. PISO 5º")
 		juzgado.save()
 		if (juzgado.hasErrors()){
 			println juzgado.errors
 		}
-		
+
 		juzgado = new Juzgado(estudio: (Estudio.getAll().get(0)),nombreDeJuzgado: "Juzgado 3", numeroDeJuzgado:"3", direccionJuzgado: "TALCAHUANO 550. PISO 6º")
 		juzgado.save()
 		if (juzgado.hasErrors()){
 			println juzgado.errors
 		}
-		
+
 		juzgado = new Juzgado(estudio: (Estudio.getAll().get(0)),nombreDeJuzgado: "Juzgado 4", numeroDeJuzgado:"4", direccionJuzgado: "LAVALLE 1212. PISO 8º")
 		juzgado.save()
 		if (juzgado.hasErrors()){
 			println juzgado.errors
 		}
-		
+
 		juzgado = new Juzgado(estudio: (Estudio.getAll().get(0)),nombreDeJuzgado: "Juzgado 5", numeroDeJuzgado:"5", direccionJuzgado: "TALCAHUANO 490. PISO 2º")
 		juzgado.save()
 		if (juzgado.hasErrors()){
@@ -137,7 +140,7 @@ class BootStrap {
 		if (tipPar.hasErrors()){
 			println tipPar.errors
 		}
-		
+
 		tipPar = new TipoDeParte(descripcion:"Testigo", estudio: (Estudio.getAll().get(0)))
 		tipPar.save()
 		if (tipPar.hasErrors()){
@@ -149,7 +152,7 @@ class BootStrap {
 		if (tipPar.hasErrors()){
 			println tipPar.errors
 		}
-		
+
 		tipPar = new TipoDeParte(descripcion:"Juez", estudio: (Estudio.getAll().get(0)))
 		tipPar.save()
 		if (tipPar.hasErrors()){
@@ -160,14 +163,14 @@ class BootStrap {
 		if (tipPar.hasErrors()){
 			println tipPar.errors
 		}
-	
+
 		/* Personas Fisicas - Sin procesos */
 		Date fecha = new Date ();
 		Calendar calendar = new GregorianCalendar();
 		calendar.setTime(fecha)
 		calendar.add(Calendar.YEAR, -30)
 		fecha = calendar.getTime()
-		
+
 		def perFis = new PersonaFisica(auxiliar:"",informacionTributaria:"",profesion: "Contador",fax: "",telefono:"4107-7326",codPostal: "1003",ciudad:"CABA",domicilio:"San Martin 344",conyuge:"",madre: "", padre: "",estadoCivil: "Soltero", fechaNacimiento: fecha, observaciones:"", nombre: "Gabriel", apellido: "Bonsoir", dni: "26624132", pais: "Argentina", email: "gbonsoir@sapienter.org", estudio: (Estudio.getAll().get(0)))
 		perFis.save()
 		if (perFis.hasErrors()) {
@@ -270,7 +273,7 @@ class BootStrap {
 		}
 		/*Usuarios*/
 		createUsersAndGroups()
-		
+
 		/*Procesos*/
 		def proceso = new Proceso(caratula: "DA CORTE, Carlos Marcelo" , categoria: cat , descripcion: "s/recurso extraordinario", estado: 'Cerrado', etapaProcesal: 'De Resolución' , juzgado:(Juzgado.getAll().get(2)) , numeroDeProcesoEnJuzgado:"45469" , observaciones: "Fallo: Se rechaza el recurso extraordinario impuesto" , responsable: (Usuario.getAll().get(1)), subCategoría: subCat, ultimoModificador: (Usuario.getAll().get(1)) , estudio: (Estudio.getAll().get(0)), persona: (PersonaFisica.getAll().get(3)) )
 		proceso.save()
@@ -322,185 +325,293 @@ class BootStrap {
 		if (proceso.hasErrors()) {
 			println proceso.errors
 		}
+
+		/*Jurisprudencia*/
+		def jurisp = new Jurisprudencia(descripcion:"Aeronáutico. Contrato de transporte aéreo", fuero:'Civil', origen:"Nacional", jurisprudencia:"El presente caso fue sometido a la Corte por la Comisión Interamericana de Derechos Humanos (en adelante 'la Comisión') el 24 de abril de 1986. Se originó en una denuncia (No.7920) contra Honduras recibida en la Secretaría de la Comisión el 7 de octubre de 1981.", sitio:"http://www.biotech.bioetica.org/jurisprudencia.htm", usuario: (Usuario.getAll().get(0)),estudio: (Estudio.getAll().get(0)))
+		jurisp.save()
+		if (jurisp.hasErrors()) {
+			println jurisp.errors
+		}
+
+
+		jurisp = new Jurisprudencia(descripcion:"Declaraciones sobre la irregularidad de actos asamblearios", fuero:'Civil', origen:"Nacional", jurisprudencia:"Al presentar el caso, la Comisión invocó los artículos 50 y 51 de la Convención Americana sobre Derechos Humanos (en adelante la Convención o la Convención Americana). La Comisión sometió este caso con el fin de que la Corte decida si hubo violación, por parte del Estado involucrado, de los artículos 4 (Derecho a la Vida), 5 (Derecho a la Integridad Personal) y 7 (Derecho a la Libertad Personal) de la Convención en perjuicio del señor Ángel Manfredo Velásquez Rodríguez y solicitó que la Corte disponga se reparen las consecuencias de la situación que ha configurado la vulneración de esos derechos y se otorgue a la parte o partes lesionadas una justa indemnización.", sitio:"http://www.derecho.uba.ar/academica/carrdocente/basejurisp/index.php", usuario: (Usuario.getAll().get(0)), estudio: (Estudio.getAll().get(0)))
+		jurisp.save()
+		if (jurisp.hasErrors()) {
+			println jurisp.errors
+		}
+
+		jurisp = new Jurisprudencia(descripcion:"Violación de normas estatutarias", fuero:'Civil', origen:"Nacional", jurisprudencia:"El procedimiento establecido para la admisibilidad de la petición o comunicación, no fue observado por la Comisión.", sitio:"http://www.tribctas.gba.gov.ar/secciones/inf_especifica/informacioninstitucional/jurisprudencia/jur_busqueda_palabras.phtml", usuario: (Usuario.getAll().get(0)),estudio: (Estudio.getAll().get(0)))
+		jurisp.save()
+		if (jurisp.hasErrors()) {
+			println jurisp.errors
+		}
+
+		jurisp = new Jurisprudencia(descripcion:"Suspención de un directivo", fuero:'Civil', origen:"Nacional", jurisprudencia:"La Comisión desconoció la información proveída por el Gobierno respecto alno agotamiento de los recursos de jurisdicción interna relativos a este caso.", sitio:"http://www.scba.gov.ar/jubanuevo/integral.is", usuario: (Usuario.getAll().get(0)), estudio: Estudio.getAll().get(0))
+		jurisp.save()
+		if (jurisp.hasErrors()) {
+			println jurisp.errors
+		}
+		jurisp = new Jurisprudencia(descripcion:"Reintegro del depósito en dólares embargados", fuero:'Civil', origen:"Nacional", jurisprudencia:"Los recursos de jurisdicción interna no fueron interpuestos ni agotados.", sitio:"http://www.scba.gov.ar/jubanuevo/integral.is", usuario: (Usuario.getAll().get(0)), estudio: Estudio.getAll().get(0))
+		jurisp.save()
+		if (jurisp.hasErrors()) {
+			println jurisp.errors
+		}
+		jurisp = new Jurisprudencia(descripcion:"Animales sueltos en ruta", fuero:'Civil', origen:"Nacional", jurisprudencia:"El procedimiento establecido para la preparación de informes no fue observado por la Comisión.", sitio:"http://www.scba.gov.ar/jubanuevo/integral.is", usuario: (Usuario.getAll().get(0)), estudio: Estudio.getAll().get(0))
+		jurisp.save()
+		if (jurisp.hasErrors()) {
+			println jurisp.errors
+		}
+		jurisp = new Jurisprudencia(descripcion:"Irregularidades en la reunión del Consejo de Administración", fuero:'Civil', origen:"Nacional", jurisprudencia:"La norma establecida en la Convención para una solución amistosa, fue ignorada por la Comisión.", sitio:"http://www.scba.gov.ar/jubanuevo/integral.is", usuario: (Usuario.getAll().get(0)), estudio: Estudio.getAll().get(0))
+		jurisp.save()
+		if (jurisp.hasErrors()) {
+			println jurisp.errors
+		}
+		jurisp = new Jurisprudencia(descripcion:"Sociedad conyugal", fuero:'Civil', origen:"Nacional", jurisprudencia:"No se ha cumplido con los requisitos establecidos en los artículos 48, 49 y 50 de la Convención, para referir el caso a la Corte, conforme al artículo 61 de la Convención.", sitio:"http://www.scba.gov.ar/jubanuevo/integral.is", usuario: (Usuario.getAll().get(0)), estudio: Estudio.getAll().get(0))
+		jurisp.save()
+		if (jurisp.hasErrors()) {
+			println jurisp.errors
+		}
+		jurisp = new Jurisprudencia(descripcion:"Extensión de la quiebra", fuero:'Civil', origen:"Nacional", jurisprudencia:"Para resolver estas cuestiones, la Corte deberá abordar varios problemas relativos a la interpretación y aplicación de las normas procesales contenidas en la Convención. Para ese fin, la Corte tiene en cuenta, en primer lugar", sitio:"http://www.scba.gov.ar/jubanuevo/integral.is", usuario: (Usuario.getAll().get(0)), estudio: Estudio.getAll().get(0))
+		jurisp.save()
+		if (jurisp.hasErrors()) {
+			println jurisp.errors
+		}
 	}
-	
+
 	private void createUsersAndGroups() {
-				
+
 		/* Roles*/
 		def juniorRol = SecRole.findByAuthority('ROLE_JUNIOR')
 		if (!juniorRol) {
-		 juniorRol = new SecRole(authority: 'ROLE_JUNIOR', name: 'Junior')
-		 juniorRol.id = 'ROLE_JUNIOR'
-		 juniorRol.save(failOnError: true)
+			juniorRol = new SecRole(authority: 'ROLE_JUNIOR', name: 'Junior')
+			juniorRol.id = 'ROLE_JUNIOR'
+			juniorRol.save(failOnError: true)
 		}
 		def ssrRol = SecRole.findByAuthority('ROLE_SSR')
 		if (!ssrRol) {
-		 ssrRol = new SecRole(authority: 'ROLE_SSR', name: 'SSR')
-		 ssrRol.id = 'ROLE_SSR'
-		 ssrRol.save(failOnError: true)
+			ssrRol = new SecRole(authority: 'ROLE_SSR', name: 'SSR')
+			ssrRol.id = 'ROLE_SSR'
+			ssrRol.save(failOnError: true)
 		}
 		def seniorRole = SecRole.findByAuthority('ROLE_SENIOR')
 		if (!seniorRole) {
-		 seniorRole = new SecRole(authority: 'ROLE_SENIOR', name: 'SENIOR')
-		 seniorRole.id = 'ROLE_SENIOR'
-		 seniorRole.save(failOnError: true)
+			seniorRole = new SecRole(authority: 'ROLE_SENIOR', name: 'SENIOR')
+			seniorRole.id = 'ROLE_SENIOR'
+			seniorRole.save(failOnError: true)
 		}
 		/* Usuarios con su calendario y correo electronico */
 		def calendar =new Calendario()
 		def correoElec = new CorreoElectronico(
-			contrasenia: "Sapienter01!",
-			direccion: "sapienterTest@gmail.com", //replace with %40 for imap
-			smtpUrl: "smtp.gmail.com",
-			imapUrl: "imap.gmail.com:993/inbox")
+		contrasenia: "Sapienter01!",
+		direccion: "sapienterTest@gmail.com", //replace with %40 for imap
+		smtpUrl: "smtp.gmail.com",
+		imapUrl: "imap.gmail.com:993/inbox")
 		correoElec.save()
-		
+
 		def juniorUser = Usuario.findByUsername('franco') ?: new Usuario(
-				username: 'franco',
-				nombre: 'franco',
-				firstName: 'franco',
-				apellido: 'lezana',
-				lastName: 'lezana',
-				calendario: calendar,
-				estudio: (Estudio.getAll().get(0)),
-				comentarios:'selalastramal',
-				telefono:'4354444',
-				role:juniorRol,
-				correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
-				email: 'lezana@gmail.com',
-				password: 'franco',
-				enabled: true).save(failOnError: true)
+		username: 'franco',
+		nombre: 'franco',
+		firstName: 'franco',
+		apellido: 'lezana',
+		lastName: 'lezana',
+		calendario: calendar,
+		estudio: (Estudio.getAll().get(0)),
+		comentarios:'selalastramal',
+		telefono:'4354444',
+		role:juniorRol,
+		correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
+		email: 'lezana@gmail.com',
+		password: 'franco',
+		enabled: true).save(failOnError: true)
 		calendar.save()
-		
+
 		calendar =new Calendario()
 		correoElec = new CorreoElectronico(
-			contrasenia: "Sapienter01!",
-			direccion: "sapienterTest2@gmail.com", //replace with %40 for imap
-			smtpUrl: "smtp.gmail.com",
-			imapUrl: "imap.gmail.com:993/inbox")
+		contrasenia: "Sapienter01!",
+		direccion: "sapienterTest2@gmail.com", //replace with %40 for imap
+		smtpUrl: "smtp.gmail.com",
+		imapUrl: "imap.gmail.com:993/inbox")
 		correoElec.save()
 		def admin = Usuario.findByUsername('admin') ?: new Usuario(
-				username: 'admin',
-				nombre: 'Matías',
-				firstName: 'Matías',
-				apellido: 'Stanislavsky',
-				lastName: 'Stanislavsky',
-				calendario: calendar,
-				estudio: (Estudio.getAll().get(0)),
-				comentarios:'Nada en particular',
-				telefono:'4354242',
-				role:seniorRole,
-				correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
-				email: 'matunga@gmail.com',
-				password: 'admin',
-				enabled: true).save(failOnError: true)
+		username: 'admin',
+		nombre: 'Matías',
+		firstName: 'Matías',
+		apellido: 'Stanislavsky',
+		lastName: 'Stanislavsky',
+		calendario: calendar,
+		estudio: (Estudio.getAll().get(0)),
+		comentarios:'Nada en particular',
+		telefono:'4354242',
+		role:seniorRole,
+		correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
+		email: 'matunga@gmail.com',
+		password: 'admin',
+		enabled: true).save(failOnError: true)
 		calendar.save()
-		
+
 		calendar =new Calendario()
 		correoElec = new CorreoElectronico(
-			contrasenia: "Sapienter01!",
-			direccion: "sapienterTest2@gmail.com", //replace with %40 for imap
-			smtpUrl: "smtp.gmail.com",
-			imapUrl: "imap.gmail.com:993/inbox")
+		contrasenia: "Sapienter01!",
+		direccion: "sapienterTest2@gmail.com", //replace with %40 for imap
+		smtpUrl: "smtp.gmail.com",
+		imapUrl: "imap.gmail.com:993/inbox")
 		correoElec.save()
 		def mtoth = Usuario.findByUsername('mtoth') ?: new Usuario(
-				username: 'mtoth',
-				correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
-				email: 'matias.toth@gmail.com',
-				nombre: 'Matias',
-				firstName: 'Toth',
-				apellido: 'Management',
-				lastName: 'Management',
-				calendario: calendar,
-				estudio: (Estudio.getAll().get(0)),
-				comentarios:'todo en particular',
-				telefono:'4354222',
-				role:ssrRol,
-				password: 'mtoth',
-				enabled: true).save(failOnError: true)
+		username: 'mtoth',
+		correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
+		email: 'matias.toth@gmail.com',
+		nombre: 'Matias',
+		firstName: 'Toth',
+		apellido: 'Management',
+		lastName: 'Management',
+		calendario: calendar,
+		estudio: (Estudio.getAll().get(0)),
+		comentarios:'todo en particular',
+		telefono:'4354222',
+		role:ssrRol,
+		password: 'mtoth',
+		enabled: true).save(failOnError: true)
 		calendar.save()
 
 		calendar =new Calendario()
 		correoElec = new CorreoElectronico(
-			contrasenia: "Sapienter01!",
-			direccion: "sapienterTest2@gmail.com", //replace with %40 for imap
-			smtpUrl: "smtp.gmail.com",
-			imapUrl: "imap.gmail.com:993/inbox")
+		contrasenia: "Sapienter01!",
+		direccion: "sapienterTest2@gmail.com", //replace with %40 for imap
+		smtpUrl: "smtp.gmail.com",
+		imapUrl: "imap.gmail.com:993/inbox")
 		correoElec.save()
 		def rperrone = Usuario.findByUsername('rperrone') ?: new Usuario(
-				username: 'rperrone',
-				correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
-				email: 'romina.perrone@gmail.com',
-				nombre: 'Romina',
-				firstName: 'Perrone',
-				apellido: 'Management',
-				lastName: 'Management',
-				calendario: calendar,
-				estudio: (Estudio.getAll().get(0)),
-				comentarios:'todo en particular',
-				telefono:'4354222',
-				role:ssrRol,
-				password: 'rperrone',
-				enabled: true).save(failOnError: true)
+		username: 'rperrone',
+		correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
+		email: 'romina.perrone@gmail.com',
+		nombre: 'Romina',
+		firstName: 'Perrone',
+		apellido: 'Management',
+		lastName: 'Management',
+		calendario: calendar,
+		estudio: (Estudio.getAll().get(0)),
+		comentarios:'todo en particular',
+		telefono:'4354222',
+		role:ssrRol,
+		password: 'rperrone',
+		enabled: true).save(failOnError: true)
 		calendar.save()
 
 		calendar =new Calendario()
 		correoElec = new CorreoElectronico(
-			contrasenia: "Sapienter01!",
-			direccion: "sapienterTest2@gmail.com", //replace with %40 for imap
-			smtpUrl: "smtp.gmail.com",
-			imapUrl: "imap.gmail.com:993/inbox")
+		contrasenia: "Sapienter01!",
+		direccion: "sapienterTest2@gmail.com", //replace with %40 for imap
+		smtpUrl: "smtp.gmail.com",
+		imapUrl: "imap.gmail.com:993/inbox")
 		correoElec.save()
 		def mstani = Usuario.findByUsername('mstani') ?: new Usuario(
-				username: 'mstani',
-				correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
-				email: 'matias.stani@gmail.com',
-				nombre: 'Matias',
-				firstName: 'Stanislavsky',
-				apellido: 'Management',
-				lastName: 'Management',
-				calendario: calendar,
-				estudio: (Estudio.getAll().get(0)),
-				comentarios:'todo en particular',
-				telefono:'4354222',
-				role:ssrRol,
-				password: 'mstani',
-				enabled: true).save(failOnError: true)
+		username: 'mstani',
+		correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
+		email: 'matias.stani@gmail.com',
+		nombre: 'Matias',
+		firstName: 'Stanislavsky',
+		apellido: 'Management',
+		lastName: 'Management',
+		calendario: calendar,
+		estudio: (Estudio.getAll().get(0)),
+		comentarios:'todo en particular',
+		telefono:'4354222',
+		role:ssrRol,
+		password: 'mstani',
+		enabled: true).save(failOnError: true)
 		calendar.save()
-		
+
 		calendar =new Calendario()
 		correoElec = new CorreoElectronico(
-			contrasenia: "Sapienter01!",
-			direccion: "sapienterTest2@gmail.com", //replace with %40 for imap
-			smtpUrl: "smtp.gmail.com",
-			imapUrl: "imap.gmail.com:993/inbox")
+		contrasenia: "Sapienter01!",
+		direccion: "sapienterTest2@gmail.com", //replace with %40 for imap
+		smtpUrl: "smtp.gmail.com",
+		imapUrl: "imap.gmail.com:993/inbox")
 		correoElec.save()
 		def nsouto = Usuario.findByUsername('nsouto') ?: new Usuario(
-				username: 'nsouto',
-				correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
-				email: 'nicolas.souto@gmail.com',
-				nombre: 'Nicolas',
-				firstName: 'Souto',
-				apellido: 'Management',
-				lastName: 'Management',
-				calendario: calendar,
-				estudio: (Estudio.getAll().get(0)),
-				comentarios:'todo en particular',
-				telefono:'4354222',
-				role:ssrRol,
-				password: 'nsouto',
-				enabled: true).save(failOnError: true)
+		username: 'nsouto',
+		correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
+		email: 'nicolas.souto@gmail.com',
+		nombre: 'Nicolas',
+		firstName: 'Souto',
+		apellido: 'Management',
+		lastName: 'Management',
+		calendario: calendar,
+		estudio: (Estudio.getAll().get(0)),
+		comentarios:'todo en particular',
+		telefono:'4354222',
+		role:ssrRol,
+		password: 'nsouto',
+		enabled: true).save(failOnError: true)
 		calendar.save()
-		
+
 		if (!juniorUser.authorities.contains(juniorRol)) {
 			SecUserSecRole.create juniorUser, juniorRol
 		}
-		
+
 		if (!admin.authorities.contains(seniorRole)) {
 			SecUserSecRole.create admin, seniorRole
 		}
-		
+
 		if (!nsouto.authorities.contains(ssrRol)) {
 			SecUserSecRole.create nsouto, ssrRol
+		}
+		def eUt= new EnlaceUtil(descripcion:"Corte Interamericana de derechos humanos", direccion:"http://www.corteidh.or.cr/bus_fechas.cfm", ultimoUsuario: (Usuario.getAll().get(0)), estudio: (Estudio.getAll().get(0)))
+		eUt.save()
+		if (eUt.hasErrors()) {
+			println eUt.errors
+		}
+
+		eUt= new EnlaceUtil(descripcion:"Corte Interamericana de derechos humanos",direccion:"http://www.corteidh.or.cr/bus_fechas.cfm", ultimoUsuario: (Usuario.getAll().get(0)), estudio: (Estudio.getAll().get(0)))
+		eUt.save()
+		if (eUt.hasErrors()) {
+			println eUt.errors
+		}
+		eUt= new EnlaceUtil(descripcion:"Regulacion juridica de las biotecnologías",direccion:"http://www.biotech.bioetica.org/jurisprudencia.htm", ultimoUsuario: (Usuario.getAll().get(0)), estudio: (Estudio.getAll().get(0)))
+		eUt.save()
+		if (eUt.hasErrors()) {
+			println eUt.errors
+		}
+		eUt= new EnlaceUtil(descripcion:"Asocioción Argentina de derecho del trabajo y de la seguridad social",direccion:"http://www.asociacion.org.ar/jurisprudencia_novedades.php", ultimoUsuario: (Usuario.getAll().get(0)), estudio: (Estudio.getAll().get(0)))
+		eUt.save()
+		if (eUt.hasErrors()) {
+			println eUt.errors
+		}
+		eUt= new EnlaceUtil(descripcion:"Base de datos de jurisprudencia sobre discapacidad",direccion:"http://www.derecho.uba.ar/academica/carrdocente/basejurisp/index.php", ultimoUsuario: (Usuario.getAll().get(0)), estudio: (Estudio.getAll().get(0)))
+		eUt.save()
+		if (eUt.hasErrors()) {
+			println eUt.errors
+		}
+
+		eUt= new EnlaceUtil(descripcion:"Base de datos de jurisprudencia Gob. Cdad. de BA",direccion:"http://www.tribctas.gba.gov.ar/secciones/inf_especifica/informacioninstitucional/jurisprudencia/jur_busqueda_palabras.phtml", ultimoUsuario: (Usuario.getAll().get(0)), estudio: (Estudio.getAll().get(0)))
+		eUt.save()
+		if (eUt.hasErrors()) {
+			println eUt.errors
+		}
+		eUt= new EnlaceUtil(descripcion:"Poder judicial de la prov. de Buenos Aires",direccion:"http://www.scba.gov.ar/jubanuevo/integral.is", ultimoUsuario: (Usuario.getAll().get(0)), estudio: (Estudio.getAll().get(0)))
+		eUt.save()
+		if (eUt.hasErrors()) {
+			println eUt.errors
+		}
+
+
+		eUt= new EnlaceUtil(descripcion:"Tribunal superior de justicia",direccion:"http://expedientes.tsjbaires.gob.ar/jurisprudencia/", ultimoUsuario: (Usuario.getAll().get(0)), estudio: (Estudio.getAll().get(0)))
+		eUt.save()
+		if (eUt.hasErrors()) {
+			println eUt.errors
+		}
+
+		eUt= new EnlaceUtil(descripcion:"Poder judicial de la pampa",direccion:"http://www.jusonline.gov.ar/Jurisprudencia/consulta.asp", ultimoUsuario: (Usuario.getAll().get(0)), estudio: (Estudio.getAll().get(0)))
+		eUt.save()
+		if (eUt.hasErrors()) {
+			println eUt.errors
+		}
+
+
+		eUt= new EnlaceUtil(descripcion:"Poder judicial de San Luis",direccion:"http://www.jurisprudencia.justiciasanluis.gov.ar/ijuris.htm", ultimoUsuario: (Usuario.getAll().get(0)), estudio: (Estudio.getAll().get(0)))
+		eUt.save()
+		if (eUt.hasErrors()) {
+			println eUt.errors
 		}
 	}
 	def destroy = {
