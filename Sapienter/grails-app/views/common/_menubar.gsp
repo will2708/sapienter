@@ -20,6 +20,7 @@
 			<li><a href="${createLink(uri: '/categoria/list')}" target="_self"><g:message code="sapienter.categoria"/></a></li>
 		</ul>
 		</li>
+		<li><a id=<g:currentMenu title="task"/> href="${createLink(uri: '/task/myTaskList')}" target="_self" ><g:message code="default.pendientes.label"/></a></li>
 		<li><ul> </ul></li>
 		<li><a id=<g:currentMenu title="calendario"/> href="${createLink(uri: '/calendario/show')}" target="_self" ><img src="${createLinkTo(dir: 'images/', file: 'calendario2.gif')}" alt="Calendario"/></a>
 		<ul>
