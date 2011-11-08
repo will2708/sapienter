@@ -13,7 +13,7 @@ class ProcesoController {
 	def list = {
 		def procesoList
 		def procesoTotal
-		params.max = Math.min(params.max ? params.int('max') : 10, 100)
+		params.max = Math.min(params.max ? params.int('max') : 100, 100)
 		if(params.q){
 			procesoList = Proceso.search(params.q + "*").results
 			procesoTotal = procesoList.size

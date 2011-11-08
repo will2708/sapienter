@@ -131,8 +131,12 @@ class CalendarioController {
 	def events = {
 		def start = new Date(params.long('start')*1000)
 		def end = new Date(params.long('end')*1000)
+		def user = SecUser.get(springSecurityService.principal.id)
+	    def calendarioInstance = user.calendario
+		
+		def tareasUsuario = Tarea.findAllByCalendarioAndFechaInicioBetween(calendarioInstance, start, end)
 				
-		render Tarea.findAllByFechaInicioBetween(start, end).collect {
+		render tareasUsuario.collect {
 		   [
 				 id: it.id,
 				 title: "$it.observacion",
