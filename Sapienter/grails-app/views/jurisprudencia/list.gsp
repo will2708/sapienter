@@ -45,7 +45,7 @@
                             <td><g:link action="show" id="${jurisprudenciaInstance.id}">${fieldValue(bean: jurisprudenciaInstance, field: "descripcion")}</g:link></td>
                             <td>${fieldValue(bean: jurisprudenciaInstance, field: "fuero")}</td>
                             <td>${fieldValue(bean: jurisprudenciaInstance, field: "origen")}</td>
-                            <td>${fieldValue(bean: jurisprudenciaInstance, field: "sitio")}</td>
+                             <td> <a href="${fieldValue(bean: jurisprudenciaInstance, field: "sitio")}" target="_blank">${fieldValue(bean: jurisprudenciaInstance, field: "sitio")}</a> </td>
                             <td>${fieldValue(bean: jurisprudenciaInstance, field: "jurisprudencia")}</td>
                         </tr>
                     </g:each>

@@ -89,7 +89,7 @@ $(document).ready(function() {
 	                        </tr>
 	                        <tr class="prop">
 	                            <td valign="top" class="name"><g:message code="jurisprudencia.sitio" default="Sitio" /></td>
-	                            <td valign="top" class="value">${fieldValue(bean: jurisprudenciaInstance, field: "sitio")}</td>
+	                            <td> <a href="${fieldValue(bean: jurisprudenciaInstance, field: "sitio")}" target="_blank">${fieldValue(bean: jurisprudenciaInstance, field: "sitio")}</a> </td>
 	                            
 	                        </tr>
                         	</table>
