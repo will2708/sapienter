@@ -136,7 +136,7 @@
 	color: #ffffff;
 	float:left;
 	font-weight:bold;
-	margin-top: 0px;
+	margin-top: -3px;
 	margin-left: 0px; 
 	padding: 12px 10px;
 	/*width:150px;*/
@@ -197,7 +197,7 @@
 	color:#4A4A4A;
 	float:left;
 	text-shadow:1px 1px 0 rgba(255, 255, 255, 0.7);
-	margin-top: 0px;
+	margin-top: -3px;
 	margin-left: 0px;
 	padding: 5px 10px;
 	width:120px;
@@ -994,7 +994,7 @@ td.errors textarea {
     padding:0.25em 0.5em; /* content padding */
 }
 .image{
-	padding-top: 8px;
+	 padding-top: 9px;
 }
 </style>
 /*CENTRAR*/
