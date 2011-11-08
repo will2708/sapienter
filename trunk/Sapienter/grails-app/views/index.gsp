@@ -21,6 +21,7 @@
             margin-left:2%;
         }
         </style>
+        <icep:bridge/>
     </head>
     <body>
         <div id="pageBody">
@@ -35,6 +36,7 @@
                     </g:each>
                 </ul>
             </div>
+
         </div>
     </body>
 </html>

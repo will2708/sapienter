@@ -6,7 +6,17 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import grails.plugins.springsecurity.Secured
 
+import org.codehaus.groovy.grails.commons.ApplicationHolder
+
+import sapienter.MailService
+import sapienter.MailStatus
+
 class CalendarioController {
+	/**
+	* Dependency injection for the mailService
+	*/
+	MailService mailService
+
 	def springSecurityService
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 	@Secured(['IS_AUTHENTICATED_FULLY'])
@@ -151,7 +161,26 @@ class CalendarioController {
 		return cal.getTime();
 	}
     def login = {
+//		TODO subscribeToMail
 		redirect(controller:"calendario" ,action:"show")
 		
 		}
+	
+	def subscribeToMail(){
+//		Si el usuario tiene la cuenta x entonce slo subscribo
+		try{
+			MailStatus mailStatus = ApplicationHolder.application.mainContext.getBean("mailStatus")
+//			mailStatus.setController(this)
+//			def h = ApplicationHolder.application.mainContext.getBean("imapMessageHandler")
+
+			mailStatus.imapMessageHandler.setMailStatus(mailStatus)
+			mailService.recvMail(mailStatus.imapMessageHandler)
+			render "Recibio Email sin error"
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace()
+			render "Tiro un error en recv"
+		}
+	}
 }

@@ -13,7 +13,7 @@
     http://www.springframework.org/schema/integration/mail/spring-integration-mail-2.0.xsd 
     http://www.springframework.org/schema/util 
     http://www.springframework.org/schema/util/spring-util-3.0.xsd"> 
-<!--  
+
   <int:channel id="inputChannel" scope="prototype"/> 
  
   <int:channel id="inputMail" scope="prototype"/> 
@@ -50,9 +50,14 @@
                                 java-mail-properties="javaMailProperties"> 
      <int:poller max-messages-per-poll="10" fixed-rate="5000"/> 
   </mail:inbound-channel-adapter> 
- -->
-  <bean id="mailStatus" class="sapienter.mailStatus">
+ 
+  <bean id="imapMessageHandler" class="sapienter.ImapMessageHandler" scope="session"/>
+   
+  <bean id="mailStatus" class="sapienter.MailStatus" scope="session">
       <property name="status" value="noCurrent" /> 
+      <property name="imapMessageHandler" ref="imapMessageHandler" />
   </bean>
+  
+ 
   
 </beans>
