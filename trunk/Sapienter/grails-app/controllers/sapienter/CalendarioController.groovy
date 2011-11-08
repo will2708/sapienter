@@ -167,7 +167,7 @@ class CalendarioController {
 		}
 	
 	def subscribeToMail(){
-//		Si el usuario tiene la cuenta x entonce slo subscribo
+//		Si el usuario tiene la cuenta x entonces lo subscribo
 		try{
 			MailStatus mailStatus = ApplicationHolder.application.mainContext.getBean("mailStatus")
 //			mailStatus.setController(this)
