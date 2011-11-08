@@ -17,6 +17,7 @@ class CalendarioController {
 	*/
 	MailService mailService
 
+	
 	def springSecurityService
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 	@Secured(['IS_AUTHENTICATED_FULLY'])
@@ -164,27 +165,40 @@ class CalendarioController {
 		
 		return cal.getTime();
 	}
+	
     def login = {
-//		TODO subscribeToMail
+		if (springSecurityService.isLoggedIn()) {
+			redirect(controller:"calendario" ,action:"show")
+			return
+		}
+		else{
+			redirect(controller:"calendario" ,action:"subscribeToMail")
+			return
+		}
+		
+	}
+	
+	@Secured(['IS_AUTHENTICATED_FULLY'])
+	def subscribeToMail = {
+//		Si el usuario tiene la cuenta x entonces lo subscribo
+		def user = SecUser.get(springSecurityService.principal.id)
+		if(user.mailActivo){
+			try{
+				MailStatus mailStatus = ApplicationHolder.application.mainContext.getBean("mailStatus")
+	
+				mailStatus.imapMessageHandler.setMailStatus(mailStatus)
+	//			mailService.recvMail(mailStatus.imapMessageHandler, "customAdapter", "inputChannel")
+				mailService.recvMail(mailStatus.imapMessageHandler, user.adapter, user.channel)
+				println "Se subscribio ok"
+			}
+			catch(Exception ex)
+			{
+				ex.printStackTrace()
+				println "Error en subscribe"
+			}
+		}
 		redirect(controller:"calendario" ,action:"show")
 		
-		}
-	
-	def subscribeToMail(){
-//		Si el usuario tiene la cuenta x entonces lo subscribo
-		try{
-			MailStatus mailStatus = ApplicationHolder.application.mainContext.getBean("mailStatus")
-//			mailStatus.setController(this)
-//			def h = ApplicationHolder.application.mainContext.getBean("imapMessageHandler")
-
-			mailStatus.imapMessageHandler.setMailStatus(mailStatus)
-			mailService.recvMail(mailStatus.imapMessageHandler)
-			render "Recibio Email sin error"
-		}
-		catch(Exception ex)
-		{
-			ex.printStackTrace()
-			render "Tiro un error en recv"
-		}
 	}
 }
+

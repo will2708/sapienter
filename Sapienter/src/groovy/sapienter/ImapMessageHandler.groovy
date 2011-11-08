@@ -19,13 +19,9 @@ class ImapMessageHandler implements MessageHandler {
 		
 //		println "Message3: " + message
 
-  		if( this.mailStatus.status == "current" )
- 
-			this.mailStatus.status="noCurrent"
-		else
-			this.mailStatus.status="current"
-		
-//		println this.mailStatus.status
+  		this.mailStatus.status="current"
+		  		
+		println "Llego email"+this.mailStatus.status
 //		this.controller.statusChange(this.mailStatus)
 //		println new MailController().statusChange()
 	}

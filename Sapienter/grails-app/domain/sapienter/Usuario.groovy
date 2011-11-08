@@ -14,7 +14,11 @@ class Usuario extends SecUser {
 	Usuario usuarioCreacion
 	Usuario usuarioModificacion
 	SecRole role
-
+//	Para servicio mail preconfigurado
+	String adapter
+	String channel
+	Boolean mailActivo
+	
 	String toString(){
 		username
 	}
@@ -37,6 +41,9 @@ class Usuario extends SecUser {
 		usuarioCreacion()
 		usuarioModificacion()
 		role()
+		email()
+		firstName(nullable:true)
+		lastName(nullable:true)
     }
 	static belongsTo = [estudio:Estudio]
 }

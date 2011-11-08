@@ -81,15 +81,13 @@ class MailService {
 	
 	
 	def recvMail(MessageHandler messageHandler, String adapter, String channel) {
-//		TODO Sacar, solo agregado para tener linea donde frenar debug
-		def d = new Date();
 		
 		def imapAdapter = ApplicationHolder.application.mainContext.getBean(adapter)
 		
 		DirectChannel inputChannel = ApplicationHolder.application.mainContext.getBean(channel, DirectChannel.class)
-		imapAdapter.outputChannel.subscribe(messageHandler);
+		imapAdapter?.outputChannel?.subscribe(messageHandler);
 			/*
-		inputChannel.subscribe(new MessageHandler() {
+		inputChannel?.subscribe(new MessageHandler() {
 			public void handleMessage(Message<?> message) throws MessagingException {
 				
 //			TODO ver que hacer con el mensaje que llega
@@ -101,9 +99,6 @@ class MailService {
 	}
 	
 	def recvMail2() {
-//		TODO Sacar, solo agregado para tener linea donde frenar debug
-		def d = new Date();
-		
 		def imapAdapter = ApplicationHolder.application.mainContext.getBean("customAdapter2")
 		
 		DirectChannel inputChannel = ApplicationHolder.application.mainContext.getBean("inputChannel2", DirectChannel.class)
