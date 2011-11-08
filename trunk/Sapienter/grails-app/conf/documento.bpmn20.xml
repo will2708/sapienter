@@ -11,6 +11,16 @@
 					<formalExpression>ROLE_JUNIOR</formalExpression>
 				</resourceAssignmentExpression>
 			</potentialOwner>
+			<potentialOwner>
+				<resourceAssignmentExpression>
+					<formalExpression>ROLE_SSR</formalExpression>
+				</resourceAssignmentExpression>
+			</potentialOwner>
+			<potentialOwner>
+				<resourceAssignmentExpression>
+					<formalExpression>ROLE_SENIOR</formalExpression>
+				</resourceAssignmentExpression>
+			</potentialOwner>			
     </userTask>
     <sequenceFlow id="flow2" name="" sourceRef="crearDocumento" targetRef="aprobarDocumento"></sequenceFlow>
     <userTask id="aprobarDocumento" name="Aprobar Documento"  activiti:formKey="/documento/approval">
@@ -20,6 +30,11 @@
 					<formalExpression>ROLE_SENIOR</formalExpression>
 				</resourceAssignmentExpression>
 			</potentialOwner>
+			<potentialOwner>
+				<resourceAssignmentExpression>
+					<formalExpression>ROLE_SSR</formalExpression>
+				</resourceAssignmentExpression>
+			</potentialOwner>			
     </userTask>
     <sequenceFlow id="flow3" name="" sourceRef="aprobarDocumento" targetRef="exclusivegateway1"></sequenceFlow>
     <exclusiveGateway id="exclusivegateway1" name="Documento Aprobado"></exclusiveGateway>
