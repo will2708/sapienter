@@ -1,7 +1,7 @@
 package sapienter
 
 class SecUser implements org.activiti.engine.identity.User {
-
+	def static reportable = [ : ]
 	transient springSecurityService
 	String id
 	String username

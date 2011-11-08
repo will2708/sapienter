@@ -414,7 +414,7 @@ class BootStrap {
 		telefono:'4354444',
 		role:juniorRol,
 		correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
-		email: 'lezana@gmail.com',
+		email: 'flezana@sapienter.org',
 		adapter: 'customAdapter',
 		channel: 'inputChannel',
 		mailActivo: false,
@@ -432,7 +432,7 @@ class BootStrap {
 		def mtoth = Usuario.findByUsername('mtoth') ?: new Usuario(
 		username: 'mtoth',
 		correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
-		email: 'mtoth@sapenter.org',
+		email: 'sapienterTest2@gmail.com',
 		adapter: 'customAdapter2',
 		channel: 'inputChannel2',
 		mailActivo: true,
@@ -459,7 +459,7 @@ class BootStrap {
 		def rperrone = Usuario.findByUsername('rperrone') ?: new Usuario(
 		username: 'rperrone',
 		correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
-		email: 'romina.perrone@gmail.com',
+		email: 'sapienterTest@gmail.com',
 		adapter: 'customAdapter',
 		channel: 'inputChannel',
 		mailActivo: true,
@@ -486,7 +486,7 @@ class BootStrap {
 		def mstani = Usuario.findByUsername('mstani') ?: new Usuario(
 		username: 'mstani',
 		correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
-		email: 'matias.stani@gmail.com',
+		email: 'mstani@sapienter.org',
 		adapter: 'customAdapter2',
 		channel: 'inputChannel2',
 		mailActivo: false,
@@ -513,7 +513,7 @@ class BootStrap {
 		def nsouto = Usuario.findByUsername('nsouto') ?: new Usuario(
 		username: 'nsouto',
 		correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
-		email: 'nicolas.souto@gmail.com',
+		email: 'nsouto@sapienter.org',
 		adapter: 'customAdapter2',
 		channel: 'inputChannel2',
 		mailActivo: false,
@@ -540,7 +540,7 @@ class BootStrap {
 		def gbonsoir = Usuario.findByUsername('gbonsoir') ?: new Usuario(
 		username: 'gbonsoir',
 		correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
-		email: 'nicolas.souto@gmail.com',
+		email: 'gbonsoir@sapienter.org',
 		adapter: 'customAdapter3',
 		channel: 'inputChannel3',
 		mailActivo: false,
@@ -576,7 +576,7 @@ class BootStrap {
 		telefono:'4354242',
 		role:seniorRole,
 		correoElectronico: (CorreoElectronico.findByDireccion('sapienterTest@gmail.com')),
-		email: 'matunga@gmail.com',
+		email: 'admin@sapienter.org',
 		adapter: 'customAdapter',
 		channel: 'inputChannel',
 		mailActivo: false,

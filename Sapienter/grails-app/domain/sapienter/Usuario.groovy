@@ -1,20 +1,29 @@
 package sapienter
 
 import com.sun.istack.internal.Nullable;
+import ar.com.fdvs.dj.core.layout.HorizontalBandAlignment
+import ar.com.fdvs.dj.domain.AutoText
+
 
 class Usuario extends SecUser {
+	def static reportable = [ 
+		columns: ['username', 'nombre', 'apellido', 'telefono', 'email', 'role.name', 'dateCreated', 'lastUpdated'],
+			columnTitles: ['username': 'Usuario', 'nombre':'Nombre', 'apellido': 'Apellido', 'telefono': 'Teléfono', 'email':'E-Mail', 'role.name': 'Role', 'dateCreated':'Fecha Creación', 'lastUpdated':'Fecha Modificación'],
+			autoTexts: [new AutoText(AutoText.AUTOTEXT_PAGE_X_OF_Y, AutoText.POSITION_FOOTER, HorizontalBandAlignment.buildAligment(AutoText.ALIGMENT_CENTER), (byte)0, 200, 200)]
+	]
+  
+	String nombre	
 	String apellido
 	Calendario calendario
 	String comentarios
 	CorreoElectronico correoElectronico
 	Date dateCreated
 	Date lastUpdated
-	String nombre
 	String telefono
 	Usuario usuarioCreacion
 	Usuario usuarioModificacion
 	SecRole role
-//	Para servicio mail preconfigurado
+/*	Para servicio mail preconfigurado */
 	String adapter
 	String channel
 	Boolean mailActivo
