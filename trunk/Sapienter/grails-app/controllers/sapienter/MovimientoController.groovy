@@ -46,8 +46,6 @@ class MovimientoController {
     }
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
-		def map = params
-		def test = params
 		def proceso1 = Proceso.get(params.proceso)
 		def user = SecUser.get(springSecurityService.principal.id)
 		def srRole = SecRole.findByAuthority('ROLE_SENIOR')
@@ -212,8 +210,15 @@ class MovimientoController {
             movimientoInstance.properties = params
             if (!movimientoInstance.hasErrors() && movimientoInstance.save(flush: true)) {
 				if (movimientoInstance.tareaAsociada != null){
-					movimientoInstance.tareaAsociada.fechaFin = movimientoInstance.fechaDeVencimiento 
-					movimientoInstance.tareaAsociada.fechaInicio = movimientoInstance.fechaDeCreacion
+					movimientoInstance.tareaAsociada.fechaInicio = movimientoInstance.fechaDeVencimiento
+					
+					Calendar calendar = new GregorianCalendar();
+					
+					calendar.setTime(movimientoInstance.tareaAsociada.fechaInicio);
+					calendar.add(Calendar.MINUTE, +15)
+					movimientoInstance.tareaAsociada.fechaFin = calendar.getTime()
+	
+										
 					movimientoInstance.tareaAsociada.save()
 				}
 				flash.message = "${message(code: 'default.updated.message', args: [message(code: 'movimiento.label', default: 'Movimiento'), movimientoInstance.id])}"
