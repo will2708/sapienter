@@ -26,7 +26,7 @@
                                 should-delete-messages="false" 
                                 should-mark-messages-as-read="false" 
                                 java-mail-properties="javaMailProperties"> 
-     <int:poller max-messages-per-poll="10" fixed-rate="5000"/> 
+     <int:poller max-messages-per-poll="1" fixed-rate="5000"/> 
   </mail:inbound-channel-adapter> 
 
   <util:properties id="javaMailProperties"> 
@@ -36,21 +36,46 @@
     <prop key="mail.debug">false</prop> 
   </util:properties> 
 
-	<int:channel id="inputChannel2"/> 
+  <int:channel id="inputChannel2"/> 
  
   <int:channel id="inputMail2"/> 
  
   <mail:mail-to-string-transformer input-channel="inputMail2" output-channel="inputChannel2"/> 
- 
+ <!-- 
   <mail:inbound-channel-adapter id="customAdapter2"
+                                store-uri= "imaps://rperrone%40sapienter.org:32677633@imap.sapienter.org:993/inbox" 
+                                channel="inputMail2" 
+                                should-delete-messages="false" 
+                                should-mark-messages-as-read="false" 
+                                java-mail-properties="javaMailProperties"> 
+     <int:poller max-messages-per-poll="1" fixed-rate="5000"/> 
+  </mail:inbound-channel-adapter> 
+  -->
+  
+   <mail:inbound-channel-adapter id="customAdapter2"
                                 store-uri= "imaps://sapienterTest2%40gmail.com:Sapienter01!@imap.gmail.com:993/inbox" 
                                 channel="inputMail2" 
                                 should-delete-messages="false" 
                                 should-mark-messages-as-read="false" 
                                 java-mail-properties="javaMailProperties"> 
-     <int:poller max-messages-per-poll="10" fixed-rate="5000"/> 
+     <int:poller max-messages-per-poll="1" fixed-rate="5000"/> 
   </mail:inbound-channel-adapter> 
  
+  <int:channel id="inputChannel3"/> 
+ 
+  <int:channel id="inputMail3"/> 
+ 
+  <mail:mail-to-string-transformer input-channel="inputMail3" output-channel="inputChannel3"/> 
+ <!-- 
+  <mail:inbound-channel-adapter id="customAdapter3"
+                                store-uri= "imaps://gbonsoir%40gmail.com:Japans2060!@imap.sapgmail.com:993/inbox" 
+                                channel="inputMail3" 
+                                should-delete-messages="false" 
+                                should-mark-messages-as-read="false" 
+                                java-mail-properties="javaMailProperties"> 
+     <int:poller max-messages-per-poll="1" fixed-rate="5000"/> 
+  </mail:inbound-channel-adapter> 
+  -->
   <bean id="imapMessageHandler" class="sapienter.ImapMessageHandler" scope="session"/>
    
   <bean id="mailStatus" class="sapienter.MailStatus" scope="session">
