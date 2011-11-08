@@ -1,3 +1,4 @@
+<sec:ifLoggedIn>
 
 <div class="menu">
 	<ul>
@@ -29,3 +30,4 @@
 		<li><a id=noCurrent href="http://www.gmail.com" target="_blank" ><icep:region group="notifyGroup" controller="util" action="alert" /></a></li>
 	</ul>	
 </div>
+</sec:ifLoggedIn>
