@@ -3,7 +3,7 @@ package sapienter
 import grails.plugins.springsecurity.Secured
 
 class TareaController {
-
+	def springSecurityService
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def index = {
@@ -33,6 +33,9 @@ class TareaController {
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def save = {
 		def tareaInstance = new Tarea(params)
+		def user = SecUser.get(springSecurityService.principal.id)
+		tareaInstance.calendario = user.calendario 
+
         if (tareaInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'tarea.label', default: 'Tarea'), tareaInstance.id])}"
             redirect(action: "show", id: tareaInstance.id)
@@ -69,6 +72,9 @@ class TareaController {
 	@Secured(['IS_AUTHENTICATED_FULLY'])
     def update = {
         def tareaInstance = Tarea.get(params.id)
+		def user = SecUser.get(springSecurityService.principal.id)
+		tareaInstance.calendario = user.calendario
+		
         if (tareaInstance) {
             if (params.version) {
                 def version = params.version.toLong()
