@@ -26,8 +26,15 @@ class ProcesoController {
 	}
 	@Secured(['IS_AUTHENTICATED_FULLY'])
 	def create = {
-		def procesoInstance = new Proceso()
 		def persona = Persona.findById(params["personaId"])
+		def user1 = SecUser.get(springSecurityService.principal.id)
+		def jrRole = SecRole.findByAuthority('ROLE_JUNIOR')
+		if (user1.role == jrRole) {
+					flash.message = "${message(code: 'default.not.authorized.message')}"
+					redirect(controller:"persona", action: "list")
+					return
+				}
+		def procesoInstance = new Proceso()
 		def user = SecUser.get(springSecurityService.principal.id)
 		procesoInstance.putAt("persona", persona)
 		procesoInstance.properties = params
