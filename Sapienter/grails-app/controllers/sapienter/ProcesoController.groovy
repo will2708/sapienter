@@ -54,11 +54,14 @@ class ProcesoController {
 		procesoInstance.ultimoModificador = user
 
 		if (userAut != null)
-			for (int i = 0; i < userAut.size(); i++) {
-				//Integer idAux = new Integer(userAut[i])
-				def userAux = SecUser.get(userAut[i])
-				procesoInstance.usuariosAutorizados.add(userAux)
-			}
+			if (userAut instanceof String)
+				procesoInstance.usuariosAutorizados.add(Usuario.get(userAut))
+			else
+				for (int i = 0; i < userAut.size(); i++) {
+					//Integer idAux = new Integer(userAut[i])
+					def userAux = Usuario.get(userAut[i])
+					procesoInstance.usuariosAutorizados.add(userAux)
+				}
 
 		if (procesoInstance.save(flush: true)) {
 			flash.message = "${message(code: 'default.created.message', args: [message(code: 'proceso.label', default: 'Proceso'), procesoInstance.id])}"
