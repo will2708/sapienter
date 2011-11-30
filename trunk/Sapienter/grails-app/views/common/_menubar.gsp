@@ -1,34 +1,11 @@
 <sec:ifLoggedIn>
 
-<div class="menu">
-	<ul>
-		<li><a id=<g:currentMenu title="inicio"/> href="${createLink(uri: '/')}" target="_self" ><g:message code="default.home.label"/></a></li>
-		<li><a id=<g:currentMenu title="persona"/> href="${createLink(uri: '/persona')}" target="_self" ><g:message code="default.persona.label"/></a></li>
-		<li><a id=<g:currentMenu title="proceso"/> href="${createLink(uri: '/proceso')}" target="_self" ><g:message code="default.proceso.label"/></a></li>
-		<li><a id=<g:currentMenu title="doclegal"/> target="_self" ><g:message code="default.documentacionlegal.label"/></a>
+	<div class="menu">
 		<ul>
-			<li><a href="${createLink(uri: '/jurisprudencia')}" target="_self"><g:message code="default.jurisprudencia.label"/></a></li>
-			<li><a href="${createLink(uri: '/enlaceUtil')}" target="_self"><g:message code="default.enlacesutiles.label"/></a></li>
-			<li><a href="${createLink(uri: '/modeloDeDocumento')}" target="_self"><g:message code="default.modelosdocumentos.label"/></a></li>
-		</ul>
-		</li>
-		<li><a id=<g:currentMenu title="reporte"/> href="${createLink(uri: '/reportes')}" target="_self" ><g:message code="default.reportes.label"/></a></li>
-		<li><a id=<g:currentMenu title="administrar"/> target="_self" ><g:message code="default.administrar.label"/></a>
-		<ul>
-			<li><a href="${createLink(uri: '/usuario')}" target="_self"><g:message code="sapienter.usuario"/></a></li>
-			<li><a href="${createLink(uri: '/estudio')}" target="_self"><g:message code="sapienter.estudio"/></a></li>
-			<li><a href="${createLink(uri: '/juzgado')}" target="_self"><g:message code="sapienter.juzgado"/></a></li>
-			<li><a href="${createLink(uri: '/categoria/list')}" target="_self"><g:message code="sapienter.categoria"/></a></li>
-		</ul>
-		</li>
-		<li><a id=<g:currentMenu title="task"/> href="${createLink(uri: '/task/myTaskList')}" target="_self" ><g:message code="default.pendientes.label"/></a></li>
-		<li><ul> </ul></li>
-		<li><a id=<g:currentMenu title="calendario"/> href="${createLink(uri: '/calendario/show')}" target="_self" ><img src="${createLinkTo(dir: 'images/', file: 'calendario2.gif')}" alt="Calendario"/></a>
-		<ul>
-			<li><a href="${createLink(uri: '/tarea/create?calendario.id=1')}" target="_self"><g:message code="default.tarea.label"/></a></li>
-		</ul></li>
-<!-- 	<li><a id=noCurrent href="${createLink(uri: '/mail/leerMail')}" target="_blank" ><icep:region group="notifyGroup" controller="util" action="alert" /></a></li>  -->
-		<li><a id=noCurrent href="${createLink(uri: '/mail/leerMail')}" target="_blank" ><g:notificacionMail /></a></li>
-	</ul>	
-</div>
+			<li><a id=<g:currentMenu title="inicio"/> href="${createLink(uri: '/')}" target="_self" ><g:message code="Inicio"/></a></li>
+			<li><a id=<g:currentMenu title="sociedad"/> href="${createLink(uri: '/sociedad')}" target="_self" ><g:message code="Sociedad"/></a></li>
+			<li><a id=<g:currentMenu title="afip"/> href="${createLink(uri: '/afip')}" target="_self" ><g:message code="AFIP"/></a></li>
+			<li><a id=<g:currentMenu title="usuario"/> href="${createLink(uri: '/usuario')}" target="_self" ><g:message code="Usuarios"/></a></li>
+		</ul>	
+	</div>
 </sec:ifLoggedIn>
