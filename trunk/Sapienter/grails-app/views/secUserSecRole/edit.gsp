@@ -1,6 +1,6 @@
 
 
-<%@ page import="sapienter.SecUserSecRole" %>
+<%@ page import="ar.com.dl.afip.ws.SecUserSecRole" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
